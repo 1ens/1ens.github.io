@@ -253,6 +253,13 @@ td,
 th {
   padding: 0;
 }
+@font-face {
+  font-family: 'UbuntuMono';
+  src: url("https://cdn.jsdelivr.net/gh/Schenk75/Source@master/fonts/UbuntuMono-Regular.ttf");
+  font-weight: 'normal';
+  font-style: 'normal';
+  font-display: swap;
+}
 article#arc,
 article#cat,
 article#tag {
@@ -460,24 +467,24 @@ article#tag .all-tags ul li span:before {
   border-bottom: 1px solid rgba(68,68,68,0.1);
 }
 .article h1 {
-  text-align: left;
+  text-align: center;
   color: var(--color-h1);
-  margin-top: 48px;
+  margin-top: 30px;
 }
 .article h2 {
   text-align: left;
   color: var(--color-h2);
-  margin-top: 48px;
+  margin-top: 30px;
 }
 .article h3 {
   text-align: left;
   color: var(--color-h3);
-  margin-top: 24px;
+  margin-top: 18px;
 }
 .article h4 {
   text-align: left;
   color: var(--color-h4);
-  margin-top: 16px;
+  margin-top: 8px;
 }
 .article h5 {
   font-weight: bold;
@@ -593,7 +600,7 @@ article#tag .all-tags ul li span:before {
   overflow: auto;
   background: var(--color-codeblock);
   font-size: 0.8125rem;
-  font-family: Menlo, UbuntuMono, Monaco, monospace, courier, sans-serif;
+  font-family: UbuntuMono, monospace, courier, sans-serif;
   border: 1px solid #ffebcb;
   padding: 16px;
   border-radius: 4px;
@@ -613,7 +620,7 @@ article#tag .all-tags ul li span:before {
   color: rgba(68,68,68,0.9);
 }
 .article code {
-  font-family: Menlo, UbuntuMono, Monaco, monospace, courier, sans-serif;
+  font-family: UbuntuMono, monospace, courier, sans-serif;
 }
 .article code:not([class]) {
   word-break: break-all;
@@ -1952,18 +1959,18 @@ img.lazyload:not(.placeholder).loaded {
   display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
   display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
   display: block;
-  margin-top: -48px;
-  height: 96px;
+  margin-top: -28px;
+  height: 76px;
   visibility: hidden;
   pointer-events: none;
 }
 .md h1:before,
 .md h2:before {
-  margin-top: -32px;
+  margin-top: -30px;
 }
 .md .article-meta+h1,
 .md .article-meta+h2 {
-  margin-top: -80px;
+  margin-top: -78px;
 }
 .md h3,
 .md h4,
@@ -1972,16 +1979,16 @@ img.lazyload:not(.placeholder).loaded {
   margin-bottom: 1em;
 }
 .md h3:before {
-  margin-top: -56px;
+  margin-top: -42px;
 }
 .md h4:before {
-  margin-top: -64px;
+  margin-top: -52px;
 }
 .md h5 {
   font-weight: bold;
 }
 .md h2+h3:before {
-  margin-top: -80px;
+  margin-top: -78px;
 }
 .md ul,
 .md ol {
@@ -2366,7 +2373,7 @@ img.lazyload:not(.placeholder).loaded {
 #u-search .modal .modal-header {
   position: relative;
   width: 100%;
-  height: 64px;
+  height: 44px;
   z-index: 3;
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
@@ -2394,13 +2401,13 @@ img.lazyload:not(.placeholder).loaded {
   display: block;
   position: absolute;
   width: 55px;
-  height: 64px;
+  height: 44px;
   top: 0;
   right: 0;
   color: #3dd9b6;
   cursor: pointer;
   text-align: center;
-  line-height: 64px;
+  line-height: 44px;
   vertical-align: middle;
   transition: all 0.28s ease;
   -webkit-transition: all 0.28s ease;
@@ -2465,7 +2472,7 @@ img.lazyload:not(.placeholder).loaded {
   background: transparent;
   border: none;
   width: 50px;
-  height: 64px;
+  height: 44px;
   vertical-align: middle;
   color: #3dd9b6;
   z-index: 2;
@@ -2474,8 +2481,8 @@ img.lazyload:not(.placeholder).loaded {
   position: absolute;
   padding: 16px;
   width: 100%;
-  height: calc(100% - 64px);
-  top: 64px;
+  height: calc(100% - 44px);
+  top: 44px;
   left: 0;
   overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
@@ -2591,7 +2598,7 @@ img.lazyload:not(.placeholder).loaded {
 }
 #l_side .widget.sticky {
   position: sticky;
-  top: 80px;
+  top: 60px;
   z-index: 1;
 }
 #l_side .widget >.content {
@@ -3270,7 +3277,7 @@ img.lazyload:not(.placeholder).loaded {
   border-radius: 8px;
   -webkit-border-radius: 8px;
   position: sticky;
-  top: 80px;
+  top: 60px;
   transition: all 0.28s ease;
   -webkit-transition: all 0.28s ease;
   -khtml-transition: all 0.28s ease;
@@ -3292,7 +3299,7 @@ img.lazyload:not(.placeholder).loaded {
   padding-bottom: 4px;
 }
 #l_side .toc-wrapper .content {
-  max-height: calc(100vh - 144px);
+  max-height: calc(100vh - 124px);
 }
 #l_side .toc-wrapper .content a {
   border-left: 2px solid transparent;
@@ -3313,7 +3320,7 @@ img.lazyload:not(.placeholder).loaded {
     max-height: 1000px;
     width: auto;
     max-width: calc(100% - 2 * 16px);
-    top: 48px;
+    top: 28px;
     right: 16px;
     border-radius: 4px;
     -webkit-border-radius: 4px;
@@ -5350,11 +5357,11 @@ p.p.subtitle:first-child {
 }
 span.p.logo,
 p.p.logo {
-  font-family: "Varela Round", "PingFang SC", "Microsoft YaHei", Helvetica, Arial, Helvetica, monospace;
+  font-family: "Microsoft Yahei", "Hiragino Sans GB", Helvetica, "Helvetica Neue", "微软雅黑", Tahoma, Arial, sans-serif, Helvetica, monospace;
 }
 span.p.code,
 p.p.code {
-  font-family: Menlo, UbuntuMono, Monaco, monospace, courier, sans-serif;
+  font-family: UbuntuMono, monospace, courier, sans-serif;
 }
 span.p.left,
 p.p.left {
@@ -5839,7 +5846,7 @@ div.timenode:hover .meta:after {
   -ms-transform: scale(1);
 }
 .article mjx-container {
-  font-family: Menlo, UbuntuMono, Monaco, monospace, courier, sans-serif;
+  font-family: UbuntuMono, monospace, courier, sans-serif;
   padding: 16px 8px;
   border-radius: 4px;
   -webkit-border-radius: 4px;
@@ -6298,7 +6305,7 @@ div.timenode:hover .meta:after {
   -moz-user-select: none;
   -ms-user-select: none;
   -webkit-appearance: none;
-  font-family: Menlo, Menlo, UbuntuMono, Monaco, monospace, courier, sans-serif;
+  font-family: Menlo, UbuntuMono, monospace, courier, sans-serif;
   font-size: 11px;
   font-weight: bold;
   padding: 4px 8px;
@@ -6644,7 +6651,7 @@ pre {
   display: block;
   background: var(--color-block);
   font-size: 0.8125rem;
-  font-family: Menlo, UbuntuMono, Monaco, monospace, courier, sans-serif;
+  font-family: UbuntuMono, monospace, courier, sans-serif;
   border-radius: 4px;
   -webkit-border-radius: 4px;
   line-height: 1.5;
