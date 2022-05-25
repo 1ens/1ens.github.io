@@ -6790,6 +6790,192 @@ pre {
 .iziToast-message {
   word-break: break-all !important;
 }
+@media screen and (max-width: 500px) {
+  .l_header .list-v .aplayer,
+  .l_header .list-v .aplayer-pic {
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    width: 64px;
+    height: 64px;
+  }
+}
+.aplayer-container {
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: -ms-flexbox /* TWEENER - IE 10 */;
+  display: -webkit-flex /* NEW - Chrome */;
+  display: flex /* NEW, Spec - Opera 12.1, Firefox 20+ */;
+  display: flex;
+  justify-content: center;
+  -webkit-justify-content: center;
+  -khtml-justify-content: center;
+  -moz-justify-content: center;
+  -o-justify-content: center;
+  -ms-justify-content: center;
+  min-height: 100px;
+}
+.aplayer-container meting-js {
+  max-width: 100%;
+}
+.aplayer {
+  max-width: 500px;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  color: var(--color-text);
+  font-family: "Microsoft Yahei", "Hiragino Sans GB", Helvetica, "Helvetica Neue", "微软雅黑", Tahoma, Arial, sans-serif, Menlo, Monaco, monospace, sans-serif;
+}
+.aplayer .aplayer-list {
+  text-align: left;
+}
+@media screen and (max-width: 500px) {
+  .aplayer {
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+  }
+}
+.l_header .aplayer-volume-wrap {
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: none !important;
+}
+.aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+  left: -66px !important;
+}
+.aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+  left: 0px !important;
+}
+p,
+input,
+pre>span,
+textarea {
+  cursor: url("https://unpkg.com/volantis-static@0.0.1649552113628/media/cursor/text.png"), text;
+}
+.fancybox-container .fancybox-stage,
+.fancybox__carousel .is-draggable {
+  cursor: url("https://unpkg.com/volantis-static@0.0.1649552113628/media/cursor/zoom-out.png"), zoom-out;
+}
+.fancybox a,
+.fancybox-can-zoomIn .fancybox-content,
+.fancybox__carousel .fancybox__slide.can-zoom_in .fancybox__content {
+  cursor: url("https://unpkg.com/volantis-static@0.0.1649552113628/media/cursor/zoom-in.png"), zoom-in;
+}
+span.btn>a:not([href]):hover,
+.fancybox-button[disabled],
+.fancybox-button[disabled]:hover,
+.gt-container .gt-btn.is--disable,
+span.not-select {
+  cursor: url("https://unpkg.com/volantis-static@0.0.1649552113628/media/cursor/circle.png"), not-allowed;
+}
+html,
+a:not([href]),
+a:not([href]) p,
+button[disabled],
+html input[disabled],
+.article .widget,
+#l_body .post section.meta .new-meta-box .new-meta-item .notlink,
+ul.list-v.rightmenu a,
+span.btn a:not([href]),
+div.tabs ul.nav-tabs li.tab.active a,
+kbd,
+.a > p,
+.not-select,
+.not-select p,
+.aplayer .aplayer-info .aplayer-music,
+.gt-container a.is--active,
+.iziToast,
+.iziToast p,
+.iframe,
+.embed-show,
+p > img,
+p > svg,
+.fix-cursor-default {
+  cursor: url("https://unpkg.com/volantis-static@0.0.1649552113628/media/cursor/left_ptr.png"), default;
+}
+a,
+psw,
+button,
+html input[type=button],
+input[type=reset],
+input[type=submit],
+table::-webkit-scrollbar-thumb,
+scrollbar::-webkit-scrollbar-thumb,
+#scroll-down,
+ul.list-v.rightmenu li.music a.nav.volume .aplayer-volume-bar,
+#u-search .modal .modal-header .btn-close,
+#u-search .modal .modal-footer .nav,
+article .checkbox input,
+details summary,
+.article a.link-card,
+div.tabs ul.nav-tabs li.tab a,
+.btn-copy,
+.fancybox-can-pan .fancybox-content,
+.fancybox-can-swipe .fancybox-content,
+.waves-effect,
+a.result.search-result-fix,
+.tag > p,
+.prev > p,
+.next > p,
+.author > p,
+.list-h > a > p,
+.category > a > p,
+.friend-right p,
+.v[data-class=v] a,
+.v[data-class=v] .vbtn,
+.v[data-class=v] .vicon,
+.v[data-class=v] .vcards .vcard .vhead .vnick,
+.v[data-class=v] .vcards .vcard .vh .vmeta .vat,
+.v[data-class=v] .vwrap .vemojis i,
+.v[data-class=v] .vcards .vcard .vcontent.expand,
+.aplayer .aplayer-pic,
+.aplayer .aplayer-info .aplayer-controller .aplayer-time .aplayer-icon,
+.aplayer .aplayer-info .aplayer-controller .aplayer-bar-wrap,
+.aplayer .aplayer-list ol li,
+.aplayer .aplayer-list ol li .aplayer-list-author,
+.aplayer .aplayer-list ol li .aplayer-list-index,
+.waves-button,
+.waves-button-input,
+.waves-button:hover,
+.waves-button:visited,
+.fancybox-button,
+.gt-container .gt-btn,
+.gt-container .gt-user-inner,
+.gt-container .gt-avatar-github,
+.gt-container .gt-popup .gt-action,
+.gt-container .gt-comment-like:hover,
+.gt-container .gt-comment-edit:hover,
+.gt-container .gt-comment-reply:hover,
+.tk-icon,
+.tk-avatar img,
+.tk-meta a,
+.tk-action-icon,
+.fancybox,
+.fix-cursor-pointer {
+  cursor: url("https://unpkg.com/volantis-static@0.0.1649552113628/media/cursor/pointer.png"), pointer;
+}
+.cur-default {
+  cursor: url("https://unpkg.com/volantis-static@0.0.1649552113628/media/cursor/left_ptr.png"), default !important;
+}
+.cur-pointer,
+.carousel__button,
+.fancybox__slide {
+  cursor: url("https://unpkg.com/volantis-static@0.0.1649552113628/media/cursor/pointer.png"), pointer !important;
+}
+.cur-not-allowed {
+  cursor: url("https://unpkg.com/volantis-static@0.0.1649552113628/media/cursor/circle.png"), not-allowed !important;
+}
+.cur-zoom-in,
+.fancybox__carousel .fancybox__slide.can-zoom_in .fancybox__content,
+.has-image[data-image-fit=contain].can-zoom_in .fancybox__image {
+  cursor: url("https://unpkg.com/volantis-static@0.0.1649552113628/media/cursor/zoom-in.png"), zoom-in !important;
+}
+.cur-zoom-out,
+.fancybox__carousel .is-draggable,
+.has-image[data-image-fit=contain].is-draggable .fancybox__image {
+  cursor: url("https://unpkg.com/volantis-static@0.0.1649552113628/media/cursor/zoom-out.png"), zoom-out !important;
+}
+.cur-text {
+  cursor: url("https://unpkg.com/volantis-static@0.0.1649552113628/media/cursor/text.png"), text !important;
+}
 .common_read {
   z-index: auto !important;
   opacity: 1 !important;
@@ -7180,6 +7366,36 @@ ul.list-v.rightmenu li.music .nav.volume .aplayer-volume-bar .aplayer-volume {
   :root:not([color-scheme]) .btn-copy:hover {
     background: var(--color-site-body);
   }
+  :root:not([color-scheme]) .aplayer {
+    background: var(--color-site-bg);
+  }
+  :root:not([color-scheme]) .aplayer .aplayer-list ol li:hover {
+    background: rgba(61,217,182,0.2);
+  }
+  :root:not([color-scheme]) .aplayer .aplayer-list ol li.aplayer-list-light {
+    background: var(--color-block);
+  }
+  :root:not([color-scheme]) .aplayer-info {
+    background: var(--color-site-bg) !important;
+  }
+  :root:not([color-scheme]) .aplayer .aplayer-lrc:before {
+    background: linear-gradient(180deg, #282c34 0, rgba(255,255,255,0));
+  }
+  :root:not([color-scheme]) .aplayer .aplayer-lrc:after {
+    background: linear-gradient(180deg, rgba(0,0,0,0) 0, rgba(33,33,33,0.8));
+  }
+  :root:not([color-scheme]) .aplayer-pic {
+    filter: brightness(70%);
+  }
+  :root:not([color-scheme]) .aplayer .aplayer-list ol li {
+    border-top: 1px solid var(--color-card);
+  }
+  :root:not([color-scheme]) .aplayer.aplayer-withlist .aplayer-info {
+    border-bottom: 1px solid var(--color-block);
+  }
+  :root:not([color-scheme]) .aplayer .aplayer-notice {
+    background-color: var(--color-site-bg) !important;
+  }
 }
 [color-scheme='dark'] {
   --block-hover: #1c1c1c;
@@ -7267,4 +7483,34 @@ ul.list-v.rightmenu li.music .nav.volume .aplayer-volume-bar .aplayer-volume {
 }
 [color-scheme='dark'] .btn-copy:hover {
   background: var(--color-site-body);
+}
+[color-scheme='dark'] .aplayer {
+  background: var(--color-site-bg);
+}
+[color-scheme='dark'] .aplayer .aplayer-list ol li:hover {
+  background: rgba(61,217,182,0.2);
+}
+[color-scheme='dark'] .aplayer .aplayer-list ol li.aplayer-list-light {
+  background: var(--color-block);
+}
+[color-scheme='dark'] .aplayer-info {
+  background: var(--color-site-bg) !important;
+}
+[color-scheme='dark'] .aplayer .aplayer-lrc:before {
+  background: linear-gradient(180deg, #282c34 0, rgba(255,255,255,0));
+}
+[color-scheme='dark'] .aplayer .aplayer-lrc:after {
+  background: linear-gradient(180deg, rgba(0,0,0,0) 0, rgba(33,33,33,0.8));
+}
+[color-scheme='dark'] .aplayer-pic {
+  filter: brightness(70%);
+}
+[color-scheme='dark'] .aplayer .aplayer-list ol li {
+  border-top: 1px solid var(--color-card);
+}
+[color-scheme='dark'] .aplayer.aplayer-withlist .aplayer-info {
+  border-bottom: 1px solid var(--color-block);
+}
+[color-scheme='dark'] .aplayer .aplayer-notice {
+  background-color: var(--color-site-bg) !important;
 }
