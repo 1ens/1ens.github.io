@@ -6,7 +6,7 @@
   <meta charset="utf-8">
   <!-- SEO相关 -->
   <meta name="robots" content="noindex,follow">
-  <link rel="canonical" href="http://example.com/tags/加解密/"/>
+  <link rel="canonical" href="http://example.com/tags/迷宫/"/>
   <!-- 渲染优化 -->
     <meta http-equiv='x-dns-prefetch-control' content='on' />
       <link rel='dns-prefetch' href='https://unpkg.com'>
@@ -31,13 +31,13 @@
 
   <!-- feed -->
   <!-- 页面元数据 -->
-  <title>标签：-加解密 - 1ens's blog</title>
+  <title>标签：迷宫 - 1ens's blog</title>
   <meta name="keywords" content="null">
   <meta desc name="description" content="a - John Doe - 1ens's blog">
   
 <meta property="og:type" content="website">
 <meta property="og:title" content="1ens&#39;s blog">
-<meta property="og:url" content="http://example.com/tags/%E5%8A%A0%E8%A7%A3%E5%AF%86/index.html">
+<meta property="og:url" content="http://example.com/tags/%E8%BF%B7%E5%AE%AB/index.html">
 <meta property="og:site_name" content="1ens&#39;s blog">
 <meta property="og:description" content="a">
 <meta property="og:locale" content="zh_CN">
@@ -2539,7 +2539,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         
           <div class='post-wrapper'>
             <div class="post post-v3 white-box reveal shadow floatable"  itemscope itemtype="http://schema.org/Article" >
-  <link itemprop="mainEntityOfPage" href="http://example.com/2022/05/24/KCTF-%E6%9C%AB%E6%97%A5%E9%82%80%E8%AF%B7%EF%BC%88%E5%8A%A0%E5%AF%86%E9%97%AF%E5%85%B3%EF%BC%89/">
+  <link itemprop="mainEntityOfPage" href="http://example.com/2022/05/24/ezam%EF%BC%88ollvm%20%E8%BF%B7%E5%AE%AB%20%E8%BF%9B%E5%88%B6%EF%BC%89/">
   <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
     <meta itemprop="name" content="1ens's blog">
   </span>
@@ -2557,20 +2557,22 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     
     <h2 class="article-title"  itemprop="name headline">
-      <a href="/2022/05/24/KCTF-%E6%9C%AB%E6%97%A5%E9%82%80%E8%AF%B7%EF%BC%88%E5%8A%A0%E5%AF%86%E9%97%AF%E5%85%B3%EF%BC%89/"  itemprop="url">
-        末日邀请
+      <a href="/2022/05/24/ezam%EF%BC%88ollvm%20%E8%BF%B7%E5%AE%AB%20%E8%BF%9B%E5%88%B6%EF%BC%89/"  itemprop="url">
+        ezam
       </a>
     </h2>
   
   <div class='md article-desc' itemprop="articleBody">
     
       
-        先是输入flag也就是ID，然后进行check，主要考察算法。
+        题目打开
 
-对我们的输入进行一系列异或，最后赋值给v39，注意这里v39类型是char，接着进行sbox数据初始化，
-然后进行CRC32验证，这里可以动调取到flag，这里v34的值后面会给出并进行验证。
+标准的ollvm混肴，用脚本两次去除
 
-接着先将字符转成数值，存入内存，并且如果大于58就减去55.接着用冰雹猜想验证输入的前三位。我们可以爆破得到v17的值是定值7.具体...
+得到正常的程序
+
+初步分析是以为多项式相加，疏忽了v17以及前面一大段数据的初始化。想着用z3硬解失败了。主要逻辑为读取输入，判断是否为数字，然后转换成四进制，走迷宫。前面的一大段加密是初始化迷宫地图v17，我们可以动调得到一个16*28的迷宫：（做题多尝试
+123456789101112131415161,0,0,0,0,0,1,1,1,...
       
     
   </div>
@@ -2591,7 +2593,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       </div>
       
         <div>
-          <a class='readmore' href='/2022/05/24/KCTF-%E6%9C%AB%E6%97%A5%E9%82%80%E8%AF%B7%EF%BC%88%E5%8A%A0%E5%AF%86%E9%97%AF%E5%85%B3%EF%BC%89/' itemprop="url">
+          <a class='readmore' href='/2022/05/24/ezam%EF%BC%88ollvm%20%E8%BF%B7%E5%AE%AB%20%E8%BF%9B%E5%88%B6%EF%BC%89/' itemprop="url">
             阅读全文
           </a>
         </div>
@@ -4081,7 +4083,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"1ens's blog","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"John Doe","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","sameAs":["https://github.com/volantis-x"],"description":"a"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://example.com/","name":"1ens's blog"}},{"@type":"ListItem","position":2,"item":{"@id":"http://example.com/tags/-加解密/","name":"-加解密"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"1ens's blog","url":"http://example.com/","keywords":null,"description":"a","author":{"@type":"Person","name":"John Doe","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","description":"a"},"publisher":{"@type":"Organization","name":"1ens's blog","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"http://example.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","description":"a","inLanguage":["zh-CN","default"],"mainEntityOfPage":{"@type":"WebPage"},"author":{"@type":"Person","name":"John Doe","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/"},"publisher":{"@type":"Organization","name":"1ens's blog","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"wordCount":0,"image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"1ens's blog","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"John Doe","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","sameAs":["https://github.com/volantis-x"],"description":"a"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://example.com/","name":"1ens's blog"}},{"@type":"ListItem","position":2,"item":{"@id":"http://example.com/tags/迷宫/","name":"迷宫"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"1ens's blog","url":"http://example.com/","keywords":null,"description":"a","author":{"@type":"Person","name":"John Doe","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","description":"a"},"publisher":{"@type":"Organization","name":"1ens's blog","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"http://example.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","description":"a","inLanguage":["zh-CN","default"],"mainEntityOfPage":{"@type":"WebPage"},"author":{"@type":"Person","name":"John Doe","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/"},"publisher":{"@type":"Organization","name":"1ens's blog","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"wordCount":0,"image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 

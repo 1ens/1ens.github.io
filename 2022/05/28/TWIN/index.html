@@ -5,8 +5,8 @@
   <meta name="Volantis" content="5.3.1">
   <meta charset="utf-8">
   <!-- SEO相关 -->
-  <meta name="robots" content="noindex,follow">
-  <link rel="canonical" href="http://example.com/tags/加解密/"/>
+  
+  <link rel="canonical" href="http://example.com/2022/05/28/twin/"/>
   <!-- 渲染优化 -->
     <meta http-equiv='x-dns-prefetch-control' content='on' />
       <link rel='dns-prefetch' href='https://unpkg.com'>
@@ -31,18 +31,23 @@
 
   <!-- feed -->
   <!-- 页面元数据 -->
-  <title>标签：-加解密 - 1ens's blog</title>
-  <meta name="keywords" content="null">
+  <title>TWIN - 1ens's blog</title>
+  <meta name="keywords" content="TLS回调函数,反调试,异常处理,null">
   <meta desc name="description" content="a - John Doe - 1ens's blog">
   
-<meta property="og:type" content="website">
-<meta property="og:title" content="1ens&#39;s blog">
-<meta property="og:url" content="http://example.com/tags/%E5%8A%A0%E8%A7%A3%E5%AF%86/index.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="TWIN">
+<meta property="og:url" content="http://example.com/2022/05/28/TWIN/index.html">
 <meta property="og:site_name" content="1ens&#39;s blog">
-<meta property="og:description" content="a">
+<meta property="og:description" content="TLS回调函数：TLS(Thread Local Storage, 线程局部存储)回调函数，TLS 回调函数的调用运行要先于 EP 代码的执行，并且每次创建或结束线程都会再次调用，故常用于反调试。  可以在节区表发现IMAGE_TLS_DIRECTORY，找到Address of Callbacks（注意回调函数一般不止一个） 题解： 32位无壳  首先是一个虚假的逻辑验证。 在函数栏搜索找到ca">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
+<meta property="article:published_time" content="2022-05-27T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-05-28T14:18:24.673Z">
 <meta property="article:author" content="John Doe">
+<meta property="article:tag" content="TLS回调函数">
+<meta property="article:tag" content="反调试">
+<meta property="article:tag" content="异常处理">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
   <style>
@@ -2456,7 +2461,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     
       <!-- see: /layout/_partial/scripts/_ctrl/coverCtrl.ejs -->
-      <div id="none" class='cover-wrapper  search' style="display: none;">
+      <div id="none" class='cover-wrapper post search' style="display: none;">
         
   <div id="parallax-window"></div>
 
@@ -2521,25 +2526,9 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       <div id="safearea">
         <div class="body-wrapper">
           
-
 <div id="l_main" class=''>
-  
-    
-      
-  <section class="post-list">
-    
-      
-        
-          
-        
-      
-    
-    
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow floatable"  itemscope itemtype="http://schema.org/Article" >
-  <link itemprop="mainEntityOfPage" href="http://example.com/2022/05/24/KCTF-%E6%9C%AB%E6%97%A5%E9%82%80%E8%AF%B7%EF%BC%88%E5%8A%A0%E5%AF%86%E9%97%AF%E5%85%B3%EF%BC%89/">
+  <article itemscope itemtype="http://schema.org/Article" class="article post white-box reveal md shadow floatable article-type-post" id="post" itemscope itemprop="blogPost">
+  <link itemprop="mainEntityOfPage" href="http://example.com/2022/05/28/TWIN/">
   <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
     <meta itemprop="name" content="1ens's blog">
   </span>
@@ -2548,71 +2537,305 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <meta itemprop="description" content="a">
   </span>
   
-  
+
+
   
     <span hidden>
       <meta itemprop="image" content="https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
     </span>
   
-  
+  <div class="article-meta" id="top">
     
-    <h2 class="article-title"  itemprop="name headline">
-      <a href="/2022/05/24/KCTF-%E6%9C%AB%E6%97%A5%E9%82%80%E8%AF%B7%EF%BC%88%E5%8A%A0%E5%AF%86%E9%97%AF%E5%85%B3%EF%BC%89/"  itemprop="url">
-        末日邀请
-      </a>
-    </h2>
-  
-  <div class='md article-desc' itemprop="articleBody">
     
-      
-        先是输入flag也就是ID，然后进行check，主要考察算法。
+    
+      <h1 class="title" itemprop="name headline">
+        TWIN
+      </h1>
+      <div class='new-meta-box'>
+        
+          
+            
+<div class='new-meta-item author' itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <a itemprop="url" class='author' href="/" rel="nofollow">
+    <img itemprop="image" src="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202205242009843.jpg" class="lazyload" data-srcset="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202205242009843.jpg" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+    <p itemprop="name">1ens</p>
+  </a>
+</div>
 
-对我们的输入进行一系列异或，最后赋值给v39，注意这里v39类型是char，接着进行sbox数据初始化，
-然后进行CRC32验证，这里可以动调取到flag，这里v34的值后面会给出并进行验证。
-
-接着先将字符转成数值，存入内存，并且如果大于58就减去55.接着用冰雹猜想验证输入的前三位。我们可以爆破得到v17的值是定值7.具体...
-      
+          
+        
+          
+            
+  <div class='new-meta-item category'>
+    <i class="fa-solid fa-folder-open fa-fw" aria-hidden="true"></i>
+    <a class="category-link" href="/categories/WP/">WP</a>
+    
+      <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
+        <a href="/categories/WP/" itemprop="url"><span itemprop="name">WP</span></a>
+      </span>
     
   </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time itemprop="dateCreated datePublished" datetime="2022-05-24T00:00:00+08:00">2022-05-24</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/WP/">WP</a>
-          
-            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
-              <a href="/categories/WP/" itemprop="url"><span itemprop="name">WP</span></a>
-            </span>
+
+
           
         
-      </div>
+          
+            <div class="new-meta-item date" itemprop="dateCreated datePublished" datetime="2022-05-28T00:00:00+08:00">
+  <a class='notlink'>
+    <i class="fa-solid fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2022年5月28日</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+
+
+<div class="new-meta-item browse">
+  <a class='notlink'>
+    <p>
+      <i class="fa-solid fa-eye fa-fw" aria-hidden="true"></i>
       
-        <div>
-          <a class='readmore' href='/2022/05/24/KCTF-%E6%9C%AB%E6%97%A5%E9%82%80%E8%AF%B7%EF%BC%88%E5%8A%A0%E5%AF%86%E9%97%AF%E5%85%B3%EF%BC%89/' itemprop="url">
-            阅读全文
-          </a>
+      <span id="busuanzi_value_page_pv"><i class="fa-solid fa-loader fa-spin fa-fw" aria-hidden="true"></i></span>
+      
+      <span>次浏览</span>
+    </p>
+  </a>
+</div>
+
+
+          
+        
+        <!-- Custom Files topMeta begin-->
+        
+        <!-- Custom Files topMeta end-->
+      </div>
+    
+  </div>
+
+
+  <div id="layoutHelper-page-plugins"></div>
+  <div id="post-body" itemprop="articleBody">
+    <h1 id="TLS回调函数："><a href="#TLS回调函数：" class="headerlink" title="TLS回调函数："></a>TLS回调函数：</h1><p>TLS(Thread Local Storage, 线程局部存储)回调函数，TLS 回调函数的调用运行要先于 EP 代码的执行，并且每次创建或结束线程都会再次调用，故常用于反调试。</p>
+<p><img src="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202205281814964.png" class="lazyload" data-srcset="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202205281814964.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p>可以在节区表发现IMAGE_TLS_DIRECTORY，找到Address of Callbacks（<strong>注意回调函数一般不止一个</strong>）</p>
+<h1 id="题解："><a href="#题解：" class="headerlink" title="题解："></a>题解：</h1><p><img src="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202205282217346.png" class="lazyload" data-srcset="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202205282217346.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p>32位无壳</p>
+<p><img src="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202205281835117.png" class="lazyload" data-srcset="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202205281835117.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p>首先是一个虚假的逻辑验证。</p>
+<p>在函数栏搜索找到callback函数，但是$+5,没有直接反编译，找到主要回调函数</p>
+<p><img src="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202205282020289.png" class="lazyload" data-srcset="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202205282020289.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p>这里有一个小花指令，最好retn会跳到sub_4019BF,后面还会有一处</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> __usercall <span class="title">sub_4019BF</span><span class="params">(<span class="type">int</span> a1@&lt;ebp&gt;)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="type">void</span> *v1; <span class="comment">// eax</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> ( *(_DWORD *)(a1 + <span class="number">12</span>) == <span class="number">1</span> )</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="built_in">memset</span>((<span class="type">void</span> *)(a1 - <span class="number">284</span>), <span class="number">0</span>, <span class="number">0x50</span>u);</span><br><span class="line">    <span class="built_in">sub_401930</span>((<span class="type">void</span> *)(a1 - <span class="number">284</span>));</span><br><span class="line">    *(_BYTE *)(a1 - <span class="number">1</span>) = <span class="number">0</span>;</span><br><span class="line">    *(_BYTE *)(a1 - <span class="number">1</span>) = <span class="built_in">NtCurrentPeb</span>()-&gt;BeingDebugged;</span><br><span class="line">    <span class="keyword">if</span> ( !*(_BYTE *)(a1 - <span class="number">1</span>) )</span><br><span class="line">      <span class="keyword">return</span>;</span><br><span class="line">    *(_BYTE *)(a1 - <span class="number">32</span>) = <span class="number">57</span>;</span><br><span class="line">    *(_BYTE *)(a1 - <span class="number">31</span>) = <span class="number">51</span>;</span><br><span class="line">    *(_BYTE *)(a1 - <span class="number">30</span>) = <span class="number">62</span>;</span><br><span class="line">    *(_BYTE *)(a1 - <span class="number">29</span>) = <span class="number">56</span>;</span><br><span class="line">    *(_BYTE *)(a1 - <span class="number">28</span>) = <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">sub_4018C0</span>(a1 - <span class="number">32</span>);</span><br><span class="line">    hObject = <span class="built_in">CreateFileMappingA</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">4u</span>, <span class="number">0</span>, <span class="number">0x1000</span>u, (LPCSTR)(a1 - <span class="number">32</span>));</span><br><span class="line">    *(_DWORD *)dword_404448 = <span class="built_in">MapViewOfFile</span>(hObject, <span class="number">0xF001F</span>u, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0x1000</span>u);</span><br><span class="line">    *(_BYTE *)(a1 - <span class="number">116</span>) = <span class="number">47</span>;</span><br><span class="line">    *(_BYTE *)(a1 - <span class="number">115</span>) = <span class="number">19</span>;</span><br><span class="line">    *(_BYTE *)(a1 - <span class="number">114</span>) = <span class="number">26</span>;</span><br><span class="line">    *(_BYTE *)(a1 - <span class="number">113</span>) = <span class="number">30</span>;</span><br><span class="line">    *(_BYTE *)(a1 - <span class="number">112</span>) = <span class="number">12</span>;</span><br><span class="line">    *(_BYTE *)(a1 - <span class="number">111</span>) = <span class="number">26</span>;</span><br><span class="line">    *(_BYTE *)(a1 - <span class="number">110</span>) = <span class="number">95</span>;</span><br><span class="line">    *(_BYTE *)(a1 - <span class="number">109</span>) = <span class="number">22</span>;</span><br><span class="line">    *(_BYTE *)(a1 - <span class="number">108</span>) = <span class="number">17</span>;</span><br><span class="line">    *(_BYTE *)(a1 - <span class="number">107</span>) = <span class="number">15</span>;</span><br><span class="line">    *(_BYTE *)(a1 - <span class="number">106</span>) = <span class="number">10</span>;</span><br><span class="line">    *(_BYTE *)(a1 - <span class="number">105</span>) = <span class="number">11</span>;</span><br><span class="line">    *(_BYTE *)(a1 - <span class="number">104</span>) = <span class="number">95</span>;</span><br><span class="line">    *(_BYTE *)(a1 - <span class="number">103</span>) = <span class="number">6</span>;</span><br><span class="line">    *(_BYTE *)(a1 - <span class="number">102</span>) = <span class="number">16</span>;</span><br><span class="line">    *(_BYTE *)(a1 - <span class="number">101</span>) = <span class="number">10</span>;</span><br><span class="line">    *(_BYTE *)(a1 - <span class="number">100</span>) = <span class="number">13</span>;</span><br><span class="line">    *(_BYTE *)(a1 - <span class="number">99</span>) = <span class="number">95</span>;</span><br><span class="line">    *(_BYTE *)(a1 - <span class="number">98</span>) = <span class="number">25</span>;</span><br><span class="line">    *(_BYTE *)(a1 - <span class="number">97</span>) = <span class="number">19</span>;</span><br><span class="line">    *(_BYTE *)(a1 - <span class="number">96</span>) = <span class="number">30</span>;</span><br><span class="line">    *(_BYTE *)(a1 - <span class="number">95</span>) = <span class="number">24</span>;</span><br><span class="line">    *(_BYTE *)(a1 - <span class="number">94</span>) = <span class="number">69</span>;</span><br><span class="line">    *(_BYTE *)(a1 - <span class="number">93</span>) = <span class="number">95</span>;</span><br><span class="line">    *(_BYTE *)(a1 - <span class="number">92</span>) = <span class="number">0</span>;</span><br><span class="line">    v1 = (<span class="type">void</span> *)<span class="built_in">sub_4018C0</span>(a1 - <span class="number">116</span>);</span><br><span class="line">    <span class="built_in">sub_401930</span>(v1);</span><br><span class="line">    *(_BYTE *)(a1 - <span class="number">8</span>) = <span class="number">90</span>;</span><br><span class="line">    *(_BYTE *)(a1 - <span class="number">7</span>) = <span class="number">12</span>;</span><br><span class="line">    *(_BYTE *)(a1 - <span class="number">6</span>) = <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">sub_4018C0</span>(a1 - <span class="number">8</span>);</span><br><span class="line">    <span class="built_in">sub_401130</span>((<span class="type">char</span> *)(a1 - <span class="number">8</span>), dword_404448[<span class="number">0</span>]);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> ( !*(_DWORD *)(a1 + <span class="number">12</span>) )</span><br><span class="line">  &#123;</span><br><span class="line">    *(_BYTE *)(a1 - <span class="number">24</span>) = <span class="number">81</span>;</span><br><span class="line">    *(_BYTE *)(a1 - <span class="number">23</span>) = <span class="number">80</span>;</span><br><span class="line">    *(_BYTE *)(a1 - <span class="number">22</span>) = <span class="number">11</span>;</span><br><span class="line">    *(_BYTE *)(a1 - <span class="number">21</span>) = <span class="number">18</span>;</span><br><span class="line">    *(_BYTE *)(a1 - <span class="number">20</span>) = <span class="number">15</span>;</span><br><span class="line">    *(_BYTE *)(a1 - <span class="number">19</span>) = <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">sub_4018C0</span>(a1 - <span class="number">24</span>);</span><br><span class="line">    <span class="built_in">sub_401410</span>();</span><br><span class="line">    <span class="built_in">memset</span>((<span class="type">void</span> *)(a1 - <span class="number">204</span>), <span class="number">0</span>, <span class="number">0x44</span>u);</span><br><span class="line">    *(_DWORD *)(a1 - <span class="number">204</span>) = <span class="number">68</span>;</span><br><span class="line">    <span class="built_in">CreateProcessA</span>(</span><br><span class="line">      (LPCSTR)(a1 - <span class="number">24</span>),</span><br><span class="line">      <span class="number">0</span>,</span><br><span class="line">      <span class="number">0</span>,</span><br><span class="line">      <span class="number">0</span>,</span><br><span class="line">      <span class="number">0</span>,</span><br><span class="line">      <span class="number">3u</span>,</span><br><span class="line">      <span class="number">0</span>,</span><br><span class="line">      <span class="number">0</span>,</span><br><span class="line">      (LPSTARTUPINFOA)(a1 - <span class="number">204</span>),</span><br><span class="line">      (LPPROCESS_INFORMATION)(a1 - <span class="number">136</span>));</span><br><span class="line">    *(_BYTE *)(a1 - <span class="number">44</span>) = <span class="number">28</span>;</span><br><span class="line">    *(_BYTE *)(a1 - <span class="number">43</span>) = <span class="number">16</span>;</span><br><span class="line">    *(_BYTE *)(a1 - <span class="number">42</span>) = <span class="number">13</span>;</span><br><span class="line">    *(_BYTE *)(a1 - <span class="number">41</span>) = <span class="number">13</span>;</span><br><span class="line">    *(_BYTE *)(a1 - <span class="number">40</span>) = <span class="number">26</span>;</span><br><span class="line">    *(_BYTE *)(a1 - <span class="number">39</span>) = <span class="number">28</span>;</span><br><span class="line">    *(_BYTE *)(a1 - <span class="number">38</span>) = <span class="number">11</span>;</span><br><span class="line">    *(_BYTE *)(a1 - <span class="number">37</span>) = <span class="number">117</span>;</span><br><span class="line">    *(_BYTE *)(a1 - <span class="number">36</span>) = <span class="number">0</span>;</span><br><span class="line">    *(_BYTE *)(a1 - <span class="number">16</span>) = <span class="number">8</span>;</span><br><span class="line">    *(_BYTE *)(a1 - <span class="number">15</span>) = <span class="number">13</span>;</span><br><span class="line">    *(_BYTE *)(a1 - <span class="number">14</span>) = <span class="number">16</span>;</span><br><span class="line">    *(_BYTE *)(a1 - <span class="number">13</span>) = <span class="number">17</span>;</span><br><span class="line">    *(_BYTE *)(a1 - <span class="number">12</span>) = <span class="number">24</span>;</span><br><span class="line">    *(_BYTE *)(a1 - <span class="number">11</span>) = <span class="number">117</span>;</span><br><span class="line">    *(_BYTE *)(a1 - <span class="number">10</span>) = <span class="number">0</span>;</span><br><span class="line">    *(_BYTE *)(a1 - <span class="number">88</span>) = <span class="number">47</span>;</span><br><span class="line">    *(_BYTE *)(a1 - <span class="number">87</span>) = <span class="number">19</span>;</span><br><span class="line">    *(_BYTE *)(a1 - <span class="number">86</span>) = <span class="number">26</span>;</span><br><span class="line">    *(_BYTE *)(a1 - <span class="number">85</span>) = <span class="number">30</span>;</span><br><span class="line">    *(_BYTE *)(a1 - <span class="number">84</span>) = <span class="number">12</span>;</span><br><span class="line">    *(_BYTE *)(a1 - <span class="number">83</span>) = <span class="number">26</span>;</span><br><span class="line">    *(_BYTE *)(a1 - <span class="number">82</span>) = <span class="number">95</span>;</span><br><span class="line">    *(_BYTE *)(a1 - <span class="number">81</span>) = <span class="number">28</span>;</span><br><span class="line">    *(_BYTE *)(a1 - <span class="number">80</span>) = <span class="number">19</span>;</span><br><span class="line">    *(_BYTE *)(a1 - <span class="number">79</span>) = <span class="number">16</span>;</span><br><span class="line">    *(_BYTE *)(a1 - <span class="number">78</span>) = <span class="number">12</span>;</span><br><span class="line">    *(_BYTE *)(a1 - <span class="number">77</span>) = <span class="number">26</span>;</span><br><span class="line">    *(_BYTE *)(a1 - <span class="number">76</span>) = <span class="number">95</span>;</span><br><span class="line">    *(_BYTE *)(a1 - <span class="number">75</span>) = <span class="number">11</span>;</span><br><span class="line">    *(_BYTE *)(a1 - <span class="number">74</span>) = <span class="number">23</span>;</span><br><span class="line">    *(_BYTE *)(a1 - <span class="number">73</span>) = <span class="number">26</span>;</span><br><span class="line">    *(_BYTE *)(a1 - <span class="number">72</span>) = <span class="number">95</span>;</span><br><span class="line">    *(_BYTE *)(a1 - <span class="number">71</span>) = <span class="number">27</span>;</span><br><span class="line">    *(_BYTE *)(a1 - <span class="number">70</span>) = <span class="number">26</span>;</span><br><span class="line">    *(_BYTE *)(a1 - <span class="number">69</span>) = <span class="number">29</span>;</span><br><span class="line">    *(_BYTE *)(a1 - <span class="number">68</span>) = <span class="number">10</span>;</span><br><span class="line">    *(_BYTE *)(a1 - <span class="number">67</span>) = <span class="number">24</span>;</span><br><span class="line">    *(_BYTE *)(a1 - <span class="number">66</span>) = <span class="number">24</span>;</span><br><span class="line">    *(_BYTE *)(a1 - <span class="number">65</span>) = <span class="number">26</span>;</span><br><span class="line">    *(_BYTE *)(a1 - <span class="number">64</span>) = <span class="number">13</span>;</span><br><span class="line">    *(_BYTE *)(a1 - <span class="number">63</span>) = <span class="number">95</span>;</span><br><span class="line">    *(_BYTE *)(a1 - <span class="number">62</span>) = <span class="number">30</span>;</span><br><span class="line">    *(_BYTE *)(a1 - <span class="number">61</span>) = <span class="number">17</span>;</span><br><span class="line">    *(_BYTE *)(a1 - <span class="number">60</span>) = <span class="number">27</span>;</span><br><span class="line">    *(_BYTE *)(a1 - <span class="number">59</span>) = <span class="number">95</span>;</span><br><span class="line">    *(_BYTE *)(a1 - <span class="number">58</span>) = <span class="number">11</span>;</span><br><span class="line">    *(_BYTE *)(a1 - <span class="number">57</span>) = <span class="number">13</span>;</span><br><span class="line">    *(_BYTE *)(a1 - <span class="number">56</span>) = <span class="number">6</span>;</span><br><span class="line">    *(_BYTE *)(a1 - <span class="number">55</span>) = <span class="number">95</span>;</span><br><span class="line">    *(_BYTE *)(a1 - <span class="number">54</span>) = <span class="number">30</span>;</span><br><span class="line">    *(_BYTE *)(a1 - <span class="number">53</span>) = <span class="number">24</span>;</span><br><span class="line">    *(_BYTE *)(a1 - <span class="number">52</span>) = <span class="number">30</span>;</span><br><span class="line">    *(_BYTE *)(a1 - <span class="number">51</span>) = <span class="number">22</span>;</span><br><span class="line">    *(_BYTE *)(a1 - <span class="number">50</span>) = <span class="number">17</span>;</span><br><span class="line">    *(_BYTE *)(a1 - <span class="number">49</span>) = <span class="number">117</span>;</span><br><span class="line">    *(_BYTE *)(a1 - <span class="number">48</span>) = <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">sub_401510</span>(a1 - <span class="number">24</span>, a1 - <span class="number">136</span>);</span><br><span class="line">    <span class="keyword">if</span> ( dword_404440 == <span class="number">1</span> )</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="built_in">sub_4012C0</span>(*(_DWORD *)dword_404448 + <span class="number">20</span>, <span class="number">5</span>, &amp;unk_40405C);</span><br><span class="line">      *(_DWORD *)(a1 - <span class="number">120</span>) = <span class="built_in">memcmp</span>((<span class="type">const</span> <span class="type">void</span> *)(*(_DWORD *)dword_404448 + <span class="number">20</span>), &amp;unk_40402C, <span class="number">0x14</span>u);</span><br><span class="line">      <span class="keyword">if</span> ( !*(_DWORD *)(a1 - <span class="number">120</span>) )</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="built_in">sub_4018C0</span>(a1 - <span class="number">44</span>);</span><br><span class="line">        <span class="built_in">sub_401930</span>((<span class="type">void</span> *)(a1 - <span class="number">44</span>));</span><br><span class="line">LABEL_12:</span><br><span class="line">        <span class="built_in">CloseHandle</span>(hObject);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> ( dword_404440 == <span class="number">-2</span> )</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="built_in">sub_4018C0</span>(a1 - <span class="number">88</span>);</span><br><span class="line">      <span class="built_in">sub_401930</span>((<span class="type">void</span> *)(a1 - <span class="number">88</span>));</span><br><span class="line">      <span class="keyword">goto</span> LABEL_12;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">sub_4018C0</span>(a1 - <span class="number">16</span>);</span><br><span class="line">    <span class="built_in">sub_401930</span>((<span class="type">void</span> *)(a1 - <span class="number">16</span>));</span><br><span class="line">    <span class="keyword">goto</span> LABEL_12;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这个函数有两大部分</p>
+<ul>
+<li>这个a1 + 12就是对应着运行前与退出，对应DLL_PROCESS_ATTACH和DLL_PROCESS_DETACH</li>
+<li>所以总结一下！a1 + 12 &#x3D;&#x3D; 1是线程运行之前执行</li>
+<li>a1 + 12 &#x3D;&#x3D; 0 是线程退出后运行</li>
+</ul>
+<p>首先会遇到一个PEB反调试，我们直接修改ZF标志位绕过。</p>
+<p>然后就是一个异或，将原始数据inputflag混肴。</p>
+<p>紧接着读取我们的输入，</p>
+<p><img src="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202205282021090.png" class="lazyload" data-srcset="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202205282021090.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p>输入之后F9进入第二部分</p>
+<ul>
+<li>获取WriteFile API的地址</li>
+<li>将WriteFile API地址改成自写函数的地址（也就是Hook函数）</li>
+<li>也就是之后我们调用WriteFile函数地址就会调用Hook函数（Hook函数里执行完Hook代码就会脱钩）</li>
+</ul>
+<p><img src="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202205282046086.png" class="lazyload" data-srcset="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202205282046086.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p>GetModuleHandleA得到WiteFile函数的句柄，GetProcAddress函数获取WriteFile函数的地址存入dword_4043DC，并在sub_4016C0中将这个值修改为sub_401650的地址值。</p>
+<p><img src="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202205282048757.png" class="lazyload" data-srcset="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202205282048757.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p>随后在第二个TLS函数会调用ExitProcess()，也就是退出进程，那么退出进程又会调用TLS函数链，于是又回到了第一个TLS函数，不过这次进的是退出线程的函数块，分析主要函数</p>
+<p><img src="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202205281926308.png" class="lazyload" data-srcset="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202205281926308.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p>这里创建了一个文件，也就是tmp文件，但是对名字也进行了混肴,然后往里面写入进程。</p>
+<p><img src="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202205282139101.png" class="lazyload" data-srcset="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202205282139101.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p>我们可以发现这里的writefile变成了我们相要执行的函数</p>
+<p><img src="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202205282143122.png" class="lazyload" data-srcset="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202205282143122.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p>把子进程的两个值改成6，实践上是xxtea在加密过程中的右移轮次。</p>
+<p>接下来分析一下tmp文件。</p>
+<p><img src="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202205282152680.png" class="lazyload" data-srcset="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202205282152680.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p>其中</p>
+<p><img src="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202205282155309.png" class="lazyload" data-srcset="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202205282155309.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p>先判断是否被调试，然后对delta进行异或操作。</p>
+<p><img src="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202205282153182.png" class="lazyload" data-srcset="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202205282153182.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p><code>hObject = CreateFileMappingA(0, 0, 4u, 0, 0x1000u, Name_FLAG);</code>创建名字为FLAG的文件映射对象，用于进程间通信。<br><code>*(_DWORD *)input = MapViewOfFile(hObject, 0xF001Fu, 0, 0, 0x1000u);</code>存了内存映射文件，便于后面的共享内存。<br>简而言之，就是创建一个名为FLAG的文件映射对象，把input指向的地址设置成一块共享的内存，这样就可以在子进程里对input这块内存进行修改，实现加密。</p>
+<p><img src="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202205282154172.png" class="lazyload" data-srcset="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202205282154172.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p>一个魔改的XXTEA加密，z右移5改成了右移6位</p>
+<p><img src="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202205282201294.png" class="lazyload" data-srcset="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202205282201294.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p>这里一处函数需要注意</p>
+<p><img src="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202205282204815.png" class="lazyload" data-srcset="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202205282204815.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p>WaitForDebugEvent表明父进程调用子进程是以调试方式打开，也就是说父进程调试子进程，所以实际上子进程的反调试是不能绕过的，正常执行程序应该会进入子进程的if语句，对key和delta进行一些魔改运算。<br>0xC0000005，这是一个异常代码，代表<code>EXCEPTION_ACCESS_VIOLATION</code>，内存访问异常，也即子进程中触发的异常。</p>
+<p>也就是说，子进程被父进程调试，当子进程发生异常，应当交由调试者（父进程）处理。所以当子进程中触发异常，程序就会流回父进程，判断是否为内存访问异常，如果是，就对eip和eax做出相应修改。</p>
+<p>再回去看子进程触发异常的地方，eip+5之后正好跳过了会触发异常的地方。而eax里存储的实际上是delta经过一通魔改运算之后的结果。也就是说，delta不仅在子进程里被修改，还会在父进程里异或一次，也就是还原成之前最初的模样</p>
+<p>前一半的（修改的</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdint.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> DELTA 0x1c925d64</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> MX (((z&gt;&gt;6^y<span class="string">&lt;&lt;2) + (y&gt;</span>&gt;3^z&lt;&lt;4)) ^ ((sum^y) + (key[(p&amp;3)^e] ^ z)))</span></span><br><span class="line"></span><br><span class="line"><span class="type">uint32_t</span> k[<span class="number">4</span>]= &#123;<span class="number">0x12</span>,<span class="number">0x90</span>,<span class="number">0x56</span>,<span class="number">0x78</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">xxtea</span><span class="params">(<span class="type">uint32_t</span>* v, <span class="type">int</span> n, <span class="type">uint32_t</span>* key)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">unsigned</span> <span class="type">int</span> sum,z,p,y;</span><br><span class="line">    <span class="type">int</span> e, rounds;</span><br><span class="line">    rounds = <span class="number">6</span> + <span class="number">52</span>/n;</span><br><span class="line">    sum = rounds * DELTA;</span><br><span class="line">    y = v[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">do</span></span><br><span class="line">    &#123;</span><br><span class="line">        e = (sum &gt;&gt; <span class="number">2</span>) &amp; <span class="number">3</span>;</span><br><span class="line">        <span class="keyword">for</span> (p=n<span class="number">-1</span>; p&gt;<span class="number">0</span>; p--)</span><br><span class="line">        &#123;</span><br><span class="line">            z = v[p<span class="number">-1</span>];</span><br><span class="line">            y = v[p] -= MX;</span><br><span class="line">        &#125;</span><br><span class="line">        z = v[n<span class="number">-1</span>];</span><br><span class="line">        y = v[<span class="number">0</span>] -= MX;</span><br><span class="line">        sum -= DELTA;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span> (--rounds);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">uint32_t</span> v[<span class="number">5</span>] = &#123;<span class="number">0x6b7ce328</span>,<span class="number">0x4841d5dd</span>,<span class="number">0x963784dc</span>,<span class="number">0xef8a3226</span>,<span class="number">0x776b226</span>&#125;;</span><br><span class="line">    <span class="type">int</span> n = <span class="number">5</span>;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">xxtea</span>(v, n, k);</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> i;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;<span class="number">5</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%c&quot;</span>,v[i]&amp;<span class="number">0xff</span>);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%c&quot;</span>,v[i]&gt;&gt;<span class="number">8</span>&amp;<span class="number">0xff</span>);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%c&quot;</span>,v[i]&gt;&gt;<span class="number">16</span>&amp;<span class="number">0xff</span>);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%c&quot;</span>,v[i]&gt;&gt;<span class="number">24</span>&amp;<span class="number">0xff</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>后面那半就比较好出了，没有改任何Delta数或XXTEA算法</p>
+<p>miniLctf{cbda59ff59e3e90c91c02e9b40b78b}</p>
+<p>参考：<a target="_blank" rel="noopener" href="http://www.yunzh1jun.com/2022/05/27/miniL/#Tip5%EF%BC%9Ahook">miniL2022 WP 今晚恰烤lq！ - 云之君 (yunzh1jun.com)</a></p>
+
+
+  </div>
+  
+  
+    
+    <div class='footer'>
+      
+      
+      
+        <div class='copyright'>
+          <blockquote>
+            
+              
+                <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+              
+            
+              
+                <p>本文永久链接是：<a href=http://example.com/2022/05/28/TWIN/>http://example.com/2022/05/28/TWIN/</a></p>
+              
+            
+          </blockquote>
         </div>
+      
       
     </div>
   
+  
+    
 
+
+  <div class='article-meta' id="bottom">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-05-28T22:18:24+08:00">
+  <a class='notlink'>
+    <i class="fa-solid fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：2022年5月28日</p>
+  </a>
 </div>
 
-          </div>
         
       
-    
-  </section>
+        
+          
   
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/TLS%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>TLS回调函数</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E5%8F%8D%E8%B0%83%E8%AF%95/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>反调试</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>异常处理</p></a></div>
+  <span hidden itemprop="keywords">TLS回调函数 反调试 异常处理</span>
+
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
     
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2022/05/28/TWIN/&title=TWIN - 1ens's blog&summary="
+          
+          >
+          
+            <img src="https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/logo/128/qq.png" class="lazyload" data-srcset="https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/logo/128/qq.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://example.com/2022/05/28/TWIN/&title=TWIN - 1ens's blog&summary="
+          
+          >
+          
+            <img src="https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/logo/128/qzone.png" class="lazyload" data-srcset="https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/logo/128/qzone.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2022/05/28/TWIN/&title=TWIN - 1ens's blog&summary="
+          
+          >
+          
+            <img src="https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/logo/128/weibo.png" class="lazyload" data-srcset="https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/logo/128/weibo.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+          
+        </a>
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+    <!-- Custom Files bottomMeta begin -->
+    
+    <!-- Custom Files bottomMeta end -->
+  </div>
+
+
+  
+  
+
+  
+    <div class="prev-next">
+      
+        <a class='prev' href='/2022/05/28/JIT/'>
+          <p class='title'><i class="fa-solid fa-chevron-left" aria-hidden="true"></i>JIT</p>
+          <p class='content'>什么是JITJIT &#x3D; Just In Time即时编译，是动态编译的一种形式，是一种优化虚拟机运行的技术。程序运行通常有两种方式，一种是静态编译，一种是动态解释，即时编译混合了这二者...</p>
+        </a>
+      
+      
+        <a class='next' href='/2022/05/27/cef/'>
+          <p class='title'>CEF<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>
+32位无壳程序
+CEF简介:  嵌入式Chromium框架(简称CEF) 是一个由Marshall Greenblatt在2008建立的开源项目，它主要目的是开发一个基于Google Chro...</p>
+        </a>
+      
+    </div>
+  
+  <!-- Custom Files postEnd begin-->
+  
+  <!-- Custom Files postEnd end-->
+</article>
+
+
   
 
 
+  <article class="post white-box shadow floatable" id="comments">
+    <span hidden>
+      <meta itemprop="discussionUrl" content="/2022/05/28/TWIN/index.html#comments">
+    </span>
+    <p ct><i class='fa-solid fa-comments'></i> 评论</p>
     
-  
+
+    <div id="layoutHelper-comments"></div>
+
+  </article>
+
+
+
+
+
+
 </div>
 <aside id='l_side' itemscope itemtype="http://schema.org/WPSideBar">
   
@@ -2620,167 +2843,38 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
     
 
-<section class="widget blogger shadow floatable desktop mobile pjax">
-  <div class='content'>
-    
-      
-        <a class='avatar flat-box rectangle' href='/about/'>
-          <img no-lazy src='https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202205242009843.jpg# https://fastly.jsdelivr.net/gh/volantis-x/cdn-org/blog/Logo-NavBar@3x.png'/>
-        </a>
-      
-    
-    
-      <div class='text'>
-        
-          <h2>1ens</h2>
-        
-        
-          <p>躺平</p>
 
-        
-        
-      </div>
-    
-    
-      <div class="social-wrapper">
-        
-          
-            <a href="https://github.com/1ens/"
-              class="social fab fa-github flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="mailto:2585801236"
-              class="social fab fa-qq flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="mailto:2585801236@qq.com"
-              class="social fas fa-envelope flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-      </div>
-    
-  </div>
-</section>
 
-  
-
-  
-
-  
-    
-    
-  
-
-  <section class="widget category shadow floatable desktop pjax">
+  <section class="widget toc-wrapper shadow floatable desktop mobile pjax" id="toc-div" >
     
   <header>
     
-      <a href='/blog/categories/'><i class="fa-solid fa-folder-open fa-fw" aria-hidden="true"></i><span class='name'>文章分类</span></a>
+      <i class="fa-solid fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
     
   </header>
 
 
     <div class='content'>
-      <ul class="entry navigation">
         
-          <li><a class="flat-box"
-            title="/categories/WP/" href="/categories/WP/"
-            active-action="action-categoriesWP"
-            ><div class='name'>WP</div><div class='badge'>(6)</div></a></li>
-        
-      </ul>
     </div>
   </section>
-
-
-  
-
-  
-    
-    
-  
-
-  <section class="widget tagcloud shadow floatable desktop mobile pjax">
-    
-  <header>
-    
-      <a href='/blog/tags/'><i class="fa-solid fa-tags fa-fw" aria-hidden="true"></i><span class='name'>热门标签</span></a>
-    
-  </header>
-
-
-    <div class='content'>
-      <a href="/tags/CEF/" style="font-size: 14px; color: #999">-CEF</a> <a href="/tags/wer/" style="font-size: 14px; color: #999">-[wer]</a> <a href="/tags/luajit/" style="font-size: 14px; color: #999">-luajit</a> <a href="/tags/%E5%8A%A0%E8%A7%A3%E5%AF%86/" style="font-size: 14px; color: #999">-加解密</a> <a href="/tags/TLS%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0/" style="font-size: 14px; color: #999">TLS回调函数</a> <a href="/tags/%E5%8F%8D%E8%B0%83%E8%AF%95/" style="font-size: 14px; color: #999">反调试</a> <a href="/tags/%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/" style="font-size: 14px; color: #999">异常处理</a> <a href="/tags/%E8%BF%9B%E5%88%B6/" style="font-size: 14px; color: #999">进制</a> <a href="/tags/%E8%BF%B7%E5%AE%AB/" style="font-size: 14px; color: #999">迷宫</a>
-    </div>
-  </section>
-
-
-  
-
-  
-    
-    
-
-<section class="widget shadow floatable desktop pjax">
-  
-  <header>
-    
-      <i class="fa-solid fa-award fa-fw" aria-hidden="true"></i><span class='name'>站点信息</span>
-    
-  </header>
-
-
-  <div class='content'>
-    <div class="webinfo">
-      
-        <div class="webinfo-item">
-          <div>文章数目：</div>
-          <div>6 篇</div>
-        </div>
-      
-
-      
-        <div class="webinfo-item">
-          <div>已运行时间：</div>
-          <div id="webinfo-runtime-count"></div>
-        </div>
-      
-
-
-      
-        <div class="webinfo-item">
-          <div>本站总字数：</div>
-          <div>4.8k 字</div>
-        </div>
-      
-
-      
-
-      
-
-      
-    </div>
-  </div>
-</section>
 
   
 
 
 <!-- 没有 pjax 占位会报错 万恶的 pjax -->
+
+  <div class="pjax">
+    <!-- pjax占位 -->
+  </div>
+
+  <div class="pjax">
+    <!-- pjax占位 -->
+  </div>
+
+  <div class="pjax">
+    <!-- pjax占位 -->
+  </div>
 
   <div class="pjax">
     <!-- pjax占位 -->
@@ -2805,13 +2899,14 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </aside>
 
 
+
           <!--此文件用来存放一些不方便取值的变量-->
 <!--思路大概是将值藏到重加载的区域内-->
 
 <pjax>
 <script>
   window.pdata={}
-  pdata.ispage=false;
+  pdata.ispage=true;
   pdata.commentPath="";
   pdata.commentPlaceholder="";
   pdata.commentConfig={};
@@ -4081,7 +4176,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"1ens's blog","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"John Doe","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","sameAs":["https://github.com/volantis-x"],"description":"a"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://example.com/","name":"1ens's blog"}},{"@type":"ListItem","position":2,"item":{"@id":"http://example.com/tags/-加解密/","name":"-加解密"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"1ens's blog","url":"http://example.com/","keywords":null,"description":"a","author":{"@type":"Person","name":"John Doe","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","description":"a"},"publisher":{"@type":"Organization","name":"1ens's blog","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"http://example.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","description":"a","inLanguage":["zh-CN","default"],"mainEntityOfPage":{"@type":"WebPage"},"author":{"@type":"Person","name":"John Doe","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/"},"publisher":{"@type":"Organization","name":"1ens's blog","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"wordCount":0,"image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"1ens's blog","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"John Doe","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","sameAs":["https://github.com/volantis-x"],"description":"a"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://example.com/","name":"1ens's blog"}},{"@type":"ListItem","position":2,"item":{"@id":"http://example.com/categories/WP/","name":"WP"}},{"@type":"ListItem","position":3,"item":{"@id":"http://example.com/2022/05/28/TWIN/","name":"TWIN"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"1ens's blog","url":"http://example.com/","keywords":null,"description":"a","author":{"@type":"Person","name":"John Doe","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","description":"a"},"publisher":{"@type":"Organization","name":"1ens's blog","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"http://example.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"TWIN","description":"a","inLanguage":["zh-CN","default"],"mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2022/05/28/TWIN/"},"author":{"@type":"Person","name":"John Doe","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/"},"publisher":{"@type":"Organization","name":"1ens's blog","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://example.com/2022/05/28/TWIN/","wordCount":0,"datePublished":"2022-05-27T16:00:00.000Z","dateModified":"2022-05-28T14:18:24.673Z","articleSection":"WP","keywords":"TLS回调函数,反调试,异常处理","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 
