@@ -29,6 +29,31 @@
     
     
     <entry>
+      <title>固件逆向分析初试</title>
+      <link href="/2022/06/24/%E5%9B%BA%E4%BB%B6%E9%80%86%E5%90%91%E5%88%86%E6%9E%90%E5%88%9D%E8%AF%95/"/>
+      <url>/2022/06/24/%E5%9B%BA%E4%BB%B6%E9%80%86%E5%90%91%E5%88%86%E6%9E%90%E5%88%9D%E8%AF%95/</url>
+      
+        <content type="html"><![CDATA[<p><img src="https://cdn.jsdelivr.net/gh/1ens/blogImages/imgs/202206242008925.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/1ens/blogImages/imgs/202206242008925.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">m</p><p>U-Boot(Universal Boot Loader)，即通用Bootloader，是德国DENX小组开发的用于多种嵌入式CPU的bootloader程序</p><p>Legacy-uImage<br>在kernel镜像的基础上，加上64Byte的信息提供给uboot使用</p><p>binwalk分析一下，是Squashfs文件系统</p><h3 id="Binwalk如何进行提取："><a href="#Binwalk如何进行提取：" class="headerlink" title="Binwalk如何进行提取："></a>Binwalk如何进行提取：</h3><p>通过maigc特征集与文件进行比对，但识别效率比file命令高多了</p><p><img src="https://cdn.jsdelivr.net/gh/1ens/blogImages/imgs/202206242016218.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/1ens/blogImages/imgs/202206242016218.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p><p>binwalk -Me 解压得到</p><p><img src="https://cdn.jsdelivr.net/gh/1ens/blogImages/imgs/202206242219239.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/1ens/blogImages/imgs/202206242219239.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p><p>文件系统是操作系统的重要组成部分，是操作运行的基础。不同的路由器使用的文件系统格式不尽相同。根文件系统会被打包成当前路由器所使用的文件系统格式，然后组装到固件中。路由器希望文件系统越小越好，所以这些文件系统中各种压缩格式随处可见。</p><p> Squashfs是一个只读格式的文件系统，具有超高压缩率，其压缩率最高可达34%。当系统启动后，会将文件系统保存在一个压缩过的文件系统文件中，这个文件可以使用换回的形式挂载并对其中的文件进行访问，当进程需要某些文件时，仅将对应部分的压缩文件解压缩。 </p><p>Squashfs文件系统常用的压缩格式有GZIP、LZMA、LZO、XZ（LZMA2）。路由器的根文件系统通常会按照Squashfs文件系统常用压缩格式中的一种进行打包，形成一个完整的Squashfs文件系统，然后与路由器操作系统的内核一起形成更新固件。 </p><p>由于squashFS可以在不需要解压的情况下直接挂载，因此有许多应用场景，例如： 1、安装Linux时用的live cd 2、小型嵌入式设备中的rootfs。rootfs一般以压缩好的形式存放在ROM中，如果开机时把整个rootfs都解压到内存里再读取，对于ROM和RAM容量一般都很小的小型嵌入式设备来说性价比太低。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> iot </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 固件分析 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>你的状态不对</title>
       <link href="/2022/05/30/%E7%A2%8E%E7%A2%8E%E5%BF%B5/"/>
       <url>/2022/05/30/%E7%A2%8E%E7%A2%8E%E5%BF%B5/</url>

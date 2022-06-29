@@ -6,7 +6,7 @@
   <meta charset="utf-8">
   <!-- SEO相关 -->
   
-  <link rel="canonical" href="http://example.com/2022/06/29/dropper/"/>
+  <link rel="canonical" href="http://example.com/2022/06/24/固件逆向分析初试/"/>
   <!-- 渲染优化 -->
     <meta http-equiv='x-dns-prefetch-control' content='on' />
       <link rel='dns-prefetch' href='https://unpkg.com'>
@@ -31,21 +31,21 @@
 
   <!-- feed -->
   <!-- 页面元数据 -->
-  <title>dropper - 1ens's blog</title>
-  <meta name="keywords" content="-[ACTF] -[dropper],null">
+  <title>固件逆向分析初试 - 1ens's blog</title>
+  <meta name="keywords" content="固件分析,null">
   <meta desc name="description" content="a - John Doe - 1ens's blog">
   
 <meta property="og:type" content="article">
-<meta property="og:title" content="dropper">
-<meta property="og:url" content="http://example.com/2022/06/29/dropper/index.html">
+<meta property="og:title" content="固件逆向分析初试">
+<meta property="og:url" content="http://example.com/2022/06/24/%E5%9B%BA%E4%BB%B6%E9%80%86%E5%90%91%E5%88%86%E6%9E%90%E5%88%9D%E8%AF%95/index.html">
 <meta property="og:site_name" content="1ens&#39;s blog">
-<meta property="og:description" content="Dropper 什么是Dropper Dropper是将程序嵌入到自己的内部。 类似于双进程，运行后解密了资源表的数据，本题是一个exe文件，然后作为子进程被创建了 解题  开始一个UPX壳，upx -d 的话无法运行 ，手动去壳,试了很多遍， rax会运行错误。 静态分析： （如果不给题目名称如何看出是dropper技术  进入，上面几个qword是函数调用但是识别失败。最后一个异或0x73，解">
+<meta property="og:description" content="m U-Boot(Universal Boot Loader)，即通用Bootloader，是德国DENX小组开发的用于多种嵌入式CPU的bootloader程序 Legacy-uImage在kernel镜像的基础上，加上64Byte的信息提供给uboot使用 binwalk分析一下，是Squashfs文件系统 Binwalk如何进行提取：通过maigc特征集与文件进行比对，但识别效率比file命">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
-<meta property="article:published_time" content="2022-06-29T01:49:45.000Z">
-<meta property="article:modified_time" content="2022-06-29T15:58:39.854Z">
+<meta property="article:published_time" content="2022-06-24T11:50:10.000Z">
+<meta property="article:modified_time" content="2022-06-29T16:02:40.715Z">
 <meta property="article:author" content="John Doe">
-<meta property="article:tag" content="-[ACTF] -[dropper]">
+<meta property="article:tag" content="固件分析">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
   <style>
@@ -2526,7 +2526,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           
 <div id="l_main" class=''>
   <article itemscope itemtype="http://schema.org/Article" class="article post white-box reveal md shadow floatable article-type-post" id="post" itemscope itemprop="blogPost">
-  <link itemprop="mainEntityOfPage" href="http://example.com/2022/06/29/dropper/">
+  <link itemprop="mainEntityOfPage" href="http://example.com/2022/06/24/%E5%9B%BA%E4%BB%B6%E9%80%86%E5%90%91%E5%88%86%E6%9E%90%E5%88%9D%E8%AF%95/">
   <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
     <meta itemprop="name" content="1ens's blog">
   </span>
@@ -2547,7 +2547,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
     
       <h1 class="title" itemprop="name headline">
-        dropper
+        固件逆向分析初试
       </h1>
       <div class='new-meta-box'>
         
@@ -2566,10 +2566,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
             
   <div class='new-meta-item category'>
     <i class="fa-solid fa-folder-open fa-fw" aria-hidden="true"></i>
-    <a class="category-link" href="/categories/WP/">WP</a>
+    <a class="category-link" href="/categories/iot/">iot</a>
     
       <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
-        <a href="/categories/WP/" itemprop="url"><span itemprop="name">WP</span></a>
+        <a href="/categories/iot/" itemprop="url"><span itemprop="name">iot</span></a>
       </span>
     
   </div>
@@ -2578,10 +2578,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           
         
           
-            <div class="new-meta-item date" itemprop="dateCreated datePublished" datetime="2022-06-29T09:49:45+08:00">
+            <div class="new-meta-item date" itemprop="dateCreated datePublished" datetime="2022-06-24T19:50:10+08:00">
   <a class='notlink'>
     <i class="fa-solid fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：2022年6月29日</p>
+    <p>发布于：2022年6月24日</p>
   </a>
 </div>
 
@@ -2616,35 +2616,18 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   <div id="layoutHelper-page-plugins"></div>
   <div id="post-body" itemprop="articleBody">
-    <p>Dropper</p>
-<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/453020222">什么是Dropper</a></p>
-<p>Dropper是将程序嵌入到自己的内部。</p>
-<p>类似于双进程，运行后解密了资源表的数据，本题是一个exe文件，然后作为子进程被创建了</p>
-<h1 id="解题"><a href="#解题" class="headerlink" title="解题"></a>解题</h1><p><img src="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202206292122746.png" class="lazyload" data-srcset="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202206292122746.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
-<p> 开始一个UPX壳，upx -d 的话无法运行 ，手动去壳,试了很多遍， rax会运行错误。</p>
-<p>静态分析：</p>
-<p>（如果不给题目名称如何看出是dropper技术</p>
-<p><img src="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202206292129407.png" class="lazyload" data-srcset="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202206292129407.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
-<p>进入，上面几个qword是函数调用但是识别失败。最后一个异或0x73，解密资源的地方，接着主程序后面就是创建一个进程，并把刚刚解密出的pe文件手动装载进行内存，然后恢复执行。</p>
-<p><img src="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202206292132808.png" class="lazyload" data-srcset="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202206292132808.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
-<p>下面我们用<a target="_blank" rel="noopener" href="https://github.com/glmcdona/Process-Dump">Process-Dump</a>来dump出子程序</p>
-<p><a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1887268">如何使用Process Dump</a></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pd64.exe -pid ****</span><br></pre></td></tr></table></figure>
-
-<p>dump出我们需要的子程序，</p>
-<p>主要逻辑为一个int a[500]的数组来实现这个大数的存储及运算</p>
-<p><img src="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202206292336175.png" class="lazyload" data-srcset="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202206292336175.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
-<p>这里的第88行*14 通过交叉引用可以推断出是什么，其初始化在Sub_7FF7D0F21433, </p>
-<p>将sub_7FF7D0F2167C的地址赋给前四个字节</p>
-<p><img src="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202206292348451.png" class="lazyload" data-srcset="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202206292348451.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
-<p><img src="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202206292336138.png" class="lazyload" data-srcset="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202206292336138.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
-<p>sub_7FF7D0F2167C函数主要两个功能，对数值的转换，然后check</p>
-<p><img src="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202206292335337.png" class="lazyload" data-srcset="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202206292335337.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
-<p>对大数的运算</p>
-<p><img src="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202206292341512.png" class="lazyload" data-srcset="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202206292341512.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
-<p>调试提取数据，有一个除0异常，直接跳过即可。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> base64</span><br><span class="line">enc = [<span class="number">0x000020F1</span>, <span class="number">0x00001DA9</span>, <span class="number">0x00000156</span>, <span class="number">0x00000B37</span>, <span class="number">0x000007C0</span>, <span class="number">0x0000066A</span>, <span class="number">0x000024E0</span>, <span class="number">0x00000D42</span>, <span class="number">0x00002077</span>, <span class="number">0x000007EC</span>, <span class="number">0x00001BA7</span>, <span class="number">0x00002071</span>, <span class="number">0x000000F8</span>, <span class="number">0x00000291</span>, <span class="number">0x000003DA</span>, <span class="number">0x0000157C</span>, <span class="number">0x00001EF4</span>, <span class="number">0x00002519</span>, <span class="number">0x00000C25</span>, <span class="number">0x00002062</span>, <span class="number">0x00002253</span>, <span class="number">0x00000640</span>, <span class="number">0x000008DF</span>, <span class="number">0x00001E34</span>, <span class="number">0x00002140</span>, <span class="number">0x00000F92</span>, <span class="number">0x0000039B</span>, <span class="number">0x0000126F</span>, <span class="number">0x00002403</span>, <span class="number">0x00000E65</span>, <span class="number">0x000001F0</span>, <span class="number">0x00001868</span>, <span class="number">0x0000016D</span>, <span class="number">0x000006B6</span>, <span class="number">0x00002214</span>, <span class="number">0x00001603</span>, <span class="number">0x00001925</span>, <span class="number">0x000016AE</span>, <span class="number">0x000012D0</span>, <span class="number">0x00001831</span>, <span class="number">0x0000018C</span>, <span class="number">0x00000BF7</span>, <span class="number">0x00000E97</span>, <span class="number">0x000000CE</span>, <span class="number">0x0000061C</span>, <span class="number">0x00000390</span>, <span class="number">0x000019E9</span>, <span class="number">0x000022A5</span>, <span class="number">0x00001601</span>, <span class="number">0x00001A1E</span>, <span class="number">0x000013D1</span>, <span class="number">0x00000DBC</span>, <span class="number">0x0000117D</span>, <span class="number">0x0000225F</span>, <span class="number">0x00002272</span>, <span class="number">0x0000007B</span>, <span class="number">0x000023E6</span>, <span class="number">0x0000069F</span>, <span class="number">0x000002D3</span>, <span class="number">0x00001BEF</span>, <span class="number">0x000003E6</span>, <span class="number">0x000017D4</span>, <span class="number">0x00002284</span>, <span class="number">0x000003B8</span>, <span class="number">0x00000251</span>, <span class="number">0x00001646</span>, <span class="number">0x00000176</span>, <span class="number">0x0000081E</span>, <span class="number">0x000024C3</span>, <span class="number">0x00001E85</span>, <span class="number">0x00001097</span>, <span class="number">0x00001264</span>, <span class="number">0x00000A34</span>, <span class="number">0x00001A3B</span>, <span class="number">0x00000FE7</span>, <span class="number">0x000026A6</span>, <span class="number">0x00001F43</span>, <span class="number">0x00001832</span>, <span class="number">0x000021AE</span>, <span class="number">0x0000023C</span>, <span class="number">0x000004C2</span>, <span class="number">0x00002585</span>, <span class="number">0x000017E7</span>, <span class="number">0x000015DD</span>, <span class="number">0x00002610</span>, <span class="number">0x00001B86</span>, <span class="number">0x00000D2A</span>, <span class="number">0x00000716</span>, <span class="number">0x00001C25</span>, <span class="number">0x00002099</span>]</span><br><span class="line">data = [[<span class="number">0x000024AC</span>, <span class="number">0x00000116</span>, <span class="number">0x000004F4</span>, <span class="number">0x00000B64</span>, <span class="number">0x00001DC3</span>, <span class="number">0x00001B4A</span>, <span class="number">0x000001B2</span>, <span class="number">0x00001FCE</span>, <span class="number">0x00000E81</span>, <span class="number">0x000025AB</span>, <span class="number">0x0000015B</span>, <span class="number">0x0000252D</span>, <span class="number">0x000002AC</span>, <span class="number">0x00000F77</span>, <span class="number">0x000022F5</span>, <span class="number">0x000019E3</span>, <span class="number">0x00001C53</span>, <span class="number">0x00000B66</span>, <span class="number">0x000011BC</span>, <span class="number">0x0000193A</span>],</span><br><span class="line">        [<span class="number">0x00000DC6</span>, <span class="number">0x00000854</span>, <span class="number">0x000015F5</span>, <span class="number">0x00002567</span>, <span class="number">0x000008FA</span>, <span class="number">0x00000E20</span>, <span class="number">0x00000807</span>, <span class="number">0x00001007</span>, <span class="number">0x000018CC</span>, <span class="number">0x00001E84</span>, <span class="number">0x00001F11</span>, <span class="number">0x000013D4</span>, <span class="number">0x0000076A</span>, <span class="number">0x00001461</span>, <span class="number">0x00000B0F</span>, <span class="number">0x00001F70</span>, <span class="number">0x00001B3D</span>, <span class="number">0x00001008</span>, <span class="number">0x00000D52</span>, <span class="number">0x0000049A</span>],</span><br><span class="line">        [<span class="number">0x00001A89</span>, <span class="number">0x00000E42</span>, <span class="number">0x000000FA</span>, <span class="number">0x0000100D</span>, <span class="number">0x000014DD</span>, <span class="number">0x00001BFC</span>, <span class="number">0x000026DB</span>, <span class="number">0x00001AC2</span>, <span class="number">0x00001CA0</span>, <span class="number">0x000005ED</span>, <span class="number">0x00000834</span>, <span class="number">0x000016BF</span>, <span class="number">0x00000704</span>, <span class="number">0x00001FAD</span>, <span class="number">0x000025FD</span>, <span class="number">0x00001142</span>, <span class="number">0x00001EEE</span>, <span class="number">0x00001E60</span>, <span class="number">0x00000353</span>, <span class="number">0x000015A8</span>],</span><br><span class="line">        [<span class="number">0x00000E17</span>, <span class="number">0x00000706</span>, <span class="number">0x00000C1F</span>, <span class="number">0x00000169</span>, <span class="number">0x00002248</span>, <span class="number">0x000007FD</span>, <span class="number">0x00001768</span>, <span class="number">0x00001F54</span>, <span class="number">0x00001574</span>, <span class="number">0x00002458</span>, <span class="number">0x00000374</span>, <span class="number">0x00001D6B</span>, <span class="number">0x00000918</span>, <span class="number">0x00000ECF</span>, <span class="number">0x0000211D</span>, <span class="number">0x00001D96</span>, <span class="number">0x00001BEB</span>, <span class="number">0x00001703</span>, <span class="number">0x00001B87</span>, <span class="number">0x000006FA</span>],</span><br><span class="line">        [<span class="number">0x00000AE3</span>, <span class="number">0x0000069F</span>, <span class="number">0x000001EF</span>, <span class="number">0x00001C15</span>, <span class="number">0x00001378</span>, <span class="number">0x000020D1</span>, <span class="number">0x0000211D</span>, <span class="number">0x00002275</span>, <span class="number">0x000005F4</span>, <span class="number">0x00002475</span>, <span class="number">0x00000D13</span>, <span class="number">0x000008EF</span>, <span class="number">0x00000E10</span>, <span class="number">0x000006D4</span>, <span class="number">0x0000215A</span>, <span class="number">0x000004D6</span>, <span class="number">0x0000202F</span>, <span class="number">0x00001B99</span>, <span class="number">0x00001C86</span>, <span class="number">0x000002F1</span>],</span><br><span class="line">        [<span class="number">0x00000680</span>, <span class="number">0x000000D4</span>, <span class="number">0x00000677</span>, <span class="number">0x00001E21</span>, <span class="number">0x0000220D</span>, <span class="number">0x00000933</span>, <span class="number">0x00000973</span>, <span class="number">0x00001947</span>, <span class="number">0x00000D61</span>, <span class="number">0x0000247F</span>, <span class="number">0x00001D21</span>, <span class="number">0x00001FA2</span>, <span class="number">0x00001606</span>, <span class="number">0x000007B0</span>, <span class="number">0x00001829</span>, <span class="number">0x000016C0</span>, <span class="number">0x000026C9</span>, <span class="number">0x0000248C</span>, <span class="number">0x00000C9A</span>, <span class="number">0x00001F8F</span>],</span><br><span class="line">        [<span class="number">0x0000257F</span>, <span class="number">0x00000359</span>, <span class="number">0x00001831</span>, <span class="number">0x000021B7</span>, <span class="number">0x00000BA8</span>, <span class="number">0x00000FC5</span>, <span class="number">0x00000BA4</span>, <span class="number">0x000024E2</span>, <span class="number">0x00001241</span>, <span class="number">0x00000D53</span>, <span class="number">0x00000C82</span>, <span class="number">0x00001240</span>, <span class="number">0x00002241</span>, <span class="number">0x00001156</span>, <span class="number">0x0000116A</span>, <span class="number">0x000005F3</span>, <span class="number">0x000022D5</span>, <span class="number">0x000008DA</span>, <span class="number">0x000014A3</span>, <span class="number">0x0000059E</span>],</span><br><span class="line">        [<span class="number">0x00001675</span>, <span class="number">0x00000AA9</span>, <span class="number">0x00000D8B</span>, <span class="number">0x00000D31</span>, <span class="number">0x00001722</span>, <span class="number">0x000006C8</span>, <span class="number">0x0000151B</span>, <span class="number">0x000017D8</span>, <span class="number">0x00001FEF</span>, <span class="number">0x00001624</span>, <span class="number">0x00002307</span>, <span class="number">0x00000CB9</span>, <span class="number">0x0000053C</span>, <span class="number">0x00000230</span>, <span class="number">0x00001EAA</span>, <span class="number">0x00001FD1</span>, <span class="number">0x00000FAD</span>, <span class="number">0x00001E30</span>, <span class="number">0x00002345</span>, <span class="number">0x00001583</span>],</span><br><span class="line">        [<span class="number">0x000001D1</span>, <span class="number">0x0000056E</span>, <span class="number">0x00000AA3</span>, <span class="number">0x0000223C</span>, <span class="number">0x000009A4</span>, <span class="number">0x000006C9</span>, <span class="number">0x00000112</span>, <span class="number">0x00001977</span>, <span class="number">0x00002512</span>, <span class="number">0x00000B60</span>, <span class="number">0x0000081A</span>, <span class="number">0x00000F06</span>, <span class="number">0x00001329</span>, <span class="number">0x000011AA</span>, <span class="number">0x00002404</span>, <span class="number">0x00000E57</span>, <span class="number">0x0000011E</span>, <span class="number">0x000011DC</span>, <span class="number">0x00002474</span>, <span class="number">0x00001BC7</span>],</span><br><span class="line">        [<span class="number">0x000022BE</span>, <span class="number">0x00001F17</span>, <span class="number">0x00000588</span>, <span class="number">0x00001B80</span>, <span class="number">0x00001479</span>, <span class="number">0x000016EF</span>, <span class="number">0x000008CA</span>, <span class="number">0x00000D6E</span>, <span class="number">0x0000138F</span>, <span class="number">0x00001054</span>, <span class="number">0x000021FA</span>, <span class="number">0x00000102</span>, <span class="number">0x000013A6</span>, <span class="number">0x00000195</span>, <span class="number">0x000002D1</span>, <span class="number">0x00002594</span>, <span class="number">0x00001369</span>, <span class="number">0x00002534</span>, <span class="number">0x000015C5</span>, <span class="number">0x0000168A</span>]]</span><br><span class="line">enc1 = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> enc[::-<span class="number">1</span>]:</span><br><span class="line">    enc1 = enc1*<span class="number">10000</span>+i</span><br><span class="line">data1= [<span class="number">0</span>]*<span class="number">10</span></span><br><span class="line"><span class="keyword">for</span> i, val <span class="keyword">in</span> <span class="built_in">enumerate</span>(data): <span class="comment">#enumerate() 函数用于将一个可遍历的数据对象(如列表、元组或字符串)组合为一个索引序列，同时列出数据和数据下标，一般用在 for 循环当中</span></span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> val[::-<span class="number">1</span>]:</span><br><span class="line">        data1[i] = data1[i]*<span class="number">10000</span>+j</span><br><span class="line">enc1 += data1[<span class="number">9</span>]</span><br><span class="line">enc1 -= data1[<span class="number">8</span>]</span><br><span class="line">enc1 += data1[<span class="number">7</span>]</span><br><span class="line">enc1 -= data1[<span class="number">6</span>]</span><br><span class="line">enc1 += data1[<span class="number">5</span>]</span><br><span class="line">enc1 //= data1[<span class="number">4</span>]</span><br><span class="line">enc1 -= data1[<span class="number">3</span>]</span><br><span class="line">enc1 += data1[<span class="number">2</span>]</span><br><span class="line">enc1 //= data1[<span class="number">1</span>]</span><br><span class="line">enc1 -= data1[<span class="number">0</span>]</span><br><span class="line">ans = <span class="string">&#x27;&#x27;</span></span><br><span class="line"><span class="keyword">while</span> enc1:</span><br><span class="line">    ans += <span class="built_in">chr</span>(enc1%<span class="number">128</span>)</span><br><span class="line">    enc1 //= <span class="number">128</span></span><br><span class="line"><span class="built_in">print</span>(base64.b64decode(ans))</span><br></pre></td></tr></table></figure>
-
+    <p><img src="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202206242008925.png" class="lazyload" data-srcset="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202206242008925.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">m</p>
+<p>U-Boot(Universal Boot Loader)，即通用Bootloader，是德国DENX小组开发的用于多种嵌入式CPU的bootloader程序</p>
+<p>Legacy-uImage<br>在kernel镜像的基础上，加上64Byte的信息提供给uboot使用</p>
+<p>binwalk分析一下，是Squashfs文件系统</p>
+<h3 id="Binwalk如何进行提取："><a href="#Binwalk如何进行提取：" class="headerlink" title="Binwalk如何进行提取："></a>Binwalk如何进行提取：</h3><p>通过maigc特征集与文件进行比对，但识别效率比file命令高多了</p>
+<p><img src="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202206242016218.png" class="lazyload" data-srcset="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202206242016218.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p>binwalk -Me 解压得到</p>
+<p><img src="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202206242219239.png" class="lazyload" data-srcset="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202206242219239.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p>文件系统是操作系统的重要组成部分，是操作运行的基础。不同的路由器使用的文件系统格式不尽相同。根文件系统会被打包成当前路由器所使用的文件系统格式，然后组装到固件中。路由器希望文件系统越小越好，所以这些文件系统中各种压缩格式随处可见。</p>
+<p> Squashfs是一个只读格式的文件系统，具有超高压缩率，其压缩率最高可达34%。当系统启动后，会将文件系统保存在一个压缩过的文件系统文件中，这个文件可以使用换回的形式挂载并对其中的文件进行访问，当进程需要某些文件时，仅将对应部分的压缩文件解压缩。 </p>
+<p>Squashfs文件系统常用的压缩格式有GZIP、LZMA、LZO、XZ（LZMA2）。路由器的根文件系统通常会按照Squashfs文件系统常用压缩格式中的一种进行打包，形成一个完整的Squashfs文件系统，然后与路由器操作系统的内核一起形成更新固件。 </p>
+<p>由于squashFS可以在不需要解压的情况下直接挂载，因此有许多应用场景，例如： 1、安装Linux时用的live cd 2、小型嵌入式设备中的rootfs。rootfs一般以压缩好的形式存放在ROM中，如果开机时把整个rootfs都解压到内存里再读取，对于ROM和RAM容量一般都很小的小型嵌入式设备来说性价比太低。</p>
 
 
   </div>
@@ -2664,7 +2647,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
               
             
               
-                <p>本文永久链接是：<a href=http://example.com/2022/06/29/dropper/>http://example.com/2022/06/29/dropper/</a></p>
+                <p>本文永久链接是：<a href=http://example.com/2022/06/24/%E5%9B%BA%E4%BB%B6%E9%80%86%E5%90%91%E5%88%86%E6%9E%90%E5%88%9D%E8%AF%95/>http://example.com/2022/06/24/%E5%9B%BA%E4%BB%B6%E9%80%86%E5%90%91%E5%88%86%E6%9E%90%E5%88%9D%E8%AF%95/</a></p>
               
             
           </blockquote>
@@ -2681,10 +2664,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-06-29T23:58:39+08:00">
+          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-06-30T00:02:40+08:00">
   <a class='notlink'>
     <i class="fa-solid fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2022年6月29日</p>
+    <p>更新于：2022年6月30日</p>
   </a>
 </div>
 
@@ -2693,8 +2676,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         
           
   
-  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/ACTF-dropper/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>-[ACTF] -[dropper]</p></a></div>
-  <span hidden itemprop="keywords">-[ACTF] -[dropper]</span>
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E5%9B%BA%E4%BB%B6%E5%88%86%E6%9E%90/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>固件分析</p></a></div>
+  <span hidden itemprop="keywords">固件分析</span>
 
 
         
@@ -2707,7 +2690,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2022/06/29/dropper/&title=dropper - 1ens's blog&summary="
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2022/06/24/%E5%9B%BA%E4%BB%B6%E9%80%86%E5%90%91%E5%88%86%E6%9E%90%E5%88%9D%E8%AF%95/&title=固件逆向分析初试 - 1ens's blog&summary="
           
           >
           
@@ -2719,7 +2702,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://example.com/2022/06/29/dropper/&title=dropper - 1ens's blog&summary="
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://example.com/2022/06/24/%E5%9B%BA%E4%BB%B6%E9%80%86%E5%90%91%E5%88%86%E6%9E%90%E5%88%9D%E8%AF%95/&title=固件逆向分析初试 - 1ens's blog&summary="
           
           >
           
@@ -2731,7 +2714,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2022/06/29/dropper/&title=dropper - 1ens's blog&summary="
+          target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2022/06/24/%E5%9B%BA%E4%BB%B6%E9%80%86%E5%90%91%E5%88%86%E6%9E%90%E5%88%9D%E8%AF%95/&title=固件逆向分析初试 - 1ens's blog&summary="
           
           >
           
@@ -2764,12 +2747,24 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     <div class="prev-next">
       
+        <a class='prev' href='/2022/06/29/dropper/'>
+          <p class='title'><i class="fa-solid fa-chevron-left" aria-hidden="true"></i>dropper</p>
+          <p class='content'>Dropper
+什么是Dropper
+Dropper是将程序嵌入到自己的内部。
+类似于双进程，运行后解密了资源表的数据，本题是一个exe文件，然后作为子进程被创建了
+解题
+ 开始一个UPX壳，u...</p>
+        </a>
       
-        <a class='next' href='/2022/06/24/%E5%9B%BA%E4%BB%B6%E9%80%86%E5%90%91%E5%88%86%E6%9E%90%E5%88%9D%E8%AF%95/'>
-          <p class='title'>固件逆向分析初试<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
-          <p class='content'>m
-U-Boot(Universal Boot Loader)，即通用Bootloader，是德国DENX小组开发的用于多种嵌入式CPU的bootloader程序
-Legacy-uImage在k...</p>
+      
+        <a class='next' href='/2022/05/30/%E7%A2%8E%E7%A2%8E%E5%BF%B5/'>
+          <p class='title'>你的状态不对<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'> 我知道你的状态不对，希望你可以及时调整过来。
+不要悲观，又或者静不下心来。
+或者你又对这个世界充满了愤懑，又或者松懈了，没有按时完成自己的计划。
+去洗个澡，去跑步，调整自己。
+不要太看重结果，...</p>
         </a>
       
     </div>
@@ -2785,7 +2780,7 @@ Legacy-uImage在k...</p>
 
   <article class="post white-box shadow floatable" id="comments">
     <span hidden>
-      <meta itemprop="discussionUrl" content="/2022/06/29/dropper/index.html#comments">
+      <meta itemprop="discussionUrl" content="/2022/06/24/%E5%9B%BA%E4%BB%B6%E9%80%86%E5%90%91%E5%88%86%E6%9E%90%E5%88%9D%E8%AF%95/index.html#comments">
     </span>
     <p ct><i class='fa-solid fa-comments'></i> 评论</p>
     
@@ -2818,7 +2813,7 @@ Legacy-uImage在k...</p>
 
 
     <div class='content'>
-        
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Binwalk%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E6%8F%90%E5%8F%96%EF%BC%9A"><span class="toc-text">Binwalk如何进行提取：</span></a></li></ol>
     </div>
   </section>
 
@@ -4139,7 +4134,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"1ens's blog","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"John Doe","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","sameAs":["https://github.com/volantis-x"],"description":"a"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://example.com/","name":"1ens's blog"}},{"@type":"ListItem","position":2,"item":{"@id":"http://example.com/categories/WP/","name":"WP"}},{"@type":"ListItem","position":3,"item":{"@id":"http://example.com/2022/06/29/dropper/","name":"dropper"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"1ens's blog","url":"http://example.com/","keywords":null,"description":"a","author":{"@type":"Person","name":"John Doe","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","description":"a"},"publisher":{"@type":"Organization","name":"1ens's blog","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"http://example.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"dropper","description":"a","inLanguage":["zh-CN","default"],"mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2022/06/29/dropper/"},"author":{"@type":"Person","name":"John Doe","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/"},"publisher":{"@type":"Organization","name":"1ens's blog","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://example.com/2022/06/29/dropper/","wordCount":0,"datePublished":"2022-06-29T01:49:45.000Z","dateModified":"2022-06-29T15:58:39.854Z","articleSection":"WP","keywords":"-[ACTF] -[dropper]","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"1ens's blog","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"John Doe","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","sameAs":["https://github.com/volantis-x"],"description":"a"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://example.com/","name":"1ens's blog"}},{"@type":"ListItem","position":2,"item":{"@id":"http://example.com/categories/iot/","name":"iot"}},{"@type":"ListItem","position":3,"item":{"@id":"http://example.com/2022/06/24/固件逆向分析初试/","name":"固件逆向分析初试"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"1ens's blog","url":"http://example.com/","keywords":null,"description":"a","author":{"@type":"Person","name":"John Doe","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","description":"a"},"publisher":{"@type":"Organization","name":"1ens's blog","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"http://example.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"固件逆向分析初试","description":"a","inLanguage":["zh-CN","default"],"mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2022/06/24/%E5%9B%BA%E4%BB%B6%E9%80%86%E5%90%91%E5%88%86%E6%9E%90%E5%88%9D%E8%AF%95/"},"author":{"@type":"Person","name":"John Doe","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/"},"publisher":{"@type":"Organization","name":"1ens's blog","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://example.com/2022/06/24/%E5%9B%BA%E4%BB%B6%E9%80%86%E5%90%91%E5%88%86%E6%9E%90%E5%88%9D%E8%AF%95/","wordCount":0,"datePublished":"2022-06-24T11:50:10.000Z","dateModified":"2022-06-29T16:02:40.715Z","articleSection":"iot","keywords":"固件分析","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 
