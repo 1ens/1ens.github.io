@@ -6,7 +6,7 @@
   <meta charset="utf-8">
   <!-- SEO相关 -->
   
-  <link rel="canonical" href="http://example.com/friends/"/>
+  <link rel="canonical" href="http://example.com/2022/07/01/arm基础/"/>
   <!-- 渲染优化 -->
     <meta http-equiv='x-dns-prefetch-control' content='on' />
       <link rel='dns-prefetch' href='https://unpkg.com'>
@@ -31,20 +31,21 @@
 
   <!-- feed -->
   <!-- 页面元数据 -->
-  <title>我的朋友们 - 1ens's blog</title>
-  <meta name="keywords" content="null">
-  <meta desc name="description" content="big lao - John Doe - 1ens's blog">
+  <title>arm基础 - 1ens's blog</title>
+  <meta name="keywords" content="arm,null">
+  <meta desc name="description" content="a - John Doe - 1ens's blog">
   
-<meta property="og:type" content="website">
-<meta property="og:title" content="我的朋友们">
-<meta property="og:url" content="http://example.com/friends/index.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="arm基础">
+<meta property="og:url" content="http://example.com/2022/07/01/arm%E5%9F%BA%E7%A1%80/index.html">
 <meta property="og:site_name" content="1ens&#39;s blog">
-<meta property="og:description" content="big lao">
+<meta property="og:description" content="arm工作模式ARM之所以设计出这么多种模式出来，就是为了「应对CPU在运行时各种突发事件」，比如要支持正常的应用程序的运行，在运行任何一个时间点又可能发生很多异常事件，比如：关机、收到网卡信息、除数为0、访问非法内存、解析到了非法指令等等，不光要能处理这些异常还要能够从异常中再返回到原来的程序继续执行。  两种工作状态1、ARM状态：32位，ARM状态执行字对齐的32位ARM指令。 2、Thum">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
-<meta property="article:published_time" content="2022-05-24T15:06:34.544Z">
-<meta property="article:modified_time" content="2022-05-24T15:06:34.544Z">
+<meta property="article:published_time" content="2022-06-30T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-07-01T13:39:44.089Z">
 <meta property="article:author" content="John Doe">
+<meta property="article:tag" content="arm">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
   <style>
@@ -2458,7 +2459,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     
       <!-- see: /layout/_partial/scripts/_ctrl/coverCtrl.ejs -->
-      <div id="none" class='cover-wrapper friends search' style="display: none;">
+      <div id="none" class='cover-wrapper post search' style="display: none;">
         
   <div id="parallax-window"></div>
 
@@ -2524,8 +2525,16 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         <div class="body-wrapper">
           
 <div id="l_main" class=''>
-  <article id="friends" class="md post article article-entry l_friends white-box reveal shadow floatable article-type-friends" itemscope itemprop="blogPost">
-    
+  <article itemscope itemtype="http://schema.org/Article" class="article post white-box reveal md shadow floatable article-type-post" id="post" itemscope itemprop="blogPost">
+  <link itemprop="mainEntityOfPage" href="http://example.com/2022/07/01/arm%E5%9F%BA%E7%A1%80/">
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="1ens's blog">
+  </span>
+  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
+    <meta itemprop="name" content="1ens's blog">
+    <meta itemprop="description" content="a">
+  </span>
+  
 
 
   
@@ -2538,7 +2547,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
     
       <h1 class="title" itemprop="name headline">
-        我的朋友们
+        arm基础
       </h1>
       <div class='new-meta-box'>
         
@@ -2555,14 +2564,24 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         
           
             
+  <div class='new-meta-item category'>
+    <i class="fa-solid fa-folder-open fa-fw" aria-hidden="true"></i>
+    <a class="category-link" href="/categories/iot/">iot</a>
+    
+      <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
+        <a href="/categories/iot/" itemprop="url"><span itemprop="name">iot</span></a>
+      </span>
+    
+  </div>
+
 
           
         
           
-            <div class="new-meta-item date" itemprop="dateCreated datePublished" datetime="2022-05-24T23:06:34+08:00">
+            <div class="new-meta-item date" itemprop="dateCreated datePublished" datetime="2022-07-01T00:00:00+08:00">
   <a class='notlink'>
     <i class="fa-solid fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：2022年5月24日</p>
+    <p>发布于：2022年7月1日</p>
   </a>
 </div>
 
@@ -2595,77 +2614,156 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   </div>
 
 
-    <p>big lao</p>
+  <div id="layoutHelper-page-plugins"></div>
+  <div id="post-body" itemprop="articleBody">
+    <div class="story post-story"><h2 id="arm工作模式"><a href="#arm工作模式" class="headerlink" title="arm工作模式"></a>arm工作模式</h2><p>ARM之所以设计出这么多种模式出来，就是为了<strong>「应对CPU在运行时各种突发事件」</strong>，比如要支持正常的应用程序的运行，在运行任何一个时间点又可能发生很多异常事件，比如：关机、收到网卡信息、除数为0、访问非法内存、解析到了非法指令等等，不光要能处理这些异常还要能够从异常中再返回到原来的程序继续执行。</p>
+<p><img src="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207011905957.png" class="lazyload" data-srcset="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207011905957.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+</div><div class="story post-story"><h2 id="两种工作状态"><a href="#两种工作状态" class="headerlink" title="两种工作状态"></a>两种工作状态</h2><p>1、<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=ARM&spm=1001.2101.3001.7020">ARM</a>状态：32位，ARM状态执行字对齐的32位ARM指令。</p>
+<p>2、Thumb状态，16位，执行半字对齐的16位指令。</p>
+<p>注：1、ARM和Thumb两种状态之间的切换不影响处理器的工作模式和寄存器的内容。</p>
+<p>​    2、ARM处理器在处理异常时，不管处理器处于什么状态，则都将切换到ARM状态。</p>
+<p><img src="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207011927151.png" class="lazyload" data-srcset="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207011927151.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p><img src="C:\Users\25858\AppData\Roaming\Typora\typora-user-images\image-20220701192828236.png" class="lazyload" data-srcset="C:\Users\25858\AppData\Roaming\Typora\typora-user-images\image-20220701192828236.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20220701192828236"></p>
+</div><div class="story post-story"><h2 id="寄存器"><a href="#寄存器" class="headerlink" title="寄存器"></a>寄存器</h2><p><img src="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207011946946.png" class="lazyload" data-srcset="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207011946946.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p>通用寄存器包括R0~R15,可以分为3类:</p>
+<ol>
+<li>未分组寄存器R0~R7</li>
+<li>分组寄存器R8~R14、R13(SP) 、R14(LR)</li>
+<li>程序计数器PC(R15)、R8_fiq-R12_fir为快中断独有</li>
+</ol>
+<h3 id="1-未分组寄存器R0-R7"><a href="#1-未分组寄存器R0-R7" class="headerlink" title="1. 未分组寄存器R0~R7"></a><strong>1. 未分组寄存器R0~R7</strong></h3><p>在所有运行模式下,未分组寄存器都指向同一个物理寄存器,它们未被系统用作特殊的用途.因此在中断或异常处理进行运行模式转换时,由于不同的处理器运行模式均使用相同的物理寄存器,所以可能造成寄存器中数据的破坏。</p>
+<h3 id="2-分组寄存器R8-R14"><a href="#2-分组寄存器R8-R14" class="headerlink" title="2. 分组寄存器R8~R14"></a><strong>2. 分组寄存器R8~R14</strong></h3><p>对于分组寄存器,它们每一次所访问的物理寄存器都与当前处理器的运行模式有关。</p>
+<p>对于R8<del>R12来说,每个寄存器对应2个不同的物理寄存器,当使用FIQ(快速中断模式)时,访问寄存器 R8_fiq</del>R12_fiq;当使用除FIQ模式以外的其他模式时,访问寄存器R8_usr~R12_usr。</p>
+<p>对于R13,R14来说,每个寄存器对应7个不同的物理寄存器,其中一个是用户模式与系统模式共用,另外6个物理寄存器对应其他6种不同的运行模式,并采用以下记号来区分不同的物理寄存器:</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">R13_mode    R14_mode</span><br></pre></td></tr></table></figure>
+
+<p>其中mode可为:<strong>「usr,fiq,irq,svc,abt,und，mon」</strong>。</p>
+<h3 id="3-寄存器R13（sp）"><a href="#3-寄存器R13（sp）" class="headerlink" title="3. 寄存器R13（sp）"></a><strong>3. 寄存器R13（sp）</strong></h3><p>在ARM指令中常用作<strong>「堆栈指针」</strong>,用户也可使用其他的寄存器作为堆栈指针,而在Thumb指令集中,某些指令强制性的要求使用R13作为堆栈指针。</p>
+<p>寄存器R13在ARM指令中常用作堆栈指针，但这只是一种习惯用法，用户也可使用其他的寄存器作为堆栈指针。而在Thumb指令集中，某些指令强制性的要求使用R13作为堆栈指针。</p>
+<p>由于处理器的每种运行模式均有自己独立的物理寄存器R13，在用户应用程序的初始化部分，一般都要初始化每种模式下的R13，使其指向该运行模式的栈空间。这样，当程序的运行进入异常模式时，可以将需要保护的寄存器放入R13所指向的堆栈，而当程序从异常模式返回时，则从对应的堆栈中恢复，采用这种方式可以保证异常发生后程序的正常执行。</p>
+<h3 id="4-R14（LR）链接寄存器-Link-Register"><a href="#4-R14（LR）链接寄存器-Link-Register" class="headerlink" title="4. R14（LR）链接寄存器(Link Register)"></a><strong>4. R14（LR）链接寄存器(Link Register)</strong></h3><p>当执行子程序调用指令(BL)时,R14可得到R15(程序计数器PC)的备份。</p>
+<p>在每一种运行模式下，都可用R14保存子程序的返回地址，当用BL或BLX指令调用子程序时，将PC的当前值复制给R14，执行完子程序后，又将R14的值复制回PC，即可完成子程序的调用返回。以上的描述可用指令完成。</p>
+<h4 id="从子程序返回："><a href="#从子程序返回：" class="headerlink" title="从子程序返回："></a><strong>从子程序返回：</strong></h4><p><strong>「方法1：」</strong></p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">  MOV PC, LR</span><br><span class="line">或者</span><br><span class="line">  BX LR</span><br></pre></td></tr></table></figure>
+
+<p><strong>「方法2：」</strong> 在子程序入口处使用以下指令将R14存入堆栈：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">STMFD SP！,&#123;,LR&#125;</span><br></pre></td></tr></table></figure>
+
+<p>对应的，使用以下指令可以完成子程序返回：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">LDMFD SP！,&#123;,PC&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="5-R15-PC-程序状态寄存器"><a href="#5-R15-PC-程序状态寄存器" class="headerlink" title="5. R15(PC)程序状态寄存器"></a><strong>5. R15(PC)程序状态寄存器</strong></h3><p>寄存器R15用作程序计数器(PC),在ARM状态下,位[1:0]为0,位[31:2]用于保存PC,在Thumb状态下,位[0]为0,位[31:1]用于保存PC。</p>
+<p>比如如果pc的值是0x40008001,那么在寻址的时候其实会查找地址0x40008000，低2位会自动忽略掉。<strong>「个中原因，请读者自己思考?」</strong></p>
+<p>由于ARM体系结构采用了多级流水线技术，对于ARM指令集而言，PC总是指向当前指令的下两条指令的地址,即PC的值为当前指令的地址值加8个字节。</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">即：PC值=当前程序执行位置+8</span><br></pre></td></tr></table></figure>
+
+<h3 id="6-CPSR、SPSR"><a href="#6-CPSR、SPSR" class="headerlink" title="6. CPSR、SPSR"></a><strong>6. CPSR、SPSR</strong></h3><p><strong>「CPSR」</strong>(Current Program Status Register，当前程序状态寄存器)，CPSR可在任何运行模式下被访问，它包括条件标志位、中断禁止位、当前处理器模式标志位，以及其他一些相关的控制和状态位。</p>
+<p>每一种运行模式下又都有一个专用的物理状态寄存器，称为<strong>「SPSR」</strong>(Saved Program Status Register，备份的程序状态寄存器)，当异常发生时，SPSR用于保存CPSR的当前值，从异常退出时则可由SPSR来恢复CPSR。</p>
+<p>由于用户模式和系统模式不属于异常模式，它们没有SPSR，当在这两种模式下访问SPSR，结果是未知的。</p>
+<p>寄存器CPSR格式如下：</p>
+<p><img src="https://pic4.zhimg.com/80/v2-302acba84094b77c3a6496916ace1f33_720w.jpg" class="lazyload" data-srcset="https://pic4.zhimg.com/80/v2-302acba84094b77c3a6496916ace1f33_720w.jpg" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="img"></p>
+<ol>
+<li>条件码标志(condition code flags) <strong>「N,Z,C,V」</strong>均为条件码标志位,它们的内容可被算术或逻辑运算的结果所改变,并且可以决定某条指令是否被执行。 在ARM状态下,绝大多数的指令都是有条件执行的,在Thumb状态下,仅有分支指令是有条件执行的。</li>
+</ol>
+<p><strong>「N (Number)」</strong>: 当用两个补码表示的带符号数进行运算时,N&#x3D;1表示运行结果为负,N&#x3D;0表示运行结果为正或零</p>
+<p><strong>「Z :(Zero)」</strong>: Z&#x3D;1表示运算结果为零,Z&#x3D;0表示运行结果非零</p>
+<p><strong>「C」</strong> : 可以有4种方法设置C的值：</p>
+<ul>
+<li>(Come)加法运算(包括CMP):当运算结果产生了进位时C&#x3D;1,否则C&#x3D;0</li>
+<li>减法运算(包括CMP):当运算产生了借位,C&#x3D;0否则C&#x3D;1</li>
+<li>对于包含移位操作的非加&#x2F;减运算指令 ,C为移出值的最后一位</li>
+<li>对于其他的非加&#x2F;减运算指令C的值通常不改变</li>
+</ul>
+<p><strong>「V」</strong> :<br>(oVerflow)对于加&#x2F;减法运算指令,当操作数和运算结果为二进制的补码表示的带符号位溢出时,V&#x3D;1表示符号位溢出;对于其他的非加&#x2F;减运算指令V的值通常不改变</p>
+<p><strong>「Q」</strong>： 在ARM V5及以上版本的E系列处理器中，用Q标志位指示增强的DSP运算指令是否发生了溢出。在其它版本的处理器中，Q标志位无定义</p>
+<p><strong>「J：」</strong><br>仅ARM v5TE-J架构支持 , T&#x3D;0;J &#x3D; 1 处理器处于Jazelle状态,也可以和其他位组合.</p>
+<p><strong>「E位：」</strong> 大小端控制位</p>
+<p><strong>「A位：」</strong> A&#x3D;1 禁止不精确的数据异常</p>
+<p><strong>「T :」</strong> T &#x3D; 0;J&#x3D;0; 处理器处于 ARM 状态 T &#x3D; 1;J&#x3D;0 处理器处于 Thumb 状态 T &#x3D; 1;J&#x3D;1 处理器处于 ThumbEE 状态</p>
+<ol>
+<li>控制位 CPSR的低8位(包括I,F,T和M[4:0])称为控制位,当发生异常时这些位可以被改变,如果处理器运行特权模式,这些位也可以由程序修改。</li>
+</ol>
+<p><strong>「中断禁止位I,F」</strong>【重要】 I&#x3D;1 禁止IRQ中断 F&#x3D;1 禁止FIQ中断</p>
+<p>比如我们要想在程序中实现禁止中断，那么就需要将CPSR[7]置1。</p>
+<ol>
+<li>运行模式位[4-0]</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>bite</th>
+<th>模式</th>
+<th>ARM模式可访问的寄存器</th>
+</tr>
+</thead>
+<tbody><tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<p>注意观察这5个bit的特点，最高位都是1，低4位的值则各不相同，这个很重要，要想搞清楚uboot、linux的源码，尤其是异常操作的代码，必须要知道这几个bit的值。</p>
+</div><div class="story post-story"><h2 id="流水线"><a href="#流水线" class="headerlink" title="流水线"></a>流水线</h2><p><img src="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207011952403.png" class="lazyload" data-srcset="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207011952403.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+</div><div class="story post-story"><h2 id="关键指令"><a href="#关键指令" class="headerlink" title="关键指令"></a>关键指令</h2><p><img src="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207012004599.png" class="lazyload" data-srcset="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207012004599.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p><img src="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207012012096.png" class="lazyload" data-srcset="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207012012096.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p><img src="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207012012557.png" class="lazyload" data-srcset="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207012012557.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p><img src="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207012017047.png" class="lazyload" data-srcset="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207012017047.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p><img src="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207012021772.png" class="lazyload" data-srcset="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207012021772.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p><img src="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207012022630.png" class="lazyload" data-srcset="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207012022630.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p><img src="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207012024984.png" class="lazyload" data-srcset="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207012024984.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p><img src="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207012029587.png" class="lazyload" data-srcset="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207012029587.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p><img src="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207012034953.png" class="lazyload" data-srcset="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207012034953.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p><img src="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207012035407.png" class="lazyload" data-srcset="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207012035407.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p><img src="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207012036343.png" class="lazyload" data-srcset="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207012036343.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p><img src="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207012039088.png" class="lazyload" data-srcset="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207012039088.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<h4 id="跳转"><a href="#跳转" class="headerlink" title="跳转"></a>跳转</h4><p><img src="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207012103481.png" class="lazyload" data-srcset="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207012103481.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p><img src="C:\Users\25858\AppData\Roaming\Typora\typora-user-images\image-20220701210454467.png" class="lazyload" data-srcset="C:\Users\25858\AppData\Roaming\Typora\typora-user-images\image-20220701210454467.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20220701210454467"></p>
+<p><img src="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207012109930.png" class="lazyload" data-srcset="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207012109930.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p><img src="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207012111081.png" class="lazyload" data-srcset="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207012111081.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p><img src="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207012118633.png" class="lazyload" data-srcset="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207012118633.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p><img src="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207012119566.png" class="lazyload" data-srcset="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207012119566.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p><img src="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207012119341.png" class="lazyload" data-srcset="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207012119341.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p><img src="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207012120984.png" class="lazyload" data-srcset="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207012120984.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p><img src="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207012123335.png" class="lazyload" data-srcset="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207012123335.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p><img src="C:\Users\25858\AppData\Roaming\Typora\typora-user-images\image-20220701212439179.png" class="lazyload" data-srcset="C:\Users\25858\AppData\Roaming\Typora\typora-user-images\image-20220701212439179.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20220701212439179"></p>
+<p><img src="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207012127963.png" class="lazyload" data-srcset="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207012127963.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p><img src="C:\Users\25858\AppData\Roaming\Typora\typora-user-images\image-20220701213240392.png" class="lazyload" data-srcset="C:\Users\25858\AppData\Roaming\Typora\typora-user-images\image-20220701213240392.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20220701213240392"></p>
+<p><img src="C:\Users\25858\AppData\Roaming\Typora\typora-user-images\image-20220701213334166.png" class="lazyload" data-srcset="C:\Users\25858\AppData\Roaming\Typora\typora-user-images\image-20220701213334166.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20220701213334166"></p>
+<p><img src="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207012133859.png" class="lazyload" data-srcset="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207012133859.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p><img src="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207012135179.png" class="lazyload" data-srcset="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207012135179.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<h4 id="伪代码"><a href="#伪代码" class="headerlink" title="伪代码"></a>伪代码</h4><p><img src="C:\Users\25858\AppData\Roaming\Typora\typora-user-images\image-20220701213618649.png" class="lazyload" data-srcset="C:\Users\25858\AppData\Roaming\Typora\typora-user-images\image-20220701213618649.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20220701213618649"></p>
+<p><img src="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207012136015.png" class="lazyload" data-srcset="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207012136015.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p><img src="C:\Users\25858\AppData\Roaming\Typora\typora-user-images\image-20220701213813008.png" class="lazyload" data-srcset="C:\Users\25858\AppData\Roaming\Typora\typora-user-images\image-20220701213813008.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20220701213813008"></p>
+<p><img src="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207012139447.png" class="lazyload" data-srcset="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207012139447.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+
+</div>
+  </div>
+  
+  
     
+    <div class='footer'>
       
-        <div class='friends-group'>
-          <br>
-          <h2 class='friend-header'>
+      
+      
+        <div class='copyright'>
+          <blockquote>
             
-          </h2>
-          
-          
-            <div class='friend-content'>
               
-                
-                  <a class='friend-card'
-                    target="_blank" rel="external noopener noreferrer" href="https://gxher.github.io/">
-                    <div class='friend-left'>
-                      
-                        <img class='avatar' src='https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202205242358694.png'/>
-                      
-                    </div>
-                    <div class='friend-right'>
-                      <p class="friend-name">amzh</p>
-                      
-                      
-                    </div>
-                  </a>
-                
+                <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
               
-                
-                  <a class='friend-card'
-                    target="_blank" rel="external noopener noreferrer" href="https://jonathanbest7.github.io/">
-                    <div class='friend-left'>
-                      
-                        <img class='avatar' src='https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202205251412796.bmp'/>
-                      
-                    </div>
-                    <div class='friend-right'>
-                      <p class="friend-name">bj777</p>
-                      
-                      
-                        <div class='friend-tags-wrapper'>
-                          <p class="tags">逆向菜鸡</p>
-                        </div>
-                      
-                    </div>
-                  </a>
-                
+            
               
-                
-                  <a class='friend-card'
-                    target="_blank" rel="external noopener noreferrer" href="/algggg.top">
-                    <div class='friend-left'>
-                      
-                        <img class='avatar' src='https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202205292117311.bmp'/>
-                      
-                    </div>
-                    <div class='friend-right'>
-                      <p class="friend-name">ALG_RE</p>
-                      
-                      
-                    </div>
-                  </a>
-                
+                <p>本文永久链接是：<a href=http://example.com/2022/07/01/arm%E5%9F%BA%E7%A1%80/>http://example.com/2022/07/01/arm%E5%9F%BA%E7%A1%80/</a></p>
               
-            </div>
-          
+            
+          </blockquote>
         </div>
       
-    
-    <br><br>
-    <p>带带</p>
+      
+    </div>
+  
+  
     
 
 
@@ -2673,10 +2771,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-05-24T23:06:34+08:00">
+          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-07-01T21:39:44+08:00">
   <a class='notlink'>
     <i class="fa-solid fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2022年5月24日</p>
+    <p>更新于：2022年7月1日</p>
   </a>
 </div>
 
@@ -2684,6 +2782,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         
           
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/arm/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>arm</p></a></div>
+  <span hidden itemprop="keywords">arm</span>
+
 
         
       
@@ -2695,7 +2797,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/friends/index.html&title=我的朋友们 - 1ens's blog&summary=big lao"
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2022/07/01/arm%E5%9F%BA%E7%A1%80/&title=arm基础 - 1ens's blog&summary="
           
           >
           
@@ -2707,7 +2809,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://example.com/friends/index.html&title=我的朋友们 - 1ens's blog&summary=big lao"
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://example.com/2022/07/01/arm%E5%9F%BA%E7%A1%80/&title=arm基础 - 1ens's blog&summary="
           
           >
           
@@ -2719,7 +2821,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/friends/index.html&title=我的朋友们 - 1ens's blog&summary=big lao"
+          target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2022/07/01/arm%E5%9F%BA%E7%A1%80/&title=arm基础 - 1ens's blog&summary="
           
           >
           
@@ -2746,14 +2848,37 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   </div>
 
 
-  </article>
+  
+  
+
+  
+    <div class="prev-next">
+      
+      
+        <a class='next' href='/2022/06/29/dropper/'>
+          <p class='title'>dropper<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>Dropper
+什么是Dropper
+Dropper是将程序嵌入到自己的内部。
+类似于双进程，运行后解密了资源表的数据，本题是一个exe文件，然后作为子进程被创建了
+解题
+ 开始一个UPX壳，u...</p>
+        </a>
+      
+    </div>
+  
+  <!-- Custom Files postEnd begin-->
+  
+  <!-- Custom Files postEnd end-->
+</article>
+
 
   
 
 
   <article class="post white-box shadow floatable" id="comments">
     <span hidden>
-      <meta itemprop="discussionUrl" content="/friends/index.html#comments">
+      <meta itemprop="discussionUrl" content="/2022/07/01/arm%E5%9F%BA%E7%A1%80/index.html#comments">
     </span>
     <p ct><i class='fa-solid fa-comments'></i> 评论</p>
     
@@ -2761,6 +2886,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div id="layoutHelper-comments"></div>
 
   </article>
+
+
 
 
 
@@ -2774,9 +2901,19 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
 
-  <div class="pjax">
-    <!-- pjax占位 -->
-  </div>
+  <section class="widget toc-wrapper shadow floatable desktop mobile pjax" id="toc-div" >
+    
+  <header>
+    
+      <i class="fa-solid fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
+    
+  </header>
+
+
+    <div class='content'>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#arm%E5%B7%A5%E4%BD%9C%E6%A8%A1%E5%BC%8F"><span class="toc-text">arm工作模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%A4%E7%A7%8D%E5%B7%A5%E4%BD%9C%E7%8A%B6%E6%80%81"><span class="toc-text">两种工作状态</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%84%E5%AD%98%E5%99%A8"><span class="toc-text">寄存器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E6%9C%AA%E5%88%86%E7%BB%84%E5%AF%84%E5%AD%98%E5%99%A8R0-R7"><span class="toc-text">1. 未分组寄存器R0~R7</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%88%86%E7%BB%84%E5%AF%84%E5%AD%98%E5%99%A8R8-R14"><span class="toc-text">2. 分组寄存器R8~R14</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%AF%84%E5%AD%98%E5%99%A8R13%EF%BC%88sp%EF%BC%89"><span class="toc-text">3. 寄存器R13（sp）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-R14%EF%BC%88LR%EF%BC%89%E9%93%BE%E6%8E%A5%E5%AF%84%E5%AD%98%E5%99%A8-Link-Register"><span class="toc-text">4. R14（LR）链接寄存器(Link Register)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%8E%E5%AD%90%E7%A8%8B%E5%BA%8F%E8%BF%94%E5%9B%9E%EF%BC%9A"><span class="toc-text">从子程序返回：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-R15-PC-%E7%A8%8B%E5%BA%8F%E7%8A%B6%E6%80%81%E5%AF%84%E5%AD%98%E5%99%A8"><span class="toc-text">5. R15(PC)程序状态寄存器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-CPSR%E3%80%81SPSR"><span class="toc-text">6. CPSR、SPSR</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%81%E6%B0%B4%E7%BA%BF"><span class="toc-text">流水线</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E9%94%AE%E6%8C%87%E4%BB%A4"><span class="toc-text">关键指令</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%B7%B3%E8%BD%AC"><span class="toc-text">跳转</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BC%AA%E4%BB%A3%E7%A0%81"><span class="toc-text">伪代码</span></a></li></ol></li></ol></li></ol>
+    </div>
+  </section>
 
   
 
@@ -2818,13 +2955,14 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </aside>
 
 
+
           <!--此文件用来存放一些不方便取值的变量-->
 <!--思路大概是将值藏到重加载的区域内-->
 
 <pjax>
 <script>
   window.pdata={}
-  pdata.ispage=false;
+  pdata.ispage=true;
   pdata.commentPath="";
   pdata.commentPlaceholder="";
   pdata.commentConfig={};
@@ -4094,7 +4232,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"1ens's blog","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"John Doe","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","sameAs":["https://github.com/volantis-x"],"description":"a"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://example.com/","name":"1ens's blog"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"1ens's blog","url":"http://example.com/","keywords":null,"description":"a","author":{"@type":"Person","name":"John Doe","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","description":"a"},"publisher":{"@type":"Organization","name":"1ens's blog","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"http://example.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"我的朋友们","description":"big lao","inLanguage":["zh-CN","default"],"mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/friends/index.html"},"author":{"@type":"Person","name":"John Doe","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/"},"publisher":{"@type":"Organization","name":"1ens's blog","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://example.com/friends/index.html","wordCount":7,"datePublished":"2022-05-24T15:06:34.544Z","dateModified":"2022-05-24T15:06:34.544Z","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"1ens's blog","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"John Doe","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","sameAs":["https://github.com/volantis-x"],"description":"a"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://example.com/","name":"1ens's blog"}},{"@type":"ListItem","position":2,"item":{"@id":"http://example.com/categories/iot/","name":"iot"}},{"@type":"ListItem","position":3,"item":{"@id":"http://example.com/2022/07/01/arm基础/","name":"arm基础"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"1ens's blog","url":"http://example.com/","keywords":null,"description":"a","author":{"@type":"Person","name":"John Doe","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","description":"a"},"publisher":{"@type":"Organization","name":"1ens's blog","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"http://example.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"arm基础","description":"a","inLanguage":["zh-CN","default"],"mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2022/07/01/arm%E5%9F%BA%E7%A1%80/"},"author":{"@type":"Person","name":"John Doe","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/"},"publisher":{"@type":"Organization","name":"1ens's blog","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://example.com/2022/07/01/arm%E5%9F%BA%E7%A1%80/","wordCount":0,"datePublished":"2022-06-30T16:00:00.000Z","dateModified":"2022-07-01T13:39:44.089Z","articleSection":"iot","keywords":"arm","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 
