@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>mips基础</title>
+      <link href="/2022/07/03/Mips%E5%9F%BA%E7%A1%80/"/>
+      <url>/2022/07/03/Mips%E5%9F%BA%E7%A1%80/</url>
+      
+        <content type="html"><![CDATA[<h1 id="基本特点"><a href="#基本特点" class="headerlink" title="基本特点"></a>基本特点</h1><p><img src="https://cdn.jsdelivr.net/gh/1ens/blogImages/imgs/202207040924460.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/1ens/blogImages/imgs/202207040924460.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p><h1 id="寄存器"><a href="#寄存器" class="headerlink" title="寄存器"></a>寄存器</h1><p><img src="https://cdn.jsdelivr.net/gh/1ens/blogImages/imgs/202207040949000.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/1ens/blogImages/imgs/202207040949000.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p><h1 id="流水线操作"><a href="#流水线操作" class="headerlink" title="流水线操作"></a>流水线操作</h1><p><img src="https://cdn.jsdelivr.net/gh/1ens/blogImages/imgs/202207041001178.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/1ens/blogImages/imgs/202207041001178.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p><h1 id="寻址方式"><a href="#寻址方式" class="headerlink" title="寻址方式"></a>寻址方式</h1><p><img src="https://cdn.jsdelivr.net/gh/1ens/blogImages/imgs/202207041013626.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/1ens/blogImages/imgs/202207041013626.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p><h1 id="指令格式"><a href="#指令格式" class="headerlink" title="指令格式"></a>指令格式</h1><p><img src="https://cdn.jsdelivr.net/gh/1ens/blogImages/imgs/202207041015636.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/1ens/blogImages/imgs/202207041015636.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p><h1 id="指令集"><a href="#指令集" class="headerlink" title="指令集"></a>指令集</h1><div class="story post-story"><h2 id="基础运算"><a href="#基础运算" class="headerlink" title="基础运算"></a>基础运算</h2><p><img src="https://cdn.jsdelivr.net/gh/1ens/blogImages/imgs/202207041027515.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/1ens/blogImages/imgs/202207041027515.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p><p><img src="C:\Users\25858\AppData\Roaming\Typora\typora-user-images\image-20220704102854144.png" class="lazyload" data-srcset="C:\Users\25858\AppData\Roaming\Typora\typora-user-images\image-20220704102854144.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20220704102854144"></p></div><div class="story post-story"><h2 id="逻辑运算"><a href="#逻辑运算" class="headerlink" title="逻辑运算"></a>逻辑运算</h2><p><img src="https://cdn.jsdelivr.net/gh/1ens/blogImages/imgs/202207041029743.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/1ens/blogImages/imgs/202207041029743.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p></div><div class="story post-story"><h2 id="移位运算"><a href="#移位运算" class="headerlink" title="移位运算"></a>移位运算</h2><p><img src="https://cdn.jsdelivr.net/gh/1ens/blogImages/imgs/202207041034212.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/1ens/blogImages/imgs/202207041034212.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p></div><div class="story post-story"><h2 id="访存"><a href="#访存" class="headerlink" title="访存"></a>访存</h2><p><img src="https://cdn.jsdelivr.net/gh/1ens/blogImages/imgs/202207041034318.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/1ens/blogImages/imgs/202207041034318.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p></div><div class="story post-story"><h2 id="跳转"><a href="#跳转" class="headerlink" title="跳转"></a>跳转</h2><p><img src="https://cdn.jsdelivr.net/gh/1ens/blogImages/imgs/202207041033192.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/1ens/blogImages/imgs/202207041033192.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p></div><div class="story post-story"><h2 id="CPU控制指令"><a href="#CPU控制指令" class="headerlink" title="CPU控制指令"></a>CPU控制指令</h2><p><img src="https://cdn.jsdelivr.net/gh/1ens/blogImages/imgs/202207041034605.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/1ens/blogImages/imgs/202207041034605.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p></div><div class="story post-story"><h2 id="其他指令"><a href="#其他指令" class="headerlink" title="其他指令"></a>其他指令</h2><p><img src="https://cdn.jsdelivr.net/gh/1ens/blogImages/imgs/202207041033216.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/1ens/blogImages/imgs/202207041033216.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p></div>]]></content>
+      
+      
+      <categories>
+          
+          <category> iot </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> mips </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>arm基础</title>
       <link href="/2022/07/01/arm%E5%9F%BA%E7%A1%80/"/>
       <url>/2022/07/01/arm%E5%9F%BA%E7%A1%80/</url>
