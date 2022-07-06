@@ -4,6 +4,56 @@
   
     
     <entry>
+      <title>pwndbg/pwntools</title>
+      <link href="/2022/07/06/pwndbgpwntools/"/>
+      <url>/2022/07/06/pwndbgpwntools/</url>
+      
+        <content type="html"><![CDATA[<h1 id="pwndbg-x2F-gdb的使用"><a href="#pwndbg-x2F-gdb的使用" class="headerlink" title="pwndbg&#x2F;gdb的使用"></a>pwndbg&#x2F;gdb的使用</h1><div class="story post-story"><h2 id="X的使用"><a href="#X的使用" class="headerlink" title="X的使用"></a>X的使用</h2><p>x 是 examine 的缩写</p><p>n 表示要显示的内存单元的个数</p><p>u 表示一个地址单元的长度：</p><p>b 表示单字节<br>h 表示双字节<br>w 表示四字节<br>g 表示八字节<br>f 表示显示方式，可取如下值：</p><p>x 按十六进制格式显示变量<br>d 按十进制格式显示变量<br>u 按十进制格式显示无符号整型<br>o 按八进制格式显示变量<br>t 按二进制格式显示变量<br>a 按十六进制格式显示变量<br>i 指令地址格式<br>c 按字符格式显示变量<br>f 按浮点数格式显示变量<br>举例<br>x &#x2F;20gx buf: 表示从内存地址 buf 读取内容，g 表示八字节，20 表示 20 个单位，x 按十六进制格式显示变量</p><p>x &#x2F;3hu buf：表示从内存地址 buf 读取内容，h 表示以双字节为一个单位，3 表示三个单位，u 表示十进制格式显示无符号整型</p></div><div class="story post-story"><h2 id="P的使用"><a href="#P的使用" class="headerlink" title="P的使用"></a>P的使用</h2><p>打印指令p(print)：<br>p fun_name &#x2F;&#x2F;打印fun_name的地址，需要保留符号<br>p 0x10-0x08 &#x2F;&#x2F;计算0x10-0x08的结果<br>p &amp;a &#x2F;&#x2F;查看变量a的地址<br>p *(0x123456) &#x2F;&#x2F;查看0x123456地址的值，注意和x指令的区别，x指令查看地址的值不用星号<br>p $rdi &#x2F;&#x2F;显示rdi寄存器的值，注意和x的区别，这只是显示rdi的值，而不是rdi指向的值<br>p *($rdi) &#x2F;&#x2F;显示rdi指向的值</p></div><div class="story post-story"><h2 id="cyclic"><a href="#cyclic" class="headerlink" title="cyclic"></a>cyclic</h2><p>cyclic n ：生成长度为n的字符串</p><p>cyclic -l aaaa #查找偏移（一般是返回地址</p><p>假如说我想找aaaj这个字符串的偏移，我们可以用</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cyclic_find(&#x27;aaaj&#x27;)</span><br></pre></td></tr></table></figure></div><div class="story post-story"><h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>info all-registers 查看所有的寄存器的值</p><h1 id="pwntools的使用"><a href="#pwntools的使用" class="headerlink" title="pwntools的使用"></a>pwntools的使用</h1><h3 id="p32-p64"><a href="#p32-p64" class="headerlink" title="p32 p64"></a>p32 p64</h3><p>就是将一个数字转换为字符，例如</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">p32(0xdeadbeef)</span><br></pre></td></tr></table></figure><p>就会转换为</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x27;\xef\xbe\xad\xde&#x27;</span><br></pre></td></tr></table></figure><p>这里顺序反了是因为linux编译的程序是小端序的</p><h3 id="u32-u64"><a href="#u32-u64" class="headerlink" title="u32 u64"></a>u32 u64</h3><p>就是将字符转换为数字，</p></div>]]></content>
+      
+      
+      <categories>
+          
+          <category> pwn </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 入门 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>pwndbg/pwntools</title>
+      <link href="/2022/07/06/pwn%E5%85%A5%E9%97%A8/"/>
+      <url>/2022/07/06/pwn%E5%85%A5%E9%97%A8/</url>
+      
+        <content type="html"><![CDATA[<h1 id="pwndbg-x2F-gdb的使用"><a href="#pwndbg-x2F-gdb的使用" class="headerlink" title="pwndbg&#x2F;gdb的使用"></a>pwndbg&#x2F;gdb的使用</h1><div class="story post-story"><h2 id="X的使用"><a href="#X的使用" class="headerlink" title="X的使用"></a>X的使用</h2><p>x 是 examine 的缩写</p><p>n 表示要显示的内存单元的个数</p><p>u 表示一个地址单元的长度：</p><p>b 表示单字节<br>h 表示双字节<br>w 表示四字节<br>g 表示八字节<br>f 表示显示方式，可取如下值：</p><p>x 按十六进制格式显示变量<br>d 按十进制格式显示变量<br>u 按十进制格式显示无符号整型<br>o 按八进制格式显示变量<br>t 按二进制格式显示变量<br>a 按十六进制格式显示变量<br>i 指令地址格式<br>c 按字符格式显示变量<br>f 按浮点数格式显示变量<br>举例<br>x &#x2F;20gx buf: 表示从内存地址 buf 读取内容，g 表示八字节，20 表示 20 个单位，x 按十六进制格式显示变量</p><p>x &#x2F;3hu buf：表示从内存地址 buf 读取内容，h 表示以双字节为一个单位，3 表示三个单位，u 表示十进制格式显示无符号整型</p></div><div class="story post-story"><h2 id="P的使用"><a href="#P的使用" class="headerlink" title="P的使用"></a>P的使用</h2><p>打印指令p(print)：<br>p fun_name &#x2F;&#x2F;打印fun_name的地址，需要保留符号<br>p 0x10-0x08 &#x2F;&#x2F;计算0x10-0x08的结果<br>p &amp;a &#x2F;&#x2F;查看变量a的地址<br>p *(0x123456) &#x2F;&#x2F;查看0x123456地址的值，注意和x指令的区别，x指令查看地址的值不用星号<br>p $rdi &#x2F;&#x2F;显示rdi寄存器的值，注意和x的区别，这只是显示rdi的值，而不是rdi指向的值<br>p *($rdi) &#x2F;&#x2F;显示rdi指向的值</p></div><div class="story post-story"><h2 id="cyclic"><a href="#cyclic" class="headerlink" title="cyclic"></a>cyclic</h2><p>cyclic n ：生成长度为n的字符串</p><p>cyclic -l aaaa #查找偏移（一般是返回地址</p><p>假如说我想找aaaj这个字符串的偏移，我们可以用</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cyclic_find(&#x27;aaaj&#x27;)</span><br></pre></td></tr></table></figure></div><div class="story post-story"><h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>info all-registers 查看所有的寄存器的值</p><h1 id="pwntools的使用"><a href="#pwntools的使用" class="headerlink" title="pwntools的使用"></a>pwntools的使用</h1><h3 id="p32-p64"><a href="#p32-p64" class="headerlink" title="p32 p64"></a>p32 p64</h3><p>就是将一个数字转换为字符，例如</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">p32(0xdeadbeef)</span><br></pre></td></tr></table></figure><p>就会转换为</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x27;\xef\xbe\xad\xde&#x27;</span><br></pre></td></tr></table></figure><p>这里顺序反了是因为linux编译的程序是小端序的</p><h3 id="u32-u64"><a href="#u32-u64" class="headerlink" title="u32 u64"></a>u32 u64</h3><p>就是将字符转换为数字，</p></div>]]></content>
+      
+      
+      <categories>
+          
+          <category> pwn </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 入门 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>armpwn入门</title>
       <link href="/2022/07/05/armpwn%E5%85%A5%E9%97%A8/"/>
       <url>/2022/07/05/armpwn%E5%85%A5%E9%97%A8/</url>
