@@ -6,7 +6,7 @@
   <meta charset="utf-8">
   <!-- SEO相关 -->
   <meta name="robots" content="noindex,follow">
-  <link rel="canonical" href="http://example.com/tags/wer/"/>
+  <link rel="canonical" href="http://example.com/tags/栈溢出/"/>
   <!-- 渲染优化 -->
     <meta http-equiv='x-dns-prefetch-control' content='on' />
       <link rel='dns-prefetch' href='https://unpkg.com'>
@@ -31,13 +31,13 @@
 
   <!-- feed -->
   <!-- 页面元数据 -->
-  <title>标签：-[wer] - 1ens's blog</title>
+  <title>标签：栈溢出 - 1ens's blog</title>
   <meta name="keywords" content="null">
   <meta desc name="description" content="a - 1ens - 1ens's blog">
   
 <meta property="og:type" content="website">
 <meta property="og:title" content="1ens&#39;s blog">
-<meta property="og:url" content="http://example.com/tags/wer/index.html">
+<meta property="og:url" content="http://example.com/tags/%E6%A0%88%E6%BA%A2%E5%87%BA/index.html">
 <meta property="og:site_name" content="1ens&#39;s blog">
 <meta property="og:description" content="a">
 <meta property="og:locale" content="zh_CN">
@@ -2539,7 +2539,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         
           <div class='post-wrapper'>
             <div class="post post-v3 white-box reveal shadow floatable"  itemscope itemtype="http://schema.org/Article" >
-  <link itemprop="mainEntityOfPage" href="http://example.com/2022/05/26/WER/">
+  <link itemprop="mainEntityOfPage" href="http://example.com/2022/07/06/%E6%A0%88%E6%BA%A2%E5%87%BA/">
   <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
     <meta itemprop="name" content="1ens's blog">
   </span>
@@ -2557,20 +2557,22 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     
     <h2 class="article-title"  itemprop="name headline">
-      <a href="/2022/05/26/WER/"  itemprop="url">
-        WER
+      <a href="/2022/07/06/%E6%A0%88%E6%BA%A2%E5%87%BA/"  itemprop="url">
+        栈溢出
       </a>
     </h2>
   
   <div class='md article-desc' itemprop="articleBody">
     
       
-        无壳，64位
-
-什么是WER：Windows 错误报告 (WER) 是一种灵活的基于事件的反馈基础结构，旨在收集有关Windows可以检测、向 Microsoft 报告信息以及为用户提供任何可用解决方案的硬件和软件问题的相关信息。
-参考：关于 WER - Win32 apps | Microsoft Docs
-其关键函数如下：
-123DWORD WINAPI ApplicationRecov...
+        ret2syscallLinux 的系统调用通过 int 80h 实现，用系统调用号来区分入口函数
+应用程序调用系统调用的过程是：
+1、把系统调用的编号存入 EAX
+2、把函数参数存入其它通用寄存器
+3、触发 0x80 号中断（int 0x80）
+在32位下：
+1.将EAX寄存器的值设置为OXb:EAX &#x3D; OXb
+3.将ECX和EDX寄存器的值都设为O: ECX &#x3D; E...
       
     
   </div>
@@ -2578,20 +2580,20 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='meta-v3' line_style='solid'>
       <div>
         
-        <time itemprop="dateCreated datePublished" datetime="2022-05-26T00:00:00+08:00">2022-05-26</time>
+        <time itemprop="dateCreated datePublished" datetime="2022-07-06T00:00:00+08:00">2022-07-06</time>
         
           <span class="dot"></span>
-          <a class="category-link" href="/categories/WP/">WP</a>
+          <a class="category-link" href="/categories/pwn/">pwn</a>
           
             <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
-              <a href="/categories/WP/" itemprop="url"><span itemprop="name">WP</span></a>
+              <a href="/categories/pwn/" itemprop="url"><span itemprop="name">pwn</span></a>
             </span>
           
         
       </div>
       
         <div>
-          <a class='readmore' href='/2022/05/26/WER/' itemprop="url">
+          <a class='readmore' href='/2022/07/06/%E6%A0%88%E6%BA%A2%E5%87%BA/' itemprop="url">
             阅读全文
           </a>
         </div>
@@ -4101,7 +4103,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"1ens's blog","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"1ens","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","sameAs":["https://github.com/volantis-x"],"description":"a"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://example.com/","name":"1ens's blog"}},{"@type":"ListItem","position":2,"item":{"@id":"http://example.com/tags/-[wer]/","name":"-[wer]"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"1ens's blog","url":"http://example.com/","keywords":null,"description":"a","author":{"@type":"Person","name":"1ens","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","description":"a"},"publisher":{"@type":"Organization","name":"1ens's blog","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"http://example.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","description":"a","inLanguage":["zh-CN","default"],"mainEntityOfPage":{"@type":"WebPage"},"author":{"@type":"Person","name":"1ens","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/"},"publisher":{"@type":"Organization","name":"1ens's blog","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"wordCount":0,"image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"1ens's blog","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"1ens","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","sameAs":["https://github.com/volantis-x"],"description":"a"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://example.com/","name":"1ens's blog"}},{"@type":"ListItem","position":2,"item":{"@id":"http://example.com/tags/栈溢出/","name":"栈溢出"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"1ens's blog","url":"http://example.com/","keywords":null,"description":"a","author":{"@type":"Person","name":"1ens","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","description":"a"},"publisher":{"@type":"Organization","name":"1ens's blog","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"http://example.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","description":"a","inLanguage":["zh-CN","default"],"mainEntityOfPage":{"@type":"WebPage"},"author":{"@type":"Person","name":"1ens","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/"},"publisher":{"@type":"Organization","name":"1ens's blog","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"wordCount":0,"image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 

