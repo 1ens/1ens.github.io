@@ -6,7 +6,7 @@
   <meta charset="utf-8">
   <!-- SEO相关 -->
   
-  <link rel="canonical" href="http://example.com/2022/07/03/mips基础/"/>
+  <link rel="canonical" href="http://example.com/2022/07/18/ffunction/"/>
   <!-- 渲染优化 -->
     <meta http-equiv='x-dns-prefetch-control' content='on' />
       <link rel='dns-prefetch' href='https://unpkg.com'>
@@ -31,21 +31,21 @@
 
   <!-- feed -->
   <!-- 页面元数据 -->
-  <title>mips基础 - 1ens's blog</title>
-  <meta name="keywords" content="mips,null">
+  <title>FFunction - 1ens's blog</title>
+  <meta name="keywords" content="-[dll],null">
   <meta desc name="description" content="a - 1ens - 1ens's blog">
   
 <meta property="og:type" content="article">
-<meta property="og:title" content="mips基础">
-<meta property="og:url" content="http://example.com/2022/07/03/Mips%E5%9F%BA%E7%A1%80/index.html">
+<meta property="og:title" content="FFunction">
+<meta property="og:url" content="http://example.com/2022/07/18/FFunction/index.html">
 <meta property="og:site_name" content="1ens&#39;s blog">
-<meta property="og:description" content="基本特点 寄存器 流水线操作 寻址方式 指令格式 指令集基础运算  逻辑运算 移位运算 访存 跳转 CPU控制指令 其他指令">
+<meta property="og:description" content="ida打开my_plugin.dll  在my_plugin.dll的f函数断下，f函数先将第⼀个参数的数值分成2个word，然后tea加密并与第⼆个参数的值⽐较。 第⼀个参数的值是输⼊经过位置变换然后base64 第二个参数 12[+] Dump 0x1ECA101B060 - 0x1ECA101B0B0 (80 bytes) :[0x5C15754C, 0xD1D781E7, 0x501B">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
-<meta property="article:published_time" content="2022-07-02T16:00:00.000Z">
-<meta property="article:modified_time" content="2022-07-04T23:36:37.567Z">
+<meta property="article:published_time" content="2022-07-18T13:47:05.000Z">
+<meta property="article:modified_time" content="2022-07-18T15:10:18.402Z">
 <meta property="article:author" content="1ens">
-<meta property="article:tag" content="mips">
+<meta property="article:tag" content="-[dll]">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
   <style>
@@ -2526,7 +2526,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           
 <div id="l_main" class=''>
   <article itemscope itemtype="http://schema.org/Article" class="article post white-box reveal md shadow floatable article-type-post" id="post" itemscope itemprop="blogPost">
-  <link itemprop="mainEntityOfPage" href="http://example.com/2022/07/03/Mips%E5%9F%BA%E7%A1%80/">
+  <link itemprop="mainEntityOfPage" href="http://example.com/2022/07/18/FFunction/">
   <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
     <meta itemprop="name" content="1ens's blog">
   </span>
@@ -2547,7 +2547,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
     
       <h1 class="title" itemprop="name headline">
-        mips基础
+        FFunction
       </h1>
       <div class='new-meta-box'>
         
@@ -2566,10 +2566,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
             
   <div class='new-meta-item category'>
     <i class="fa-solid fa-folder-open fa-fw" aria-hidden="true"></i>
-    <a class="category-link" href="/categories/iot/">iot</a>
+    <a class="category-link" href="/categories/WP/">WP</a>
     
       <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
-        <a href="/categories/iot/" itemprop="url"><span itemprop="name">iot</span></a>
+        <a href="/categories/WP/" itemprop="url"><span itemprop="name">WP</span></a>
       </span>
     
   </div>
@@ -2578,10 +2578,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           
         
           
-            <div class="new-meta-item date" itemprop="dateCreated datePublished" datetime="2022-07-03T00:00:00+08:00">
+            <div class="new-meta-item date" itemprop="dateCreated datePublished" datetime="2022-07-18T21:47:05+08:00">
   <a class='notlink'>
     <i class="fa-solid fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：2022年7月3日</p>
+    <p>发布于：2022年7月18日</p>
   </a>
 </div>
 
@@ -2616,21 +2616,29 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   <div id="layoutHelper-page-plugins"></div>
   <div id="post-body" itemprop="articleBody">
-    <h1 id="基本特点"><a href="#基本特点" class="headerlink" title="基本特点"></a>基本特点</h1><p><img src="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207040924460.png" class="lazyload" data-srcset="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207040924460.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
-<h1 id="寄存器"><a href="#寄存器" class="headerlink" title="寄存器"></a>寄存器</h1><p><img src="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207040949000.png" class="lazyload" data-srcset="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207040949000.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
-<h1 id="流水线操作"><a href="#流水线操作" class="headerlink" title="流水线操作"></a>流水线操作</h1><p><img src="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207041001178.png" class="lazyload" data-srcset="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207041001178.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
-<h1 id="寻址方式"><a href="#寻址方式" class="headerlink" title="寻址方式"></a>寻址方式</h1><p><img src="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207041013626.png" class="lazyload" data-srcset="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207041013626.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
-<h1 id="指令格式"><a href="#指令格式" class="headerlink" title="指令格式"></a>指令格式</h1><p><img src="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207041015636.png" class="lazyload" data-srcset="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207041015636.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
-<h1 id="指令集"><a href="#指令集" class="headerlink" title="指令集"></a>指令集</h1><div class="story post-story"><h2 id="基础运算"><a href="#基础运算" class="headerlink" title="基础运算"></a>基础运算</h2><p><img src="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207041027515.png" class="lazyload" data-srcset="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207041027515.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
-<p><img src="C:\Users\25858\AppData\Roaming\Typora\typora-user-images\image-20220704102854144.png" class="lazyload" data-srcset="C:\Users\25858\AppData\Roaming\Typora\typora-user-images\image-20220704102854144.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20220704102854144"></p>
-</div><div class="story post-story"><h2 id="逻辑运算"><a href="#逻辑运算" class="headerlink" title="逻辑运算"></a>逻辑运算</h2><p><img src="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207041029743.png" class="lazyload" data-srcset="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207041029743.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
-</div><div class="story post-story"><h2 id="移位运算"><a href="#移位运算" class="headerlink" title="移位运算"></a>移位运算</h2><p><img src="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207041034212.png" class="lazyload" data-srcset="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207041034212.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
-</div><div class="story post-story"><h2 id="访存"><a href="#访存" class="headerlink" title="访存"></a>访存</h2><p><img src="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207041034318.png" class="lazyload" data-srcset="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207041034318.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
-</div><div class="story post-story"><h2 id="跳转"><a href="#跳转" class="headerlink" title="跳转"></a>跳转</h2><p><img src="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207041033192.png" class="lazyload" data-srcset="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207041033192.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
-</div><div class="story post-story"><h2 id="CPU控制指令"><a href="#CPU控制指令" class="headerlink" title="CPU控制指令"></a>CPU控制指令</h2><p><img src="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207041034605.png" class="lazyload" data-srcset="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207041034605.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
-</div><div class="story post-story"><h2 id="其他指令"><a href="#其他指令" class="headerlink" title="其他指令"></a>其他指令</h2><p><img src="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207041033216.png" class="lazyload" data-srcset="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207041033216.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+    <p>  ida打开my_plugin.dll</p>
+<p><img src="C:\Users\25858\AppData\Roaming\Typora\typora-user-images\image-20220718221330366.png" class="lazyload" data-srcset="C:\Users\25858\AppData\Roaming\Typora\typora-user-images\image-20220718221330366.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20220718221330366"></p>
+<p>在my_plugin.dll的f函数断下，f函数先将第⼀个参数的数值分成2个word，然后tea加密并与第⼆个参数的值⽐较。 第⼀个参数的值是输⼊经过位置变换然后base64</p>
+<p>第二个参数</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[+] Dump <span class="number">0x1ECA101B060</span> - <span class="number">0x1ECA101B0B0</span> (<span class="number">80</span> bytes) :</span><br><span class="line">[<span class="number">0x5C15754C</span>, <span class="number">0xD1D781E7</span>, <span class="number">0x501BF173</span>, <span class="number">0xCB4DB222</span>, <span class="number">0x215D61F5</span>, <span class="number">0x3FCA9EE7</span>, <span class="number">0x7C76B5C7</span>, <span class="number">0xC7DD8CB9</span>, <span class="number">0x990D23FA</span>, <span class="number">0x0BAB1AD3</span>, <span class="number">0x8E12C932</span>, <span class="number">0xD307BAF2</span>, <span class="number">0xE52DD123</span>, <span class="number">0xFBB68F2C</span>, <span class="number">0xBDD853E3</span>, <span class="number">0x892E1E4E</span>, <span class="number">0x39DD66FA</span>, <span class="number">0x87FEEC65</span>, <span class="number">0x307C5E60</span>, <span class="number">0x340C6C00</span>]</span><br></pre></td></tr></table></figure>
 
-</div>
+<p>tea解密</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;windows.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Decrypt</span><span class="params">(UINT32 *v, UINT32 *k)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">unsigned</span> <span class="type">long</span> n = <span class="number">32</span>, sum, y = v[<span class="number">0</span>], z = v[<span class="number">1</span>];</span><br><span class="line">    <span class="type">unsigned</span> <span class="type">long</span> delta = <span class="number">0x79B99E37</span>;</span><br><span class="line">    sum = delta &lt;&lt; <span class="number">5</span>;</span><br><span class="line">    <span class="keyword">while</span> (n-- &gt; <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        z += ((y &lt;&lt; <span class="number">4</span>) + k[<span class="number">2</span>]) ^ (y + sum) ^ ((y &gt;&gt; <span class="number">5</span>) + k[<span class="number">3</span>]);</span><br><span class="line">        y += ((z &lt;&lt; <span class="number">4</span>) + k[<span class="number">0</span>]) ^ (z + sum) ^ ((z &gt;&gt; <span class="number">5</span>) + k[<span class="number">1</span>]);</span><br><span class="line">        sum -= delta;</span><br><span class="line">    &#125;</span><br><span class="line">    v[<span class="number">0</span>] = y;</span><br><span class="line">    v[<span class="number">1</span>] = z;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    UINT32 key[<span class="number">4</span>] = &#123;<span class="number">0x0BABEC0FE</span>,</span><br><span class="line">                     <span class="number">0x0DEADBEEF</span>,</span><br><span class="line">                     <span class="number">0x0FACEB00C</span>,</span><br><span class="line">                     <span class="number">0xDEADC0DE</span>&#125;;</span><br><span class="line">    UINT32 enc[<span class="number">21</span>] = &#123;<span class="number">1544910156</span>, <span class="number">3520561639</span>, <span class="number">1344008563</span>, <span class="number">3410866722</span>,</span><br><span class="line">                      <span class="number">559768053</span>, <span class="number">1070243559</span>, <span class="number">2088154567</span>, <span class="number">3353185465</span>,</span><br><span class="line">                      <span class="number">2567775226</span>, <span class="number">195762899</span>, <span class="number">2383595826</span>, <span class="number">3540499186</span>,</span><br><span class="line">                      <span class="number">3844985123</span>, <span class="number">4223045420</span>, <span class="number">3185071075</span>, <span class="number">2301501006</span>,</span><br><span class="line">                      <span class="number">970811130</span>, <span class="number">2281630821</span>, <span class="number">813456992</span>, <span class="number">873229312</span>, <span class="number">0</span>&#125;;</span><br><span class="line">    <span class="built_in">Decrypt</span>(enc, key);</span><br><span class="line">    <span class="built_in">Decrypt</span>(enc + <span class="number">2</span>, key);</span><br><span class="line">    <span class="built_in">Decrypt</span>(enc + <span class="number">4</span>, key);</span><br><span class="line">    <span class="built_in">Decrypt</span>(enc + <span class="number">6</span>, key);</span><br><span class="line">    <span class="built_in">Decrypt</span>(enc + <span class="number">8</span>, key);</span><br><span class="line">    <span class="built_in">Decrypt</span>(enc + <span class="number">10</span>, key);</span><br><span class="line">    <span class="built_in">Decrypt</span>(enc + <span class="number">12</span>, key);</span><br><span class="line">    <span class="built_in">Decrypt</span>(enc + <span class="number">14</span>, key);</span><br><span class="line">    <span class="built_in">Decrypt</span>(enc + <span class="number">16</span>, key);</span><br><span class="line">    <span class="built_in">Decrypt</span>(enc + <span class="number">18</span>, key);</span><br><span class="line">    <span class="built_in">Decrypt</span>(enc + <span class="number">20</span>, key);</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">20</span> * <span class="number">4</span>; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%02x&quot;</span>, ((<span class="type">char</span> *)enc)[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>再经过base64解码</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> base64</span><br><span class="line"></span><br><span class="line">a=<span class="string">&quot;30014006400460044007500230035008600c400a600e6003600c300930016004300340025004400d7007500250086002600f5006300050083007400e3000500a600840055007400970033001600e500a&quot;</span></span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line">ccc=re.<span class="built_in">findall</span>(<span class="string">&quot;.&#123;2&#125;&quot;</span>,a)</span><br><span class="line">ccc=[<span class="built_in">int</span>(i,<span class="number">16</span>) <span class="keyword">for</span> i in ccc]</span><br><span class="line">fl=<span class="string">&quot;&quot;</span></span><br><span class="line"><span class="keyword">for</span> index in <span class="built_in">range</span>(<span class="number">0</span>,<span class="built_in">len</span>(ccc),<span class="number">2</span>):</span><br><span class="line">    fl+=(<span class="built_in">chr</span>(ccc[index]+ccc[index+<span class="number">1</span>]))</span><br><span class="line"><span class="built_in">print</span>(fl[::<span class="number">-1</span>])</span><br><span class="line"><span class="built_in">print</span>(base64.<span class="built_in">b64decode</span>(fl[::<span class="number">-1</span>]).<span class="built_in">decode</span>())</span><br></pre></td></tr></table></figure>
+
+<p>还原</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">flag=<span class="string">&quot;f&#125;l!a!gC&#123;_Ehmtp10ww_erre_tFt1u&quot;</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">len</span>(flag))</span><br><span class="line">f1=<span class="string">&quot;&quot;</span></span><br><span class="line">f2=<span class="string">&quot;&quot;</span></span><br><span class="line"><span class="keyword">for</span> index in <span class="built_in">range</span>(<span class="built_in">len</span>(flag)):</span><br><span class="line">    <span class="keyword">if</span> index%<span class="number">2</span>==<span class="number">0</span>:</span><br><span class="line">        f1+=flag[index]</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        f2+=flag[index]</span><br><span class="line"><span class="built_in">print</span>(f1+f2)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flag&#123;Emp0wer_F1&#125;!!C_ht1w_rettu</span><br></pre></td></tr></table></figure>
+
+<p>再把后部分逆序</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flag&#123;Emp0wer_F1utter_w1th_C!!&#125;</span><br></pre></td></tr></table></figure>
+
+<p>参考<a target="_blank" rel="noopener" href="https://www.cnblogs.com/FW-ltlly/p/16487550.html">dsctf2022 wp - FW_ltlly - 博客园 (cnblogs.com)</a></p>
+
+
   </div>
   
   
@@ -2648,7 +2656,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
               
             
               
-                <p>本文永久链接是：<a href=http://example.com/2022/07/03/Mips%E5%9F%BA%E7%A1%80/>http://example.com/2022/07/03/Mips%E5%9F%BA%E7%A1%80/</a></p>
+                <p>本文永久链接是：<a href=http://example.com/2022/07/18/FFunction/>http://example.com/2022/07/18/FFunction/</a></p>
               
             
           </blockquote>
@@ -2665,10 +2673,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-07-05T07:36:37+08:00">
+          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-07-18T23:10:18+08:00">
   <a class='notlink'>
     <i class="fa-solid fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2022年7月5日</p>
+    <p>更新于：2022年7月18日</p>
   </a>
 </div>
 
@@ -2677,8 +2685,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         
           
   
-  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/mips/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>mips</p></a></div>
-  <span hidden itemprop="keywords">mips</span>
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/dll/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>-[dll]</p></a></div>
+  <span hidden itemprop="keywords">-[dll]</span>
 
 
         
@@ -2691,7 +2699,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2022/07/03/Mips%E5%9F%BA%E7%A1%80/&title=mips基础 - 1ens's blog&summary="
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2022/07/18/FFunction/&title=FFunction - 1ens's blog&summary="
           
           >
           
@@ -2703,7 +2711,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://example.com/2022/07/03/Mips%E5%9F%BA%E7%A1%80/&title=mips基础 - 1ens's blog&summary="
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://example.com/2022/07/18/FFunction/&title=FFunction - 1ens's blog&summary="
           
           >
           
@@ -2715,7 +2723,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2022/07/03/Mips%E5%9F%BA%E7%A1%80/&title=mips基础 - 1ens's blog&summary="
+          target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2022/07/18/FFunction/&title=FFunction - 1ens's blog&summary="
           
           >
           
@@ -2748,20 +2756,16 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     <div class="prev-next">
       
-        <a class='prev' href='/2022/07/05/armpwn%E5%85%A5%E9%97%A8/'>
-          <p class='title'><i class="fa-solid fa-chevron-left" aria-hidden="true"></i>armpwn入门</p>
-          <p class='content'>调试
-
-常用命令info functions ：显示程序的使用的函数
-disassemble 函数名 ：反汇编指定函数
-
-查看内存命令x&#x2F;&lt;n&#x2F;f&#x2F;u&gt;...</p>
-        </a>
       
-      
-        <a class='next' href='/2022/07/01/arm%E5%9F%BA%E7%A1%80/'>
-          <p class='title'>arm基础<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
-          <p class='content'>arm工作模式ARM之所以设计出这么多种模式出来，就是为了「应对CPU在运行时各种突发事件」，比如要支持正常的应用程序的运行，在运行任何一个时间点又可能发生很多异常事件，比如：关机、收到网卡信息...</p>
+        <a class='next' href='/2022/07/18/catchme/'>
+          <p class='title'>catchme<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'> 主要check函数在native层里面
+
+ida打开so文件,findcrypto找到aes加密，定位到主要加密函数 sub_B2A4
+
+先是一个aes然后是base64
+
+很多的反调试，但是...</p>
         </a>
       
     </div>
@@ -2777,7 +2781,7 @@ disassemble 函数名 ：反汇编指定函数
 
   <article class="post white-box shadow floatable" id="comments">
     <span hidden>
-      <meta itemprop="discussionUrl" content="/2022/07/03/Mips%E5%9F%BA%E7%A1%80/index.html#comments">
+      <meta itemprop="discussionUrl" content="/2022/07/18/FFunction/index.html#comments">
     </span>
     <p ct><i class='fa-solid fa-comments'></i> 评论</p>
     
@@ -2800,19 +2804,9 @@ disassemble 函数名 ：反汇编指定函数
 
 
 
-  <section class="widget toc-wrapper shadow floatable desktop mobile pjax" id="toc-div" >
-    
-  <header>
-    
-      <i class="fa-solid fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
-    
-  </header>
-
-
-    <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80%E8%BF%90%E7%AE%97"><span class="toc-text">基础运算</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%BB%E8%BE%91%E8%BF%90%E7%AE%97"><span class="toc-text">逻辑运算</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A7%BB%E4%BD%8D%E8%BF%90%E7%AE%97"><span class="toc-text">移位运算</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%BF%E5%AD%98"><span class="toc-text">访存</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B7%B3%E8%BD%AC"><span class="toc-text">跳转</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CPU%E6%8E%A7%E5%88%B6%E6%8C%87%E4%BB%A4"><span class="toc-text">CPU控制指令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B6%E4%BB%96%E6%8C%87%E4%BB%A4"><span class="toc-text">其他指令</span></a></li></ol>
-    </div>
-  </section>
+  <div class="pjax">
+    <!-- pjax占位 -->
+  </div>
 
   
 
@@ -4131,7 +4125,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"1ens's blog","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"1ens","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","sameAs":["https://github.com/volantis-x"],"description":"a"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://example.com/","name":"1ens's blog"}},{"@type":"ListItem","position":2,"item":{"@id":"http://example.com/categories/iot/","name":"iot"}},{"@type":"ListItem","position":3,"item":{"@id":"http://example.com/2022/07/03/Mips基础/","name":"mips基础"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"1ens's blog","url":"http://example.com/","keywords":null,"description":"a","author":{"@type":"Person","name":"1ens","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","description":"a"},"publisher":{"@type":"Organization","name":"1ens's blog","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"http://example.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"mips基础","description":"a","inLanguage":["zh-CN","default"],"mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2022/07/03/Mips%E5%9F%BA%E7%A1%80/"},"author":{"@type":"Person","name":"1ens","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/"},"publisher":{"@type":"Organization","name":"1ens's blog","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://example.com/2022/07/03/Mips%E5%9F%BA%E7%A1%80/","wordCount":0,"datePublished":"2022-07-02T16:00:00.000Z","dateModified":"2022-07-04T23:36:37.567Z","articleSection":"iot","keywords":"mips","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"1ens's blog","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"1ens","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","sameAs":["https://github.com/volantis-x"],"description":"a"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://example.com/","name":"1ens's blog"}},{"@type":"ListItem","position":2,"item":{"@id":"http://example.com/categories/WP/","name":"WP"}},{"@type":"ListItem","position":3,"item":{"@id":"http://example.com/2022/07/18/FFunction/","name":"FFunction"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"1ens's blog","url":"http://example.com/","keywords":null,"description":"a","author":{"@type":"Person","name":"1ens","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","description":"a"},"publisher":{"@type":"Organization","name":"1ens's blog","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"http://example.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"FFunction","description":"a","inLanguage":["zh-CN","default"],"mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2022/07/18/FFunction/"},"author":{"@type":"Person","name":"1ens","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/"},"publisher":{"@type":"Organization","name":"1ens's blog","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://example.com/2022/07/18/FFunction/","wordCount":0,"datePublished":"2022-07-18T13:47:05.000Z","dateModified":"2022-07-18T15:10:18.402Z","articleSection":"WP","keywords":"-[dll]","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 
