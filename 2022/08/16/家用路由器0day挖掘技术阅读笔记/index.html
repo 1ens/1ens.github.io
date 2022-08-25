@@ -6,7 +6,7 @@
   <meta charset="utf-8">
   <!-- SEO相关 -->
   
-  <link rel="canonical" href="http://example.com/2022/05/24/ezam（ollvm 迷宫 进制）/"/>
+  <link rel="canonical" href="http://example.com/2022/08/16/家用路由器0day挖掘技术阅读笔记/"/>
   <!-- 渲染优化 -->
     <meta http-equiv='x-dns-prefetch-control' content='on' />
       <link rel='dns-prefetch' href='https://unpkg.com'>
@@ -31,22 +31,21 @@
 
   <!-- feed -->
   <!-- 页面元数据 -->
-  <title>ezam - 1ens's blog</title>
-  <meta name="keywords" content="迷宫,进制,null">
+  <title>家用路由器0day挖掘技术阅读笔记 - 1ens's blog</title>
+  <meta name="keywords" content="笔记,null">
   <meta desc name="description" content="a - 1ens - 1ens's blog">
   
 <meta property="og:type" content="article">
-<meta property="og:title" content="ezam">
-<meta property="og:url" content="http://example.com/2022/05/24/ezam%EF%BC%88ollvm%20%E8%BF%B7%E5%AE%AB%20%E8%BF%9B%E5%88%B6%EF%BC%89/index.html">
+<meta property="og:title" content="家用路由器0day挖掘技术阅读笔记">
+<meta property="og:url" content="http://example.com/2022/08/16/%E5%AE%B6%E7%94%A8%E8%B7%AF%E7%94%B1%E5%99%A80day%E6%8C%96%E6%8E%98%E6%8A%80%E6%9C%AF%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/index.html">
 <meta property="og:site_name" content="1ens&#39;s blog">
-<meta property="og:description" content="题目打开  标准的ollvm混肴，用脚本两次去除  得到正常的程序  初步分析是以为多项式相加，疏忽了v17以及前面一大段数据的初始化。想着用z3硬解失败了。主要逻辑为读取输入，判断是否为数字，然后转换成四进制，走迷宫。前面的一大段加密是初始化迷宫地图v17，我们可以动调得到一个16*28的迷宫：（做题多尝试 123456789101112131415161,0,0,0,0,0,1,1,1,0,0">
+<meta property="og:description" content="第四章 路由器web漏洞xss利用站点内的信任用户，跨站攻击是指入侵者在远程web页面的HTML页面中插入具有恶意代码的数据，用户认为该页面是可信赖的，但是当浏览器下载该页面时，嵌入其中的脚本将被解释执行。 CSRF跨站请求伪造通过伪装来自受信任用户的请求达到利用受信任的网站的目的。 第五章 路由器后门漏洞第六章 路由器溢出漏洞MIPS32架构函数调用时对堆栈的分配和使用方式与x86架构有相似之处">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
-<meta property="article:published_time" content="2022-05-23T16:00:00.000Z">
-<meta property="article:modified_time" content="2022-05-28T09:03:02.930Z">
+<meta property="article:published_time" content="2022-08-15T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-08-25T12:35:22.940Z">
 <meta property="article:author" content="1ens">
-<meta property="article:tag" content="迷宫">
-<meta property="article:tag" content="进制">
+<meta property="article:tag" content="笔记">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
   <style>
@@ -2527,7 +2526,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           
 <div id="l_main" class=''>
   <article itemscope itemtype="http://schema.org/Article" class="article post white-box reveal md shadow floatable article-type-post" id="post" itemscope itemprop="blogPost">
-  <link itemprop="mainEntityOfPage" href="http://example.com/2022/05/24/ezam%EF%BC%88ollvm%20%E8%BF%B7%E5%AE%AB%20%E8%BF%9B%E5%88%B6%EF%BC%89/">
+  <link itemprop="mainEntityOfPage" href="http://example.com/2022/08/16/%E5%AE%B6%E7%94%A8%E8%B7%AF%E7%94%B1%E5%99%A80day%E6%8C%96%E6%8E%98%E6%8A%80%E6%9C%AF%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/">
   <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
     <meta itemprop="name" content="1ens's blog">
   </span>
@@ -2548,7 +2547,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
     
       <h1 class="title" itemprop="name headline">
-        ezam
+        家用路由器0day挖掘技术阅读笔记
       </h1>
       <div class='new-meta-box'>
         
@@ -2567,10 +2566,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
             
   <div class='new-meta-item category'>
     <i class="fa-solid fa-folder-open fa-fw" aria-hidden="true"></i>
-    <a class="category-link" href="/categories/WP/">WP</a>
+    <a class="category-link" href="/categories/iot/">iot</a>
     
       <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
-        <a href="/categories/WP/" itemprop="url"><span itemprop="name">WP</span></a>
+        <a href="/categories/iot/" itemprop="url"><span itemprop="name">iot</span></a>
       </span>
     
   </div>
@@ -2579,10 +2578,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           
         
           
-            <div class="new-meta-item date" itemprop="dateCreated datePublished" datetime="2022-05-24T00:00:00+08:00">
+            <div class="new-meta-item date" itemprop="dateCreated datePublished" datetime="2022-08-16T00:00:00+08:00">
   <a class='notlink'>
     <i class="fa-solid fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：2022年5月24日</p>
+    <p>发布于：2022年8月16日</p>
   </a>
 </div>
 
@@ -2617,19 +2616,74 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   <div id="layoutHelper-page-plugins"></div>
   <div id="post-body" itemprop="articleBody">
-    <p>题目打开<br /></p>
-<p><img src="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202205082339933.png" class="lazyload" data-srcset="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202205082339933.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
-<p><br />标准的ollvm混肴，用脚本两次去除<br /></p>
-<p><img src="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202205082339395.png" class="lazyload" data-srcset="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202205082339395.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="><br /><img src="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202205082339683.png" class="lazyload" data-srcset="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202205082339683.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="><br /></p>
-<p>得到正常的程序<br /></p>
-<p><img src="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202205082340650.png" class="lazyload" data-srcset="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202205082340650.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
-<p><br /><img src="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202205082343947.png" class="lazyload" data-srcset="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202205082343947.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="><br />初步分析是以为多项式相加，疏忽了v17以及前面一大段数据的初始化。想着用z3硬解失败了。<br />主要逻辑为读取输入，判断是否为数字，然后转换成四进制，走迷宫。<br />前面的一大段加密是初始化迷宫地图v17，我们可以动调得到一个16*28的迷宫：（做题多尝试</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,</span><br><span class="line"><span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,</span><br><span class="line"><span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,</span><br><span class="line"><span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,</span><br><span class="line"><span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,</span><br><span class="line"><span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,</span><br><span class="line"><span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,</span><br><span class="line"><span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,</span><br><span class="line"><span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,</span><br><span class="line"><span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,</span><br><span class="line"><span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,</span><br><span class="line"><span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,</span><br><span class="line"><span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,</span><br><span class="line"><span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,</span><br><span class="line"><span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,</span><br><span class="line"><span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span></span><br></pre></td></tr></table></figure>
-<p>下面看一下 sub_400670 函数 ，结合动调，是十进制转四进制算法。<br /><img src="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202205082342374.png" class="lazyload" data-srcset="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202205082342374.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="><br />下面就是迷宫出走方式<br /><img src="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202205082342140.png" class="lazyload" data-srcset="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202205082342140.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="><br />得到两条路径，根据函数判断路径长度是45，所以是上面那条<br />232222322330030000303322223333333222233333333<br />232222322330030000303322222222222333333300033333333<br />然后四进制转十进制得到flag</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">def <span class="title">anyToDecimal</span><span class="params">(num,n)</span>:</span></span><br><span class="line"><span class="function">   baseStr =</span> &#123;<span class="string">&quot;0&quot;</span>:<span class="number">0</span>,<span class="string">&quot;1&quot;</span>:<span class="number">1</span>,<span class="string">&quot;2&quot;</span>:<span class="number">2</span>,<span class="string">&quot;3&quot;</span>:<span class="number">3</span>,<span class="string">&quot;4&quot;</span>:<span class="number">4</span>,<span class="string">&quot;5&quot;</span>:<span class="number">5</span>,<span class="string">&quot;6&quot;</span>:<span class="number">6</span>,<span class="string">&quot;7&quot;</span>:<span class="number">7</span>,<span class="string">&quot;8&quot;</span>:<span class="number">8</span>,<span class="string">&quot;9&quot;</span>:<span class="number">9</span>,</span><br><span class="line">              <span class="string">&quot;a&quot;</span>:<span class="number">10</span>,<span class="string">&quot;b&quot;</span>:<span class="number">11</span>,<span class="string">&quot;c&quot;</span>:<span class="number">12</span>,<span class="string">&quot;d&quot;</span>:<span class="number">13</span>,<span class="string">&quot;e&quot;</span>:<span class="number">14</span>,<span class="string">&quot;f&quot;</span>:<span class="number">15</span>,<span class="string">&quot;g&quot;</span>:<span class="number">16</span>,<span class="string">&quot;h&quot;</span>:<span class="number">17</span>,<span class="string">&quot;i&quot;</span>:<span class="number">18</span>,<span class="string">&quot;j&quot;</span>:<span class="number">19</span>&#125;</span><br><span class="line">   new_num = <span class="number">0</span></span><br><span class="line">   nNum = <span class="built_in">len</span>(num) - <span class="number">1</span></span><br><span class="line">   <span class="keyword">for</span> i in num:</span><br><span class="line">       new_num = new_num  + baseStr[i]*<span class="built_in">pow</span>(n,nNum)</span><br><span class="line">       nNum = nNum <span class="number">-1</span></span><br><span class="line">   <span class="built_in">print</span>(new_num)</span><br><span class="line"></span><br><span class="line"><span class="built_in">anyToDecimal</span>(<span class="string">&#x27;232222322330030000303322223333333222233333333&#x27;</span>, <span class="number">4</span>)</span><br></pre></td></tr></table></figure>
-<p> flag{902741462666576198076399615}</p>
+    <div class="story post-story"><h2 id="第四章-路由器web漏洞"><a href="#第四章-路由器web漏洞" class="headerlink" title="第四章 路由器web漏洞"></a>第四章 路由器web漏洞</h2><p>xss利用站点内的信任用户，跨站攻击是指入侵者在远程web页面的HTML页面中插入具有恶意代码的数据，用户认为该页面是可信赖的，但是当浏览器下载该页面时，嵌入其中的脚本将被解释执行。</p>
+<p>CSRF跨站请求伪造通过伪装来自受信任用户的请求达到利用受信任的网站的目的。</p>
+</div><div class="story post-story"><h2 id="第五章-路由器后门漏洞"><a href="#第五章-路由器后门漏洞" class="headerlink" title="第五章 路由器后门漏洞"></a>第五章 路由器后门漏洞</h2><h2 id="第六章-路由器溢出漏洞"><a href="#第六章-路由器溢出漏洞" class="headerlink" title="第六章 路由器溢出漏洞"></a>第六章 路由器溢出漏洞</h2><p>MIPS32架构函数调用时对堆栈的分配和使用方式与x86架构有相似之处，但又有很大的区别。区别具体体现在：</p>
+<ul>
+<li>栈操作：与x86架构一样，都是向低地址增长的。但是没有EBP（栈底指针），进入一个函数时，需要将当前栈指针向下移动n比特，这个大小为n比特的存储空间就是此函数的栈帧存储存储区域。</li>
+<li>调用：如果函数A调用函数B，调用者函数（函数A）会在自己的栈顶预留一部分空间来保存被调用者（函数B）的参数，称之为调用参数空间。</li>
+<li>参数传递方式：前四个参数通过$a0-$a3传递，多余的参数会放入调用参数空间。</li>
+<li>返回地址：在x86架构中，使用call命令调用函数时，会先将当前执行位置压入堆栈，MIPS的调用指令把函数的返回地址直接存入$RA寄存器而不是堆栈中。</li>
+</ul>
+<p>叶子函数：当前函数不再调用其他函数。<br>非叶子函数：当前函数调用其他函数。</p>
+<p>函数调用的过程：父函数调用子函数时，复制当前$PC的值到$RA寄存器，然后跳到子函数执行；到子函数时，子函数如果为非叶子函数，则子函数的返回地址会先存入堆栈，否则仍在$RA寄存器中；返回时，如果子函数为叶子函数，则”jr $ra”直接返回，否则先从堆栈取出再返回。</p>
+<p>利用堆栈溢出的可行性：在非叶子函数中，可以覆盖返回地址，劫持程序执行流程；而在非叶子函数中，可通过覆盖父函数的返回地址实现漏洞利用。</p>
+</div><div class="story post-story"><h2 id="第七章-基于MIPS的shellcode开发"><a href="#第七章-基于MIPS的shellcode开发" class="headerlink" title="第七章 基于MIPS的shellcode开发"></a>第七章 基于MIPS的shellcode开发</h2><p>mips中可使用syscall指令来进行系统调用，调用的方法为：在使用系统调用syscall之前，$v0保存需要执行的系统调用的调用号，并且按照mips调用规则构造将要执行的系统调用参数。syscall调用的伪代码为：“syscall($v0,$a1,$a2,$a3,$a4…)”。</p>
+<p>shellcode编码优化包括指令优化和shellcode编码。<br>指令优化：指令优化是指通过选择一些特殊的指令避免在shellcode中直接生成坏字符。</p>
+<p>通常来说，shellcode可能会受到限制：首先，所有的字符串函数都会对“NULL”字节进行限制；其次，在某些处理流程中可能会限制0x0D（\r）、0x0A（\n）、或者0x20（空格）字符；最后，有些函数会要求shellcode必须为可见字符（ascii）或Unicode值。有些时候，还会受到基于特征的IDS系统对shellcode的拦截。</p>
+<p>绕过以上限制的方法主要有两个：指令优化及shellcoe编码。后者更为通用。</p>
+<p>shellcoe编码通常包含以下三种：base64编码、alpha_upper编码、xor编码。</p>
+</div><div class="story post-story"><h2 id="第八章-路由器文件系统与提取"><a href="#第八章-路由器文件系统与提取" class="headerlink" title="第八章 路由器文件系统与提取"></a>第八章 路由器文件系统与提取</h2><p>路由器漏洞的分析与利用的关键环节有获取固件、提取文件系统、漏洞分析与利用及漏洞挖掘。其中获取固件及提取文件系统是进行漏洞分析与利用的基础。</p>
+<p>路由器固件中包含操作系统的内核及文件系统。路由器的固件不是硬件而是软件，因为在路由器中它通常是被固化在只读存储器中，所以称为固件。</p>
+<p>在进行漏洞分析时获取路由器的固件通常有两种方式：一种是从路由器厂商提供的更新网站下载；一种是通过硬件接入，从路由器的Flash中提取固件。</p>
+<h3 id="文件系统"><a href="#文件系统" class="headerlink" title="文件系统"></a>文件系统</h3><p>文件系统是操作系统的重要组成部分，是操作运行的基础。根文件系统会被打包成当前路由器所使用的文件系统格式，然后组装到固件中。路由器总是希望文件系统越小越好，所以这些文件系统中各种压缩格式随处可见。</p>
+<p>Squashfs是一个只读格式的文件系统，具有超高压缩率，可达34%。当系统启动后，会将文件系统保存在一个压缩过的文件系统文件中，这个文件可以使用换回的形式挂载并对其中的文件进行访问，当进程需要某些文件时，仅将对应部分的压缩文件解压缩。Squashfs文件系统常用的压缩格式有GZIP、LZMA、LZO、XZ（LZMA2），在路由器中被普遍采用。</p>
+<h3 id="手动提取文件系统"><a href="#手动提取文件系统" class="headerlink" title="手动提取文件系统"></a>手动提取文件系统</h3><p>文件系统中包含实现路由器各种功能的基础应用程序。文件系统能从固件中提取，而从路由器固件中提取文件系统是一个难点，原因之一在于不同的操作系统使用的文件系统不同。另外，路由器的文件系统压缩算法也有差异，有些路由器甚至会使用非标准的压缩算法打包文件系统。</p>
+<p>手动提取文件系统类型包括：</p>
+<ol>
+<li>使用<code>file</code>命令查看文件系统类型。</li>
+<li>手动判断文件类型，包含如下步骤：”strings|grep”检索文件系统magic签名头；“hexdump|grep”检索magic签名偏移；“dd|file”确定magic签名偏移处的文件类型。</li>
+<li>手动提取文件系统。：安装工具，<code>sudo apt-get install squashfs-tools</code>该工具目前仅支持GZIP、LZO、XZ（LZMA2）不支持LZMA格式。可以使用firmware-mod-kit解压缩，解压后得到所有文件。安装命令：</li>
+</ol>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git clone https:<span class="comment">//github.com/mirror/firmware-mod-kit.git</span></span><br><span class="line">sudo apt-get install git build-essential zlib1g-dev liblzma-dev python-magic</span><br><span class="line">cd firmware-mod-kit</span><br><span class="line">./configure &amp;&amp; make</span><br></pre></td></tr></table></figure>
 
+<h3 id="自动提取文件系统"><a href="#自动提取文件系统" class="headerlink" title="自动提取文件系统"></a>自动提取文件系统</h3><p>binwalk是路由器固件分析的必备工具，该工具最大的优点是可以自动完成指令文件的扫描，智能发掘潜藏在文件中所有可疑地文件类型及文件系统。</p>
+<p>binwalk&amp;&amp;libmagic</p>
+<p>binwalk提取与分析过程：</p>
+<ol>
+<li>固件扫描。通过扫描binwalk可发现目标文件中包含的所有可识别文件类型。</li>
+</ol>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">binwaklk firmware.bin</span><br></pre></td></tr></table></figure>
 
+<ol start="2">
+<li>提取文件。选项“-e”和“–extract”用于按照预定义的配置文件中的提取方法从固件中提取探测到的文件及系统。选项“-M”，用于递归扫描。“-d”用于递归深度的限制。</li>
+</ol>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">binwaklk -e firmware.bin</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>显示完整的扫描结果。选项“-I”或“–invalid”用于显示扫描的所有结果。</li>
+<li>指令系统分析。选项“-A”和“–opcode”用于扫描指定文件中通用cpu架构的可执行代码。</li>
+</ol>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">binwaklk -A <span class="number">70</span>|more</span><br></pre></td></tr></table></figure>
+
+<p>通常binwalk可对绝大多数路由器固件进行文件提取，如遇到无法识别的固件，可向binwalk添加下列提取规则和提取方法，实现对新的文件系统进行扫描和提取：</p>
+<ol>
+<li>基于magic签名文件自动提取。</li>
+<li>基于binwalk配置文件的提取。</li>
+</ol>
+</div><div class="story post-story"><h2 id="第九章-漏洞分析简介"><a href="#第九章-漏洞分析简介" class="headerlink" title="第九章 漏洞分析简介"></a>第九章 漏洞分析简介</h2><p>漏洞分析是指在代码中迅速定位漏洞，弄清攻击原理，准确地估计潜在的漏洞利用方式和风险等级的过程。</p>
+<ul>
+<li>POC（Proof of Concept）</li>
+</ul>
+<p>漏洞证明，漏洞报告中，通过一段描述或一个样例来证明漏洞确实存在</p>
+<ul>
+<li>EXP（Exploit）</li>
+</ul>
+<p>漏洞利用，某个漏洞存在EXP，意思就是该漏洞存在公开的利用方式（比如一个脚本）</p>
+<h3 id="漏洞分析方法"><a href="#漏洞分析方法" class="headerlink" title="漏洞分析方法"></a>漏洞分析方法</h3><p>可以通过一些漏洞公布网站获取漏洞信息。网上公布的poc有很多形式，只要能触发漏洞、重现攻击过程即可。在得到poc后，就需要部署漏洞分析实验环境，利用poc重现攻击过程，定位漏洞函数，分析漏洞产生的具体原因，根据poc和漏洞情况实现对漏洞的利用。</p>
+<p>漏洞分析中常用的两种分析方法：动态调试以及静态分析。</p>
+
+</div>
   </div>
   
   
@@ -2647,7 +2701,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
               
             
               
-                <p>本文永久链接是：<a href=http://example.com/2022/05/24/ezam%EF%BC%88ollvm%20%E8%BF%B7%E5%AE%AB%20%E8%BF%9B%E5%88%B6%EF%BC%89/>http://example.com/2022/05/24/ezam%EF%BC%88ollvm%20%E8%BF%B7%E5%AE%AB%20%E8%BF%9B%E5%88%B6%EF%BC%89/</a></p>
+                <p>本文永久链接是：<a href=http://example.com/2022/08/16/%E5%AE%B6%E7%94%A8%E8%B7%AF%E7%94%B1%E5%99%A80day%E6%8C%96%E6%8E%98%E6%8A%80%E6%9C%AF%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/>http://example.com/2022/08/16/%E5%AE%B6%E7%94%A8%E8%B7%AF%E7%94%B1%E5%99%A80day%E6%8C%96%E6%8E%98%E6%8A%80%E6%9C%AF%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/</a></p>
               
             
           </blockquote>
@@ -2664,10 +2718,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-05-28T17:03:02+08:00">
+          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-08-25T20:35:22+08:00">
   <a class='notlink'>
     <i class="fa-solid fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2022年5月28日</p>
+    <p>更新于：2022年8月25日</p>
   </a>
 </div>
 
@@ -2676,8 +2730,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         
           
   
-  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E8%BF%B7%E5%AE%AB/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>迷宫</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E8%BF%9B%E5%88%B6/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>进制</p></a></div>
-  <span hidden itemprop="keywords">迷宫 进制</span>
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E7%AC%94%E8%AE%B0/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>笔记</p></a></div>
+  <span hidden itemprop="keywords">笔记</span>
 
 
         
@@ -2690,7 +2744,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2022/05/24/ezam%EF%BC%88ollvm%20%E8%BF%B7%E5%AE%AB%20%E8%BF%9B%E5%88%B6%EF%BC%89/&title=ezam - 1ens's blog&summary="
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2022/08/16/%E5%AE%B6%E7%94%A8%E8%B7%AF%E7%94%B1%E5%99%A80day%E6%8C%96%E6%8E%98%E6%8A%80%E6%9C%AF%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/&title=家用路由器0day挖掘技术阅读笔记 - 1ens's blog&summary="
           
           >
           
@@ -2702,7 +2756,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://example.com/2022/05/24/ezam%EF%BC%88ollvm%20%E8%BF%B7%E5%AE%AB%20%E8%BF%9B%E5%88%B6%EF%BC%89/&title=ezam - 1ens's blog&summary="
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://example.com/2022/08/16/%E5%AE%B6%E7%94%A8%E8%B7%AF%E7%94%B1%E5%99%A80day%E6%8C%96%E6%8E%98%E6%8A%80%E6%9C%AF%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/&title=家用路由器0day挖掘技术阅读笔记 - 1ens's blog&summary="
           
           >
           
@@ -2714,7 +2768,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2022/05/24/ezam%EF%BC%88ollvm%20%E8%BF%B7%E5%AE%AB%20%E8%BF%9B%E5%88%B6%EF%BC%89/&title=ezam - 1ens's blog&summary="
+          target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2022/08/16/%E5%AE%B6%E7%94%A8%E8%B7%AF%E7%94%B1%E5%99%A80day%E6%8C%96%E6%8E%98%E6%8A%80%E6%9C%AF%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/&title=家用路由器0day挖掘技术阅读笔记 - 1ens's blog&summary="
           
           >
           
@@ -2747,14 +2801,21 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     <div class="prev-next">
       
-        <a class='prev' href='/2022/05/24/KCTF-%E6%9C%AB%E6%97%A5%E9%82%80%E8%AF%B7%EF%BC%88%E5%8A%A0%E5%AF%86%E9%97%AF%E5%85%B3%EF%BC%89/'>
-          <p class='title'><i class="fa-solid fa-chevron-left" aria-hidden="true"></i>末日邀请</p>
-          <p class='content'>先是输入flag也就是ID，然后进行check，主要考察算法。
-
-对我们的输入进行一系列异或，最后赋值给v39，注意这里v39类型是char，接着进行sbox数据初始化，
-然后进行CRC32验证...</p>
+        <a class='prev' href='/2022/08/25/D-LINK%20DIR-815%E5%A4%9A%E6%AC%A1%E6%BA%A2%E5%87%BA%E6%BC%8F%E6%B4%9E/'>
+          <p class='title'><i class="fa-solid fa-chevron-left" aria-hidden="true"></i>D-LINK DIR-815多次溢出漏洞</p>
+          <p class='content'>准备 参考：[原创]家用路由器漏洞挖掘实例分析[图解D-LINK DIR-815多次溢出漏洞]-智能设备-看雪论坛-安全社区|安全招聘|bbs.pediy.com
+ 该漏洞的描述位于这里，可知漏...</p>
         </a>
       
+      
+        <a class='next' href='/2022/08/02/%E5%BC%BA%E7%BD%91%E6%9D%AF/'>
+          <p class='title'>强网杯<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>GameMaster.net程序
+
+
+主要逻辑为异或和aes加密，解密message文件
+12345678910111213from Crypto.Cipher import AESkey=by...</p>
+        </a>
       
     </div>
   
@@ -2769,7 +2830,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   <article class="post white-box shadow floatable" id="comments">
     <span hidden>
-      <meta itemprop="discussionUrl" content="/2022/05/24/ezam%EF%BC%88ollvm%20%E8%BF%B7%E5%AE%AB%20%E8%BF%9B%E5%88%B6%EF%BC%89/index.html#comments">
+      <meta itemprop="discussionUrl" content="/2022/08/16/%E5%AE%B6%E7%94%A8%E8%B7%AF%E7%94%B1%E5%99%A80day%E6%8C%96%E6%8E%98%E6%8A%80%E6%9C%AF%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/index.html#comments">
     </span>
     <p ct><i class='fa-solid fa-comments'></i> 评论</p>
     
@@ -2792,9 +2853,19 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
 
-  <div class="pjax">
-    <!-- pjax占位 -->
-  </div>
+  <section class="widget toc-wrapper shadow floatable desktop mobile pjax" id="toc-div" >
+    
+  <header>
+    
+      <i class="fa-solid fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
+    
+  </header>
+
+
+    <div class='content'>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E8%B7%AF%E7%94%B1%E5%99%A8web%E6%BC%8F%E6%B4%9E"><span class="toc-text">第四章 路由器web漏洞</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%94%E7%AB%A0-%E8%B7%AF%E7%94%B1%E5%99%A8%E5%90%8E%E9%97%A8%E6%BC%8F%E6%B4%9E"><span class="toc-text">第五章 路由器后门漏洞</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E5%85%AD%E7%AB%A0-%E8%B7%AF%E7%94%B1%E5%99%A8%E6%BA%A2%E5%87%BA%E6%BC%8F%E6%B4%9E"><span class="toc-text">第六章 路由器溢出漏洞</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%83%E7%AB%A0-%E5%9F%BA%E4%BA%8EMIPS%E7%9A%84shellcode%E5%BC%80%E5%8F%91"><span class="toc-text">第七章 基于MIPS的shellcode开发</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E5%85%AB%E7%AB%A0-%E8%B7%AF%E7%94%B1%E5%99%A8%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E4%B8%8E%E6%8F%90%E5%8F%96"><span class="toc-text">第八章 路由器文件系统与提取</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F"><span class="toc-text">文件系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%8B%E5%8A%A8%E6%8F%90%E5%8F%96%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F"><span class="toc-text">手动提取文件系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E5%8A%A8%E6%8F%90%E5%8F%96%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F"><span class="toc-text">自动提取文件系统</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B9%9D%E7%AB%A0-%E6%BC%8F%E6%B4%9E%E5%88%86%E6%9E%90%E7%AE%80%E4%BB%8B"><span class="toc-text">第九章 漏洞分析简介</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%BC%8F%E6%B4%9E%E5%88%86%E6%9E%90%E6%96%B9%E6%B3%95"><span class="toc-text">漏洞分析方法</span></a></li></ol></li></ol>
+    </div>
+  </section>
 
   
 
@@ -4113,7 +4184,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"1ens's blog","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"1ens","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","sameAs":["https://github.com/volantis-x"],"description":"a"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://example.com/","name":"1ens's blog"}},{"@type":"ListItem","position":2,"item":{"@id":"http://example.com/categories/WP/","name":"WP"}},{"@type":"ListItem","position":3,"item":{"@id":"http://example.com/2022/05/24/ezam（ollvm 迷宫 进制）/","name":"ezam"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"1ens's blog","url":"http://example.com/","keywords":null,"description":"a","author":{"@type":"Person","name":"1ens","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","description":"a"},"publisher":{"@type":"Organization","name":"1ens's blog","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"http://example.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"ezam","description":"a","inLanguage":["zh-CN","default"],"mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2022/05/24/ezam%EF%BC%88ollvm%20%E8%BF%B7%E5%AE%AB%20%E8%BF%9B%E5%88%B6%EF%BC%89/"},"author":{"@type":"Person","name":"1ens","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/"},"publisher":{"@type":"Organization","name":"1ens's blog","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://example.com/2022/05/24/ezam%EF%BC%88ollvm%20%E8%BF%B7%E5%AE%AB%20%E8%BF%9B%E5%88%B6%EF%BC%89/","wordCount":0,"datePublished":"2022-05-23T16:00:00.000Z","dateModified":"2022-05-28T09:03:02.930Z","articleSection":"WP","keywords":"迷宫,进制","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"1ens's blog","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"1ens","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","sameAs":["https://github.com/volantis-x"],"description":"a"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://example.com/","name":"1ens's blog"}},{"@type":"ListItem","position":2,"item":{"@id":"http://example.com/categories/iot/","name":"iot"}},{"@type":"ListItem","position":3,"item":{"@id":"http://example.com/2022/08/16/家用路由器0day挖掘技术阅读笔记/","name":"家用路由器0day挖掘技术阅读笔记"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"1ens's blog","url":"http://example.com/","keywords":null,"description":"a","author":{"@type":"Person","name":"1ens","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","description":"a"},"publisher":{"@type":"Organization","name":"1ens's blog","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"http://example.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"家用路由器0day挖掘技术阅读笔记","description":"a","inLanguage":["zh-CN","default"],"mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2022/08/16/%E5%AE%B6%E7%94%A8%E8%B7%AF%E7%94%B1%E5%99%A80day%E6%8C%96%E6%8E%98%E6%8A%80%E6%9C%AF%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"},"author":{"@type":"Person","name":"1ens","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/"},"publisher":{"@type":"Organization","name":"1ens's blog","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://example.com/2022/08/16/%E5%AE%B6%E7%94%A8%E8%B7%AF%E7%94%B1%E5%99%A80day%E6%8C%96%E6%8E%98%E6%8A%80%E6%9C%AF%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/","wordCount":0,"datePublished":"2022-08-15T16:00:00.000Z","dateModified":"2022-08-25T12:35:22.940Z","articleSection":"iot","keywords":"笔记","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 
