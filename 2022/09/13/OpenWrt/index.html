@@ -6,7 +6,7 @@
   <meta charset="utf-8">
   <!-- SEO相关 -->
   
-  <link rel="canonical" href="http://example.com/2022/07/06/pwn入门/"/>
+  <link rel="canonical" href="http://example.com/2022/09/13/openwrt/"/>
   <!-- 渲染优化 -->
     <meta http-equiv='x-dns-prefetch-control' content='on' />
       <link rel='dns-prefetch' href='https://unpkg.com'>
@@ -31,21 +31,18 @@
 
   <!-- feed -->
   <!-- 页面元数据 -->
-  <title>pwndbg/pwntools - 1ens's blog</title>
-  <meta name="keywords" content="入门,null">
+  <title>OpenWrt - 1ens's blog</title>
+  <meta name="keywords" content="null">
   <meta desc name="description" content="a - 1ens - 1ens's blog">
-  
-<meta property="og:type" content="article">
-<meta property="og:title" content="pwndbg&#x2F;pwntools">
-<meta property="og:url" content="http://example.com/2022/07/06/pwn%E5%85%A5%E9%97%A8/index.html">
+  <meta property="og:type" content="article">
+<meta property="og:title" content="OpenWrt">
+<meta property="og:url" content="http://example.com/2022/09/13/OpenWrt/index.html">
 <meta property="og:site_name" content="1ens&#39;s blog">
-<meta property="og:description" content="pwndbg&#x2F;gdb的使用X的使用x 是 examine 的缩写 n 表示要显示的内存单元的个数 u 表示一个地址单元的长度： b 表示单字节h 表示双字节w 表示四字节g 表示八字节f 表示显示方式，可取如下值： x 按十六进制格式显示变量d 按十进制格式显示变量u 按十进制格式显示无符号整型o 按八进制格式显示变量t 按二进制格式显示变量a 按十六进制格式显示变量i 指令地址格式c">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
-<meta property="article:published_time" content="2022-07-05T16:00:00.000Z">
-<meta property="article:modified_time" content="2022-07-06T07:57:03.183Z">
+<meta property="article:published_time" content="2022-09-13T12:41:28.000Z">
+<meta property="article:modified_time" content="2022-09-13T12:41:28.123Z">
 <meta property="article:author" content="1ens">
-<meta property="article:tag" content="入门">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
   <style>
@@ -2526,7 +2523,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           
 <div id="l_main" class=''>
   <article itemscope itemtype="http://schema.org/Article" class="article post white-box reveal md shadow floatable article-type-post" id="post" itemscope itemprop="blogPost">
-  <link itemprop="mainEntityOfPage" href="http://example.com/2022/07/06/pwn%E5%85%A5%E9%97%A8/">
+  <link itemprop="mainEntityOfPage" href="http://example.com/2022/09/13/OpenWrt/">
   <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
     <meta itemprop="name" content="1ens's blog">
   </span>
@@ -2547,7 +2544,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
     
       <h1 class="title" itemprop="name headline">
-        pwndbg/pwntools
+        OpenWrt
       </h1>
       <div class='new-meta-box'>
         
@@ -2564,24 +2561,14 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         
           
             
-  <div class='new-meta-item category'>
-    <i class="fa-solid fa-folder-open fa-fw" aria-hidden="true"></i>
-    <a class="category-link" href="/categories/pwn/">pwn</a>
-    
-      <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
-        <a href="/categories/pwn/" itemprop="url"><span itemprop="name">pwn</span></a>
-      </span>
-    
-  </div>
-
 
           
         
           
-            <div class="new-meta-item date" itemprop="dateCreated datePublished" datetime="2022-07-06T00:00:00+08:00">
+            <div class="new-meta-item date" itemprop="dateCreated datePublished" datetime="2022-09-13T20:41:28+08:00">
   <a class='notlink'>
     <i class="fa-solid fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：2022年7月6日</p>
+    <p>发布于：2022年9月13日</p>
   </a>
 </div>
 
@@ -2616,35 +2603,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   <div id="layoutHelper-page-plugins"></div>
   <div id="post-body" itemprop="articleBody">
-    <h1 id="pwndbg-x2F-gdb的使用"><a href="#pwndbg-x2F-gdb的使用" class="headerlink" title="pwndbg&#x2F;gdb的使用"></a>pwndbg&#x2F;gdb的使用</h1><div class="story post-story"><h2 id="X的使用"><a href="#X的使用" class="headerlink" title="X的使用"></a>X的使用</h2><p>x 是 examine 的缩写</p>
-<p>n 表示要显示的内存单元的个数</p>
-<p>u 表示一个地址单元的长度：</p>
-<p>b 表示单字节<br>h 表示双字节<br>w 表示四字节<br>g 表示八字节<br>f 表示显示方式，可取如下值：</p>
-<p>x 按十六进制格式显示变量<br>d 按十进制格式显示变量<br>u 按十进制格式显示无符号整型<br>o 按八进制格式显示变量<br>t 按二进制格式显示变量<br>a 按十六进制格式显示变量<br>i 指令地址格式<br>c 按字符格式显示变量<br>f 按浮点数格式显示变量<br>举例<br>x &#x2F;20gx buf: 表示从内存地址 buf 读取内容，g 表示八字节，20 表示 20 个单位，x 按十六进制格式显示变量</p>
-<p>x &#x2F;3hu buf：表示从内存地址 buf 读取内容，h 表示以双字节为一个单位，3 表示三个单位，u 表示十进制格式显示无符号整型</p>
-</div><div class="story post-story"><h2 id="P的使用"><a href="#P的使用" class="headerlink" title="P的使用"></a>P的使用</h2><p>打印指令p(print)：<br>p fun_name &#x2F;&#x2F;打印fun_name的地址，需要保留符号<br>p 0x10-0x08 &#x2F;&#x2F;计算0x10-0x08的结果<br>p &amp;a &#x2F;&#x2F;查看变量a的地址<br>p *(0x123456) &#x2F;&#x2F;查看0x123456地址的值，注意和x指令的区别，x指令查看地址的值不用星号<br>p $rdi &#x2F;&#x2F;显示rdi寄存器的值，注意和x的区别，这只是显示rdi的值，而不是rdi指向的值<br>p *($rdi) &#x2F;&#x2F;显示rdi指向的值</p>
-</div><div class="story post-story"><h2 id="cyclic"><a href="#cyclic" class="headerlink" title="cyclic"></a>cyclic</h2><p>cyclic n ：生成长度为n的字符串</p>
-<p>cyclic -l aaaa #查找偏移（一般是返回地址</p>
-<p>假如说我想找aaaj这个字符串的偏移，我们可以用</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cyclic_find(&#x27;aaaj&#x27;)</span><br></pre></td></tr></table></figure>
+    
 
-
-
-
-
-</div><div class="story post-story"><h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>info all-registers 查看所有的寄存器的值</p>
-<h1 id="pwntools的使用"><a href="#pwntools的使用" class="headerlink" title="pwntools的使用"></a>pwntools的使用</h1><h3 id="p32-p64"><a href="#p32-p64" class="headerlink" title="p32 p64"></a>p32 p64</h3><p>就是将一个数字转换为字符，例如</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">p32(0xdeadbeef)</span><br></pre></td></tr></table></figure>
-
-<p>就会转换为</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x27;\xef\xbe\xad\xde&#x27;</span><br></pre></td></tr></table></figure>
-
-
-
-<p>这里顺序反了是因为linux编译的程序是小端序的</p>
-<h3 id="u32-u64"><a href="#u32-u64" class="headerlink" title="u32 u64"></a>u32 u64</h3><p>就是将字符转换为数字，</p>
-
-</div>
   </div>
   
   
@@ -2662,7 +2622,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
               
             
               
-                <p>本文永久链接是：<a href=http://example.com/2022/07/06/pwn%E5%85%A5%E9%97%A8/>http://example.com/2022/07/06/pwn%E5%85%A5%E9%97%A8/</a></p>
+                <p>本文永久链接是：<a href=http://example.com/2022/09/13/OpenWrt/>http://example.com/2022/09/13/OpenWrt/</a></p>
               
             
           </blockquote>
@@ -2679,10 +2639,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-07-06T15:57:03+08:00">
+          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-09-13T20:41:28+08:00">
   <a class='notlink'>
     <i class="fa-solid fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2022年7月6日</p>
+    <p>更新于：2022年9月13日</p>
   </a>
 </div>
 
@@ -2690,10 +2650,6 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         
           
-  
-  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E5%85%A5%E9%97%A8/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>入门</p></a></div>
-  <span hidden itemprop="keywords">入门</span>
-
 
         
       
@@ -2705,7 +2661,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2022/07/06/pwn%E5%85%A5%E9%97%A8/&title=pwndbg/pwntools - 1ens's blog&summary="
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2022/09/13/OpenWrt/&title=OpenWrt - 1ens's blog&summary="
           
           >
           
@@ -2717,7 +2673,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://example.com/2022/07/06/pwn%E5%85%A5%E9%97%A8/&title=pwndbg/pwntools - 1ens's blog&summary="
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://example.com/2022/09/13/OpenWrt/&title=OpenWrt - 1ens's blog&summary="
           
           >
           
@@ -2729,7 +2685,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2022/07/06/pwn%E5%85%A5%E9%97%A8/&title=pwndbg/pwntools - 1ens's blog&summary="
+          target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2022/09/13/OpenWrt/&title=OpenWrt - 1ens's blog&summary="
           
           >
           
@@ -2762,18 +2718,18 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     <div class="prev-next">
       
-        <a class='prev' href='/2022/07/07/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80-%E5%BF%AB%E6%8E%92/'>
-          <p class='title'><i class="fa-solid fa-chevron-left" aria-hidden="true"></i>算法基础</p>
-          <p class='content'>STL1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515...</p>
+        <a class='prev' href='/2022/09/20/DAS%E4%B9%9D%E6%9C%88%E8%B5%9B/'>
+          <p class='title'><i class="fa-solid fa-chevron-left" aria-hidden="true"></i>DAS九月赛</p>
+          <p class='content'>landingF|landing|1ens看main函数汇编界面，发现异常处理，修改汇编发现真正逻辑，调试提取数据
+nothing函数有一个简单的花指令
+
+去除之后是一个base64变体，注意第...</p>
         </a>
       
       
-        <a class='next' href='/2022/07/06/%E6%A0%88%E6%BA%A2%E5%87%BA/'>
-          <p class='title'>栈溢出<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
-          <p class='content'>ret2syscallLinux 的系统调用通过 int 80h 实现，用系统调用号来区分入口函数
-应用程序调用系统调用的过程是：
-1、把系统调用的编号存入 EAX
-2、把函数参数存入其它通用寄...</p>
+        <a class='next' href='/2022/09/01/fuzz-1/'>
+          <p class='title'>fuzz_1<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>Fuzzing101 Execise2-libexifCVE-2009-3895 （heap-based buffer overflow）and CVE-2012-2836 （Out-of-bo...</p>
         </a>
       
     </div>
@@ -2789,7 +2745,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   <article class="post white-box shadow floatable" id="comments">
     <span hidden>
-      <meta itemprop="discussionUrl" content="/2022/07/06/pwn%E5%85%A5%E9%97%A8/index.html#comments">
+      <meta itemprop="discussionUrl" content="/2022/09/13/OpenWrt/index.html#comments">
     </span>
     <p ct><i class='fa-solid fa-comments'></i> 评论</p>
     
@@ -2812,19 +2768,9 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
 
-  <section class="widget toc-wrapper shadow floatable desktop mobile pjax" id="toc-div" >
-    
-  <header>
-    
-      <i class="fa-solid fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
-    
-  </header>
-
-
-    <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#X%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-text">X的使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#P%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-text">P的使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#cyclic"><span class="toc-text">cyclic</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B6%E4%BB%96"><span class="toc-text">其他</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#p32-p64"><span class="toc-text">p32 p64</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u32-u64"><span class="toc-text">u32 u64</span></a></li></ol></li></ol>
-    </div>
-  </section>
+  <div class="pjax">
+    <!-- pjax占位 -->
+  </div>
 
   
 
@@ -4143,7 +4089,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"1ens's blog","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"1ens","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","sameAs":["https://github.com/volantis-x"],"description":"a"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://example.com/","name":"1ens's blog"}},{"@type":"ListItem","position":2,"item":{"@id":"http://example.com/categories/pwn/","name":"pwn"}},{"@type":"ListItem","position":3,"item":{"@id":"http://example.com/2022/07/06/pwn入门/","name":"pwndbg/pwntools"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"1ens's blog","url":"http://example.com/","keywords":null,"description":"a","author":{"@type":"Person","name":"1ens","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","description":"a"},"publisher":{"@type":"Organization","name":"1ens's blog","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"http://example.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"pwndbg/pwntools","description":"a","inLanguage":["zh-CN","default"],"mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2022/07/06/pwn%E5%85%A5%E9%97%A8/"},"author":{"@type":"Person","name":"1ens","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/"},"publisher":{"@type":"Organization","name":"1ens's blog","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://example.com/2022/07/06/pwn%E5%85%A5%E9%97%A8/","wordCount":0,"datePublished":"2022-07-05T16:00:00.000Z","dateModified":"2022-07-06T07:57:03.183Z","articleSection":"pwn","keywords":"入门","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"1ens's blog","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"1ens","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","sameAs":["https://github.com/volantis-x"],"description":"a"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://example.com/","name":"1ens's blog"}},{"@type":"ListItem","position":3,"item":{"@id":"http://example.com/2022/09/13/OpenWrt/","name":"OpenWrt"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"1ens's blog","url":"http://example.com/","keywords":null,"description":"a","author":{"@type":"Person","name":"1ens","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","description":"a"},"publisher":{"@type":"Organization","name":"1ens's blog","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"http://example.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"OpenWrt","description":"a","inLanguage":["zh-CN","default"],"mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2022/09/13/OpenWrt/"},"author":{"@type":"Person","name":"1ens","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/"},"publisher":{"@type":"Organization","name":"1ens's blog","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://example.com/2022/09/13/OpenWrt/","wordCount":0,"datePublished":"2022-09-13T12:41:28.000Z","dateModified":"2022-09-13T12:41:28.123Z","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 
