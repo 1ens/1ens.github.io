@@ -1761,7 +1761,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: false,
     cdn: {"js":{"app":"/js/app.e546c981.js","parallax":"/js/plugins/parallax.8bf0ab10.js","rightMenu":"/js/plugins/rightMenu.d9437285.js","rightMenus":"/js/plugins/rightMenus.cd02aa19.js","sites":"/js/plugins/tags/sites.76bf19b8.js","friends":"/js/plugins/tags/friends.f372da57.js","contributors":"/js/plugins/tags/contributors.aec80453.js","search":"/js/search/hexo.0e52f222.js"},"css":{"style":"/css/style.1296f6d1.css"}},
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1649552113628/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1649552113628/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1649552113628/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1649552113628/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1666001967615),
+    lastupdate: new Date(1719670479602),
     sidebar: {
       for_page: ["blogger","github","category","tagcloud","webinfo"],
       for_post: ["toc"],
@@ -2530,6 +2530,472 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         
           <div class='post-wrapper'>
             <div class="post post-v3 white-box reveal shadow floatable"  itemscope itemtype="http://schema.org/Article" >
+  <link itemprop="mainEntityOfPage" href="http://example.com/2022/06/29/dropper/">
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="1ens's blog">
+  </span>
+  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
+    <meta itemprop="name" content="1ens's blog">
+    <meta itemprop="description" content="a">
+  </span>
+  
+  
+  
+    <span hidden>
+      <meta itemprop="image" content="https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
+    </span>
+  
+  
+    
+    <h2 class="article-title"  itemprop="name headline">
+      <a href="/2022/06/29/dropper/"  itemprop="url">
+        dropper
+      </a>
+    </h2>
+  
+  <div class='md article-desc' itemprop="articleBody">
+    
+      
+        Dropper
+什么是Dropper
+Dropper是将程序嵌入到自己的内部。
+类似于双进程，运行后解密了资源表的数据，本题是一个exe文件，然后作为子进程被创建了
+解题
+ 开始一个UPX壳，upx -d 的话无法运行 ，手动去壳,试了很多遍， rax会运行错误。
+静态分析：
+（如果不给题目名称如何看出是dropper技术
+
+进入，上面几个qword是函数调用但是识别失败。最后一个异或0x7...
+      
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+        <time itemprop="dateCreated datePublished" datetime="2022-06-29T09:49:45+08:00">2022-06-29</time>
+        
+          <span class="dot"></span>
+          <a class="category-link" href="/categories/WP/">WP</a>
+          
+            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
+              <a href="/categories/WP/" itemprop="url"><span itemprop="name">WP</span></a>
+            </span>
+          
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/2022/06/29/dropper/' itemprop="url">
+            阅读全文
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow floatable"  itemscope itemtype="http://schema.org/Article" >
+  <link itemprop="mainEntityOfPage" href="http://example.com/2022/06/24/%E5%9B%BA%E4%BB%B6%E9%80%86%E5%90%91%E5%88%86%E6%9E%90%E5%88%9D%E8%AF%95/">
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="1ens's blog">
+  </span>
+  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
+    <meta itemprop="name" content="1ens's blog">
+    <meta itemprop="description" content="a">
+  </span>
+  
+  
+  
+    <span hidden>
+      <meta itemprop="image" content="https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
+    </span>
+  
+  
+    
+    <h2 class="article-title"  itemprop="name headline">
+      <a href="/2022/06/24/%E5%9B%BA%E4%BB%B6%E9%80%86%E5%90%91%E5%88%86%E6%9E%90%E5%88%9D%E8%AF%95/"  itemprop="url">
+        固件分析初试
+      </a>
+    </h2>
+  
+  <div class='md article-desc' itemprop="articleBody">
+    
+      
+        m
+U-Boot(Universal Boot Loader)，即通用Bootloader，是德国DENX小组开发的用于多种嵌入式CPU的bootloader程序
+Legacy-uImage在kernel镜像的基础上，加上64Byte的信息提供给uboot使用
+binwalk分析一下，是Squashfs文件系统
+Binwalk如何进行提取：通过maigc特征集与文件进行比对，但识别效率比fi...
+      
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+        <time itemprop="dateCreated datePublished" datetime="2022-06-24T19:50:10+08:00">2022-06-24</time>
+        
+          <span class="dot"></span>
+          <a class="category-link" href="/categories/iot/">iot</a>
+          
+            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
+              <a href="/categories/iot/" itemprop="url"><span itemprop="name">iot</span></a>
+            </span>
+          
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/2022/06/24/%E5%9B%BA%E4%BB%B6%E9%80%86%E5%90%91%E5%88%86%E6%9E%90%E5%88%9D%E8%AF%95/' itemprop="url">
+            阅读全文
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow floatable"  itemscope itemtype="http://schema.org/Article" >
+  <link itemprop="mainEntityOfPage" href="http://example.com/2022/05/30/%E7%A2%8E%E7%A2%8E%E5%BF%B5/">
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="1ens's blog">
+  </span>
+  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
+    <meta itemprop="name" content="1ens's blog">
+    <meta itemprop="description" content="a">
+  </span>
+  
+  
+  
+    <span hidden>
+      <meta itemprop="image" content="https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
+    </span>
+  
+  
+    
+    <h2 class="article-title"  itemprop="name headline">
+      <a href="/2022/05/30/%E7%A2%8E%E7%A2%8E%E5%BF%B5/"  itemprop="url">
+        碎碎念
+      </a>
+    </h2>
+  
+  <div class='md article-desc' itemprop="articleBody">
+    
+      有东西被加密了, 请输入密码查看.
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+        <time itemprop="dateCreated datePublished" datetime="2022-05-30T00:00:00+08:00">2022-05-30</time>
+        
+          <span class="dot"></span>
+          <a class="category-link" href="/categories/%E6%9D%82%E8%B0%88/">杂谈</a>
+          
+            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
+              <a href="/categories/%E6%9D%82%E8%B0%88/" itemprop="url"><span itemprop="name">杂谈</span></a>
+            </span>
+          
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/2022/05/30/%E7%A2%8E%E7%A2%8E%E5%BF%B5/' itemprop="url">
+            阅读全文
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow floatable"  itemscope itemtype="http://schema.org/Article" >
+  <link itemprop="mainEntityOfPage" href="http://example.com/2022/05/29/Hack-for-fun/">
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="1ens's blog">
+  </span>
+  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
+    <meta itemprop="name" content="1ens's blog">
+    <meta itemprop="description" content="a">
+  </span>
+  
+  
+  
+    <span hidden>
+      <meta itemprop="image" content="https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
+    </span>
+  
+  
+    
+    <h2 class="article-title"  itemprop="name headline">
+      <a href="/2022/05/29/Hack-for-fun/"  itemprop="url">
+        Hack For Fun
+      </a>
+    </h2>
+  
+  <div class='md article-desc' itemprop="articleBody">
+    
+      有东西被加密了, 请输入密码查看.
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+        <time itemprop="dateCreated datePublished" datetime="2022-05-29T00:00:00+08:00">2022-05-29</time>
+        
+          <span class="dot"></span>
+          <a class="category-link" href="/categories/%E6%9D%82%E8%B0%88/">杂谈</a>
+          
+            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
+              <a href="/categories/%E6%9D%82%E8%B0%88/" itemprop="url"><span itemprop="name">杂谈</span></a>
+            </span>
+          
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/2022/05/29/Hack-for-fun/' itemprop="url">
+            阅读全文
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow floatable"  itemscope itemtype="http://schema.org/Article" >
+  <link itemprop="mainEntityOfPage" href="http://example.com/2022/05/28/JIT/">
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="1ens's blog">
+  </span>
+  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
+    <meta itemprop="name" content="1ens's blog">
+    <meta itemprop="description" content="a">
+  </span>
+  
+  
+  
+    <span hidden>
+      <meta itemprop="image" content="https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
+    </span>
+  
+  
+    
+    <h2 class="article-title"  itemprop="name headline">
+      <a href="/2022/05/28/JIT/"  itemprop="url">
+        JIT
+      </a>
+    </h2>
+  
+  <div class='md article-desc' itemprop="articleBody">
+    
+      
+        什么是JITJIT &#x3D; Just In Time即时编译，是动态编译的一种形式，是一种优化虚拟机运行的技术。程序运行通常有两种方式，一种是静态编译，一种是动态解释，即时编译混合了这二者。
+lujit运行过程：
+
+解题：
+得到一个.out 文件，电脑识别成Wireshark 系列文件，拉入WinHex会发现是.LJ开头，可以推断是Luajit逆向。
+先编译LuaJit2.1.0Bet...
+      
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+        <time itemprop="dateCreated datePublished" datetime="2022-05-28T00:00:00+08:00">2022-05-28</time>
+        
+          <span class="dot"></span>
+          <a class="category-link" href="/categories/WP/">WP</a>
+          
+            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
+              <a href="/categories/WP/" itemprop="url"><span itemprop="name">WP</span></a>
+            </span>
+          
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/2022/05/28/JIT/' itemprop="url">
+            阅读全文
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow floatable"  itemscope itemtype="http://schema.org/Article" >
+  <link itemprop="mainEntityOfPage" href="http://example.com/2022/05/28/TWIN/">
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="1ens's blog">
+  </span>
+  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
+    <meta itemprop="name" content="1ens's blog">
+    <meta itemprop="description" content="a">
+  </span>
+  
+  
+  
+    <span hidden>
+      <meta itemprop="image" content="https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
+    </span>
+  
+  
+    
+    <h2 class="article-title"  itemprop="name headline">
+      <a href="/2022/05/28/TWIN/"  itemprop="url">
+        TWIN
+      </a>
+    </h2>
+  
+  <div class='md article-desc' itemprop="articleBody">
+    
+      
+        TLS回调函数：TLS(Thread Local Storage, 线程局部存储)回调函数，TLS 回调函数的调用运行要先于 EP 代码的执行，并且每次创建或结束线程都会再次调用，故常用于反调试。
+
+可以在节区表发现IMAGE_TLS_DIRECTORY，找到Address of Callbacks（注意回调函数一般不止一个）
+题解：
+32位无壳
+
+首先是一个虚假的逻辑验证。
+在函数栏搜索找...
+      
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+        <time itemprop="dateCreated datePublished" datetime="2022-05-28T00:00:00+08:00">2022-05-28</time>
+        
+          <span class="dot"></span>
+          <a class="category-link" href="/categories/WP/">WP</a>
+          
+            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
+              <a href="/categories/WP/" itemprop="url"><span itemprop="name">WP</span></a>
+            </span>
+          
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/2022/05/28/TWIN/' itemprop="url">
+            阅读全文
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow floatable"  itemscope itemtype="http://schema.org/Article" >
+  <link itemprop="mainEntityOfPage" href="http://example.com/2022/05/27/cef/">
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="1ens's blog">
+  </span>
+  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
+    <meta itemprop="name" content="1ens's blog">
+    <meta itemprop="description" content="a">
+  </span>
+  
+  
+  
+    <span hidden>
+      <meta itemprop="image" content="https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
+    </span>
+  
+  
+    
+    <h2 class="article-title"  itemprop="name headline">
+      <a href="/2022/05/27/cef/"  itemprop="url">
+        CEF
+      </a>
+    </h2>
+  
+  <div class='md article-desc' itemprop="articleBody">
+    
+      
+        
+32位无壳程序
+CEF简介:  嵌入式Chromium框架(简称CEF) 是一个由Marshall Greenblatt在2008建立的开源项目，它主要目的是开发一个基于Google Chromium的Webbrowser控件。CEF支持一系列的编程语言和操作系统，并且能很容易地整合到新的或已有的工程中去。
+解题：正面去分析的话，十分困难。去搜索相应字符串无果
+这里我们可以去从数据调用去分...
+      
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+        <time itemprop="dateCreated datePublished" datetime="2022-05-27T00:00:00+08:00">2022-05-27</time>
+        
+          <span class="dot"></span>
+          <a class="category-link" href="/categories/WP/">WP</a>
+          
+            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
+              <a href="/categories/WP/" itemprop="url"><span itemprop="name">WP</span></a>
+            </span>
+          
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/2022/05/27/cef/' itemprop="url">
+            阅读全文
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow floatable"  itemscope itemtype="http://schema.org/Article" >
   <link itemprop="mainEntityOfPage" href="http://example.com/2022/05/26/WER/">
   <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
     <meta itemprop="name" content="1ens's blog">
@@ -2842,12 +3308,12 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           <li><a class="flat-box"
             title="/categories/WP/" href="/categories/WP/"
             active-action="action-categoriesWP"
-            ><div class='name'>WP</div><div class='badge'>(13)</div></a></li>
+            ><div class='name'>WP</div><div class='badge'>(15)</div></a></li>
         
           <li><a class="flat-box"
             title="/categories/iot/" href="/categories/iot/"
             active-action="action-categoriesiot"
-            ><div class='name'>iot</div><div class='badge'>(9)</div></a></li>
+            ><div class='name'>iot</div><div class='badge'>(11)</div></a></li>
         
           <li><a class="flat-box"
             title="/categories/pwn/" href="/categories/pwn/"
@@ -2891,7 +3357,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
     <div class='content'>
-      <a href="/tags/CEF/" style="font-size: 14px; color: #999">-CEF</a> <a href="/tags/DAS/" style="font-size: 24px; color: #555">-DAS</a> <a href="/tags/ACTF-dropper/" style="font-size: 14px; color: #999">-[ACTF] -[dropper]</a> <a href="/tags/dll/" style="font-size: 14px; color: #999">-[dll]</a> <a href="/tags/native-android/" style="font-size: 14px; color: #999">-[native] -[android]</a> <a href="/tags/wer/" style="font-size: 14px; color: #999">-[wer]</a> <a href="/tags/luajit/" style="font-size: 14px; color: #999">-luajit</a> <a href="/tags/%E5%8A%A0%E8%A7%A3%E5%AF%86/" style="font-size: 14px; color: #999">-加解密</a> <a href="/tags/TLS%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0/" style="font-size: 14px; color: #999">TLS回调函数</a> <a href="/tags/VM/" style="font-size: 14px; color: #999">VM</a> <a href="/tags/arm/" style="font-size: 24px; color: #555">arm</a> <a href="/tags/fuzz/" style="font-size: 24px; color: #555">fuzz</a> <a href="/tags/linux%E5%8F%8D%E8%B0%83%E8%AF%95/" style="font-size: 14px; color: #999">linux反调试</a> <a href="/tags/mips/" style="font-size: 14px; color: #999">mips</a> <a href="/tags/wp/" style="font-size: 14px; color: #999">wp</a> <a href="/tags/%E5%85%A5%E9%97%A8/" style="font-size: 14px; color: #999">入门</a> <a href="/tags/%E5%8F%8D%E8%B0%83%E8%AF%95/" style="font-size: 14px; color: #999">反调试</a> <a href="/tags/%E5%9B%BA%E4%BB%B6%E5%88%86%E6%9E%90/" style="font-size: 14px; color: #999">固件分析</a> <a href="/tags/%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/" style="font-size: 14px; color: #999">异常处理</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 14px; color: #999">数据结构</a> <a href="/tags/%E6%A0%88%E6%BA%A2%E5%87%BA/" style="font-size: 14px; color: #999">栈溢出</a> <a href="/tags/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/" style="font-size: 14px; color: #999">漏洞复现</a> <a href="/tags/%E7%A1%AC%E4%BB%B6/" style="font-size: 14px; color: #999">硬件</a> <a href="/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 14px; color: #999">笔记</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 14px; color: #999">算法</a> <a href="/tags/%E8%A7%A3%E8%AF%AD/" style="font-size: 24px; color: #555">解语</a> <a href="/tags/%E8%BF%9B%E5%88%B6/" style="font-size: 14px; color: #999">进制</a> <a href="/tags/%E8%BF%B7%E5%AE%AB/" style="font-size: 14px; color: #999">迷宫</a>
+      <a href="/tags/CEF/" style="font-size: 14px; color: #999">-CEF</a> <a href="/tags/DAS/" style="font-size: 24px; color: #555">-DAS</a> <a href="/tags/ACTF-dropper/" style="font-size: 14px; color: #999">-[ACTF] -[dropper]</a> <a href="/tags/dll/" style="font-size: 14px; color: #999">-[dll]</a> <a href="/tags/native-android/" style="font-size: 14px; color: #999">-[native] -[android]</a> <a href="/tags/wer/" style="font-size: 14px; color: #999">-[wer]</a> <a href="/tags/luajit/" style="font-size: 14px; color: #999">-luajit</a> <a href="/tags/%E5%8A%A0%E8%A7%A3%E5%AF%86/" style="font-size: 14px; color: #999">-加解密</a> <a href="/tags/TLS%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0/" style="font-size: 14px; color: #999">TLS回调函数</a> <a href="/tags/VM/" style="font-size: 14px; color: #999">VM</a> <a href="/tags/arm/" style="font-size: 24px; color: #555">arm</a> <a href="/tags/fuzz/" style="font-size: 24px; color: #555">fuzz</a> <a href="/tags/linux%E5%8F%8D%E8%B0%83%E8%AF%95/" style="font-size: 14px; color: #999">linux反调试</a> <a href="/tags/mips/" style="font-size: 14px; color: #999">mips</a> <a href="/tags/wp/" style="font-size: 14px; color: #999">wp</a> <a href="/tags/%E5%85%A5%E9%97%A8/" style="font-size: 14px; color: #999">入门</a> <a href="/tags/%E5%8F%8D%E8%B0%83%E8%AF%95/" style="font-size: 14px; color: #999">反调试</a> <a href="/tags/%E5%9B%BA%E4%BB%B6%E5%88%86%E6%9E%90/" style="font-size: 14px; color: #999">固件分析</a> <a href="/tags/%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/" style="font-size: 14px; color: #999">异常处理</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 14px; color: #999">数据结构</a> <a href="/tags/%E6%A0%88%E6%BA%A2%E5%87%BA/" style="font-size: 14px; color: #999">栈溢出</a> <a href="/tags/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/" style="font-size: 24px; color: #555">漏洞复现</a> <a href="/tags/%E7%A1%AC%E4%BB%B6/" style="font-size: 14px; color: #999">硬件</a> <a href="/tags/%E7%A5%A5%E4%BA%91%E6%9D%AF/" style="font-size: 14px; color: #999">祥云杯</a> <a href="/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 14px; color: #999">笔记</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 14px; color: #999">算法</a> <a href="/tags/%E8%A7%A3%E8%AF%AD/" style="font-size: 24px; color: #555">解语</a> <a href="/tags/%E8%BF%9B%E5%88%B6/" style="font-size: 14px; color: #999">进制</a> <a href="/tags/%E8%BF%B7%E5%AE%AB/" style="font-size: 14px; color: #999">迷宫</a>
     </div>
   </section>
 
@@ -2916,7 +3382,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <div class="webinfo-item">
           <div>文章数目：</div>
-          <div>33 篇</div>
+          <div>40 篇</div>
         </div>
       
 
@@ -2931,7 +3397,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <div class="webinfo-item">
           <div>本站总字数：</div>
-          <div>55.4k 字</div>
+          <div>62.1k 字</div>
         </div>
       
 
@@ -3947,7 +4413,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   <script>
-  let imgs = ["https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/016.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/046.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/039.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/025.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/001.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/004.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/052.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/006.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/033.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/035.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/054.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/003.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/042.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/056.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/051.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/012.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/034.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/005.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/019.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/038.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/002.webp"];
+  let imgs = ["https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/005.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/046.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/035.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/039.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/019.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/056.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/033.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/004.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/025.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/034.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/042.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/051.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/052.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/002.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/054.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/016.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/001.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/003.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/012.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/006.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/038.webp"];
   let index = 0;
   let IntervalParallax = null;
 
