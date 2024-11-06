@@ -31,19 +31,19 @@
 
   <!-- feed -->
   <!-- 页面元数据 -->
-  <title>andriod初探 - 1ens's blog</title>
+  <title>andriod_basics - 1ens's blog</title>
   <meta name="keywords" content="null">
   <meta desc name="description" content="a - 1ens - 1ens's blog">
   
 <meta property="og:type" content="article">
-<meta property="og:title" content="andriod初探">
+<meta property="og:title" content="andriod_basics">
 <meta property="og:url" content="http://example.com/2024/06/29/andriod%E5%85%A5%E9%97%A8/index.html">
 <meta property="og:site_name" content="1ens&#39;s blog">
-<meta property="og:description" content="1.1Android系统架构Linux内核层为Android设备的各种硬件提供了底层的驱动， 同时Android对于Linux进行了改动，比如它没有glibc。 android的本质是一个基于Linux上运行的java虚拟机。 系统运行库层通过一些C&#x2F;C++库为Android系统提供了主要的特性支持。包含两部分，一个是系统库，另一个是运行时。 这里也是native层。 应用框架层提供了构">
+<meta property="og:description" content="Android 系统架构Android 8前后两者区别在于Android 8 之后的系统架构多了一层硬件抽象层(HAL)。将物理硬件与操作系统分离，使开发人员可以更加方便地编写硬件驱动程序，并且能够在各种不同地硬件平台之间进行移植。 Linux 内核层为 Android 设备的各种硬件提供了底层的驱动， 同时 Android 对于 Linux 进行了改动，比如它没有 glibc。 android">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
 <meta property="article:published_time" content="2024-06-29T14:11:29.000Z">
-<meta property="article:modified_time" content="2024-06-30T09:12:08.611Z">
+<meta property="article:modified_time" content="2024-11-06T02:26:21.127Z">
 <meta property="article:author" content="1ens">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
@@ -1763,7 +1763,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: false,
     cdn: {"js":{"app":"/js/app.e546c981.js","parallax":"/js/plugins/parallax.8bf0ab10.js","rightMenu":"/js/plugins/rightMenu.d9437285.js","rightMenus":"/js/plugins/rightMenus.cd02aa19.js","sites":"/js/plugins/tags/sites.76bf19b8.js","friends":"/js/plugins/tags/friends.f372da57.js","contributors":"/js/plugins/tags/contributors.aec80453.js","search":"/js/search/hexo.0e52f222.js"},"css":{"style":"/css/style.1296f6d1.css"}},
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1649552113628/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1649552113628/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1649552113628/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1649552113628/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1719738921275),
+    lastupdate: new Date(1730899370966),
     sidebar: {
       for_page: ["blogger","github","category","tagcloud","webinfo"],
       for_post: ["toc"],
@@ -2546,7 +2546,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
     
       <h1 class="title" itemprop="name headline">
-        andriod初探
+        andriod_basics
       </h1>
       <div class='new-meta-box'>
         
@@ -2615,97 +2615,173 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   <div id="layoutHelper-page-plugins"></div>
   <div id="post-body" itemprop="articleBody">
-    <div class="story post-story"><h2 id="1-1Android系统架构"><a href="#1-1Android系统架构" class="headerlink" title="1.1Android系统架构"></a>1.1Android系统架构</h2><h3 id="Linux内核层"><a href="#Linux内核层" class="headerlink" title="Linux内核层"></a>Linux内核层</h3><p>为Android设备的各种硬件提供了底层的驱动， 同时Android对于Linux进行了改动，比如它没有glibc。</p>
-<p>android的本质是一个基于Linux上运行的java虚拟机。</p>
-<h3 id="系统运行库层"><a href="#系统运行库层" class="headerlink" title="系统运行库层"></a>系统运行库层</h3><p>通过一些C&#x2F;C++库为Android系统提供了主要的特性支持。包含两部分，一个是系统库，另一个是运行时。</p>
-<p>这里也是native层。</p>
-<h3 id="应用框架层"><a href="#应用框架层" class="headerlink" title="应用框架层"></a>应用框架层</h3><p>提供了构建应用程序时可能用到的各种API，Android自带的一些核心应用就是 使用这些API完成的，开发者可以使用这些API来构建自己的应用程序。</p>
+    <div class="story post-story"><h2 id="Android-系统架构"><a href="#Android-系统架构" class="headerlink" title="Android 系统架构"></a>Android 系统架构</h2><p>Android 8前后两者区别在于Android 8 之后的系统架构多了一层硬件抽象层(HAL)。将物理硬件与操作系统分离，使开发人员可以更加方便地编写硬件驱动程序，并且能够在各种不同地硬件平台之间进行移植。</p>
+<h3 id="Linux-内核层"><a href="#Linux-内核层" class="headerlink" title="Linux 内核层"></a>Linux 内核层</h3><p>为 Android 设备的各种硬件提供了底层的驱动， 同时 Android 对于 Linux 进行了改动，比如它没有 glibc。</p>
+<p>android 的本质是一个基于 Linux 上运行的 Java 虚拟机。</p>
+<h3 id="硬件抽象层-HAL"><a href="#硬件抽象层-HAL" class="headerlink" title="硬件抽象层(HAL)"></a>硬件抽象层(HAL)</h3><p>硬件抽象层（Hardware Abstraction Layer，简称 HAL）是操作系统或软件与硬件之间的接口层，用于提供硬件操作的抽象，使得上层软件可以不依赖于具体硬件实现，而能在不同硬件平台上运行。它的主要作用是隐藏硬件的细节，提供一致的、统一的接口，从而简化硬件与软件的交互。</p>
+<h3 id="原生C-x2F-C-库（native）"><a href="#原生C-x2F-C-库（native）" class="headerlink" title="原生C&#x2F;C++库（native）"></a>原生C&#x2F;C++库（native）</h3><p>Native C&#x2F;C++ 层是指使用 C 和 C++ 语言编写的代码，通常被称为本地层。在 Android 应用程序中，本地层主要用于访问底层系统资源，例如文件系统、网络协议栈和硬件接口等。本地层还可以提供与 Java 代码的互操作性，使得 Android 应用程序能够充分利用本地代码的优势，例如高效的内存管理和快速的算法执行速度。</p>
+<p><strong>原生库的功能和作用</strong></p>
+<p>原生C&#x2F;C++库为Android系统和应用程序提供以下几个方面的支持：</p>
+<ul>
+<li><strong>图形处理和渲染</strong>：提供图形和用户界面处理库，用于渲染2D&#x2F;3D图形。</li>
+<li><strong>多媒体支持</strong>：支持音频、视频的播放、录制及处理，为媒体相关的应用提供基础支持。</li>
+<li><strong>数据存储和访问</strong>：提供数据库访问、文件系统管理和存储支持，常用于持久化数据存储。</li>
+<li><strong>网络通信</strong>：支持应用的网络功能，例如HTTP通信、Socket通信等，保障应用能够实现网络交互。</li>
+<li><strong>计算和算法</strong>：提供数学计算和加密算法的实现，确保应用在加密、解密、数据分析等方面的需求。</li>
+</ul>
+<h3 id="系统运行库层（Android-Runtime）"><a href="#系统运行库层（Android-Runtime）" class="headerlink" title="系统运行库层（Android Runtime）"></a>系统运行库层（Android Runtime）</h3><p>通过一些 C&#x2F;C++库为 Android 系统提供了主要的特性支持。包含两部分，一个是系统库，另一个是ART虚拟机。</p>
+<h4 id="ART虚拟机"><a href="#ART虚拟机" class="headerlink" title="ART虚拟机"></a>ART虚拟机</h4><p>ART（Android Runtime）是Android操作系统的应用运行时环境，是Android应用执行的基础。ART从Android 5.0开始正式替代了早期的Dalvik虚拟机，成为Android默认的应用运行时。</p>
+<p>ART虚拟机在设计上具有以下几个核心特性：</p>
+<ul>
+<li><strong>提前编译（Ahead-of-Time, AOT）</strong>：ART在应用安装时将应用代码从字节码（Java字节码）编译为本地机器码，从而避免了运行时的编译开销。当用户打开一个应用程序时，ART 会在后台使用 AOT 编译器将应用程序的 Dex 字节码转换成本地机器代码，并存储在设备的存储空间中。这样，在下次打开应用程序时，就可以直接加载已经编译好的代码，避免了解释执行的过程，从而提高了应用程序的运行速度和响应时间。</li>
+<li><strong>即时编译（Just-in-Time, JIT）</strong>：ART在后续版本中引入了JIT编译，用于动态优化应用性能。在应用运行时，如果检测到一些代码片段频繁被执行，ART会对这些热点代码进行JIT编译，从而进一步优化其执行效率。</li>
+<li><strong>高效的垃圾回收（Garbage Collection, GC）</strong>：ART采用并发垃圾回收机制，减少应用卡顿现象。</li>
+<li><strong>改进的内存管理</strong>：ART具有高效的内存分配机制，能够减少内存碎片化，提升内存利用率。</li>
+<li><strong>调试和诊断支持</strong>：ART提供了更多调试工具和性能分析支持，帮助开发者更好地优化应用。</li>
+</ul>
+<h3 id="应用框架层（Java-API-框架）"><a href="#应用框架层（Java-API-框架）" class="headerlink" title="应用框架层（Java API 框架）"></a>应用框架层（Java API 框架）</h3><p>提供了构建应用程序时可能用到的各种 API，Android 自带的一些核心应用就是 使用这些 API 完成的，开发者可以使用这些 API 来构建自己的应用程序。</p>
 <h3 id="应用层"><a href="#应用层" class="headerlink" title="应用层"></a>应用层</h3><p>所有安装在手机上的应用程序都是属于这一层的。</p>
-<p><img src="https://fastly.jsdelivr.net/gh/1ens/blogImages/20240630133011.png" class="lazyload" data-srcset="https://fastly.jsdelivr.net/gh/1ens/blogImages/20240630133011.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
-</div><div class="story post-story"><h2 id="1-2文件系统分析"><a href="#1-2文件系统分析" class="headerlink" title="1.2文件系统分析"></a>1.2文件系统分析</h2><h3 id="概括"><a href="#概括" class="headerlink" title="概括"></a>概括</h3><ol>
-<li><p>gradle和.idea 这两个目录下放置的都是Android Studio自动生成的一些文件，我们无须关心，也不要去 手动编辑。 </p>
+<p><img src="https://fastly.jsdelivr.net/gh/1ens/blogImages/202411060959903.png" class="lazyload" data-srcset="https://fastly.jsdelivr.net/gh/1ens/blogImages/202411060959903.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+</div><div class="story post-story"><h2 id="文件系统分析"><a href="#文件系统分析" class="headerlink" title="文件系统分析"></a>文件系统分析</h2><h3 id="概括"><a href="#概括" class="headerlink" title="概括"></a>概括</h3><ol>
+<li><p>gradle 和.idea 这两个目录下放置的都是 Android Studio 自动生成的一些文件，我们无须关心，也不要去 手动编辑。 </p>
 </li>
 <li><p>app 项目中的代码、资源等内容都是放置在这个目录下的，我们后面的开发工作也基本是在这 个目录下进行的，待会儿还会对这个目录单独展开讲解。</p>
 </li>
 <li><p>build 这个目录主要包含了一些在编译时自动生成的文件，你也不需要过多关心。 </p>
 </li>
-<li><p>gradle 这个目录下包含了gradle wrapper的配置文件，使用gradle wrapper的方式不需要提前 将gradle下载好，而是会自动根据本地的缓存情况决定是否需要联网下载gradle。 Android Studio默认就是启用gradle wrapper方式的，如果需要更改成离线模式，可以 点击Android Studio导航栏→File→Settings→Build, Execution, Deployment→Gradle，进行配置更改。 </p>
+<li><p>gradle 这个目录下包含了 gradle wrapper 的配置文件，使用 gradle wrapper 的方式不需要提前 将 gradle 下载好，而是会自动根据本地的缓存情况决定是否需要联网下载 gradle。 Android Studio 默认就是启用 gradle wrapper 方式的，如果需要更改成离线模式，可以 点击 Android Studio 导航栏 →File→Settings→Build, Execution, Deployment→Gradle，进行配置更改。 </p>
 </li>
-<li><p>.gitignore 这个文件是用来将指定的目录或文件排除在版本控制之外的。关于版本控制，我们将在第6 章中开始正式的学习。</p>
+<li><p>.gitignore 这个文件是用来将指定的目录或文件排除在版本控制之外的。关于版本控制，我们将在第 6 章中开始正式的学习。</p>
 </li>
-<li><p>build.gradle 这是项目全局的gradle构建脚本，通常这个文件中的内容是不需要修改的。稍后我们将会 详细分析gradle构建脚本中的具体内容。 </p>
+<li><p>build.gradle 这是项目全局的 gradle 构建脚本，通常这个文件中的内容是不需要修改的。稍后我们将会 详细分析 gradle 构建脚本中的具体内容。 </p>
 </li>
-<li><p>gradle.properties 这个文件是全局的gradle配置文件，在这里配置的属性将会影响到项目中所有的gradle编 译脚本。 </p>
+<li><p>gradle.properties 这个文件是全局的 gradle 配置文件，在这里配置的属性将会影响到项目中所有的 gradle 编 译脚本。 </p>
 </li>
-<li><p>gradlew和gradlew.bat 这两个文件是用来在命令行界面中执行gradle命令的，其中gradlew是在Linux或Mac系统 中使用的，gradlew.bat是在Windows系统中使用的。 </p>
+<li><p>gradlew 和 gradlew.bat 这两个文件是用来在命令行界面中执行 gradle 命令的，其中 gradlew 是在 Linux 或 Mac 系统 中使用的，gradlew.bat 是在 Windows 系统中使用的。 </p>
 </li>
-<li><p>iml文件是所有IntelliJ IDEA项目都会自动生成的一个文件（Android Studio是基于IntelliJ IDEA开发的），用于标识这是一个IntelliJ IDEA项目，我们不需要修改这个文件中的任何内容。 （老版本）</p>
+<li><p>iml 文件是所有 IntelliJ IDEA 项目都会自动生成的一个文件（Android Studio 是基于 IntelliJ IDEA 开发的），用于标识这是一个 IntelliJ IDEA 项目，我们不需要修改这个文件中的任何内容。 （老版本）</p>
 </li>
-<li><p>local.properties 这个文件用于指定本机中的Android SDK路径，通常内容是自动生成的，我们并不需要修 改。除非你本机中的Android SDK位置发生了变化，那么就将这个文件中的路径改成新的位置即可。</p>
+<li><p>local.properties 这个文件用于指定本机中的 Android SDK 路径，通常内容是自动生成的，我们并不需要修 改。除非你本机中的 Android SDK 位置发生了变化，那么就将这个文件中的路径改成新的位置即可。</p>
 </li>
-<li><p>settings.gradle 这个文件用于指定项目中所有引入的模块。由于HelloWorld项目中只有一个app模块，因 此该文件中也就只引入了app这一个模块。通常情况下，模块的引入是自动完成的，需要我 们手动修改这个文件的场景可能比较少。</p>
+<li><p>settings.gradle 这个文件用于指定项目中所有引入的模块。由于 HelloWorld 项目中只有一个 app 模块，因 此该文件中也就只引入了 app 这一个模块。通常情况下，模块的引入是自动完成的，需要我 们手动修改这个文件的场景可能比较少。</p>
 </li>
 </ol>
 <p><img src="https://fastly.jsdelivr.net/gh/1ens/blogImages/20240630151506.png" class="lazyload" data-srcset="https://fastly.jsdelivr.net/gh/1ens/blogImages/20240630151506.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
-<h3 id="app目录下的结构"><a href="#app目录下的结构" class="headerlink" title="app目录下的结构"></a>app目录下的结构</h3><ol>
-<li>build 这个目录和外层的build目录类似，也包含了一些在编译时自动生成的文件，不过它里面的 内容会更加复杂，我们不需要过多关心。 （老版本）</li>
-<li>libs 如果你的项目中使用到了第三方jar包，就需要把这些jar包都放在libs目录下，放在这个目 录下的jar包会被自动添加到项目的构建路径里。 （老版本）</li>
-<li>androidTest 此处是用来编写Android Test测试用例的，可以对项目进行一些自动化测试。 </li>
-<li>java 毫无疑问，java目录是放置我们所有Java代码的地方（Kotlin代码也放在这里），展开该目录，你将看到系统帮我们自动生成了一个MainActivity文件。 </li>
-<li>res 这个目录下的内容就有点多了。简单点说，就是你在项目中使用到的所有图片、布局、字符串等资源都要存放在这个目录下。当然这个目录下还有很多子目录，图片放在drawable 目录下，布局放在layout目录下，字符串放在values目录下，所以你不用担心会把整个res目录弄得乱糟糟的。</li>
-<li>AndroidManifest.xml 这是整个Android项目的配置文件，你在程序中定义的所有四大组件都需要在这个文件里注册，另外还可以在这个文件中给应用程序添加权限声明。由于这个文件以后会经常用到， 我们等用到的时候再做详细说明。 </li>
-<li>test 此处是用来编写Unit Test测试用例的，是对项目进行自动化测试的另一种方式。</li>
-<li>.gitignore 这个文件用于将app模块内指定的目录或文件排除在版本控制之外，作用和外层 的.gitignore文件类似。 </li>
-<li>app.iml IntelliJ IDEA项目自动生成的文件，我们不需要关心或修改这个文件中的内容。（老版本）</li>
-<li>build.gradle 这是app模块的gradle构建脚本，这个文件中会指定很多项目构建相关的配置，我们稍后 将会详细分析gradle构建脚本中的具体内容。</li>
+<h3 id="app-目录下的结构"><a href="#app-目录下的结构" class="headerlink" title="app 目录下的结构"></a>app 目录下的结构</h3><ol>
+<li>build 这个目录和外层的 build 目录类似，也包含了一些在编译时自动生成的文件，不过它里面的 内容会更加复杂，我们不需要过多关心。 （老版本）</li>
+<li>libs 如果你的项目中使用到了第三方 jar 包，就需要把这些 jar 包都放在 libs 目录下，放在这个目 录下的 jar 包会被自动添加到项目的构建路径里。 （老版本）</li>
+<li>androidTest 此处是用来编写 Android Test 测试用例的，可以对项目进行一些自动化测试。 </li>
+<li>java 毫无疑问，java 目录是放置我们所有 Java 代码的地方（Kotlin 代码也放在这里），展开该目录，你将看到系统帮我们自动生成了一个 MainActivity 文件。 </li>
+<li>res 这个目录下的内容就有点多了。简单点说，就是你在项目中使用到的所有图片、布局、字符串等资源都要存放在这个目录下。当然这个目录下还有很多子目录，图片放在 drawable 目录下，布局放在 layout 目录下，字符串放在 values 目录下，所以你不用担心会把整个 res 目录弄得乱糟糟的。</li>
+<li>AndroidManifest.xml 这是整个 Android 项目的配置文件，你在程序中定义的所有四大组件都需要在这个文件里注册，另外还可以在这个文件中给应用程序添加权限声明。由于这个文件以后会经常用到， 我们等用到的时候再做详细说明。 </li>
+<li>test 此处是用来编写 Unit Test 测试用例的，是对项目进行自动化测试的另一种方式。</li>
+<li>.gitignore 这个文件用于将 app 模块内指定的目录或文件排除在版本控制之外，作用和外层 的.gitignore 文件类似。 </li>
+<li>app.iml IntelliJ IDEA 项目自动生成的文件，我们不需要关心或修改这个文件中的内容。（老版本）</li>
+<li>build.gradle 这是 app 模块的 gradle 构建脚本，这个文件中会指定很多项目构建相关的配置，我们稍后 将会详细分析 gradle 构建脚本中的具体内容。</li>
 <li>proguard-rules.pro 这个文件用于指定项目代码的混淆规则，当代码开发完成后打包成安装包文件，如果不希 望代码被别人破解，通常会将代码进行混淆，从而让破解者难以阅读。</li>
 </ol>
 <p><img src="https://fastly.jsdelivr.net/gh/1ens/blogImages/20240630152136.png" class="lazyload" data-srcset="https://fastly.jsdelivr.net/gh/1ens/blogImages/20240630152136.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
-<h3 id="字符串在哪里—以Helloworld为例"><a href="#字符串在哪里—以Helloworld为例" class="headerlink" title="字符串在哪里—以Helloworld为例"></a>字符串在哪里—以Helloworld为例</h3><p>首先打开AndroidManifest.xml文件，从中可以找到如下代码</p>
+<h3 id="字符串在哪里—以-Helloworld-为例"><a href="#字符串在哪里—以-Helloworld-为例" class="headerlink" title="字符串在哪里—以 Helloworld 为例"></a>字符串在哪里—以 Helloworld 为例</h3><p>首先打开 AndroidManifest.xml 文件，从中可以找到如下代码</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">activity</span></span></span><br><span class="line"><span class="tag">     <span class="attr">android:name</span>=<span class="string">&quot;.MainActivity&quot;</span></span></span><br><span class="line"><span class="tag">     <span class="attr">android:exported</span>=<span class="string">&quot;true&quot;</span></span></span><br><span class="line"><span class="tag">     <span class="attr">android:label</span>=<span class="string">&quot;@string/app_name&quot;</span></span></span><br><span class="line"><span class="tag">     <span class="attr">android:theme</span>=<span class="string">&quot;@style/Theme.Helloworld&quot;</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">intent-filter</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">&quot;android.intent.action.MAIN&quot;</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">         <span class="tag">&lt;<span class="name">category</span> <span class="attr">android:name</span>=<span class="string">&quot;android.intent.category.LAUNCHER&quot;</span> /&gt;</span></span><br><span class="line">     <span class="tag">&lt;/<span class="name">intent-filter</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">activity</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p>这段代码表示对MainActivity进行注册，没有在AndroidManifest.xml里注册的Activity是不能使用的。其中intent-filter里的两行代码非常重要，和表示MainActivity是这个项目的主Activity，在手机上点击应用图标，首先启动的就是这个Activity。Activity是Android应用程序的门面，凡是在应用中你看得到的东西，都是放在Activity中的。</p>
-<p>打开MainActivity，代码如下所示</p>
+<p>这段代码表示对 MainActivity 进行注册，没有在 AndroidManifest.xml 里注册的 Activity 是不能使用的。其中 intent-filter 里的两行代码非常重要，和表示 MainActivity 是这个项目的主 Activity，在手机上点击应用图标，首先启动的就是这个 Activity。Activity 是 Android 应用程序的门面，凡是在应用中你看得到的东西，都是放在 Activity 中的。</p>
+<p>打开 MainActivity，代码如下所示</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">MainActivity</span> : ComponentActivity() &#123;</span><br><span class="line">    override fun <span class="title function_">onCreate</span><span class="params">(savedInstanceState: Bundle?)</span> &#123;</span><br><span class="line">        <span class="built_in">super</span>.onCreate(savedInstanceState)</span><br><span class="line">        enableEdgeToEdge()</span><br><span class="line">        setContent &#123;</span><br><span class="line">            HelloworldTheme &#123;</span><br><span class="line">                Scaffold(modifier = Modifier.fillMaxSize()) &#123; innerPadding -&gt;</span><br><span class="line">                    Greeting(</span><br><span class="line">                        name = <span class="string">&quot;Android&quot;</span>,</span><br><span class="line">                        modifier = Modifier.padding(innerPadding)</span><br><span class="line">                    )</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>首先可以看到，MainActivity是继承自ComponentActivity的。ComponentActivity是AndroidX中提供的一种向下兼容的Activity，可以使Activity在不同系统版本中的功能保持一致性。而Activity类是Android系统提供的一个基类，我们项目中所有自定义的Activity都必须继承它或者它的子类才能拥有Activity的特性（ComponentActivity是Activity的子类）。然后可以看到MainActivity中有一个onCreate()方法，这个方法是一个Activity被创建时必定要 执行的方法，并且没有“HelloWorld”的字样。</p>
-<p>“HelloWorld”是在哪里定义的呢？其实Android程序的设计讲究逻辑和视图分离，因此是不推荐在Activity中直接编写界面的。一种更加通用的做法是，在布局文件中编写界面，然后在Activity中引入进来。</p>
-<p>res目录中的内容就变得非常简单了。所有 以“drawable”开头的目录都是用来放图片的，所有以“mipmap”开头的目录都是用来放应用图标的，所有以“values”开头的目录都是用来放字符串、样式、颜色等配置的，所有 以“layout”开头的目录都是用来放布局文件的。</p>
+<p>首先可以看到，MainActivity 是继承自 ComponentActivity 的。ComponentActivity 是 AndroidX 中提供的一种向下兼容的 Activity，可以使 Activity 在不同系统版本中的功能保持一致性。而 Activity 类是 Android 系统提供的一个基类，我们项目中所有自定义的 Activity 都必须继承它或者它的子类才能拥有 Activity 的特性（ComponentActivity 是 Activity 的子类）。然后可以看到 MainActivity 中有一个 onCreate()方法，这个方法是一个 Activity 被创建时必定要 执行的方法，并且没有“HelloWorld”的字样。</p>
+<p>“HelloWorld”是在哪里定义的呢？其实 Android 程序的设计讲究逻辑和视图分离，因此是不推荐在 Activity 中直接编写界面的。一种更加通用的做法是，在布局文件中编写界面，然后在 Activity 中引入进来。</p>
+<p>res 目录中的内容就变得非常简单了。所有 以“drawable”开头的目录都是用来放图片的，所有以“mipmap”开头的目录都是用来放应用图标的，所有以“values”开头的目录都是用来放字符串、样式、颜色等配置的，所有 以“layout”开头的目录都是用来放布局文件的。</p>
 <p><img src="https://fastly.jsdelivr.net/gh/1ens/blogImages/20240630162434.png" class="lazyload" data-srcset="https://fastly.jsdelivr.net/gh/1ens/blogImages/20240630162434.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
-<p>打开 res&#x2F;values&#x2F;strings.xml文件，内容如下所示</p>
+<p>打开 res&#x2F;values&#x2F;strings.xml 文件，内容如下所示</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">resources</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">string</span> <span class="attr">name</span>=<span class="string">&quot;app_name&quot;</span>&gt;</span>Helloworld<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">resources</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <p>可以看到，这里定义了一个应用程序名的字符串，我们有以下两种方式来引用它。</p>
-<p>在代码中通过R.string.app_name可以获得该字符串的引用。 </p>
-<p>在XML中通过@string&#x2F;app_name可以获得该字符串的引用。</p>
-<p>基本的语法就是上面这两种方式，其中string部分是可以替换的，如果是引用的图片资源就可 以替换成drawable，如果是引用的应用图标就可以替换成mipmap，如果是引用的布局文件就 可以替换成layout，以此类推。</p>
-<h3 id="build-gradle文件"><a href="#build-gradle文件" class="headerlink" title="build.gradle文件"></a>build.gradle文件</h3><p>不同于Eclipse，Android Studio是采用Gradle来构建项目的。Gradle是一个非常先进的项目 构建工具，它使用了一种基于Groovy的领域特定语言（DSL）来进行项目设置，摒弃了传统基 于XML（如Ant和Maven）的各种烦琐配置。</p>
-<p>DSL的全称是Domain Specific Language 即 领域特定语言，我们可以通过DSL语言 构建出属于我们自己的语法结构，而在Kotlin中并不只有一种方式实现DSL，而主要的实现方式就是高阶函数</p>
-<h3 id="日志"><a href="#日志" class="headerlink" title="日志"></a>日志</h3><p>ndroid中的日志工具类是Log（android.util.Log），这个类中提供了如下5个方法来供我 们打印日志。 </p>
-<p>Log.v()。用于打印那些最为琐碎的、意义最小的日志信息。对应级别verbose，是 Android日志里面级别最低的一种。 </p>
-<p>Log.d()。用于打印一些调试信息，这些信息对你调试程序和分析问题应该是有帮助的。 对应级别debug，比verbose高一级。</p>
-<p> Log.i()。用于打印一些比较重要的数据，这些数据应该是你非常想看到的、可以帮你分 析用户行为的数据。对应级别info，比debug高一级。</p>
-<p> Log.w()。用于打印一些警告信息，提示程序在这个地方可能会有潜在的风险，最好去修 复一下这些出现警告的地方。对应级别warn，比info高一级。</p>
-<p> Log.e()。用于打印程序中的错误信息，比如程序进入了catch语句中。当有错误信息打 印出来的时候，一般代表你的程序出现严重问题了，必须尽快修复。对应级别error，比 warn高一级。</p>
-</div><div class="story post-story"><h2 id="Android-逆向分析："><a href="#Android-逆向分析：" class="headerlink" title="Android 逆向分析："></a>Android 逆向分析：</h2><p>APK文件其实是zip格式，后缀名被修改为apk，可以用解压软件打开，结构如下:</p>
+<p>在代码中通过 R.string.app_name 可以获得该字符串的引用。 </p>
+<p>在 XML 中通过@string&#x2F;app_name 可以获得该字符串的引用。</p>
+<p>基本的语法就是上面这两种方式，其中 string 部分是可以替换的，如果是引用的图片资源就可 以替换成 drawable，如果是引用的应用图标就可以替换成 mipmap，如果是引用的布局文件就 可以替换成 layout，以此类推。</p>
+<h3 id="build-gradle-文件"><a href="#build-gradle-文件" class="headerlink" title="build.gradle 文件"></a>build.gradle 文件</h3><p>不同于 Eclipse，Android Studio 是采用 Gradle 来构建项目的。Gradle 是一个非常先进的项目 构建工具，它使用了一种基于 Groovy 的领域特定语言（DSL）来进行项目设置，摒弃了传统基 于 XML（如 Ant 和 Maven）的各种烦琐配置。</p>
+<p>DSL 的全称是 Domain Specific Language 即 领域特定语言，我们可以通过 DSL 语言 构建出属于我们自己的语法结构，而在 Kotlin 中并不只有一种方式实现 DSL，而主要的实现方式就是高阶函数</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">plugins &#123;</span><br><span class="line">    id &#x27;com.android.application&#x27;//声明了使用的Gradle插件	</span><br><span class="line">&#125;</span><br><span class="line">//一般有两种值可选：com.android.application表示这是一个应用程序模块，com.android.library 表示这是一个库模块。应用程序模块和库模块的最大区别在于，一个是可以直接运行的，一个只能作为代码库依附于别的应用程序模块来运行</span><br><span class="line"></span><br><span class="line">android &#123;</span><br><span class="line">    namespace &#x27;com.example.the_first_demo&#x27;//指定应用程序的命名空间，也就是应用程序的包名</span><br><span class="line">    compileSdk 33//指定编译使用的API级别，sdk版本</span><br><span class="line"></span><br><span class="line">    defaultConfig &#123;</span><br><span class="line">    applicationId &quot;com.example.the_first_demo&quot; //应用程序ID</span><br><span class="line">    minSdk 16 //最低支持的Android版本</span><br><span class="line">    targetSdk 33//指定的值表示你在该目标版本上已经做过了充分的测试，会启用该版本的新特性(目标版本)</span><br><span class="line">    versionCode 1 //版本代码</span><br><span class="line">    versionName &quot;1.0&quot;//版本名称</span><br><span class="line"></span><br><span class="line">​    testInstrumentationRunner &quot;androidx.test.runner.AndroidJUnitRunner&quot;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">     buildTypes &#123;</span><br><span class="line">        release &#123;</span><br><span class="line">        minifyEnabled false //指定是否对项目的代码进行混淆，true 表示混淆，false 表示不混淆</span><br><span class="line">        proguardFiles getDefaultProguardFile(&#x27;proguard-android-optimize.txt&#x27;), &#x27;proguard-rules.pro&#x27;</span><br><span class="line">        // proguardFiles 用于指定混淆时使用的规则文件，这里指定了两个文件</span><br><span class="line">        // 第一个proguard-android-optimize.txt 是在Android SDK目录下的，里面是所有项目通用的混淆规则；</span><br><span class="line">        // 第二个proguard-rules.pro 是在当前项目的根目录下的，里面可以编写当前项目特有的混淆规则</span><br><span class="line">​       &#125;</span><br><span class="line">     &#125;</span><br><span class="line">    compileOptions &#123;</span><br><span class="line">​    sourceCompatibility JavaVersion.VERSION_1_8 //指定编译使用的Java版本</span><br><span class="line">​    targetCompatibility JavaVersion.VERSION_1_8</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">dependencies &#123;</span><br><span class="line">	//声明了应用所依赖的库</span><br><span class="line">	//指定应用程序运行时需要的库</span><br><span class="line">    implementation &#x27;androidx.appcompat:appcompat:1.4.1&#x27;//是支持应用程序兼容旧版本Android的库</span><br><span class="line">    implementation &#x27;com.google.android.material:material:1.5.0&#x27;//是Material Design组件库</span><br><span class="line">    implementation &#x27;androidx.constraintlayout:constraintlayout:2.1.3&#x27;//是一个用于布局的库</span><br><span class="line">    //指定单元测试时需要的库</span><br><span class="line">    testImplementation &#x27;junit:junit:4.13.2&#x27;//JUnit单元测试库</span><br><span class="line">    //指定Android测试时需要的库</span><br><span class="line">    androidTestImplementation &#x27;androidx.test.ext:junit:1.1.3&#x27;//JUnit扩展库</span><br><span class="line">    androidTestImplementation &#x27;androidx.test.espresso:espresso-core:3.4.0&#x27;//Android UI测试的Espresso库</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="日志"><a href="#日志" class="headerlink" title="日志"></a>日志</h3><p>ndroid 中的日志工具类是 Log（android.util.Log），这个类中提供了如下 5 个方法来供我 们打印日志。 </p>
+<p>Log.v()。用于打印那些最为琐碎的、意义最小的日志信息。对应级别 verbose，是 Android 日志里面级别最低的一种。 </p>
+<p>Log.d()。用于打印一些调试信息，这些信息对你调试程序和分析问题应该是有帮助的。 对应级别 debug，比 verbose 高一级。</p>
+<p> Log.i()。用于打印一些比较重要的数据，这些数据应该是你非常想看到的、可以帮你分 析用户行为的数据。对应级别 info，比 debug 高一级。</p>
+<p> Log.w()。用于打印一些警告信息，提示程序在这个地方可能会有潜在的风险，最好去修 复一下这些出现警告的地方。对应级别 warn，比 info 高一级。</p>
+<p> Log.e()。用于打印程序中的错误信息，比如程序进入了 catch 语句中。当有错误信息打 印出来的时候，一般代表你的程序出现严重问题了，必须尽快修复。对应级别 error，比 warn 高一级。</p>
+</div><div class="story post-story"><h2 id="四大组件"><a href="#四大组件" class="headerlink" title="四大组件"></a>四大组件</h2><p>活动(Activity)：在应用中能看到的东西都是放在活动中。</p>
+<p>服务(Service)：无法看到，它会一直在后台运行，即使用户退出了应用，服务可以继续运行。</p>
+<p>广播接收器(Broadcast Receiver)：允许应用接受来自各处的广播信息，比如电话、短信等。</p>
+<p>内容提供器(Content Provider)：为应用程序之间共享数据提供了可能，比如读取系统电话簿中的联系人。</p>
+</div><div class="story post-story"><h2 id="虚拟机"><a href="#虚拟机" class="headerlink" title="虚拟机"></a>虚拟机</h2><p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/6bdbbab73705">关于Dalvik虚拟机 - 简书 (jianshu.com)</a></p>
+<p><img src="https://fastly.jsdelivr.net/gh/1ens/blogImages/202409262256791.png" class="lazyload" data-srcset="https://fastly.jsdelivr.net/gh/1ens/blogImages/202409262256791.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p>DX工具用来转换Java class称为dex格式，但不是全部。多个类型包含在一个Dex文件中，多个类型中重复的字符串和其他常数在Dex中只存放一次，以节省空间。Java字节码转换成DVM所使用的替代指令集。一个未压缩Dex文件通常是稍稍小于一个已经压缩的jar文件。</p>
+</div><div class="story post-story"><h2 id="kotlin"><a href="#kotlin" class="headerlink" title="kotlin"></a>kotlin</h2><p>变量：</p>
+<p>Kotlin 中定义一个变量，只允许在变量前声明两种关键字：val 和 var。它拥有出色的类型推导机制。 </p>
+<p>val（value 的简写）用来声明一个不可变的变量，这种变量在初始赋值之后就再也不能重新赋 值，对应 Java 中的 final 变量。</p>
+<p>var（variable 的简写）用来声明一个可变的变量，这种变量在初始赋值之后仍然可以再被重新 赋值，对应 Java 中的非 final 变量。</p>
+<p>也可以显式地声明了变量 a 为特定类型，此时 Kotlin 就不会再尝试进行类型推导了 如：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> a: <span class="built_in">Int</span> = <span class="number">10</span> </span><br></pre></td></tr></table></figure>
+
+
+
+<p>函数：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">methodName</span><span class="params">(param1: <span class="type">Int</span>, param2: <span class="type">Int</span>)</span></span>: <span class="built_in">Int</span> &#123; </span><br><span class="line"> <span class="keyword">return</span> <span class="number">0</span> </span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+
+<p>fun（function 的简写）是定义函数的关键字</p>
+<p>函数名后面紧跟着一对括号，里面可以声明该函数接收什么参数，参数的数量可以是任意多个，例如上述示例就表示该函数接收两个 Int 类型的参数。参数的声明格式是“参数名: 参数类型”，其中参数名也是可以随便定义的，这一点和函数名类似。如果不想接收任何参数，那么写一对空括号就可以了。</p>
+<p>参数括号后面的那部分是可选的，用于声明该函数会返回什么类型的数据，上述示例就表示该 函数会返回一个 Int 类型的数据。如果你的函数不需要返回任何数据，这部分可以直接不写。</p>
+<p>语句：</p>
+<p>Kotlin 中的条件语句主要有两种实现方式：if 和 when。 首先学习 if，Kotlin 中的 if 语句和 Java 中的 if 语句几乎没有任何区别，但是 Kotlin 中的 if 语句相比于 Java 有一个额外的功能，它是可以有返回值的，返回值就是 if 语句每 一个条件中最后一行代码的返回值。</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">largerNumber</span><span class="params">(num1: <span class="type">Int</span>, num2: <span class="type">Int</span>)</span></span>: <span class="built_in">Int</span> &#123; </span><br><span class="line"> <span class="keyword">val</span> value = <span class="keyword">if</span> (num1 &gt; num2) &#123; </span><br><span class="line"> num1 </span><br><span class="line"> &#125; <span class="keyword">else</span> &#123; </span><br><span class="line"> num2 </span><br><span class="line"> &#125; </span><br><span class="line"> <span class="keyword">return</span> value </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>when 语句和 if 语句一样， 也是可以有返回值的</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">getScore</span><span class="params">(name: <span class="type">String</span>)</span></span> = <span class="keyword">when</span> (name) &#123; </span><br><span class="line"> <span class="string">&quot;Tom&quot;</span> -&gt; <span class="number">86</span> </span><br><span class="line"> <span class="string">&quot;Jim&quot;</span> -&gt; <span class="number">77</span> </span><br><span class="line"> <span class="string">&quot;Jack&quot;</span> -&gt; <span class="number">95</span> </span><br><span class="line"> <span class="string">&quot;Lily&quot;</span> -&gt; <span class="number">100</span> </span><br><span class="line"> <span class="keyword">else</span> -&gt; <span class="number">0</span> </span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+
+<p>when 语句允许传入一个任意类型的参数，然后可以在 when 的结构体中定义一系列的条件，格式 是：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">匹配值 -&gt; &#123; 执行逻辑 &#125; </span><br></pre></td></tr></table></figure>
+
+<p>除了精确匹配之外，when 语句还允许进行类型匹配</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">checkNumber</span><span class="params">(num: <span class="type">Number</span>)</span></span> &#123; </span><br><span class="line"> <span class="keyword">when</span> (num) &#123; </span><br><span class="line"> <span class="keyword">is</span> <span class="built_in">Int</span> -&gt; println(<span class="string">&quot;number is Int&quot;</span>) </span><br><span class="line"> <span class="keyword">is</span> <span class="built_in">Double</span> -&gt; println(<span class="string">&quot;number is Double&quot;</span>) </span><br><span class="line"> <span class="keyword">else</span> -&gt; println(<span class="string">&quot;number not support&quot;</span>) </span><br><span class="line"> &#125; </span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+
+
+
+<p>for-in 循环</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span> &#123; </span><br><span class="line"> <span class="keyword">for</span> (i <span class="keyword">in</span> <span class="number">0.</span><span class="number">.10</span>) &#123; </span><br><span class="line"> println(i) </span><br><span class="line"> &#125; </span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+
+<p>Kotlin 中可以使用 until 关键字来创建一个左闭右开的区间，如 下所示：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> range = <span class="number">0</span> until <span class="number">10</span> </span><br></pre></td></tr></table></figure>
+
+<p>数学表达方式是[0, 10)</p>
+<p>而如果你想跳过其中的一些元素，可以使用 step 关键字</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span> &#123; </span><br><span class="line"> <span class="keyword">for</span> (i <span class="keyword">in</span> <span class="number">0</span> until <span class="number">10</span> step <span class="number">2</span>) &#123; </span><br><span class="line"> println(i) </span><br><span class="line"> &#125; </span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+
+<p>相当于 for-i 循环中 i &#x3D; i + 2 的效果</p>
+<p>如果你想创建一个降序的区间，可以使用 downTo 关键字</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span> &#123; </span><br><span class="line"> <span class="keyword">for</span> (i <span class="keyword">in</span> <span class="number">10</span> downTo <span class="number">1</span>) &#123; </span><br><span class="line"> println(i) </span><br><span class="line"> &#125; </span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+
+</div><div class="story post-story"><h2 id="Android-逆向分析初探："><a href="#Android-逆向分析初探：" class="headerlink" title="Android 逆向分析初探："></a>Android 逆向分析初探：</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/lpohvbe/article/details/7981386">APK反编译之一：基础知识_apk反编译基础-CSDN博客</a></p>
+<p>APK 文件其实是 zip 格式，后缀名被修改为 apk，可以用解压软件打开，结构如下:</p>
 <p><img src="https://fastly.jsdelivr.net/gh/1ens/blogImages/20240630170012.png" class="lazyload" data-srcset="https://fastly.jsdelivr.net/gh/1ens/blogImages/20240630170012.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
-<p>AndroidManifest.xml是程序全局配置文件，描述应用的名字、版本、权限、引用的库文件等信息。apk中的AndroidManifest.xml是经过压缩的，可以通过AXMLPrinter2工具解开，命令为：java -jar AXMLPrinter2.jar AndroidManifest.xml。</p>
-<p>classes.dex是java源码编译后生成的dalvik字节码文件。其中包含APK的可执行代码，反编译apk时，反编译的其实就是dex文件。</p>
-<p>resources.arsc是编译后的二进制资源文件的索引。</p>
-<p>res目录存放资源文件，包括图片，字符串等。</p>
-<p>libs目录存放程序中用到的so库，即动态链接库。</p>
-<p>META-INF目录下存放的是签名信息，用来保证apk包的完整性和系统的安全</p>
-<p>assets目录用于存放需要打包到应用程序的静态文件。</p>
-<h3 id="Activity："><a href="#Activity：" class="headerlink" title="Activity："></a>Activity：</h3><p>Activity表示应用的一个屏幕，用于呈现给用户，并可接受处理与用户交互产生的界面事件。</p>
-<p>Android系统中以栈的形式保存所有Activity。当一个新的Activity启动时，该Activity就会被压入Activity栈顶。当用 户按下Back返回按钮，当前Activity就会被关闭，栈中下一个Activity就会被移到栈顶，变成活跃状态。Activity有4种状态：</p>
-<p>活动状态。Activity处于栈顶，可见的、具有焦点，可接受用户交互。系统会优先保持其所需资源，使其处于可见状态。</p>
-<p>暂停状态。某些状态下，Activity处于可见状态，但是没有获得焦点，不能与用户交互，此时处于暂停状态，比如长按Home键，当前应用就会变为暂停状态。在极端状况下，系统会终止处于暂停状态的Activity，释放资源。</p>
-<p>停止状态。当一个Activity完全不可见时，它就会变为停止状态。此时内存中还会保留相关信息。</p>
-<p>Android内存管理会优先释放处于非活动状态Activity的资源，接着释放处于停止状态的资源，只有在极端状况下，才会释放处于暂停状态Activity的资源。</p>
+<p>AndroidManifest.xml 是程序全局配置文件，描述应用的名字、版本、权限、引用的库文件等信息。apk 中的 AndroidManifest.xml 是经过压缩的，可以通过 AXMLPrinter2 工具解开，命令为：java -jar AXMLPrinter2.jar AndroidManifest.xml。</p>
+<p>classes.dex 是 java 源码编译后生成的 dalvik 字节码文件。其中包含 APK 的可执行代码，反编译 apk 时，反编译的其实就是 dex 文件。</p>
+<p>resources.arsc 是编译后的二进制资源文件的索引。</p>
+<p>res 目录存放资源文件，包括图片，字符串等。</p>
+<p>libs 目录存放程序中用到的 so 库，即动态链接库。</p>
+<p>META-INF 目录下存放的是签名信息，用来保证 apk 包的完整性和系统的安全</p>
+<p>assets 目录用于存放需要打包到应用程序的静态文件。</p>
+<h3 id="Activity："><a href="#Activity：" class="headerlink" title="Activity："></a>Activity：</h3><p>Activity 表示应用的一个屏幕，用于呈现给用户，并可接受处理与用户交互产生的界面事件。</p>
+<p>Android 系统中以栈的形式保存所有 Activity。当一个新的 Activity 启动时，该 Activity 就会被压入 Activity 栈顶。当用 户按下 Back 返回按钮，当前 Activity 就会被关闭，栈中下一个 Activity 就会被移到栈顶，变成活跃状态。Activity 有 4 种状态：</p>
+<p>活动状态。Activity 处于栈顶，可见的、具有焦点，可接受用户交互。系统会优先保持其所需资源，使其处于可见状态。</p>
+<p>暂停状态。某些状态下，Activity 处于可见状态，但是没有获得焦点，不能与用户交互，此时处于暂停状态，比如长按 Home 键，当前应用就会变为暂停状态。在极端状况下，系统会终止处于暂停状态的 Activity，释放资源。</p>
+<p>停止状态。当一个 Activity 完全不可见时，它就会变为停止状态。此时内存中还会保留相关信息。</p>
+<p>Android 内存管理会优先释放处于非活动状态 Activity 的资源，接着释放处于停止状态的资源，只有在极端状况下，才会释放处于暂停状态 Activity 的资源。</p>
 <p><img src="https://fastly.jsdelivr.net/gh/1ens/blogImages/20240630170129.png" class="lazyload" data-srcset="https://fastly.jsdelivr.net/gh/1ens/blogImages/20240630170129.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
-<p>当启动一个Activity时，会依次执行onCreate、onStart、onResume方法，当Activity重新获得焦点时，会依次执行 onRestart、onStart、onResume方法，当关闭Activity时，会依次执行onPause、onStop、onDestroy方 法</p>
-<h3 id="了解smali结构"><a href="#了解smali结构" class="headerlink" title="了解smali结构"></a>了解smali结构</h3><p>  使用Apktool反编译apk后，会在反编译目录下生成一个smali文件夹，里面存放着的就是所有反编译出的smali文件，这些文件会根据程序包的层次结构生成相应的目录，程序中所有的类都会在相应的目录下生成独立的smali文件。baksmali在反编译文件时，会为每个类单独生成了一个smali文件，内部类作为一个独立的类，它也拥有自己独立的smali文件，其文件名以“外部类名$内部类名”的形式定义。</p>
-<h3 id="签名检查的原理"><a href="#签名检查的原理" class="headerlink" title="签名检查的原理"></a>签名检查的原理</h3><p> 每一个软件在发布时都需要开发人员对其进行签名，而签名使用的密钥文件是开发人员所独有的。破解者通常无法拿到开发人员的签名密钥，因此，签名是Android软件中一种有效的身份标识。如果软件运行过程中发现签名和自身发布时的不一致，很有可能是被篡改过，就可以中止软件的运行。Android SDK中提供了检测软件签名的方法，可以调用PackageManager类的getPackageInfo()方法，为第二个参数传入PckageManager.GET_SIGNATURES，返回的PackageInfo()对象中的signatures字段就是软件发布时的签名。但是，这个签名内容较长，不适合在代码中做比较判断，所以可以计算签名的哈希值并以它来做比较。哈希值相同，可以认为签名相同。</p>
+<p>当启动一个 Activity 时，会依次执行 onCreate、onStart、onResume 方法，当 Activity 重新获得焦点时，会依次执行 onRestart、onStart、onResume 方法，当关闭 Activity 时，会依次执行 onPause、onStop、onDestroy 方 法</p>
+<h3 id="了解-smali-结构"><a href="#了解-smali-结构" class="headerlink" title="了解 smali 结构"></a>了解 smali 结构</h3><p>  使用 Apktool 反编译 apk 后，会在反编译目录下生成一个 smali 文件夹，里面存放着的就是所有反编译出的 smali 文件，这些文件会根据程序包的层次结构生成相应的目录，程序中所有的类都会在相应的目录下生成独立的 smali 文件。baksmali 在反编译文件时，会为每个类单独生成了一个 smali 文件，内部类作为一个独立的类，它也拥有自己独立的 smali 文件，其文件名以“外部类名$内部类名”的形式定义。</p>
+<h3 id="签名检查的原理"><a href="#签名检查的原理" class="headerlink" title="签名检查的原理"></a>签名检查的原理</h3><p> 每一个软件在发布时都需要开发人员对其进行签名，而签名使用的密钥文件是开发人员所独有的。破解者通常无法拿到开发人员的签名密钥，因此，签名是 Android 软件中一种有效的身份标识。如果软件运行过程中发现签名和自身发布时的不一致，很有可能是被篡改过，就可以中止软件的运行。Android SDK 中提供了检测软件签名的方法，可以调用 PackageManager 类的 getPackageInfo()方法，为第二个参数传入 PckageManager.GET_SIGNATURES，返回的 PackageInfo()对象中的 signatures 字段就是软件发布时的签名。但是，这个签名内容较长，不适合在代码中做比较判断，所以可以计算签名的哈希值并以它来做比较。哈希值相同，可以认为签名相同。</p>
+</div><div class="story post-story"><h2 id="杂记"><a href="#杂记" class="headerlink" title="杂记"></a>杂记</h2><p>所谓原生，就是离libart.so更近：安卓原生就是libart.so来解释。Linux原生就是CPU来直接解释。</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/pengxurui/AndroidFamily?tab=readme-ov-file">pengxurui&#x2F;AndroidFamily: 🔥【Android 面经 + Android 学习指南】一份帮助 Android 开发者知识积累与能力进阶的学习路线</a></p>
 
 </div>
   </div>
@@ -2742,10 +2818,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateModified" datetime="2024-06-30T17:12:08+08:00">
+          <div class="new-meta-item date" itemprop="dateModified" datetime="2024-11-06T10:26:21+08:00">
   <a class='notlink'>
     <i class="fa-solid fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2024年6月30日</p>
+    <p>更新于：2024年11月6日</p>
   </a>
 </div>
 
@@ -2764,7 +2840,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2024/06/29/andriod%E5%85%A5%E9%97%A8/&title=andriod初探 - 1ens's blog&summary="
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2024/06/29/andriod%E5%85%A5%E9%97%A8/&title=andriod_basics - 1ens's blog&summary="
           
           >
           
@@ -2776,7 +2852,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://example.com/2024/06/29/andriod%E5%85%A5%E9%97%A8/&title=andriod初探 - 1ens's blog&summary="
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://example.com/2024/06/29/andriod%E5%85%A5%E9%97%A8/&title=andriod_basics - 1ens's blog&summary="
           
           >
           
@@ -2788,7 +2864,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2024/06/29/andriod%E5%85%A5%E9%97%A8/&title=andriod初探 - 1ens's blog&summary="
+          target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2024/06/29/andriod%E5%85%A5%E9%97%A8/&title=andriod_basics - 1ens's blog&summary="
           
           >
           
@@ -2820,6 +2896,12 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   
     <div class="prev-next">
+      
+        <a class='prev' href='/2024/06/30/%E5%A4%9A%E5%86%85%E6%A0%B8%E5%BC%80%E6%BA%900S%E7%9A%84%E5%A4%96%E6%BA%90%E6%81%B6%E6%84%8F%E4%BB%A3%E7%A0%81%E6%A3%80%E6%B5%8B/'>
+          <p class='title'><i class="fa-solid fa-chevron-left" aria-hidden="true"></i>多内核开源0S的外源恶意代码检测</p>
+          <p class='content'>
+  47b49a4a2f06ffaeeb6d37e9691a4c667493fd8e6e9b46793c868899f0c12acf016f4fb8e0755a062dfcd0ef771ef5...</p>
+        </a>
       
       
         <a class='next' href='/2022/11/25/%E4%BF%A1%E6%81%AF%E7%B3%BB%E7%BB%9F%E5%AE%89%E5%85%A8/'>
@@ -2874,7 +2956,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1Android%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84"><span class="toc-text">1.1Android系统架构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux%E5%86%85%E6%A0%B8%E5%B1%82"><span class="toc-text">Linux内核层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E8%BF%90%E8%A1%8C%E5%BA%93%E5%B1%82"><span class="toc-text">系统运行库层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BA%94%E7%94%A8%E6%A1%86%E6%9E%B6%E5%B1%82"><span class="toc-text">应用框架层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BA%94%E7%94%A8%E5%B1%82"><span class="toc-text">应用层</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E5%88%86%E6%9E%90"><span class="toc-text">1.2文件系统分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A6%82%E6%8B%AC"><span class="toc-text">概括</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#app%E7%9B%AE%E5%BD%95%E4%B8%8B%E7%9A%84%E7%BB%93%E6%9E%84"><span class="toc-text">app目录下的结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%9C%A8%E5%93%AA%E9%87%8C%E2%80%94%E4%BB%A5Helloworld%E4%B8%BA%E4%BE%8B"><span class="toc-text">字符串在哪里—以Helloworld为例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#build-gradle%E6%96%87%E4%BB%B6"><span class="toc-text">build.gradle文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%A5%E5%BF%97"><span class="toc-text">日志</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Android-%E9%80%86%E5%90%91%E5%88%86%E6%9E%90%EF%BC%9A"><span class="toc-text">Android 逆向分析：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Activity%EF%BC%9A"><span class="toc-text">Activity：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%86%E8%A7%A3smali%E7%BB%93%E6%9E%84"><span class="toc-text">了解smali结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AD%BE%E5%90%8D%E6%A3%80%E6%9F%A5%E7%9A%84%E5%8E%9F%E7%90%86"><span class="toc-text">签名检查的原理</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Android-%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84"><span class="toc-text">Android 系统架构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux-%E5%86%85%E6%A0%B8%E5%B1%82"><span class="toc-text">Linux 内核层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A1%AC%E4%BB%B6%E6%8A%BD%E8%B1%A1%E5%B1%82-HAL"><span class="toc-text">硬件抽象层(HAL)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8E%9F%E7%94%9FC-x2F-C-%E5%BA%93%EF%BC%88native%EF%BC%89"><span class="toc-text">原生C&#x2F;C++库（native）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E8%BF%90%E8%A1%8C%E5%BA%93%E5%B1%82%EF%BC%88Android-Runtime%EF%BC%89"><span class="toc-text">系统运行库层（Android Runtime）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#ART%E8%99%9A%E6%8B%9F%E6%9C%BA"><span class="toc-text">ART虚拟机</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BA%94%E7%94%A8%E6%A1%86%E6%9E%B6%E5%B1%82%EF%BC%88Java-API-%E6%A1%86%E6%9E%B6%EF%BC%89"><span class="toc-text">应用框架层（Java API 框架）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BA%94%E7%94%A8%E5%B1%82"><span class="toc-text">应用层</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E5%88%86%E6%9E%90"><span class="toc-text">文件系统分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A6%82%E6%8B%AC"><span class="toc-text">概括</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#app-%E7%9B%AE%E5%BD%95%E4%B8%8B%E7%9A%84%E7%BB%93%E6%9E%84"><span class="toc-text">app 目录下的结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%9C%A8%E5%93%AA%E9%87%8C%E2%80%94%E4%BB%A5-Helloworld-%E4%B8%BA%E4%BE%8B"><span class="toc-text">字符串在哪里—以 Helloworld 为例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#build-gradle-%E6%96%87%E4%BB%B6"><span class="toc-text">build.gradle 文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%A5%E5%BF%97"><span class="toc-text">日志</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E5%A4%A7%E7%BB%84%E4%BB%B6"><span class="toc-text">四大组件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%99%9A%E6%8B%9F%E6%9C%BA"><span class="toc-text">虚拟机</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#kotlin"><span class="toc-text">kotlin</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Android-%E9%80%86%E5%90%91%E5%88%86%E6%9E%90%E5%88%9D%E6%8E%A2%EF%BC%9A"><span class="toc-text">Android 逆向分析初探：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Activity%EF%BC%9A"><span class="toc-text">Activity：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%86%E8%A7%A3-smali-%E7%BB%93%E6%9E%84"><span class="toc-text">了解 smali 结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AD%BE%E5%90%8D%E6%A3%80%E6%9F%A5%E7%9A%84%E5%8E%9F%E7%90%86"><span class="toc-text">签名检查的原理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9D%82%E8%AE%B0"><span class="toc-text">杂记</span></a></li></ol>
     </div>
   </section>
 
@@ -3893,7 +3975,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   <script>
-  let imgs = ["https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/016.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/019.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/039.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/046.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/004.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/035.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/051.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/033.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/042.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/034.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/052.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/005.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/012.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/003.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/001.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/038.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/056.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/025.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/006.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/002.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/054.webp"];
+  let imgs = ["https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/039.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/003.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/025.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/052.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/035.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/054.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/006.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/034.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/004.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/051.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/005.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/038.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/002.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/001.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/019.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/012.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/056.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/042.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/046.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/016.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/033.webp"];
   let index = 0;
   let IntervalParallax = null;
 
@@ -4195,7 +4277,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"1ens's blog","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"1ens","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","sameAs":["https://github.com/volantis-x"],"description":"a"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://example.com/","name":"1ens's blog"}},{"@type":"ListItem","position":2,"item":{"@id":"http://example.com/categories/andriod-security/","name":"andriod security"}},{"@type":"ListItem","position":3,"item":{"@id":"http://example.com/2024/06/29/andriod入门/","name":"andriod初探"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"1ens's blog","url":"http://example.com/","keywords":null,"description":"a","author":{"@type":"Person","name":"1ens","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","description":"a"},"publisher":{"@type":"Organization","name":"1ens's blog","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"http://example.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"andriod初探","description":"a","inLanguage":["zh-CN","default"],"mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2024/06/29/andriod%E5%85%A5%E9%97%A8/"},"author":{"@type":"Person","name":"1ens","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/"},"publisher":{"@type":"Organization","name":"1ens's blog","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://example.com/2024/06/29/andriod%E5%85%A5%E9%97%A8/","wordCount":0,"datePublished":"2024-06-29T14:11:29.000Z","dateModified":"2024-06-30T09:12:08.611Z","articleSection":"andriod security","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"1ens's blog","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"1ens","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","sameAs":["https://github.com/volantis-x"],"description":"a"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://example.com/","name":"1ens's blog"}},{"@type":"ListItem","position":2,"item":{"@id":"http://example.com/categories/andriod-security/","name":"andriod security"}},{"@type":"ListItem","position":3,"item":{"@id":"http://example.com/2024/06/29/andriod入门/","name":"andriod_basics"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"1ens's blog","url":"http://example.com/","keywords":null,"description":"a","author":{"@type":"Person","name":"1ens","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","description":"a"},"publisher":{"@type":"Organization","name":"1ens's blog","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"http://example.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"andriod_basics","description":"a","inLanguage":["zh-CN","default"],"mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2024/06/29/andriod%E5%85%A5%E9%97%A8/"},"author":{"@type":"Person","name":"1ens","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/"},"publisher":{"@type":"Organization","name":"1ens's blog","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://example.com/2024/06/29/andriod%E5%85%A5%E9%97%A8/","wordCount":0,"datePublished":"2024-06-29T14:11:29.000Z","dateModified":"2024-11-06T02:26:21.127Z","articleSection":"andriod security","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 
