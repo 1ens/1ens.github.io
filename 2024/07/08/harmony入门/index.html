@@ -39,11 +39,11 @@
 <meta property="og:title" content="open harmony入门">
 <meta property="og:url" content="http://example.com/2024/07/08/harmony%E5%85%A5%E9%97%A8/index.html">
 <meta property="og:site_name" content="1ens&#39;s blog">
-<meta property="og:description" content="内核层  内核子系统：采用多内核（Linux内核或者LiteOS）设计，支持针对不同资源受限设备选用适合的OS内核。内核抽象层（KAL，Kernel Abstract Layer）通过屏蔽多内核差异，对上层提供基础的内核能力，包括进程&#x2F;线程管理、内存管理、文件系统、网络管理和外设管理等。 驱动子系统：驱动框架（HDF）是系统硬件生态开放的基础，提供统一外设访问能力和驱动开发、管理框架。">
+<meta property="og:description" content="内核层  内核子系统：采用多内核（Linux 内核或者 LiteOS）设计，支持针对不同资源受限设备选用适合的 OS 内核。内核抽象层（KAL，Kernel Abstract Layer）通过屏蔽多内核差异，对上层提供基础的内核能力，包括进程&#x2F;线程管理、内存管理、文件系统、网络管理和外设管理等。 驱动子系统：驱动框架（HDF）是系统硬件生态开放的基础，提供统一外设访问能力和驱动开发、管">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
 <meta property="article:published_time" content="2024-07-08T08:58:38.000Z">
-<meta property="article:modified_time" content="2024-11-06T13:20:42.742Z">
+<meta property="article:modified_time" content="2024-11-11T09:24:07.319Z">
 <meta property="article:author" content="1ens">
 <meta property="article:tag" content="harmony">
 <meta name="twitter:card" content="summary">
@@ -1764,7 +1764,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: false,
     cdn: {"js":{"app":"/js/app.e546c981.js","parallax":"/js/plugins/parallax.8bf0ab10.js","rightMenu":"/js/plugins/rightMenu.d9437285.js","rightMenus":"/js/plugins/rightMenus.cd02aa19.js","sites":"/js/plugins/tags/sites.76bf19b8.js","friends":"/js/plugins/tags/friends.f372da57.js","contributors":"/js/plugins/tags/contributors.aec80453.js","search":"/js/search/hexo.0e52f222.js"},"css":{"style":"/css/style.1296f6d1.css"}},
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1649552113628/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1649552113628/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1649552113628/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1649552113628/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1731244333557),
+    lastupdate: new Date(1731317626291),
     sidebar: {
       for_page: ["blogger","github","category","tagcloud","webinfo"],
       for_post: ["toc"],
@@ -2609,68 +2609,68 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <h1 id=""><a href="#" class="headerlink" title=""></a></h1><p><img src="https://docs.openharmony.cn/doc_v4.1_1720392424/zh-cn/figures/1.png" class="lazyload" data-srcset="https://docs.openharmony.cn/doc_v4.1_1720392424/zh-cn/figures/1.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="img"></p>
 <p><strong>内核层</strong></p>
 <ul>
-<li>内核子系统：采用多内核（Linux内核或者LiteOS）设计，支持针对不同资源受限设备选用适合的OS内核。内核抽象层（KAL，Kernel Abstract Layer）通过屏蔽多内核差异，对上层提供基础的内核能力，包括进程&#x2F;线程管理、内存管理、文件系统、网络管理和外设管理等。</li>
+<li>内核子系统：采用多内核（Linux 内核或者 LiteOS）设计，支持针对不同资源受限设备选用适合的 OS 内核。内核抽象层（KAL，Kernel Abstract Layer）通过屏蔽多内核差异，对上层提供基础的内核能力，包括进程&#x2F;线程管理、内存管理、文件系统、网络管理和外设管理等。</li>
 <li>驱动子系统：驱动框架（HDF）是系统硬件生态开放的基础，提供统一外设访问能力和驱动开发、管理框架。</li>
 </ul>
 <p><strong>系统服务层</strong></p>
-<p>系统服务层是OpenHarmony的核心能力集合，通过框架层对应用程序提供服务。该层包含以下几个部分：</p>
+<p>系统服务层是 OpenHarmony 的核心能力集合，通过框架层对应用程序提供服务。该层包含以下几个部分：</p>
 <ul>
-<li>系统基本能力子系统集：为分布式应用在多设备上的运行、调度、迁移等操作提供了基础能力，由分布式软总线、分布式数据管理、分布式任务调度、公共基础库、多模输入、图形、安全、AI等子系统组成。</li>
+<li>系统基本能力子系统集：为分布式应用在多设备上的运行、调度、迁移等操作提供了基础能力，由分布式软总线、分布式数据管理、分布式任务调度、公共基础库、多模输入、图形、安全、AI 等子系统组成。</li>
 <li>基础软件服务子系统集：提供公共的、通用的软件服务，由事件通知、电话、多媒体、DFX（Design For X） 等子系统组成。</li>
-<li>增强软件服务子系统集：提供针对不同设备的、差异化的能力增强型软件服务，由智慧屏专有业务、穿戴专有业务、IoT专有业务等子系统组成。</li>
-<li>硬件服务子系统集：提供硬件服务，由位置服务、用户IAM、穿戴专有硬件服务、IoT专有硬件服务等子系统组成。</li>
+<li>增强软件服务子系统集：提供针对不同设备的、差异化的能力增强型软件服务，由智慧屏专有业务、穿戴专有业务、IoT 专有业务等子系统组成。</li>
+<li>硬件服务子系统集：提供硬件服务，由位置服务、用户 IAM、穿戴专有硬件服务、IoT 专有硬件服务等子系统组成。</li>
 </ul>
 <p>根据不同设备形态的部署环境，基础软件服务子系统集、增强软件服务子系统集、硬件服务子系统集内部可以按子系统粒度裁剪，每个子系统内部又可以按功能粒度裁剪。</p>
 <p><strong>框架层</strong></p>
-<p>框架层为应用开发提供了C&#x2F;C++&#x2F;JS等多语言的用户程序框架和Ability框架，适用于JS语言的ArkUI框架，以及各种软硬件服务对外开放的多语言框架API。根据系统的组件化裁剪程度，设备支持的API也会有所不同。</p>
+<p>框架层为应用开发提供了 C&#x2F;C++&#x2F;JS 等多语言的用户程序框架和 Ability 框架，适用于 JS 语言的 ArkUI 框架，以及各种软硬件服务对外开放的多语言框架 API。根据系统的组件化裁剪程度，设备支持的 API 也会有所不同。</p>
 <p><strong>应用层</strong></p>
-<p>应用层包括系统应用和第三方非系统应用。应用由一个或多个FA（Feature Ability）或PA（Particle Ability）组成。其中，FA有UI界面，提供与用户交互的能力；而PA无UI界面，提供后台运行任务的能力以及统一的数据访问抽象。基于FA&#x2F;PA开发的应用，能够实现特定的业务功能，支持跨设备调度与分发，为用户提供一致、高效的应用体验。</p>
-<p>来源：<a target="_blank" rel="noopener" href="https://docs.openharmony.cn/pages/v4.1/zh-cn/OpenHarmony-Overview_zh.md">了解OpenHarmony开源项目</a></p>
-<p>基础知识：<a target="_blank" rel="noopener" href="https://docs.openharmony.cn/pages/v4.1/zh-cn/application-dev/quick-start/start-with-ets-stage.md">构建第一个ArkTS应用（Stage模型） (openharmony.cn)</a></p>
-<div class="story post-story"><h2 id="Module类型"><a href="#Module类型" class="headerlink" title="Module类型"></a>Module类型</h2><p>Module按照使用场景可以分为两种类型：</p>
+<p>应用层包括系统应用和第三方非系统应用。应用由一个或多个 FA（Feature Ability）或 PA（Particle Ability）组成。其中，FA 有 UI 界面，提供与用户交互的能力；而 PA 无 UI 界面，提供后台运行任务的能力以及统一的数据访问抽象。基于 FA&#x2F;PA 开发的应用，能够实现特定的业务功能，支持跨设备调度与分发，为用户提供一致、高效的应用体验。</p>
+<p>来源：<a target="_blank" rel="noopener" href="https://docs.openharmony.cn/pages/v4.1/zh-cn/OpenHarmony-Overview_zh.md">了解 OpenHarmony 开源项目</a></p>
+<p>基础知识：<a target="_blank" rel="noopener" href="https://docs.openharmony.cn/pages/v4.1/zh-cn/application-dev/quick-start/start-with-ets-stage.md">构建第一个 ArkTS 应用（Stage 模型） (openharmony.cn)</a></p>
+<div class="story post-story"><h2 id="Module-类型"><a href="#Module-类型" class="headerlink" title="Module 类型"></a>Module 类型</h2><p>Module 按照使用场景可以分为两种类型：</p>
 <ul>
-<li><p><strong>Ability类型的Module：</strong> 用于实现应用的功能和特性。每一个Ability类型的Module编译后，会生成一个以.hap为后缀的文件，我们称其为HAP（Harmony Ability Package）包。HAP包可以独立安装和运行，是应用安装的基本单位，一个应用中可以包含一个或多个HAP包，具体包含如下两种类型。</p>
+<li><p><strong>Ability 类型的 Module：</strong> 用于实现应用的功能和特性。每一个 Ability 类型的 Module 编译后，会生成一个以.hap 为后缀的文件，我们称其为 HAP（Harmony Ability Package）包。HAP 包可以独立安装和运行，是应用安装的基本单位，一个应用中可以包含一个或多个 HAP 包，具体包含如下两种类型。</p>
 <ul>
-<li>entry类型的Module：应用的主模块，包含应用的入口界面、入口图标和主功能特性，编译后生成entry类型的HAP。每一个应用分发到同一类型的设备上的应用程序包，只能包含唯一一个entry类型的HAP。</li>
-<li>feature类型的Module：应用的动态特性模块，编译后生成feature类型的HAP。一个应用中可以包含一个或多个feature类型的HAP，也可以不包含。</li>
+<li>entry 类型的 Module：应用的主模块，包含应用的入口界面、入口图标和主功能特性，编译后生成 entry 类型的 HAP。每一个应用分发到同一类型的设备上的应用程序包，只能包含唯一一个 entry 类型的 HAP。</li>
+<li>feature 类型的 Module：应用的动态特性模块，编译后生成 feature 类型的 HAP。一个应用中可以包含一个或多个 feature 类型的 HAP，也可以不包含。</li>
 </ul>
 </li>
-<li><p><strong>Library类型的Module：</strong> 用于实现代码和资源的共享。同一个Library类型的Module可以被其他的Module多次引用，合理地使用该类型的Module，能够降低开发和维护成本。Library类型的Module分为Static和Shared两种类型，编译后会生成共享包。</p>
+<li><p><strong>Library 类型的 Module：</strong> 用于实现代码和资源的共享。同一个 Library 类型的 Module 可以被其他的 Module 多次引用，合理地使用该类型的 Module，能够降低开发和维护成本。Library 类型的 Module 分为 Static 和 Shared 两种类型，编译后会生成共享包。</p>
 <ul>
-<li>Static Library：静态共享库。编译后会生成一个以.har为后缀的文件，即静态共享包HAR（Harmony Archive）。</li>
-<li>Shared Library：动态共享库。编译后会生成一个以.hsp为后缀的文件，即动态共享包HSP（Harmony Shared Package）。</li>
+<li>Static Library：静态共享库。编译后会生成一个以.har 为后缀的文件，即静态共享包 HAR（Harmony Archive）。</li>
+<li>Shared Library：动态共享库。编译后会生成一个以.hsp 为后缀的文件，即动态共享包 HSP（Harmony Shared Package）。</li>
 </ul>
 <blockquote>
 <p><strong>说明：</strong></p>
-<p>实际上，Shared Library编译后除了会生成一个.hsp文件，还会生成一个.har文件。这个.har文件中包含了HSP对外导出的接口，应用中的其他模块需要通过.har文件来引用HSP的功能。为了表述方便，我们通常认为Shared Library编译后生成HSP。</p>
+<p>实际上，Shared Library 编译后除了会生成一个.hsp 文件，还会生成一个.har 文件。这个.har 文件中包含了 HSP 对外导出的接口，应用中的其他模块需要通过.har 文件来引用 HSP 的功能。为了表述方便，我们通常认为 Shared Library 编译后生成 HSP。</p>
 </blockquote>
 </li>
 </ul>
-</div><div class="story post-story"><h2 id="stage模型编译态包结构"><a href="#stage模型编译态包结构" class="headerlink" title="stage模型编译态包结构"></a>stage模型编译态包结构</h2><p><img src="https://docs.openharmony.cn/doc_v4.1_1720392424/zh-cn/application-dev/quick-start/figures/app-view.png" class="lazyload" data-srcset="https://docs.openharmony.cn/doc_v4.1_1720392424/zh-cn/application-dev/quick-start/figures/app-view.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="app-view"></p>
+</div><div class="story post-story"><h2 id="stage-模型编译态包结构"><a href="#stage-模型编译态包结构" class="headerlink" title="stage 模型编译态包结构"></a>stage 模型编译态包结构</h2><p><img src="https://docs.openharmony.cn/doc_v4.1_1720392424/zh-cn/application-dev/quick-start/figures/app-view.png" class="lazyload" data-srcset="https://docs.openharmony.cn/doc_v4.1_1720392424/zh-cn/application-dev/quick-start/figures/app-view.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="app-view"></p>
 <ul>
-<li><strong>ets目录</strong>：ArkTS源码编译生成.abc文件。</li>
-<li><strong>resources目录</strong>：AppScope目录下的资源文件会合入到Module下面资源目录中，如果两个目录下的存在重名文件，编译打包后只会保留AppScope目录下的资源文件。</li>
-<li><strong>module配置文件</strong>：AppScope目录下的app.json5文件字段会合入到Module下面的module.json5文件之中，编译后生成HAP或HSP最终的module.json文件。</li>
+<li><strong>ets 目录</strong>：ArkTS 源码编译生成.abc 文件。</li>
+<li><strong>resources 目录</strong>：AppScope 目录下的资源文件会合入到 Module 下面资源目录中，如果两个目录下的存在重名文件，编译打包后只会保留 AppScope 目录下的资源文件。</li>
+<li><strong>module 配置文件</strong>：AppScope 目录下的 app.json5 文件字段会合入到 Module 下面的 module.json5 文件之中，编译后生成 HAP 或 HSP 最终的 module.json 文件。</li>
 </ul>
 <p><img src="https://docs.openharmony.cn/doc_v4.1_1720392424/zh-cn/application-dev/quick-start/figures/hap-release.png" class="lazyload" data-srcset="https://docs.openharmony.cn/doc_v4.1_1720392424/zh-cn/application-dev/quick-start/figures/hap-release.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="hap-release"></p>
-<h1 id="FA模型应用程序包结构"><a href="#FA模型应用程序包结构" class="headerlink" title="FA模型应用程序包结构"></a>FA模型应用程序包结构</h1><p><img src="https://docs.openharmony.cn/doc_v4.1_1720392424/zh-cn/application-dev/quick-start/figures/app-pack-fa.png" class="lazyload" data-srcset="https://docs.openharmony.cn/doc_v4.1_1720392424/zh-cn/application-dev/quick-start/figures/app-pack-fa.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="app-pack-fa"></p>
-<p>FA模型与Stage模型不同之处在于HAP内部文件存放位置不同，FA模型将所有的资源文件、库文件和代码文件都放在assets文件夹中，在文件夹内部进一步区分。</p>
+<h1 id="FA-模型应用程序包结构"><a href="#FA-模型应用程序包结构" class="headerlink" title="FA 模型应用程序包结构"></a>FA 模型应用程序包结构</h1><p><img src="https://docs.openharmony.cn/doc_v4.1_1720392424/zh-cn/application-dev/quick-start/figures/app-pack-fa.png" class="lazyload" data-srcset="https://docs.openharmony.cn/doc_v4.1_1720392424/zh-cn/application-dev/quick-start/figures/app-pack-fa.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="app-pack-fa"></p>
+<p>FA 模型与 Stage 模型不同之处在于 HAP 内部文件存放位置不同，FA 模型将所有的资源文件、库文件和代码文件都放在 assets 文件夹中，在文件夹内部进一步区分。</p>
 <ul>
-<li>config.json是应用配置文件，IDE会自动生成一部分模块代码，开发者按需修改其中的配置。详细字段请参见<a target="_blank" rel="noopener" href="https://docs.openharmony.cn/pages/v4.1/zh-cn/application-dev/quick-start/app-structure.md">应用配置文件</a>。</li>
-<li>assets是HAP所有的资源文件、库文件和代码文件的集合，内部可以分为entry和js文件夹。entry文件夹中存放的是resources目录和resources.index文件。</li>
-<li>resources目录用于存放应用的资源文件（字符串、图片等），便于开发者使用和维护，详见<a target="_blank" rel="noopener" href="https://docs.openharmony.cn/pages/v4.1/zh-cn/application-dev/quick-start/resource-categories-and-access.md">资源文件的使用</a>。</li>
-<li>resources.index是资源索引表，由IDE调用SDK工具生成。</li>
-<li>js文件夹中存放的是编译后的代码文件。</li>
-<li>pack.info是Bundle中用于描述每个HAP属性的文件，例如app中的bundleName和versionCode信息、module中的name、type和abilities等信息，由IDE工具构建Bundle包时自动生成。</li>
+<li>config.json 是应用配置文件，IDE 会自动生成一部分模块代码，开发者按需修改其中的配置。详细字段请参见 <a target="_blank" rel="noopener" href="https://docs.openharmony.cn/pages/v4.1/zh-cn/application-dev/quick-start/app-structure.md">应用配置文件</a>。</li>
+<li>assets 是 HAP 所有的资源文件、库文件和代码文件的集合，内部可以分为 entry 和 js 文件夹。entry 文件夹中存放的是 resources 目录和 resources.index 文件。</li>
+<li>resources 目录用于存放应用的资源文件（字符串、图片等），便于开发者使用和维护，详见 <a target="_blank" rel="noopener" href="https://docs.openharmony.cn/pages/v4.1/zh-cn/application-dev/quick-start/resource-categories-and-access.md">资源文件的使用</a>。</li>
+<li>resources.index 是资源索引表，由 IDE 调用 SDK 工具生成。</li>
+<li>js 文件夹中存放的是编译后的代码文件。</li>
+<li>pack.info 是 Bundle 中用于描述每个 HAP 属性的文件，例如 app 中的 bundleName 和 versionCode 信息、module 中的 name、type 和 abilities 等信息，由 IDE 工具构建 Bundle 包时自动生成。</li>
 </ul>
 <p>混淆：</p>
 <p><img src="C:\Users\25858\AppData\Roaming\Typora\typora-user-images\image-20240708232017408.png" class="lazyload" data-srcset="C:\Users\25858\AppData\Roaming\Typora\typora-user-images\image-20240708232017408.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20240708232017408"></p>
-<p>一种通用、高效的轻量级代码分析技术，对外源代码进行逆向工程、解码分析和结混淆，并保证代码的语义一致性;寻求一种高效、通用的神经网络检测模型，在硬件限制下保证混淆恶意代码的检出率。</p>
+<p>一种通用、高效的轻量级代码分析技术，对外源代码进行逆向工程、解码分析和结混淆，并保证代码的语义一致性; 寻求一种高效、通用的神经网络检测模型，在硬件限制下保证混淆恶意代码的检出率。</p>
 <p>口 代码分析层面:(1)代码解混淆时间 (2)代码逆向成功率 (3)语义一致性分析</p>
 <p>口 恶意代码检测层面:(1)模型运行时间 (2)模型性能指标分解目标</p>
-<p>口 基于Linux-AOSP的Android逆向:测试OpenHarmony对安卓平台恶意软件的兼容性，总结目前的Java混淆技术，开发或改进现有的反编译、解包和解混淆算法。</p>
-<p>口基于Lite-OS的JavaScript脚本解混淆:总结目前的JavaScript混淆技术，开发或改进现有的解混淆算法。</p>
-<p>情景举例:开源OpenHarmony的方舟编译器提供了多种混淆技术，对字节码进行混淆，从而保证HarmonyOs应用包内代码难以逆向和分析。</p>
+<p>口 基于 Linux-AOSP 的 Android 逆向: 测试 OpenHarmony 对安卓平台恶意软件的兼容性，总结目前的 Java 混淆技术，开发或改进现有的反编译、解包和解混淆算法。</p>
+<p>口基于 Lite-OS 的 JavaScript 脚本解混淆: 总结目前的 JavaScript 混淆技术，开发或改进现有的解混淆算法。</p>
+<p>情景举例: 开源 OpenHarmony 的方舟编译器提供了多种混淆技术，对字节码进行混淆，从而保证 HarmonyOs 应用包内代码难以逆向和分析。</p>
 <p>考量点: (1)代码解混淆时间 (2)代码逆向成功率 (3)语义一致性分析口 </p>
 
 </div>
@@ -2708,10 +2708,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateModified" datetime="2024-11-06T21:20:42+08:00">
+          <div class="new-meta-item date" itemprop="dateModified" datetime="2024-11-11T17:24:07+08:00">
   <a class='notlink'>
     <i class="fa-solid fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2024年11月6日</p>
+    <p>更新于：2024年11月11日</p>
   </a>
 </div>
 
@@ -2793,8 +2793,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class='prev' href='/2024/09/10/Andriod-development-UI/'>
           <p class='title'><i class="fa-solid fa-chevron-left" aria-hidden="true"></i>Andriod-development-UI</p>
-          <p class='content'>Android的UI开发一般采用XML代码编写
-控件TextViewTextView 是最常用的控件之一，用于显示文本内容。它是 Android 提供的基础文本控件，可以显示单行或多行文本，并支...</p>
+          <p class='content'>Android 的 UI 开发一般采用 XML 代码编写
+控件TextViewTextView 是最常用的控件之一，用于显示文本内容。它是 Android 提供的基础文本控件，可以显示单行或多行...</p>
         </a>
       
       
@@ -2850,7 +2850,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Module%E7%B1%BB%E5%9E%8B"><span class="toc-text">Module类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#stage%E6%A8%A1%E5%9E%8B%E7%BC%96%E8%AF%91%E6%80%81%E5%8C%85%E7%BB%93%E6%9E%84"><span class="toc-text">stage模型编译态包结构</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Module-%E7%B1%BB%E5%9E%8B"><span class="toc-text">Module 类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#stage-%E6%A8%A1%E5%9E%8B%E7%BC%96%E8%AF%91%E6%80%81%E5%8C%85%E7%BB%93%E6%9E%84"><span class="toc-text">stage 模型编译态包结构</span></a></li></ol>
     </div>
   </section>
 
@@ -3869,7 +3869,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   <script>
-  let imgs = ["https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/025.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/034.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/033.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/001.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/035.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/042.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/019.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/039.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/046.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/054.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/052.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/056.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/002.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/005.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/012.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/004.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/038.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/016.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/051.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/003.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/006.webp"];
+  let imgs = ["https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/034.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/019.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/038.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/001.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/056.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/002.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/003.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/039.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/012.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/054.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/006.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/046.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/042.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/052.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/004.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/051.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/035.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/005.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/016.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/033.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/025.webp"];
   let index = 0;
   let IntervalParallax = null;
 
@@ -4171,7 +4171,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"1ens's blog","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"1ens","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","sameAs":["https://github.com/volantis-x"],"description":"a"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://example.com/","name":"1ens's blog"}},{"@type":"ListItem","position":3,"item":{"@id":"http://example.com/2024/07/08/harmony入门/","name":"open harmony入门"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"1ens's blog","url":"http://example.com/","keywords":null,"description":"a","author":{"@type":"Person","name":"1ens","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","description":"a"},"publisher":{"@type":"Organization","name":"1ens's blog","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"http://example.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"open harmony入门","description":"a","inLanguage":["zh-CN","default"],"mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2024/07/08/harmony%E5%85%A5%E9%97%A8/"},"author":{"@type":"Person","name":"1ens","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/"},"publisher":{"@type":"Organization","name":"1ens's blog","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://example.com/2024/07/08/harmony%E5%85%A5%E9%97%A8/","wordCount":0,"datePublished":"2024-07-08T08:58:38.000Z","dateModified":"2024-11-06T13:20:42.742Z","keywords":"harmony","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"1ens's blog","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"1ens","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","sameAs":["https://github.com/volantis-x"],"description":"a"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://example.com/","name":"1ens's blog"}},{"@type":"ListItem","position":3,"item":{"@id":"http://example.com/2024/07/08/harmony入门/","name":"open harmony入门"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"1ens's blog","url":"http://example.com/","keywords":null,"description":"a","author":{"@type":"Person","name":"1ens","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","description":"a"},"publisher":{"@type":"Organization","name":"1ens's blog","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"http://example.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"open harmony入门","description":"a","inLanguage":["zh-CN","default"],"mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2024/07/08/harmony%E5%85%A5%E9%97%A8/"},"author":{"@type":"Person","name":"1ens","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/"},"publisher":{"@type":"Organization","name":"1ens's blog","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://example.com/2024/07/08/harmony%E5%85%A5%E9%97%A8/","wordCount":0,"datePublished":"2024-07-08T08:58:38.000Z","dateModified":"2024-11-11T09:24:07.319Z","keywords":"harmony","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 
