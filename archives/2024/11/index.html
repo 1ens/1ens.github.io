@@ -1761,7 +1761,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: false,
     cdn: {"js":{"app":"/js/app.e546c981.js","parallax":"/js/plugins/parallax.8bf0ab10.js","rightMenu":"/js/plugins/rightMenu.d9437285.js","rightMenus":"/js/plugins/rightMenus.cd02aa19.js","sites":"/js/plugins/tags/sites.76bf19b8.js","friends":"/js/plugins/tags/friends.f372da57.js","contributors":"/js/plugins/tags/contributors.aec80453.js","search":"/js/search/hexo.0e52f222.js"},"css":{"style":"/css/style.1296f6d1.css"}},
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1649552113628/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1649552113628/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1649552113628/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1649552113628/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1732102126317),
+    lastupdate: new Date(1732541634248),
     sidebar: {
       for_page: ["blogger","github","category","tagcloud","webinfo"],
       for_post: ["toc"],
@@ -2536,9 +2536,246 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         
           
         
+          
+        
+          
+        
+          
+        
+          
+        
       
     
     
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow floatable"  itemscope itemtype="http://schema.org/Article" >
+  <link itemprop="mainEntityOfPage" href="http://example.com/2024/11/25/%E5%AE%89%E5%8D%93%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%99%A8%E8%A1%A5%E5%85%85InMemoryDexClassLoader/">
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="1ens's blog">
+  </span>
+  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
+    <meta itemprop="name" content="1ens's blog">
+    <meta itemprop="description" content="a">
+  </span>
+  
+  
+  
+    <span hidden>
+      <meta itemprop="image" content="https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
+    </span>
+  
+  
+    
+    <h2 class="article-title"  itemprop="name headline">
+      <a href="/2024/11/25/%E5%AE%89%E5%8D%93%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%99%A8%E8%A1%A5%E5%85%85InMemoryDexClassLoader/"  itemprop="url">
+        安卓类加载器补充InMemoryDexClassLoader
+      </a>
+    </h2>
+  
+  <div class='md article-desc' itemprop="articleBody">
+    
+      
+        InMemoryDexClassLoader加载内存dex的流程Android 8新增了InMemoryDexClassLoader，专门用于加载内存dex，依旧以15的r3为例
+InMemoryDexClassLoaderInMemoryDexClassLoader 是一个继承自 BaseDexClassLoader 的类，用于在运行时从内存中加载 Dex 文件，而无需将其存储到磁盘。它主...
+      
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+        <time itemprop="dateCreated datePublished" datetime="2024-11-25T16:08:02+08:00">2024-11-25</time>
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/2024/11/25/%E5%AE%89%E5%8D%93%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%99%A8%E8%A1%A5%E5%85%85InMemoryDexClassLoader/' itemprop="url">
+            阅读全文
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow floatable"  itemscope itemtype="http://schema.org/Article" >
+  <link itemprop="mainEntityOfPage" href="http://example.com/2024/11/24/%E5%BA%94%E7%94%A8%E5%90%AF%E5%8A%A8%E6%B5%81%E7%A8%8B%E6%B5%85%E6%9E%90/">
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="1ens's blog">
+  </span>
+  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
+    <meta itemprop="name" content="1ens's blog">
+    <meta itemprop="description" content="a">
+  </span>
+  
+  
+  
+    <span hidden>
+      <meta itemprop="image" content="https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
+    </span>
+  
+  
+    
+    <h2 class="article-title"  itemprop="name headline">
+      <a href="/2024/11/24/%E5%BA%94%E7%94%A8%E5%90%AF%E5%8A%A8%E6%B5%81%E7%A8%8B%E6%B5%85%E6%9E%90/"  itemprop="url">
+        安卓应用启动流程浅析
+      </a>
+    </h2>
+  
+  <div class='md article-desc' itemprop="articleBody">
+    
+      
+         在安卓系统启动流程浅析中，最后由ActivityThread初始化应用的 Application 类。依旧以15的r3版本为例
+ActivityThread.main()123456789101112131415161718//frameworks/base/core/java/android/app/ActivityThread.javapublic static void main(S...
+      
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+        <time itemprop="dateCreated datePublished" datetime="2024-11-24T08:49:30+08:00">2024-11-24</time>
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/2024/11/24/%E5%BA%94%E7%94%A8%E5%90%AF%E5%8A%A8%E6%B5%81%E7%A8%8B%E6%B5%85%E6%9E%90/' itemprop="url">
+            阅读全文
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow floatable"  itemscope itemtype="http://schema.org/Article" >
+  <link itemprop="mainEntityOfPage" href="http://example.com/2024/11/21/Android%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%99%A8%E5%B1%82%E7%BA%A7%E5%85%B3%E7%B3%BB%E5%8F%8A%E5%88%86%E6%9E%90/">
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="1ens's blog">
+  </span>
+  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
+    <meta itemprop="name" content="1ens's blog">
+    <meta itemprop="description" content="a">
+  </span>
+  
+  
+  
+    <span hidden>
+      <meta itemprop="image" content="https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
+    </span>
+  
+  
+    
+    <h2 class="article-title"  itemprop="name headline">
+      <a href="/2024/11/21/Android%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%99%A8%E5%B1%82%E7%BA%A7%E5%85%B3%E7%B3%BB%E5%8F%8A%E5%88%86%E6%9E%90/"  itemprop="url">
+        Android类加载器层级关系及分析
+      </a>
+    </h2>
+  
+  <div class='md article-desc' itemprop="articleBody">
+    
+      
+         有关类的加载在andriod_system_opreation_process篇
+
+Android中的ClassLoader类型分为系统ClassLoader和自定义ClassLoader。其中系统ClassLoader包括3种是BootClassLoader、DexClassLoader、PathClassLoader(1)BootClassLoader:Android平台上所有Andr...
+      
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+        <time itemprop="dateCreated datePublished" datetime="2024-11-21T20:31:48+08:00">2024-11-21</time>
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/2024/11/21/Android%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%99%A8%E5%B1%82%E7%BA%A7%E5%85%B3%E7%B3%BB%E5%8F%8A%E5%88%86%E6%9E%90/' itemprop="url">
+            阅读全文
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow floatable"  itemscope itemtype="http://schema.org/Article" >
+  <link itemprop="mainEntityOfPage" href="http://example.com/2024/11/21/%E5%AE%89%E5%8D%93%E7%AC%AC%E4%B8%80%E4%BA%8C%E4%BB%A3%E5%A3%B3%E6%B5%85%E6%9E%90/">
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="1ens's blog">
+  </span>
+  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
+    <meta itemprop="name" content="1ens's blog">
+    <meta itemprop="description" content="a">
+  </span>
+  
+  
+  
+    <span hidden>
+      <meta itemprop="image" content="https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
+    </span>
+  
+  
+    
+    <h2 class="article-title"  itemprop="name headline">
+      <a href="/2024/11/21/%E5%AE%89%E5%8D%93%E7%AC%AC%E4%B8%80%E4%BA%8C%E4%BB%A3%E5%A3%B3%E6%B5%85%E6%9E%90/"  itemprop="url">
+        安卓第一/二代壳浅析
+      </a>
+    </h2>
+  
+  <div class='md article-desc' itemprop="articleBody">
+    
+      
+        
+第一代壳第一代加固壳简介DEX 加密（也称落地加载）第一代壳将整个 apk 文件压缩加密到壳 dex 文件的后面，在壳 dex 文件上写上解压代码，动态加载执行，由于是加密整个 apk，在大型应用中很耗资源，因此这代壳很早就被放弃了但思路还是不变。其中这种加密还可以具体划分为几个方向，如下：
+
+Dex 字符串加密
+静态 DEX 文件整体加密解密
+资源加密（xml 与 arsc 文件加密及十...
+      
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+        <time itemprop="dateCreated datePublished" datetime="2024-11-21T20:25:30+08:00">2024-11-21</time>
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/2024/11/21/%E5%AE%89%E5%8D%93%E7%AC%AC%E4%B8%80%E4%BA%8C%E4%BB%A3%E5%A3%B3%E6%B5%85%E6%9E%90/' itemprop="url">
+            阅读全文
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
       
         
           <div class='post-wrapper'>
@@ -2562,7 +2799,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
     <h2 class="article-title"  itemprop="name headline">
       <a href="/2024/11/20/%E5%AE%89%E5%8D%93%E6%96%87%E4%BB%B6%E6%A0%BC%E5%BC%8F/"  itemprop="url">
-        安卓文件解析
+        安卓（o）dex文件解析
       </a>
     </h2>
   
@@ -2741,7 +2978,7 @@ JVM 的执行引擎读取字节码，并将其解释为底层机器指令。
         
           <div class='post-wrapper'>
             <div class="post post-v3 white-box reveal shadow floatable"  itemscope itemtype="http://schema.org/Article" >
-  <link itemprop="mainEntityOfPage" href="http://example.com/2024/11/14/andriod-system-opreation-process/">
+  <link itemprop="mainEntityOfPage" href="http://example.com/2024/11/14/%E5%AE%89%E5%8D%93%E7%B3%BB%E7%BB%9F%E5%8A%A0%E8%BD%BD%E6%B5%81%E7%A8%8B%E6%B5%85%E6%9E%90/">
   <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
     <meta itemprop="name" content="1ens's blog">
   </span>
@@ -2759,8 +2996,8 @@ JVM 的执行引擎读取字节码，并将其解释为底层机器指令。
   
     
     <h2 class="article-title"  itemprop="name headline">
-      <a href="/2024/11/14/andriod-system-opreation-process/"  itemprop="url">
-        andriod_system_opreation_process
+      <a href="/2024/11/14/%E5%AE%89%E5%8D%93%E7%B3%BB%E7%BB%9F%E5%8A%A0%E8%BD%BD%E6%B5%81%E7%A8%8B%E6%B5%85%E6%9E%90/"  itemprop="url">
+        安卓系统加载流程浅析
       </a>
     </h2>
   
@@ -2783,7 +3020,7 @@ JVM 的执行引擎读取字节码，并将其解释为底层机器指令。
       </div>
       
         <div>
-          <a class='readmore' href='/2024/11/14/andriod-system-opreation-process/' itemprop="url">
+          <a class='readmore' href='/2024/11/14/%E5%AE%89%E5%8D%93%E7%B3%BB%E7%BB%9F%E5%8A%A0%E8%BD%BD%E6%B5%81%E7%A8%8B%E6%B5%85%E6%9E%90/' itemprop="url">
             阅读全文
           </a>
         </div>
@@ -2970,7 +3207,7 @@ JVM 的执行引擎读取字节码，并将其解释为底层机器指令。
       
         <div class="webinfo-item">
           <div>文章数目：</div>
-          <div>59 篇</div>
+          <div>63 篇</div>
         </div>
       
 
@@ -2985,7 +3222,7 @@ JVM 的执行引擎读取字节码，并将其解释为底层机器指令。
       
         <div class="webinfo-item">
           <div>本站总字数：</div>
-          <div>148.6k 字</div>
+          <div>161.2k 字</div>
         </div>
       
 
@@ -4000,7 +4237,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   <script>
-  let imgs = ["https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/034.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/054.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/001.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/012.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/016.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/033.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/002.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/051.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/004.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/003.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/056.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/035.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/046.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/019.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/005.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/025.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/052.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/042.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/006.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/039.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/038.webp"];
+  let imgs = ["https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/019.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/051.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/001.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/033.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/054.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/039.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/006.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/056.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/012.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/004.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/042.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/025.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/003.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/035.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/002.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/046.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/038.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/005.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/016.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/052.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/034.webp"];
   let index = 0;
   let IntervalParallax = null;
 
