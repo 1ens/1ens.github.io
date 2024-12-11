@@ -43,7 +43,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
 <meta property="article:published_time" content="2024-12-04T11:33:27.000Z">
-<meta property="article:modified_time" content="2024-12-11T12:01:01.870Z">
+<meta property="article:modified_time" content="2024-12-11T12:15:46.345Z">
 <meta property="article:author" content="1ens">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
@@ -1763,7 +1763,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: false,
     cdn: {"js":{"app":"/js/app.e546c981.js","parallax":"/js/plugins/parallax.8bf0ab10.js","rightMenu":"/js/plugins/rightMenu.d9437285.js","rightMenus":"/js/plugins/rightMenus.cd02aa19.js","sites":"/js/plugins/tags/sites.76bf19b8.js","friends":"/js/plugins/tags/friends.f372da57.js","contributors":"/js/plugins/tags/contributors.aec80453.js","search":"/js/search/hexo.0e52f222.js"},"css":{"style":"/css/style.1296f6d1.css"}},
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1649552113628/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1649552113628/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1649552113628/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1649552113628/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1733918509449),
+    lastupdate: new Date(1733919359088),
     sidebar: {
       for_page: ["blogger","github","category","tagcloud","webinfo"],
       for_post: ["toc"],
@@ -2642,22 +2642,76 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 </div><div class="story post-story"><h2 id="反控制流平坦化"><a href="#反控制流平坦化" class="headerlink" title="反控制流平坦化"></a>反控制流平坦化</h2><p><img src="https://fastly.jsdelivr.net/gh/1ens/blogImages/202412111856028.png" class="lazyload" data-srcset="https://fastly.jsdelivr.net/gh/1ens/blogImages/202412111856028.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
 <p>其代码的真实逻辑在：序言块、真实块（相关块）、retn块中。</p>
+<p>反控制流平坦化的核心在于准确区分真实块与分发器，并恢复真实块的顺序。通过特征匹配与动态执行相结合，可以高效完成大多数情况的去混淆工作。修补过程中优先使用简单的跳转逻辑，必要时对函数进行整体重构，以最大限度恢复代码的可读性和逻辑完整性。</p>
 <p>一般通用的反控制流平坦化思路：</p>
 <p>（1）先保存所有的基本块<br>（2）区分真实块和分发器（虚假块） 一般通过规则匹配来做，但是并无法使用所有情况 （难点）<br>（3）连接真实块的顺序  一般静态可以通过IDA trace然后编写IDApython脚本，动态可以通过符号执行、模拟执行<br>（4）编写patch修复  对目标函数进行修复、恢复原始逻辑</p>
-<p><strong>（1）保存所有的基本块</strong></p>
-<p>控制流平坦化本质逻辑是把原始的基本块都碎片化，再通过switch-case语句，对函数的执行流进行重建。那么反混淆的时候，可以尝试根据主分发器将这些执行链给一条条的拆解出来，具体划分为三类：</p>
-<p>入口链：原始函数代码的入口逻辑链，为序言到主分发器的执行路径<br>循环链：入口及出口均为主分发器的流程链，对应混淆过程中的循环体<br>Return链：指代入口为主分发器，出口为目标函数结束地址的流程链</p>
-<p><strong>（2）区分真实块和分发器</strong></p>
-<p>其中入口链没有分发器这样的控制块，所以代码全是真实指令。所以主要是找出循环链及Return链中的真实块，一般有几种思路：</p>
-<p>（1）通过特征匹配来找真实块<br>（2）真实块的入口跳转地址必须为绝对的比较指令，如beq、bne，首次匹配到这种绝对的跳转指令，就能定位对应流程链中的真实入口地址，然后识别真是快<br>（3）凡是有内存操作的以及有bl&#x2F;blx函数调用的都是真实块，其中有一些指向主分发器的虚拟块也会包含内存操作</p>
-<p>主分发器的确定：直接遍历目标函数下的所有基本块，并计算每一个Block的引用次数，数量最多的那个就是主分发器</p>
-<p><strong>（3）连接真实块的顺序</strong></p>
-<p>通过判断movwne&#x2F;movtne r1指令的地址是否大于mov r1，如果大于就说明此真实块会有两条路径去指向两个基本块。对于有两条路径的真实块就需要寻找两次分别去寻找两条路径下对应的真实块，而对于没有两条路径的真实块就直接寻找一次路径就ok了</p>
-<p>一般我们使用模拟执行能解决该问题，但遇到上面情况并需要相应的手动修改</p>
-<p><strong>（4）编写patch</strong></p>
-<p>1.打patch，即通过jump指令或者一些条件跳转指令试图将它们重新连接起来<br>2.提取出所有真实块的指令，并根据它们之间的关系，计算相对偏移，据此对函数进行重构</p>
-<p>前者简单，但是适用性不强，后者复杂，但是工作量大。这里我们主要介绍第一种patch</p>
-<p>(1)把无用块都改成nop指令<br>(2)针对没有产生分支的真实块把最后一条指令改成jmp指令跳转到下一真实块<br>(3)产生分支的真实块把CMOV指令改成相应的条件跳转指令跳向符合条件的分支，例如CMOVZ 改成JZ ，再在这条之后添加JMP 指令跳向另一分支</p>
+<h3 id="保存所有的基本块"><a href="#保存所有的基本块" class="headerlink" title="保存所有的基本块"></a>保存所有的基本块</h3><p>控制流平坦化将代码逻辑碎片化，因此反混淆的首要任务是提取所有的基本块：</p>
+<ul>
+<li><strong>基本原理：</strong> 控制流平坦化重构执行流为三类链：<ul>
+<li><strong>入口链（Prologue Chain）：</strong> 原始函数的入口到主分发器的路径。</li>
+<li><strong>循环链（Loop Chain）：</strong> 主分发器之间的循环跳转路径。</li>
+<li><strong>返回链（Return Chain）：</strong> 主分发器到函数结束的路径。</li>
+</ul>
+</li>
+<li><strong>操作：</strong> 通过静态分析工具（如 IDA Pro）或动态分析工具（如调试器）提取目标函数的所有基本块，并初步分类。重点关注分发器（Dispatcher）的识别（详见第 2 步）。</li>
+</ul>
+<h3 id="区分真实块和分发器"><a href="#区分真实块和分发器" class="headerlink" title="区分真实块和分发器"></a><strong>区分真实块和分发器</strong></h3><p>分发器是控制流平坦化的核心逻辑节点，其作用是引导流程跳转到下一个基本块。区分真实块与分发器的关键如下：</p>
+<ul>
+<li><strong>分发器的特征：</strong><ol>
+<li><strong>引用次数较高：</strong> 分发器是执行链的核心节点，其引用次数远高于其他基本块。</li>
+<li><strong>结构固定：</strong> 分发器通常包含跳转逻辑，如 <code>switch-case</code> 或复杂的 <code>if-else</code>。</li>
+</ol>
+</li>
+<li><strong>真实块的特征：</strong><ol>
+<li><strong>内存操作：</strong> 包含内存访问指令（如 <code>ldr</code>, <code>str</code>）。</li>
+<li><strong>函数调用：</strong> 出现 <code>bl</code> 或 <code>blx</code> 指令。</li>
+<li><strong>确定性跳转：</strong> 出现明确的条件跳转指令（如 <code>beq</code>, <code>bne</code>）。</li>
+</ol>
+</li>
+<li><strong>方法：</strong><ul>
+<li>遍历函数的所有基本块，统计每个块的引用次数。</li>
+<li>通过特征匹配（如常用指令模式）识别真实块和分发器。</li>
+</ul>
+</li>
+</ul>
+<h3 id="连接真实块的顺序"><a href="#连接真实块的顺序" class="headerlink" title="连接真实块的顺序"></a><strong>连接真实块的顺序</strong></h3><p>重建真实块的顺序是反控制流平坦化的核心，以下是常见的实现方式：</p>
+<ul>
+<li><strong>静态方法：</strong><ol>
+<li>使用 IDA Pro 的 Trace 功能获取执行路径。</li>
+<li>编写 IDAPython 脚本解析每个基本块的连接关系。</li>
+<li>判断分支条件，重建代码逻辑。</li>
+</ol>
+</li>
+<li><strong>动态方法：</strong><ol>
+<li>使用符号执行工具（如 angr）模拟执行代码。</li>
+<li>跟踪每条路径的执行结果。</li>
+<li>遇到复杂分支时，结合人工分析调整路径。</li>
+</ol>
+</li>
+<li><strong>特殊情况处理：</strong><ul>
+<li>对于真实块包含双路径（<code>movwne/movtne r1</code>）的情况，需要分别处理两条路径并连接至对应的真实块。</li>
+</ul>
+</li>
+</ul>
+<h3 id="编写patch"><a href="#编写patch" class="headerlink" title="编写patch"></a><strong>编写patch</strong></h3><p>修补代码是反混淆的最后一步，以下是两种主要方法：</p>
+<ul>
+<li><p><strong>方法一：直接 Patch</strong></p>
+<ol>
+<li><strong>清理无用块：</strong> 将分发器或虚假块替换为 NOP 指令。</li>
+<li><strong>修补无分支块：</strong> 将真实块的最后一条指令改为无条件跳转（<code>jmp</code>）到下一个真实块。</li>
+<li><strong>修补分支块：</strong> 将条件跳转指令（如 <code>cmovz</code>）替换为明确的条件跳转（如 <code>jz</code>），并添加无条件跳转指令跳向另一分支。</li>
+</ol>
+<p><strong>优点：</strong> 简单直接，适合快速恢复代码。 <strong>缺点：</strong> 适用性有限，对复杂分支结构支持较弱。</p>
+</li>
+<li><p><strong>方法二：重构函数逻辑</strong></p>
+<ol>
+<li>提取所有真实块的指令，并根据其关系重新排列。</li>
+<li>计算每个真实块的相对偏移，生成新的函数代码。</li>
+<li>替换混淆后的目标函数。</li>
+</ol>
+<p><strong>优点：</strong> 适用性广，适合复杂函数。 <strong>缺点：</strong> 工作量大，依赖精确分析。</p>
+</li>
+</ul>
 </div><div class="story post-story"><h2 id="基于angr的脚本学习："><a href="#基于angr的脚本学习：" class="headerlink" title="基于angr的脚本学习："></a>基于angr的脚本学习：</h2><p><a target="_blank" rel="noopener" href="https://github.com/cq674350529/deflat">cq674350529&#x2F;deflat: use angr to deobfuscation</a></p>
 <h3 id="deflt-py"><a href="#deflt-py" class="headerlink" title="deflt.py"></a>deflt.py</h3><p><code>get_relevant_nop_nodes</code> 函数从一个超级控制流图（<code>supergraph</code>）中提取：</p>
 <ol>
@@ -2752,7 +2806,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateModified" datetime="2024-12-11T20:01:01+08:00">
+          <div class="new-meta-item date" itemprop="dateModified" datetime="2024-12-11T20:15:46+08:00">
   <a class='notlink'>
     <i class="fa-solid fa-edit fa-fw" aria-hidden="true"></i>
     <p>更新于：2024年12月11日</p>
@@ -2892,7 +2946,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8E%BB%E6%8C%87%E4%BB%A4%E6%9B%BF%E6%8D%A2%E6%B7%B7%E6%B7%86"><span class="toc-text">去指令替换混淆</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%8D%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8A%A0%E5%AF%86"><span class="toc-text">反字符串加密</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%8D%E8%99%9A%E5%81%87%E6%8E%A7%E5%88%B6%E6%B5%81"><span class="toc-text">反虚假控制流</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%8D%E6%8E%A7%E5%88%B6%E6%B5%81%E5%B9%B3%E5%9D%A6%E5%8C%96"><span class="toc-text">反控制流平坦化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E4%BA%8Eangr%E7%9A%84%E8%84%9A%E6%9C%AC%E5%AD%A6%E4%B9%A0%EF%BC%9A"><span class="toc-text">基于angr的脚本学习：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#deflt-py"><span class="toc-text">deflt.py</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%A5%E5%85%85"><span class="toc-text">补充</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8E%BB%E6%8C%87%E4%BB%A4%E6%9B%BF%E6%8D%A2%E6%B7%B7%E6%B7%86"><span class="toc-text">去指令替换混淆</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%8D%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8A%A0%E5%AF%86"><span class="toc-text">反字符串加密</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%8D%E8%99%9A%E5%81%87%E6%8E%A7%E5%88%B6%E6%B5%81"><span class="toc-text">反虚假控制流</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%8D%E6%8E%A7%E5%88%B6%E6%B5%81%E5%B9%B3%E5%9D%A6%E5%8C%96"><span class="toc-text">反控制流平坦化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%9D%E5%AD%98%E6%89%80%E6%9C%89%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%9D%97"><span class="toc-text">保存所有的基本块</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8C%BA%E5%88%86%E7%9C%9F%E5%AE%9E%E5%9D%97%E5%92%8C%E5%88%86%E5%8F%91%E5%99%A8"><span class="toc-text">区分真实块和分发器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9E%E6%8E%A5%E7%9C%9F%E5%AE%9E%E5%9D%97%E7%9A%84%E9%A1%BA%E5%BA%8F"><span class="toc-text">连接真实块的顺序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%96%E5%86%99patch"><span class="toc-text">编写patch</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E4%BA%8Eangr%E7%9A%84%E8%84%9A%E6%9C%AC%E5%AD%A6%E4%B9%A0%EF%BC%9A"><span class="toc-text">基于angr的脚本学习：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#deflt-py"><span class="toc-text">deflt.py</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%A5%E5%85%85"><span class="toc-text">补充</span></a></li></ol></li></ol>
     </div>
   </section>
 
@@ -3911,7 +3965,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   <script>
-  let imgs = ["https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/052.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/034.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/038.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/054.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/003.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/035.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/025.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/042.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/039.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/033.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/056.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/012.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/005.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/002.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/051.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/019.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/001.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/004.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/006.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/046.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/016.webp"];
+  let imgs = ["https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/056.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/004.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/035.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/052.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/046.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/042.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/003.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/054.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/039.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/034.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/019.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/016.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/051.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/006.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/002.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/005.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/033.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/001.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/025.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/012.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/038.webp"];
   let index = 0;
   let IntervalParallax = null;
 
@@ -4213,7 +4267,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"1ens's blog","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"1ens","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","sameAs":["https://github.com/volantis-x"],"description":"a"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://example.com/","name":"1ens's blog"}},{"@type":"ListItem","position":3,"item":{"@id":"http://example.com/2024/12/04/OLLVM反混淆/","name":"OLLVM反混淆"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"1ens's blog","url":"http://example.com/","keywords":null,"description":"a","author":{"@type":"Person","name":"1ens","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","description":"a"},"publisher":{"@type":"Organization","name":"1ens's blog","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"http://example.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"OLLVM反混淆","description":"a","inLanguage":["zh-CN","default"],"mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2024/12/04/OLLVM%E5%8F%8D%E6%B7%B7%E6%B7%86/"},"author":{"@type":"Person","name":"1ens","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/"},"publisher":{"@type":"Organization","name":"1ens's blog","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://example.com/2024/12/04/OLLVM%E5%8F%8D%E6%B7%B7%E6%B7%86/","wordCount":0,"datePublished":"2024-12-04T11:33:27.000Z","dateModified":"2024-12-11T12:01:01.870Z","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"1ens's blog","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"1ens","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","sameAs":["https://github.com/volantis-x"],"description":"a"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://example.com/","name":"1ens's blog"}},{"@type":"ListItem","position":3,"item":{"@id":"http://example.com/2024/12/04/OLLVM反混淆/","name":"OLLVM反混淆"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"1ens's blog","url":"http://example.com/","keywords":null,"description":"a","author":{"@type":"Person","name":"1ens","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","description":"a"},"publisher":{"@type":"Organization","name":"1ens's blog","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"http://example.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"OLLVM反混淆","description":"a","inLanguage":["zh-CN","default"],"mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2024/12/04/OLLVM%E5%8F%8D%E6%B7%B7%E6%B7%86/"},"author":{"@type":"Person","name":"1ens","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/"},"publisher":{"@type":"Organization","name":"1ens's blog","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://example.com/2024/12/04/OLLVM%E5%8F%8D%E6%B7%B7%E6%B7%86/","wordCount":0,"datePublished":"2024-12-04T11:33:27.000Z","dateModified":"2024-12-11T12:15:46.345Z","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 
