@@ -1761,7 +1761,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: false,
     cdn: {"js":{"app":"/js/app.e546c981.js","parallax":"/js/plugins/parallax.8bf0ab10.js","rightMenu":"/js/plugins/rightMenu.d9437285.js","rightMenus":"/js/plugins/rightMenus.cd02aa19.js","sites":"/js/plugins/tags/sites.76bf19b8.js","friends":"/js/plugins/tags/friends.f372da57.js","contributors":"/js/plugins/tags/contributors.aec80453.js","search":"/js/search/hexo.0e52f222.js"},"css":{"style":"/css/style.1296f6d1.css"}},
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1649552113628/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1649552113628/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1649552113628/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1649552113628/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1733909191894),
+    lastupdate: new Date(1733918509449),
     sidebar: {
       for_page: ["blogger","github","category","tagcloud","webinfo"],
       for_post: ["toc"],
@@ -2764,11 +2764,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div class='md article-desc' itemprop="articleBody">
     
       
-        反虚假控制流虚假控制流去除的思路一般为除去不可达块和不透明谓词。但是难点在于不透明谓词，现在不透明谓词的研究不断发展，有永真&#x2F;永假型不透明谓词，也有可真可假型不透明谓词。当然针对复杂的虚假控制流，在反混淆过程中还需要考虑死循环等问题
-不透明谓词：
-12永真/假型：插入的后续基本块中必有一个不被执行可真可假型：插入的两个后继基本块的语义应相同
-
-针对简单的控制流混淆，去不透明谓词的思...
+        去指令替换混淆LLVM 提供了一些优化 Pass，可以用于简化和优化编译后的 IR（中间表示）代码，去除无意义的混淆指令。尤其是使用 llvm-dis 反汇编指令后，我们可以通过 opt 工具结合 -O3 优化级别来简化程序。此方法的核心思想是利用 LLVM 编译工具链中内置的优化技术，自动剖析和去除冗余的指令替换。
+或者使用Miasm框架进行匹配，然后优化处理即可。Miasm 是一个专注于...
       
     
   </div>
@@ -3482,7 +3479,7 @@ JVM 的执行引擎读取字节码，并将其解释为底层机器指令。
       
         <div class="webinfo-item">
           <div>本站总字数：</div>
-          <div>185.9k 字</div>
+          <div>188.7k 字</div>
         </div>
       
 
@@ -4498,7 +4495,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   <script>
-  let imgs = ["https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/033.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/034.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/038.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/035.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/056.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/002.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/054.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/012.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/005.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/006.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/042.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/001.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/025.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/051.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/003.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/039.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/019.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/046.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/004.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/052.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/016.webp"];
+  let imgs = ["https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/052.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/034.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/038.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/054.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/003.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/035.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/025.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/042.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/039.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/033.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/056.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/012.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/005.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/002.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/051.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/019.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/001.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/004.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/006.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/046.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/016.webp"];
   let index = 0;
   let IntervalParallax = null;
 
