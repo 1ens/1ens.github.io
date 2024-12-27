@@ -1761,7 +1761,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: false,
     cdn: {"js":{"app":"/js/app.e546c981.js","parallax":"/js/plugins/parallax.8bf0ab10.js","rightMenu":"/js/plugins/rightMenu.d9437285.js","rightMenus":"/js/plugins/rightMenus.cd02aa19.js","sites":"/js/plugins/tags/sites.76bf19b8.js","friends":"/js/plugins/tags/friends.f372da57.js","contributors":"/js/plugins/tags/contributors.aec80453.js","search":"/js/search/hexo.0e52f222.js"},"css":{"style":"/css/style.1296f6d1.css"}},
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1649552113628/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1649552113628/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1649552113628/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1649552113628/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1735096492019),
+    lastupdate: new Date(1735266507224),
     sidebar: {
       for_page: ["blogger","github","category","tagcloud","webinfo"],
       for_post: ["toc"],
@@ -2531,6 +2531,62 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         
           <div class='post-wrapper'>
             <div class="post post-v3 white-box reveal shadow floatable"  itemscope itemtype="http://schema.org/Article" >
+  <link itemprop="mainEntityOfPage" href="http://example.com/2024/11/24/%E5%BA%94%E7%94%A8%E5%90%AF%E5%8A%A8%E6%B5%81%E7%A8%8B%E6%B5%85%E6%9E%90/">
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="1ens's blog">
+  </span>
+  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
+    <meta itemprop="name" content="1ens's blog">
+    <meta itemprop="description" content="a">
+  </span>
+  
+  
+  
+    <span hidden>
+      <meta itemprop="image" content="https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
+    </span>
+  
+  
+    
+    <h2 class="article-title"  itemprop="name headline">
+      <a href="/2024/11/24/%E5%BA%94%E7%94%A8%E5%90%AF%E5%8A%A8%E6%B5%81%E7%A8%8B%E6%B5%85%E6%9E%90/"  itemprop="url">
+        安卓应用启动流程浅析
+      </a>
+    </h2>
+  
+  <div class='md article-desc' itemprop="articleBody">
+    
+      
+         在安卓系统启动流程浅析中，最后由ActivityThread初始化应用的 Application 类。依旧以15的r3版本为例
+ActivityThread.main()123456789101112131415161718//frameworks/base/core/java/android/app/ActivityThread.javapublic static void main(S...
+      
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+        <time itemprop="dateCreated datePublished" datetime="2024-11-24T08:49:30+08:00">2024-11-24</time>
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/2024/11/24/%E5%BA%94%E7%94%A8%E5%90%AF%E5%8A%A8%E6%B5%81%E7%A8%8B%E6%B5%85%E6%9E%90/' itemprop="url">
+            阅读全文
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow floatable"  itemscope itemtype="http://schema.org/Article" >
   <link itemprop="mainEntityOfPage" href="http://example.com/2024/11/21/Android%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%99%A8%E5%B1%82%E7%BA%A7%E5%85%B3%E7%B3%BB%E5%8F%8A%E5%88%86%E6%9E%90/">
   <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
     <meta itemprop="name" content="1ens's blog">
@@ -3074,63 +3130,6 @@ HTTPS 原理HTTPS（HyperText Transfer Protocol Secure）是 HTTP 协议的安�
           </div>
         
       
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow floatable"  itemscope itemtype="http://schema.org/Article" >
-  <link itemprop="mainEntityOfPage" href="http://example.com/2024/10/07/xposed/">
-  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="1ens's blog">
-  </span>
-  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
-    <meta itemprop="name" content="1ens's blog">
-    <meta itemprop="description" content="a">
-  </span>
-  
-  
-  
-    <span hidden>
-      <meta itemprop="image" content="https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
-    </span>
-  
-  
-    
-    <h2 class="article-title"  itemprop="name headline">
-      <a href="/2024/10/07/xposed/"  itemprop="url">
-        xposed
-      </a>
-    </h2>
-  
-  <div class='md article-desc' itemprop="articleBody">
-    
-      
-        介绍frida 和 objection 对于App 的修改仅仅只是单次性的，App重启之后，我们就又需要手动使用 frida 或 objection 对 App 进行注入。不过我们有 Xposed 框架，基于此框架开发插件，则可以对 App 实现永久性修改。
-原理
-⼿机启动时init进程会启动所有Android进程的父进程——Zygote(孵化)进程。该进程的启动配置在/init.rc脚本中...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time itemprop="dateCreated datePublished" datetime="2024-10-07T09:38:53+08:00">2024-10-07</time>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2024/10/07/xposed/' itemprop="url">
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
     
   </section>
   
@@ -3326,7 +3325,7 @@ HTTPS 原理HTTPS（HyperText Transfer Protocol Secure）是 HTTP 协议的安�
       
         <div class="webinfo-item">
           <div>文章数目：</div>
-          <div>71 篇</div>
+          <div>72 篇</div>
         </div>
       
 
@@ -3341,7 +3340,7 @@ HTTPS 原理HTTPS（HyperText Transfer Protocol Secure）是 HTTP 协议的安�
       
         <div class="webinfo-item">
           <div>本站总字数：</div>
-          <div>204.2k 字</div>
+          <div>210.9k 字</div>
         </div>
       
 
@@ -4356,7 +4355,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   <script>
-  let imgs = ["https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/034.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/038.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/004.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/006.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/025.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/051.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/001.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/033.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/005.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/054.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/035.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/002.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/052.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/046.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/016.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/056.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/042.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/012.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/019.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/003.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/039.webp"];
+  let imgs = ["https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/054.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/033.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/019.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/046.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/042.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/016.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/005.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/004.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/002.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/039.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/035.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/006.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/038.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/025.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/052.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/056.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/001.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/034.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/051.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/012.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/003.webp"];
   let index = 0;
   let IntervalParallax = null;
 
