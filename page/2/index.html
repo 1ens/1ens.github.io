@@ -1761,7 +1761,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: false,
     cdn: {"js":{"app":"/js/app.e546c981.js","parallax":"/js/plugins/parallax.8bf0ab10.js","rightMenu":"/js/plugins/rightMenu.d9437285.js","rightMenus":"/js/plugins/rightMenus.cd02aa19.js","sites":"/js/plugins/tags/sites.76bf19b8.js","friends":"/js/plugins/tags/friends.f372da57.js","contributors":"/js/plugins/tags/contributors.aec80453.js","search":"/js/search/hexo.0e52f222.js"},"css":{"style":"/css/style.1296f6d1.css"}},
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1649552113628/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1649552113628/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1649552113628/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1649552113628/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1735562723723),
+    lastupdate: new Date(1736766233258),
     sidebar: {
       for_page: ["blogger","github","category","tagcloud","webinfo"],
       for_post: ["toc"],
@@ -2530,6 +2530,62 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         
           <div class='post-wrapper'>
             <div class="post post-v3 white-box reveal shadow floatable"  itemscope itemtype="http://schema.org/Article" >
+  <link itemprop="mainEntityOfPage" href="http://example.com/2024/12/04/OLLVM%E5%8F%8D%E6%B7%B7%E6%B7%86/">
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="1ens's blog">
+  </span>
+  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
+    <meta itemprop="name" content="1ens's blog">
+    <meta itemprop="description" content="a">
+  </span>
+  
+  
+  
+    <span hidden>
+      <meta itemprop="image" content="https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
+    </span>
+  
+  
+    
+    <h2 class="article-title"  itemprop="name headline">
+      <a href="/2024/12/04/OLLVM%E5%8F%8D%E6%B7%B7%E6%B7%86/"  itemprop="url">
+        OLLVM反混淆
+      </a>
+    </h2>
+  
+  <div class='md article-desc' itemprop="articleBody">
+    
+      
+        去指令替换混淆LLVM 提供了一些优化 Pass，可以用于简化和优化编译后的 IR（中间表示）代码，去除无意义的混淆指令。尤其是使用 llvm-dis 反汇编指令后，我们可以通过 opt 工具结合 -O3 优化级别来简化程序。此方法的核心思想是利用 LLVM 编译工具链中内置的优化技术，自动剖析和去除冗余的指令替换。
+或者使用Miasm框架进行匹配，然后优化处理即可。Miasm 是一个专注于...
+      
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+        <time itemprop="dateCreated datePublished" datetime="2024-12-04T19:33:27+08:00">2024-12-04</time>
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/2024/12/04/OLLVM%E5%8F%8D%E6%B7%B7%E6%B7%86/' itemprop="url">
+            阅读全文
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow floatable"  itemscope itemtype="http://schema.org/Article" >
   <link itemprop="mainEntityOfPage" href="http://example.com/2024/11/30/OLLVM/">
   <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
     <meta itemprop="name" content="1ens's blog">
@@ -3068,64 +3124,6 @@ JVM 的执行引擎读取字节码，并将其解释为底层机器指令。
           </div>
         
       
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow floatable"  itemscope itemtype="http://schema.org/Article" >
-  <link itemprop="mainEntityOfPage" href="http://example.com/2024/11/14/%E5%AE%89%E5%8D%93%E7%B3%BB%E7%BB%9F%E5%8A%A0%E8%BD%BD%E6%B5%81%E7%A8%8B%E6%B5%85%E6%9E%90/">
-  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="1ens's blog">
-  </span>
-  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
-    <meta itemprop="name" content="1ens's blog">
-    <meta itemprop="description" content="a">
-  </span>
-  
-  
-  
-    <span hidden>
-      <meta itemprop="image" content="https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
-    </span>
-  
-  
-    
-    <h2 class="article-title"  itemprop="name headline">
-      <a href="/2024/11/14/%E5%AE%89%E5%8D%93%E7%B3%BB%E7%BB%9F%E5%8A%A0%E8%BD%BD%E6%B5%81%E7%A8%8B%E6%B5%85%E6%9E%90/"  itemprop="url">
-        安卓系统加载流程浅析
-      </a>
-    </h2>
-  
-  <div class='md article-desc' itemprop="articleBody">
-    
-      
-        Android系统启动流程
-加载Bootloader–&gt;初始化内核————&gt;启动init进程————&gt;init进程fork出Zygote进程–&gt;zygote进程fork出Systemserver进程
-引导层：手机开机后，引导芯片启动，引导芯片开始从固化在ROM里的预设代码执行，加载引导程序到到RAM，BootLoader检查RAM，初始化硬件参数等功能；
-主要任务是将...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time itemprop="dateCreated datePublished" datetime="2024-11-14T22:22:29+08:00">2024-11-14</time>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2024/11/14/%E5%AE%89%E5%8D%93%E7%B3%BB%E7%BB%9F%E5%8A%A0%E8%BD%BD%E6%B5%81%E7%A8%8B%E6%B5%85%E6%9E%90/' itemprop="url">
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
     
   </section>
   
@@ -3320,7 +3318,7 @@ JVM 的执行引擎读取字节码，并将其解释为底层机器指令。
       
         <div class="webinfo-item">
           <div>文章数目：</div>
-          <div>75 篇</div>
+          <div>76 篇</div>
         </div>
       
 
@@ -3335,7 +3333,7 @@ JVM 的执行引擎读取字节码，并将其解释为底层机器指令。
       
         <div class="webinfo-item">
           <div>本站总字数：</div>
-          <div>235k 字</div>
+          <div>237.1k 字</div>
         </div>
       
 
@@ -4351,7 +4349,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   <script>
-  let imgs = ["https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/025.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/054.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/035.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/019.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/056.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/034.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/052.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/046.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/038.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/006.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/004.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/039.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/042.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/001.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/012.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/033.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/005.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/003.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/002.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/016.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/051.webp"];
+  let imgs = ["https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/052.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/033.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/035.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/006.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/001.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/046.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/005.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/003.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/056.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/054.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/019.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/012.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/051.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/039.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/042.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/004.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/034.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/025.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/016.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/002.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/038.webp"];
   let index = 0;
   let IntervalParallax = null;
 
