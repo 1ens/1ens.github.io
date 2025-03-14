@@ -43,7 +43,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
 <meta property="article:published_time" content="2024-11-20T07:46:18.000Z">
-<meta property="article:modified_time" content="2024-11-21T11:20:39.159Z">
+<meta property="article:modified_time" content="2025-02-22T01:07:05.453Z">
 <meta property="article:author" content="1ens">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
@@ -1763,7 +1763,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: false,
     cdn: {"js":{"app":"/js/app.e546c981.js","parallax":"/js/plugins/parallax.8bf0ab10.js","rightMenu":"/js/plugins/rightMenu.d9437285.js","rightMenus":"/js/plugins/rightMenus.cd02aa19.js","sites":"/js/plugins/tags/sites.76bf19b8.js","friends":"/js/plugins/tags/friends.f372da57.js","contributors":"/js/plugins/tags/contributors.aec80453.js","search":"/js/search/hexo.0e52f222.js"},"css":{"style":"/css/style.1296f6d1.css"}},
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1649552113628/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1649552113628/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1649552113628/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1649552113628/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1739630387201),
+    lastupdate: new Date(1741920350425),
     sidebar: {
       for_page: ["blogger","github","category","tagcloud","webinfo"],
       for_post: ["toc"],
@@ -2965,6 +2965,285 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p>odex文件：优化过的dex文件，Apk在安装时会进行验证和优化，通过dexopt生成odex文件，加快Apk的响应时间。在Android 5之后，.odex就不再是odex文件了，而是oat文件，文件头是”ELF”。</p>
 <p>oat文件：Android私有ELF文件格式，由dex2oat处理生成，包含（原dex文件+dex翻译的本地机器指令），是ART虚拟机便用的文件，可以直接加载</p>
 <p>vdex文件：Android8.0引l入，包含APk的未压缩DEx代码，以及一些旨在加快验证速度的元数据，其目的主要是为了跳过verified流程，减少dex2oat执行时间。</p>
+<h1 id="ELF"><a href="#ELF" class="headerlink" title="ELF"></a>ELF</h1><p>ELF文件的三种文件类型：</p>
+<p>​    可重定位目标文件：包含二进制代码和数据，其形式可以和其他目标文件进行合并，创建一个可执行目标文件。比如linux下的.o文件</p>
+<p>​    可执行目标文件：包含二进制代码和数据，可直接被加载器加载执行。 比如&#x2F;bin&#x2F;sh文件</p>
+<p>​    共享目标文件：可被动态的加载和链接      比如.so文件</p>
+<p>​    Core Dump File：进程意外终止时可以产生的文件，存储着该进程的内存空间中的内容等信息 比如core dump文件</p>
+</div><div class="story post-story"><h2 id="elf的结构"><a href="#elf的结构" class="headerlink" title="elf的结构:"></a>elf的结构:</h2><p>•ELF头部（ELF Header），用来描述整个文件的组织。节区部分包含链接视图的大量信息：指令、数据、符号表、重定位信息等。</p>
+<p>•程序头部表（Program Header Table）,如果存在的话，会告诉系统如何创建进程映像。用来构造进程映像的目标文件必须具有程序头部表，可重定位文件不需要这个表。</p>
+<p>•节区头部表（Section Header Table）,包含了描述文件节区的信息，每个节区在表中都有一项，每一项给出诸如节区名称、节区大小这类信息。用于链接的目标文件必须包含节区头部表，其他目标文件可以有，也可以没有这个表。</p>
+<p><img src="https://fastly.jsdelivr.net/gh/1ens/blogImages/202502211022604.png" class="lazyload" data-srcset="https://fastly.jsdelivr.net/gh/1ens/blogImages/202502211022604.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p>开头的ELF Header描述了体系结构和操作系统等基本信息并指出Section Header Table和Program Header Table在文件中的什么位置，</p>
+<p>Program Header Table中保存了所有Segment的描述信息；在汇编和链接过程中没有用到，所以是可有可无的</p>
+<p>Section Header Table中保存了所有Section的描述信息；Section Header Table在加载过程中没有用到，所以是可有可无的</p>
+<p><img src="https://fastly.jsdelivr.net/gh/1ens/blogImages/202502211024260.png" class="lazyload" data-srcset="https://fastly.jsdelivr.net/gh/1ens/blogImages/202502211024260.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p>readelf这个命令来查看文件的结构</p>
+<p><img src="https://fastly.jsdelivr.net/gh/1ens/blogImages/202502211026688.png" class="lazyload" data-srcset="https://fastly.jsdelivr.net/gh/1ens/blogImages/202502211026688.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p><img src="https://fastly.jsdelivr.net/gh/1ens/blogImages/202502211019454.png" class="lazyload" data-srcset="https://fastly.jsdelivr.net/gh/1ens/blogImages/202502211019454.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+</div><div class="story post-story"><h2 id="ELF-Header"><a href="#ELF-Header" class="headerlink" title="ELF Header"></a>ELF Header</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">//https://github.com/bminor/glibc/blob/glibc-2.27/elf/elf.h</span><br><span class="line">#define EI_NIDENT (16)</span><br><span class="line"></span><br><span class="line">typedef struct</span><br><span class="line">&#123;</span><br><span class="line">  unsigned char	e_ident[EI_NIDENT];	/* Magic number and other info */</span><br><span class="line">  Elf32_Half	e_type;			/* Object file type */</span><br><span class="line">  Elf32_Half	e_machine;		/* Architecture */</span><br><span class="line">  Elf32_Word	e_version;		/* Object file version */</span><br><span class="line">  Elf32_Addr	e_entry;		/* Entry point virtual address */</span><br><span class="line">  Elf32_Off	e_phoff;		/* Program header table file offset */</span><br><span class="line">  Elf32_Off	e_shoff;		/* Section header table file offset */</span><br><span class="line">  Elf32_Word	e_flags;		/* Processor-specific flags */</span><br><span class="line">  Elf32_Half	e_ehsize;		/* ELF header size in bytes */</span><br><span class="line">  Elf32_Half	e_phentsize;		/* Program header table entry size */</span><br><span class="line">  Elf32_Half	e_phnum;		/* Program header table entry count */</span><br><span class="line">  Elf32_Half	e_shentsize;		/* Section header table entry size */</span><br><span class="line">  Elf32_Half	e_shnum;		/* Section header table entry count */</span><br><span class="line">  Elf32_Half	e_shstrndx;		/* Section header string table index */</span><br><span class="line">&#125; Elf32_Ehdr;</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>e_ident</strong></td>
+<td><code>unsigned char[EI_NIDENT]</code></td>
+<td>ELF 文件的标识信息数组（16 字节），包括魔术数字、文件类型、版本等信息。</td>
+</tr>
+<tr>
+<td><strong>e_type</strong></td>
+<td><code>Elf32_Half</code></td>
+<td>表示文件类型，常见的值包括：<code>ET_EXEC</code>（可执行文件）、<code>ET_DYN</code>（共享库）、<code>ET_REL</code>（目标文件）。</td>
+</tr>
+<tr>
+<td><strong>e_machine</strong></td>
+<td><code>Elf32_Half</code></td>
+<td>表示文件适用的机器体系结构，如 <code>EM_386</code>（x86）或 <code>EM_X86_64</code>（x86_64）。</td>
+</tr>
+<tr>
+<td><strong>e_version</strong></td>
+<td><code>Elf32_Word</code></td>
+<td>文件版本，通常为 <code>EV_CURRENT</code>。</td>
+</tr>
+<tr>
+<td><strong>e_entry</strong></td>
+<td><code>Elf32_Addr</code></td>
+<td>程序入口点的虚拟地址，程序执行的起始位置。</td>
+</tr>
+<tr>
+<td><strong>e_phoff</strong></td>
+<td><code>Elf32_Off</code></td>
+<td>程序头表的偏移量，指向程序头表（包含各个段的相关信息）。</td>
+</tr>
+<tr>
+<td><strong>e_shoff</strong></td>
+<td><code>Elf32_Off</code></td>
+<td>节头表的偏移量，指向节头表（包含文件的节的相关信息，如 <code>.text</code>、<code>.data</code>）。</td>
+</tr>
+<tr>
+<td><strong>e_flags</strong></td>
+<td><code>Elf32_Word</code></td>
+<td>处理器特定的标志，表示如何处理该 ELF 文件。</td>
+</tr>
+<tr>
+<td><strong>e_ehsize</strong></td>
+<td><code>Elf32_Half</code></td>
+<td>ELF 文件头的大小（以字节为单位）。</td>
+</tr>
+<tr>
+<td><strong>e_phentsize</strong></td>
+<td><code>Elf32_Half</code></td>
+<td>程序头表中每个条目的大小（以字节为单位）。</td>
+</tr>
+<tr>
+<td><strong>e_phnum</strong></td>
+<td><code>Elf32_Half</code></td>
+<td>程序头表条目的数量，表示该 ELF 文件中包含多少个段。</td>
+</tr>
+<tr>
+<td><strong>e_shentsize</strong></td>
+<td><code>Elf32_Half</code></td>
+<td>节头表中每个条目的大小（以字节为单位）。</td>
+</tr>
+<tr>
+<td><strong>e_shnum</strong></td>
+<td><code>Elf32_Half</code></td>
+<td>节头表条目的数量，表示该 ELF 文件中的节的数量。</td>
+</tr>
+<tr>
+<td><strong>e_shstrndx</strong></td>
+<td><code>Elf32_Half</code></td>
+<td>节头字符串表的索引，指向包含节名的字符串表。</td>
+</tr>
+</tbody></table>
+</div><div class="story post-story"><h2 id="Section-Header"><a href="#Section-Header" class="headerlink" title="Section Header"></a>Section Header</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span></span><br><span class="line">&#123;</span><br><span class="line">  Elf32_Word	sh_name;		<span class="comment">/* Section name (string tbl index) */</span></span><br><span class="line">  Elf32_Word	sh_type;		<span class="comment">/* Section type */</span></span><br><span class="line">  Elf32_Word	sh_flags;		<span class="comment">/* Section flags */</span></span><br><span class="line">  Elf32_Addr	sh_addr;		<span class="comment">/* Section virtual addr at execution */</span></span><br><span class="line">  Elf32_Off	sh_offset;		<span class="comment">/* Section file offset */</span></span><br><span class="line">  Elf32_Word	sh_size;		<span class="comment">/* Section size in bytes */</span></span><br><span class="line">  Elf32_Word	sh_link;		<span class="comment">/* Link to another section */</span></span><br><span class="line">  Elf32_Word	sh_info;		<span class="comment">/* Additional section information */</span></span><br><span class="line">  Elf32_Word	sh_addralign;		<span class="comment">/* Section alignment */</span></span><br><span class="line">  Elf32_Word	sh_entsize;		<span class="comment">/* Entry size if section holds table */</span></span><br><span class="line">&#125; Elf32_Shdr;</span><br></pre></td></tr></table></figure>
+
+<p>字段分析表格：</p>
+<table>
+<thead>
+<tr>
+<th align="left"><strong>字段名称</strong></th>
+<th align="left"><strong>类型</strong></th>
+<th align="left"><strong>大小（字节）</strong></th>
+<th align="left"><strong>描述</strong></th>
+<th align="left"><strong>示例&#x2F;备注</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong><code>sh_name</code></strong></td>
+<td align="left"><code>Elf32_Word</code></td>
+<td align="left">4</td>
+<td align="left">段名称在字符串表（<code>.shstrtab</code>）中的索引。若为 <code>0</code>，表示无名称。</td>
+<td align="left"><code>.text</code> 段的名称索引可能为 <code>0x0A</code>（指向字符串表中的偏移）。</td>
+</tr>
+<tr>
+<td align="left"><strong><code>sh_type</code></strong></td>
+<td align="left"><code>Elf32_Word</code></td>
+<td align="left">4</td>
+<td align="left">段的类型，定义段的用途和内容格式。常见值见备注。</td>
+<td align="left"><code>SHT_PROGBITS</code> (1)：程序数据（如代码或初始化数据）。 <code>SHT_SYMTAB</code> (2)：符号表。</td>
+</tr>
+<tr>
+<td align="left"><strong><code>sh_flags</code></strong></td>
+<td align="left"><code>Elf32_Word</code></td>
+<td align="left">4</td>
+<td align="left">段的属性标志位（可组合使用），定义段的权限或行为。</td>
+<td align="left"><code>SHF_WRITE</code> (0x1)：段可写。 <code>SHF_ALLOC</code> (0x2)：段在内存中加载。 <code>SHF_EXECINSTR</code> (0x4)：段包含可执行指令。</td>
+</tr>
+<tr>
+<td align="left"><strong><code>sh_addr</code></strong></td>
+<td align="left"><code>Elf32_Addr</code></td>
+<td align="left">4</td>
+<td align="left">段在进程虚拟地址空间中的起始地址。若为 <code>0</code>，表示该段不加载到内存（如调试信息）。</td>
+<td align="left"><code>.text</code> 段可能为 <code>0x8048000</code>（可执行代码的加载地址）。</td>
+</tr>
+<tr>
+<td align="left"><strong><code>sh_offset</code></strong></td>
+<td align="left"><code>Elf32_Off</code></td>
+<td align="left">4</td>
+<td align="left">段在文件中的偏移量（从文件开头计算）。</td>
+<td align="left">若为 <code>0x200</code>，表示段数据从文件第 512 字节开始。</td>
+</tr>
+<tr>
+<td align="left"><strong><code>sh_size</code></strong></td>
+<td align="left"><code>Elf32_Word</code></td>
+<td align="left">4</td>
+<td align="left">段的大小（字节）。若段包含固定大小的表（如符号表），则为表的总字节数。</td>
+<td align="left"><code>.text</code> 段大小可能为 <code>0x500</code>（1280 字节的代码）。</td>
+</tr>
+<tr>
+<td align="left"><strong><code>sh_link</code></strong></td>
+<td align="left"><code>Elf32_Word</code></td>
+<td align="left">4</td>
+<td align="left">指向另一个段的索引，具体含义取决于 <code>sh_type</code>。</td>
+<td align="left">符号表段（<code>SHT_SYMTAB</code>）的 <code>sh_link</code> 指向字符串表段（<code>.strtab</code>）的索引。</td>
+</tr>
+<tr>
+<td align="left"><strong><code>sh_info</code></strong></td>
+<td align="left"><code>Elf32_Word</code></td>
+<td align="left">4</td>
+<td align="left">附加信息，具体含义取决于 <code>sh_type</code>。</td>
+<td align="left">符号表段（<code>SHT_SYMTAB</code>）的 <code>sh_info</code> 表示最后一个局部符号（<code>st_local</code>）的索引 + 1。</td>
+</tr>
+<tr>
+<td align="left"><strong><code>sh_addralign</code></strong></td>
+<td align="left"><code>Elf32_Word</code></td>
+<td align="left">4</td>
+<td align="left">段的内存对齐要求（必须是 2 的幂）。若为 <code>0</code> 或 <code>1</code>，表示无对齐要求。</td>
+<td align="left"><code>.text</code> 段可能对齐到 <code>0x10</code>（16 字节对齐）。</td>
+</tr>
+<tr>
+<td align="left"><strong><code>sh_entsize</code></strong></td>
+<td align="left"><code>Elf32_Word</code></td>
+<td align="left">4</td>
+<td align="left">如果段包含固定大小的表（如符号表），表示表中每个条目的大小；否则为 <code>0</code>。</td>
+<td align="left">符号表（<code>SHT_SYMTAB</code>）的 <code>sh_entsize</code> 为 <code>0x10</code>（每个符号条目占 16 字节）。</td>
+</tr>
+</tbody></table>
+</div><div class="story post-story"><h2 id="ELF-sections"><a href="#ELF-sections" class="headerlink" title="ELF sections"></a>ELF sections</h2><p><img src="https://fastly.jsdelivr.net/gh/1ens/blogImages/202502211019115.png" class="lazyload" data-srcset="https://fastly.jsdelivr.net/gh/1ens/blogImages/202502211019115.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p>ELF Sections</p>
+<table>
+<thead>
+<tr>
+<th>节名</th>
+<th>类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong><code>.text</code></strong></td>
+<td>可执行代码</td>
+<td>包含程序的机器指令，程序的实际执行代码。通常是只读且可执行的。</td>
+</tr>
+<tr>
+<td><strong><code>.data</code></strong></td>
+<td>数据段</td>
+<td>包含程序需要的已初始化数据，通常是可读可写的。</td>
+</tr>
+<tr>
+<td><strong><code>.bss</code></strong></td>
+<td>未初始化数据段</td>
+<td>包含未初始化的数据，程序启动时会被清零，通常不占用文件空间，只有内存中有分配空间。</td>
+</tr>
+<tr>
+<td><strong><code>.rodata</code></strong></td>
+<td>只读数据段</td>
+<td>包含程序的常量数据，如字符串字面量等。通常是只读且不可写的。</td>
+</tr>
+<tr>
+<td><strong><code>.symtab</code></strong></td>
+<td>符号表</td>
+<td>存储程序中定义的符号信息，符号包括函数、变量等。用于符号解析。</td>
+</tr>
+<tr>
+<td><strong><code>.strtab</code></strong></td>
+<td>字符串表</td>
+<td>存储符号表中所有符号的名称，符号表条目包含指向这个字符串表的索引。</td>
+</tr>
+<tr>
+<td><strong><code>.shstrtab</code></strong></td>
+<td>节头字符串表</td>
+<td>存储所有节的名称，是节头中每个节名称的字符串表。</td>
+</tr>
+<tr>
+<td><strong><code>.text.hot</code></strong></td>
+<td>热代码段</td>
+<td>存储频繁执行的代码，常用于性能优化的场景，分开存放。</td>
+</tr>
+<tr>
+<td><strong><code>.ctors</code></strong></td>
+<td>构造函数表</td>
+<td>包含程序执行前需要调用的构造函数地址。</td>
+</tr>
+<tr>
+<td><strong><code>.dtors</code></strong></td>
+<td>析构函数表</td>
+<td>包含程序结束时需要调用的析构函数地址。</td>
+</tr>
+<tr>
+<td><strong><code>.note</code></strong></td>
+<td>注释信息</td>
+<td>存储程序的注释信息，如编译器版本、操作系统版本等元数据。</td>
+</tr>
+<tr>
+<td><strong><code>.dynamic</code></strong></td>
+<td>动态链接表</td>
+<td>存储程序的动态链接信息，包含库的依赖和符号解析信息。</td>
+</tr>
+<tr>
+<td><strong><code>.rel</code> &#x2F; <code>.rela</code></strong></td>
+<td>重定位表</td>
+<td>包含符号地址修改的必要信息，<code>rela</code> 比 <code>rel</code> 多一个附加信息字段。</td>
+</tr>
+<tr>
+<td><strong><code>.comment</code></strong></td>
+<td>编译信息</td>
+<td>存储编译时的注释信息，通常由编译器生成。</td>
+</tr>
+<tr>
+<td><strong><code>.debug</code></strong></td>
+<td>调试信息</td>
+<td>包含源代码、变量、函数等信息，用于调试工具对程序的调试和符号解析。</td>
+</tr>
+<tr>
+<td><strong><code>.plt</code></strong></td>
+<td>程序链接表</td>
+<td>存储动态链接的函数调用指针，通常用于延迟加载和动态链接函数调用。</td>
+</tr>
+<tr>
+<td><strong><code>.got</code></strong></td>
+<td>全局偏移表</td>
+<td>存储全局变量和函数的地址，是动态链接过程中的重要数据结构。</td>
+</tr>
+</tbody></table>
+</div><div class="story post-story"><h2 id="load"><a href="#load" class="headerlink" title=".load"></a>.load</h2><p><strong>LOAD</strong> 类型的段表示需要加载到内存中的段，这些段通常是程序的可执行代码段或数据段。<code>T_LOAD</code> 类型的段通常会被映射到进程的虚拟内存空间中。每个加载段会有一个指定的 <strong>虚拟地址</strong>（<code>p_vaddr</code>）以及 <strong>文件偏移</strong>（<code>p_offset</code>）</p>
+<p>因为0x2e270所在的段是LOAD，用010editor打开这个段，最后有个p_align，表示这个段要对齐到虚拟地址0x10000的倍数的位置，所以现在LOAD段的起始地址是0x1D760+0x10000 ,要对应到相对于文件的地址的话减掉0x10000就可以啦</p>
 
 </div>
   </div>
@@ -3001,10 +3280,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateModified" datetime="2024-11-21T19:20:39+08:00">
+          <div class="new-meta-item date" itemprop="dateModified" datetime="2025-02-22T09:07:05+08:00">
   <a class='notlink'>
     <i class="fa-solid fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2024年11月21日</p>
+    <p>更新于：2025年2月22日</p>
   </a>
 </div>
 
@@ -3143,7 +3422,7 @@ JVM 的类加载器...</p>
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-text">数据类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#LEB128"><span class="toc-text">LEB128</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#dex%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84"><span class="toc-text">dex文件结构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B4%E4%BD%93%E7%BB%93%E6%9E%84"><span class="toc-text">整体结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DEX-%E6%96%87%E4%BB%B6%E5%A4%B4"><span class="toc-text">DEX 文件头</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#string-ids%EF%BC%88DexStringId%E5%88%97%E8%A1%A8%EF%BC%89"><span class="toc-text">string_ids（DexStringId列表）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#type-ids%EF%BC%88DexTypeId%E5%88%97%E8%A1%A8%EF%BC%89"><span class="toc-text">type_ids（DexTypeId列表）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#proto-ids%EF%BC%88DexProtoId%E5%88%97%E8%A1%A8%EF%BC%89"><span class="toc-text">proto_ids（DexProtoId列表）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#field-ids%EF%BC%88DexFieldId%E5%88%97%E8%A1%A8%EF%BC%89"><span class="toc-text">field_ids（DexFieldId列表）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#method-ids%EF%BC%88DexMethodId%E5%88%97%E8%A1%A8%EF%BC%89"><span class="toc-text">method_ids（DexMethodId列表）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#class-def%EF%BC%88DexClassDef%E5%88%97%E8%A1%A8%EF%BC%89"><span class="toc-text">class_def（DexClassDef列表）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DEX-map-section"><span class="toc-text">DEX map section</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9A%E4%BD%8D%E6%96%B9%E6%B3%95%E7%9A%84%E5%AD%97%E8%8A%82%E7%A0%81"><span class="toc-text">定位方法的字节码</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E6%9E%90dex"><span class="toc-text">解析dex</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A7%A3%E6%9E%90dex%E8%8E%B7%E5%8F%96%E7%B1%BB%E5%90%8D"><span class="toc-text">解析dex获取类名</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A7%A3%E6%9E%90dex%E8%8E%B7%E5%BE%97%E6%96%B9%E6%B3%95%E5%90%8D"><span class="toc-text">解析dex获得方法名</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A7%A3%E6%9E%90dex%E8%8E%B7%E5%BE%97%E7%AD%BE%E5%90%8D"><span class="toc-text">解析dex获得签名</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AD%A5%E9%AA%A4-1%EF%BC%9A%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6%E5%A4%B4%EF%BC%8C%E8%8E%B7%E5%8F%96%E6%AE%B5%E7%9A%84%E7%BB%9D%E5%AF%B9%E5%81%8F%E7%A7%BB"><span class="toc-text">步骤 1：读取文件头，获取段的绝对偏移</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AD%A5%E9%AA%A4-2%EF%BC%9A%E5%AE%9A%E4%BD%8D%E7%B1%BB%E5%AE%9A%E4%B9%89%EF%BC%8C%E8%AF%BB%E5%8F%96%E7%B1%BB%E7%9A%84%E7%9B%B8%E5%85%B3%E5%81%8F%E7%A7%BB"><span class="toc-text">步骤 2：定位类定义，读取类的相关偏移</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AD%A5%E9%AA%A4-3%EF%BC%9A%E5%AE%9A%E4%BD%8D%E6%96%B9%E6%B3%95%E7%9A%84-code-item-%E5%81%8F%E7%A7%BB"><span class="toc-text">步骤 3：定位方法的 code_item 偏移</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AD%A5%E9%AA%A4-4%EF%BC%9A%E8%AF%BB%E5%8F%96%E5%AD%97%E8%8A%82%E7%A0%81"><span class="toc-text">步骤 4：读取字节码</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9D%A5%E6%BA%90%E4%B8%8E%E4%BD%9C%E7%94%A8"><span class="toc-text">来源与作用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9D%A5%E6%BA%90"><span class="toc-text">. 来源</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%9C%E7%94%A8"><span class="toc-text">** 作用**</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ODEX-%E6%96%87%E4%BB%B6%E7%9A%84%E7%BB%93%E6%9E%84"><span class="toc-text">ODEX 文件的结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#odex%E6%96%87%E4%BB%B6%E5%A4%B4"><span class="toc-text">odex文件头</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BE%9D%E8%B5%96%E5%BA%93"><span class="toc-text">依赖库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BE%85%E5%8A%A9%E6%95%B0%E6%8D%AE"><span class="toc-text">辅助数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ODEX-%E6%96%87%E4%BB%B6%E7%9A%84%E7%94%9F%E6%88%90%E4%B8%8E%E4%BD%BF%E7%94%A8%E6%B5%81%E7%A8%8B"><span class="toc-text">ODEX 文件的生成与使用流程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%A8-Dalvik-%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%97%B6%E4%BB%A3"><span class="toc-text">** 在 Dalvik 虚拟机时代**</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%A8-ART-%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%97%B6%E4%BB%A3"><span class="toc-text">** 在 ART 虚拟机时代**</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E6%9F%A5%E7%9C%8B-ODEX-%E6%96%87%E4%BB%B6"><span class="toc-text">如何查看 ODEX 文件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%8B%E5%8A%A8%E6%9F%A5%E7%9C%8B"><span class="toc-text">** 手动查看**</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%8D%E7%BC%96%E8%AF%91%E5%B7%A5%E5%85%B7"><span class="toc-text">** 反编译工具**</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#dex%E3%80%81odex%E3%80%81oat%E3%80%81ydex%E6%96%87%E4%BB%B6%E5%8C%BA%E5%88%AB"><span class="toc-text">dex、odex、oat、ydex文件区别</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-text">数据类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#LEB128"><span class="toc-text">LEB128</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#dex%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84"><span class="toc-text">dex文件结构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B4%E4%BD%93%E7%BB%93%E6%9E%84"><span class="toc-text">整体结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DEX-%E6%96%87%E4%BB%B6%E5%A4%B4"><span class="toc-text">DEX 文件头</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#string-ids%EF%BC%88DexStringId%E5%88%97%E8%A1%A8%EF%BC%89"><span class="toc-text">string_ids（DexStringId列表）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#type-ids%EF%BC%88DexTypeId%E5%88%97%E8%A1%A8%EF%BC%89"><span class="toc-text">type_ids（DexTypeId列表）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#proto-ids%EF%BC%88DexProtoId%E5%88%97%E8%A1%A8%EF%BC%89"><span class="toc-text">proto_ids（DexProtoId列表）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#field-ids%EF%BC%88DexFieldId%E5%88%97%E8%A1%A8%EF%BC%89"><span class="toc-text">field_ids（DexFieldId列表）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#method-ids%EF%BC%88DexMethodId%E5%88%97%E8%A1%A8%EF%BC%89"><span class="toc-text">method_ids（DexMethodId列表）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#class-def%EF%BC%88DexClassDef%E5%88%97%E8%A1%A8%EF%BC%89"><span class="toc-text">class_def（DexClassDef列表）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DEX-map-section"><span class="toc-text">DEX map section</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9A%E4%BD%8D%E6%96%B9%E6%B3%95%E7%9A%84%E5%AD%97%E8%8A%82%E7%A0%81"><span class="toc-text">定位方法的字节码</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E6%9E%90dex"><span class="toc-text">解析dex</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A7%A3%E6%9E%90dex%E8%8E%B7%E5%8F%96%E7%B1%BB%E5%90%8D"><span class="toc-text">解析dex获取类名</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A7%A3%E6%9E%90dex%E8%8E%B7%E5%BE%97%E6%96%B9%E6%B3%95%E5%90%8D"><span class="toc-text">解析dex获得方法名</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A7%A3%E6%9E%90dex%E8%8E%B7%E5%BE%97%E7%AD%BE%E5%90%8D"><span class="toc-text">解析dex获得签名</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AD%A5%E9%AA%A4-1%EF%BC%9A%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6%E5%A4%B4%EF%BC%8C%E8%8E%B7%E5%8F%96%E6%AE%B5%E7%9A%84%E7%BB%9D%E5%AF%B9%E5%81%8F%E7%A7%BB"><span class="toc-text">步骤 1：读取文件头，获取段的绝对偏移</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AD%A5%E9%AA%A4-2%EF%BC%9A%E5%AE%9A%E4%BD%8D%E7%B1%BB%E5%AE%9A%E4%B9%89%EF%BC%8C%E8%AF%BB%E5%8F%96%E7%B1%BB%E7%9A%84%E7%9B%B8%E5%85%B3%E5%81%8F%E7%A7%BB"><span class="toc-text">步骤 2：定位类定义，读取类的相关偏移</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AD%A5%E9%AA%A4-3%EF%BC%9A%E5%AE%9A%E4%BD%8D%E6%96%B9%E6%B3%95%E7%9A%84-code-item-%E5%81%8F%E7%A7%BB"><span class="toc-text">步骤 3：定位方法的 code_item 偏移</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AD%A5%E9%AA%A4-4%EF%BC%9A%E8%AF%BB%E5%8F%96%E5%AD%97%E8%8A%82%E7%A0%81"><span class="toc-text">步骤 4：读取字节码</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9D%A5%E6%BA%90%E4%B8%8E%E4%BD%9C%E7%94%A8"><span class="toc-text">来源与作用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9D%A5%E6%BA%90"><span class="toc-text">. 来源</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%9C%E7%94%A8"><span class="toc-text">** 作用**</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ODEX-%E6%96%87%E4%BB%B6%E7%9A%84%E7%BB%93%E6%9E%84"><span class="toc-text">ODEX 文件的结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#odex%E6%96%87%E4%BB%B6%E5%A4%B4"><span class="toc-text">odex文件头</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BE%9D%E8%B5%96%E5%BA%93"><span class="toc-text">依赖库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BE%85%E5%8A%A9%E6%95%B0%E6%8D%AE"><span class="toc-text">辅助数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ODEX-%E6%96%87%E4%BB%B6%E7%9A%84%E7%94%9F%E6%88%90%E4%B8%8E%E4%BD%BF%E7%94%A8%E6%B5%81%E7%A8%8B"><span class="toc-text">ODEX 文件的生成与使用流程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%A8-Dalvik-%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%97%B6%E4%BB%A3"><span class="toc-text">** 在 Dalvik 虚拟机时代**</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%A8-ART-%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%97%B6%E4%BB%A3"><span class="toc-text">** 在 ART 虚拟机时代**</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E6%9F%A5%E7%9C%8B-ODEX-%E6%96%87%E4%BB%B6"><span class="toc-text">如何查看 ODEX 文件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%8B%E5%8A%A8%E6%9F%A5%E7%9C%8B"><span class="toc-text">** 手动查看**</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%8D%E7%BC%96%E8%AF%91%E5%B7%A5%E5%85%B7"><span class="toc-text">** 反编译工具**</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#dex%E3%80%81odex%E3%80%81oat%E3%80%81ydex%E6%96%87%E4%BB%B6%E5%8C%BA%E5%88%AB"><span class="toc-text">dex、odex、oat、ydex文件区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#elf%E7%9A%84%E7%BB%93%E6%9E%84"><span class="toc-text">elf的结构:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ELF-Header"><span class="toc-text">ELF Header</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Section-Header"><span class="toc-text">Section Header</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ELF-sections"><span class="toc-text">ELF sections</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#load"><span class="toc-text">.load</span></a></li></ol>
     </div>
   </section>
 
@@ -4162,7 +4441,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   <script>
-  let imgs = ["https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/038.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/034.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/006.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/002.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/025.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/056.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/019.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/046.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/033.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/003.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/016.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/001.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/051.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/042.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/005.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/035.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/039.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/012.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/054.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/004.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/052.webp"];
+  let imgs = ["https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/005.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/054.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/019.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/034.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/033.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/025.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/042.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/035.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/051.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/016.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/056.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/001.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/012.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/006.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/052.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/046.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/003.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/004.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/002.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/038.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/039.webp"];
   let index = 0;
   let IntervalParallax = null;
 
@@ -4464,7 +4743,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"1ens's blog","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"1ens","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","sameAs":["https://github.com/volantis-x"],"description":"a"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://example.com/","name":"1ens's blog"}},{"@type":"ListItem","position":3,"item":{"@id":"http://example.com/2024/11/20/安卓文件格式/","name":"安卓（o）dex文件解析"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"1ens's blog","url":"http://example.com/","keywords":null,"description":"a","author":{"@type":"Person","name":"1ens","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","description":"a"},"publisher":{"@type":"Organization","name":"1ens's blog","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"http://example.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"安卓（o）dex文件解析","description":"a","inLanguage":["zh-CN","default"],"mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2024/11/20/%E5%AE%89%E5%8D%93%E6%96%87%E4%BB%B6%E6%A0%BC%E5%BC%8F/"},"author":{"@type":"Person","name":"1ens","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/"},"publisher":{"@type":"Organization","name":"1ens's blog","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://example.com/2024/11/20/%E5%AE%89%E5%8D%93%E6%96%87%E4%BB%B6%E6%A0%BC%E5%BC%8F/","wordCount":0,"datePublished":"2024-11-20T07:46:18.000Z","dateModified":"2024-11-21T11:20:39.159Z","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"1ens's blog","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"1ens","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","sameAs":["https://github.com/volantis-x"],"description":"a"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://example.com/","name":"1ens's blog"}},{"@type":"ListItem","position":3,"item":{"@id":"http://example.com/2024/11/20/安卓文件格式/","name":"安卓（o）dex文件解析"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"1ens's blog","url":"http://example.com/","keywords":null,"description":"a","author":{"@type":"Person","name":"1ens","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","description":"a"},"publisher":{"@type":"Organization","name":"1ens's blog","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"http://example.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"安卓（o）dex文件解析","description":"a","inLanguage":["zh-CN","default"],"mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2024/11/20/%E5%AE%89%E5%8D%93%E6%96%87%E4%BB%B6%E6%A0%BC%E5%BC%8F/"},"author":{"@type":"Person","name":"1ens","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/"},"publisher":{"@type":"Organization","name":"1ens's blog","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://example.com/2024/11/20/%E5%AE%89%E5%8D%93%E6%96%87%E4%BB%B6%E6%A0%BC%E5%BC%8F/","wordCount":0,"datePublished":"2024-11-20T07:46:18.000Z","dateModified":"2025-02-22T01:07:05.453Z","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 

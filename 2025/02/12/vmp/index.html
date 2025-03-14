@@ -31,19 +31,19 @@
 
   <!-- feed -->
   <!-- 页面元数据 -->
-  <title>vmp - 1ens's blog</title>
+  <title>vmp 初探 - 1ens's blog</title>
   <meta name="keywords" content="null">
   <meta desc name="description" content="a - 1ens - 1ens's blog">
   
 <meta property="og:type" content="article">
-<meta property="og:title" content="vmp">
+<meta property="og:title" content="vmp 初探">
 <meta property="og:url" content="http://example.com/2025/02/12/vmp/index.html">
 <meta property="og:site_name" content="1ens&#39;s blog">
 <meta property="og:description" content="vmp是什么VMP（Virtual Machine Protection）是一种流行的内存不还原壳技术，它通过自定义虚拟机来执行变形后的字节码，而不直接执行原始的DEX字节码。 加壳过程：  受保护函数抽取与插桩：VMP壳首先会从程序中抽取需要保护的函数体，并对其插桩，形成对特定代码的控制。 字节码变形：抽取的字节码中的操作码部分会经过变换，变形后的字节码被加密并存储到私密文件中。 变形字节码加密">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
 <meta property="article:published_time" content="2025-02-12T07:27:04.000Z">
-<meta property="article:modified_time" content="2025-02-13T12:42:02.247Z">
+<meta property="article:modified_time" content="2025-03-09T06:06:37.394Z">
 <meta property="article:author" content="1ens">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
@@ -1763,7 +1763,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: false,
     cdn: {"js":{"app":"/js/app.e546c981.js","parallax":"/js/plugins/parallax.8bf0ab10.js","rightMenu":"/js/plugins/rightMenu.d9437285.js","rightMenus":"/js/plugins/rightMenus.cd02aa19.js","sites":"/js/plugins/tags/sites.76bf19b8.js","friends":"/js/plugins/tags/friends.f372da57.js","contributors":"/js/plugins/tags/contributors.aec80453.js","search":"/js/search/hexo.0e52f222.js"},"css":{"style":"/css/style.1296f6d1.css"}},
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1649552113628/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1649552113628/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1649552113628/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1649552113628/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1739630387201),
+    lastupdate: new Date(1741920350425),
     sidebar: {
       for_page: ["blogger","github","category","tagcloud","webinfo"],
       for_post: ["toc"],
@@ -2546,7 +2546,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
     
       <h1 class="title" itemprop="name headline">
-        vmp
+        vmp 初探
       </h1>
       <div class='new-meta-box'>
         
@@ -2660,117 +2660,22 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </div><div class="story post-story"><h2 id="dex-vmp和arm-vmp有什么区别"><a href="#dex-vmp和arm-vmp有什么区别" class="headerlink" title="dex-vmp和arm-vmp有什么区别"></a>dex-vmp和arm-vmp有什么区别</h2><p>顾名思义最大区别一个针对java层，一个针对so层 </p>
 <p>Dex-vmp原理：对原 dex 处理，找到要保护的方法，将原指令翻译成等价指令，加密存储，并将原指令替换为 VMP 入口指令 - 实现 VM，解释执行存储的等价指令。那么这样这样实现的VM可以在java层也可以在so层，一般来说是放在so层。 </p>
 <p>（1）解析dex： 定位保护的方法，可以手动解析dex文件或者使用开源库dexlib2 </p>
-<p>（2）将原指令翻译成等价指令 ： 这里就需要通过jni接口实现，这也是为什么dex-vmp加壳后有native标签，我们知道一条java指令对应可以用jni指令进行实现，那么我们需要的就是将对应的方法通过jni接口调用so层中c&#x2F;c++实现方法进行翻译。因为dex-vmp需要调用jni接口，所以一定会调用CallVoidMethod方法等，所以这也是为什么很多快速追踪vmp调用栈选择InvokeWithVarArgs的原因 </p>
+<p>（2）将原指令翻译成等价指令 ： 这里就需要通过jni接口实现，这也是为什么dex-vmp加壳后有native标签，我们知道一条java指令对应可以用jni指令进行实现，那么我们需要的就是将对应的方法通过jni接口调用so层中c&#x2F;c++实现方法进行翻译。</p>
+<p>因为dex-vmp需要调用jni接口，所以一定会调用CallVoidMethod方法等，所以这也是为什么很多快速追踪vmp调用栈选择InvokeWithVarArgs的原因 </p>
 <p>（3）实现VM: vm基于寄存器结构，我们需要初始化寄存器，然后对对应的Opcode进行翻译，这里调用一些jni接口 </p>
 <p>（4）解决JNI兼容的问题 </p>
 <p>arm-vmp原理：将so文件中的arm汇编的指令码转换为自定义的虚拟指令。核心是虚拟指令集和虚拟指令解释器 </p>
 <p>（1）将Native化的java代码和原C++代码使用Capstone进行反编译，生成原生汇编码 </p>
 <p>（2）使用随机生成的矩阵将原生指令码转换为虚拟指令码 </p>
 <p>（3）通过虚拟指令解释器对虚拟指令码进行解释</p>
-</div><div class="story post-story"><h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/x6xIZ3cQ8fsVRpWORC45HA">vmp入门(一)：android dex vmp还原和安全性论述</a>笔记</p>
-<ul>
-<li></div><div class="story post-story"><h2 id="1-Java-层函数入口分析"><a href="#1-Java-层函数入口分析" class="headerlink" title="1. Java 层函数入口分析"></a><strong>1. Java 层函数入口分析</strong></h2><p>Dex VMP 保护的代码通常涉及 <strong>Java 和 C 交互</strong>，并且 JNI 调用频繁，分析这些交互点可以找到 VMP 入口函数。</p>
-<ul>
-<li><strong>特征 1</strong>：多类型 Java 方法和 C 代码交互，JNI 调用异常密集。</li>
-<li><strong>特征 2</strong>：某些 Java 方法的 <code>native</code> 实现并未在 <code>lib</code> 目录下的 <code>.so</code> 文件中找到，而是在运行时动态生成或隐藏。</li>
-<li><strong>特征 3</strong>：VMP 提供了一套通用的 C 层调用 Java 方法的机制，可能会封装 <code>CallObjectMethod</code>、<code>CallStaticObjectMethod</code>、<code>FindClass</code> 等 JNI API。</li>
-</ul>
-<h3 id="寻找-Java-方法的-Native-地址"><a href="#寻找-Java-方法的-Native-地址" class="headerlink" title="寻找 Java 方法的 Native 地址"></a><strong>寻找 Java 方法的 Native 地址</strong></h3><p>使用 <code>Frida</code> 或 IDA Pro 进行动态分析：</p>
-<ul>
-<li>通过 <code>RegisterNatives</code> 获取 VMP 注册的 JNI 方法。</li>
-<li>确定 VMP 入口点，重点关注 <code>getObjResult</code> 等函数。</li>
-</ul>
-</div><div class="story post-story"><h2 id="2-getObjResult-函数-Native-分析"><a href="#2-getObjResult-函数-Native-分析" class="headerlink" title="2. getObjResult 函数 Native 分析"></a><strong>2. <code>getObjResult</code> 函数 Native 分析</strong></h2><p><code>getObjResult</code> 是 VMP 代码执行的关键函数，通常负责：</p>
-<ul>
-<li><strong>处理指令解释</strong>（类似 Dalvik 虚拟机的解释器）。</li>
-<li><strong>从 VMP 内部栈中获取对象</strong>（可能涉及寄存器恢复）。</li>
-<li><strong>返回计算结果</strong>，可能是 <code>String</code>、<code>Class</code> 或 <code>Object</code>。</li>
-</ul>
-<h3 id="初步调试分析"><a href="#初步调试分析" class="headerlink" title="初步调试分析"></a><strong>初步调试分析</strong></h3><ol>
-<li><p><strong>VMP 的 JNI 依赖性：</strong></p>
-<ul>
-<li>VMP 依赖大量 JNI 方法，几乎没有其他 Java 代码逻辑。</li>
-<li>这些 JNI 方法可能会动态注册，或者直接在 <code>JNI_OnLoad</code> 中初始化。</li>
-</ul>
-</li>
-<li><p><strong>调用模式分析：</strong></p>
-<ul>
-<li>通过 <code>JNIEnv-&gt;CallObjectMethod()</code>、<code>CallStaticObjectMethod()</code> 访问 Java 方法。</li>
-<li>可能会调用 <code>FindClass()</code> 动态加载类，并通过 <code>GetMethodID()</code> 查找方法。</li>
-</ul>
-</li>
-<li><p><strong>静态分析：</strong></p>
-<ul>
-<li>入口函数包含 <strong>常量函数列表</strong>，表明 VMP 可能维护了一个方法映射表。</li>
-<li>交叉引用分析发现，许多函数都在这个列表中，可能是 VMP 解析执行的目标。</li>
-</ul>
-</li>
-<li><p><strong>动态调试：</strong></p>
-<ul>
-<li>运行时 <code>gdb</code> 或 <code>Frida</code> 断点查看 <code>getObjResult</code> 返回的对象及执行流程：</li>
-</ul>
-</li>
-</ol>
-</div><div class="story post-story"><h2 id="3-指令函数分析"><a href="#3-指令函数分析" class="headerlink" title="3. 指令函数分析"></a><strong>3. 指令函数分析</strong></h2><h3 id="基本单元指令"><a href="#基本单元指令" class="headerlink" title="基本单元指令"></a><strong>基本单元指令</strong></h3><ul>
-<li><p>通过分析 VMP 代码，发现其执行逻辑类似Dalvik 解释器：</p>
-<p><strong>VMP 维护自己的栈</strong>，寄存器值可能被加密存储。</p>
-<p><strong>VMP 指令与 Dalvik 指令一一对应</strong>，可能存在指令映射表。</p>
-<p><strong>VMP 使用裸汇编代码</strong>，但仍然依赖 JNI 进行 Java 交互。</p>
-</li>
-</ul>
-<h3 id="裸函数"><a href="#裸函数" class="headerlink" title="裸函数"></a><strong>裸函数</strong></h3><ul>
-<li>VMP 代码中所有函数以裸汇编实现，汇编级分析困难。</li>
-<li>由于 JNI 交互的存在，IDA 反编译可能会错乱：<ul>
-<li><strong>寄存器使用不符合标准 ABI 规范</strong>，导致 IDA 识别出错。</li>
-<li><strong>手动调整 IDA 识别的函数边界</strong>，修正分析错误。</li>
-</ul>
-</li>
-</ul>
-<h3 id="函数代码乱序"><a href="#函数代码乱序" class="headerlink" title="函数代码乱序"></a><strong>函数代码乱序</strong></h3><ul>
-<li>部分指令函数是正常顺序的，但中间插入了异常处理逻辑：<ul>
-<li>例如，错误处理逻辑会跳转到统一的错误处理函数，导致 IDA 识别失败。</li>
-<li>NOP 处理异常跳转，让 IDA 重新识别函数：</li>
-</ul>
-</li>
-</ul>
-</div><div class="story post-story"><h2 id="4-VMP-指令还原"><a href="#4-VMP-指令还原" class="headerlink" title="4. VMP 指令还原"></a><strong>4. VMP 指令还原</strong></h2><h3 id="指令映射"><a href="#指令映射" class="headerlink" title="指令映射"></a><strong>指令映射</strong></h3><ul>
-<li>VMP 指令与 Dalvik 指令一一对应：<ul>
-<li>类似 <code>const v0, 0x1234</code> 可能会转换为 <code>MOV R0, #0x1234</code>。</li>
-<li><code>invoke-virtual</code> 可能会映射到 <code>CallObjectMethod</code>。</li>
-</ul>
-</li>
-</ul>
-<h3 id="寄存器参数匹配"><a href="#寄存器参数匹配" class="headerlink" title="寄存器参数匹配"></a><strong>寄存器参数匹配</strong></h3><ul>
-<li>VMP加密寄存器，在运行时动态解密：<ul>
-<li><strong>寄存器标识 VMP 栈位置</strong>，VMP 维护自己的寄存器栈。</li>
-<li><strong>参数解析方式与 Dalvik 相同</strong>，只增加了解密步骤。</li>
-</ul>
-</li>
-</ul>
-<h3 id="自动化脚本"><a href="#自动化脚本" class="headerlink" title="自动化脚本"></a><strong>自动化脚本</strong></h3><p>编写 IDA Python 脚本，将 <strong>VMP 指令转换为 Smali 代码</strong>：</p>
-<ul>
-<li>脚本 <strong>扫描 VMP 代码</strong>，匹配 VMP 指令并转换为 Smali 代码。</li>
-<li>生成的 Smali 代码可用于 <strong>重构原始 Dex 文件</strong>。</li>
-</ul>
-<h3 id="指令匹配策略"><a href="#指令匹配策略" class="headerlink" title="指令匹配策略"></a><strong>指令匹配策略</strong></h3><ol>
-<li><strong>确定 VMP 指令结构</strong>：<ul>
-<li>通过调试分析 <code>getObjResult</code>，确认 VMP 指令长度。</li>
-<li>观察 VMP 指令的 <strong>返回模式</strong>，手动匹配 <code>return</code> 指令。</li>
-</ul>
-</li>
-<li><strong>解析 Dex 文件骨架</strong>：<ul>
-<li>解析 Dex 文件结构，匹配函数索引 (<code>method_idx</code>)。</li>
-<li>根据 VMP 执行规则，推导原始 Java 方法调用。</li>
-</ul>
-</li>
-<li><strong>自动恢复 Smali 代码</strong>：<ul>
-<li>IDA 脚本遍历 VMP 代码，将其转换为 <strong>可读的 Smali 代码</strong>。</li>
-<li>生成的 Smali 代码可用于 <strong>回编译成 Dex</strong> 进行分析。</li>
-</ul>
-</li>
-</ol>
-</li>
-</ul>
+<p>vmp是自己实现解释器，而dex2c还是用的原生的art来解释。</p>
+<p>对于字节码解密函数的定位 其实还可以用frida监控内存读写的方式得到。另外hook所有的jni函数 监控其字段读写 函数调用 解析参数返回值 在指定vmp函数进入时记录这些信息 指定vmp函数离开时输出这些信息 可以快捷精准地分析指定的vmp函数</p>
+<p>可以通过黑盒探测，如通过各种hook、修改源码等定制ART，实现对VMP保护的函数的执行轨迹的跟踪记录如基于frida实现的jnitrace，或者自行简单定制ART，输出关键的函数调用关系</p>
+</div><div class="story post-story"><h2 id="一些文章"><a href="#一些文章" class="headerlink" title="一些文章"></a>一些文章</h2><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/2014asm/p/14997980.html">ARM平台VMP保护开发入门 - 我是小三 - 博客园</a></p>
+<p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/x6xIZ3cQ8fsVRpWORC45HA">vmp入门(一)：android dex vmp还原和安全性论述</a></p>
+<p>[<a target="_blank" rel="noopener" href="https://bbs.kanxue.com/thread-270799.htm">原创] 某DEX_VMP安全分析与还原-Android安全-看雪-安全社区|安全招聘|kanxue.com</a></p>
+<p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/8mI-lT-xH7MK19uEBIWZ5g">移动端VMP攻防-如何分析VMP&amp;入门篇</a></p>
+</div><div class="story post-story"><h2 id="so加固整理："><a href="#so加固整理：" class="headerlink" title="so加固整理："></a>so加固整理：</h2><p>libnqshield.so&#x2F;国信灵通 libvenSec.so&#x2F;启明星辰 libmobisec.so&#x2F;阿里聚安全 libvenustech.so&#x2F;启明星辰 libtup.so&#x2F;腾讯乐固（旧版） libchaosvmp.so&#x2F;娜迦加固 liblegudb.so&#x2F;腾讯乐固（旧版） libddog.so&#x2F;娜迦加固 libshella&#x2F;腾讯乐固（旧版） libfdog.so&#x2F;娜迦加固 libshel1x&#x2F;腾讯乐固（日版） libedog.so&#x2F;娜迦加固（企业版） mix.dex&#x2F;腾讯乐固（旧版） libexec.so&#x2F;爱加密 mixz.dex&#x2F;腾讯乐固（旧版） libexecmain.so&#x2F;爱加密 libshell-super.2019.so&#x2F;腾讯云移动应用安全（腾讯御安全） ijiami.dat&#x2F;爱加密 libBugly-yaq.so&#x2F;腾讯云移动应用安全（腾讯御安全） ijiami.ajm&#x2F;爱加密 libzBugly-yaq.so&#x2F;腾讯云移动应用安全（腾讯御安全） libsecexe.so&#x2F;梆梆安全 tosversion&#x2F;腾讯云移动应用安全（腾讯御安全） libsecmain.so&#x2F;梆梆安全 libshellx-super.2019.so&#x2F;腾讯云移动应用安全（腾讯御安全） libSecShel1.so&#x2F;梆梆安全 tosprotection&#x2F;腾讯云移动应用安全（腾讯御安全） 1ibDexHelper.so&#x2F;梆梆安全（企业版） 000000111111.dex&#x2F;腾讯云移动应用安全（腾讯御安全） libDexHelper-x86.so&#x2F;梆梆安全（企业版） 000000111111.dex&#x2F;腾讯云移动应用安全（腾讯御安全） ．appkey&#x2F;360加固 000000011111.dex&#x2F;腾讯云移动应用安全（腾讯御安全） libprotectClass.so&#x2F;360加固 00000o11111.dex&#x2F;腾讯云移动应用安全（腾讯御安全） libjiagu.so&#x2F;360加固 000001111111&#x2F;腾讯云移动应用安全（腾讯御安全） libjiagu_ls.so&#x2F;360加固 o0ooo000oo0o.dat&#x2F;腾讯云移动应用安全（腾讯御安全） libjiagu_x86.so&#x2F;360加固 t86&#x2F;腾讯云移动应用安全（腾讯御安全） libjiagu_a64.so&#x2F;360加固 libtosprotection.x86.so&#x2F;腾讯云移动应用安全（腾讯御安全） libjiagu_x64.so&#x2F;360加固 libtosprotection.armeabi.so&#x2F;腾讯云移动应用安全（腾讯御安全） libjiagu_art.so&#x2F;360加固 libtosprotection.armeabi-v7a.so&#x2F;腾讯云移动应用安全（腾讯御安全） 1ibjgdtc.so&#x2F;360加固 libnesec.so&#x2F;网易易盾 libjgdtc_x86.so&#x2F;360加固 libAPKProtect.so&#x2F;APKProtect libjgdtc_a64.so&#x2F;360加固 libkwscmm.so&#x2F;几维安全 libjgdtc_x64.so&#x2F;360加固 libkwscr.so&#x2F;几维安全 libjgdtc_art.so&#x2F;360加固 libkwslinker.so&#x2F;几维安全 libegis.so&#x2F;通付盾 libx3g.so&#x2F;顶像科技 libNSaferOnly.so&#x2F;通付盾 libuusafe.jar.so&#x2F;UU安全 libapssec.so&#x2F;盛大加固 libuusafe.so&#x2F;UU安全 librsprotect.so&#x2F;瑞星加固 libuusafeempty.so&#x2F;UU安全 libitsec.so&#x2F;海云安加固 mogosec_classes&#x2F;中国移动加固 libnqshield.so&#x2F;网秦加固 mogosec_data&#x2F;中国移动加固 libbaiduprotect.so&#x2F;百度加固 mogosec_dexinfo&#x2F;中国移动加固 libbaiduprotect_x86.so&#x2F;百度加固 mogosec_march&#x2F;中国移动加固 libbaiduprotect_art.so&#x2F;百度加固 libcmvmp.so&#x2F;中国移动加固 baiduprotect1.jar&#x2F;百度加固 libmogosec_dex.so&#x2F;中国移动加固 aliprotect.dat&#x2F;阿里聚安全 libmogosec_sodecrypt.so&#x2F;中国移动加固 libsgmain.so&#x2F;阿里聚安全 ibmogosecurity.so&#x2F;中国移动加固 libfakejni.so&#x2F;阿里聚安全 libreincp.so&#x2F;珊瑚灵御 libzuma.so&#x2F;阿里聚安全 libreincp_x86.so&#x2F;珊瑚灵御 libzumadata.so&#x2F;阿里聚安全 jiagu_data.bin&#x2F;apktoolplus libpreverify1.so&#x2F;阿重聚安全 sign.bin&#x2F;apktoolplus libdemolishdata.so&#x2F;阿重聚安全 libapktoolplus_jiagu.so&#x2F;apktoolplus libdemolish.so&#x2F;阿里聚安全 libsgsecuritybody.so&#x2F;阿重聚安全</p>
 
 </div>
   </div>
@@ -2807,10 +2712,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateModified" datetime="2025-02-13T20:42:02+08:00">
+          <div class="new-meta-item date" itemprop="dateModified" datetime="2025-03-09T14:06:37+08:00">
   <a class='notlink'>
     <i class="fa-solid fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2025年2月13日</p>
+    <p>更新于：2025年3月9日</p>
   </a>
 </div>
 
@@ -2829,7 +2734,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2025/02/12/vmp/&title=vmp - 1ens's blog&summary="
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2025/02/12/vmp/&title=vmp 初探 - 1ens's blog&summary="
           
           >
           
@@ -2841,7 +2746,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://example.com/2025/02/12/vmp/&title=vmp - 1ens's blog&summary="
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://example.com/2025/02/12/vmp/&title=vmp 初探 - 1ens's blog&summary="
           
           >
           
@@ -2853,7 +2758,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2025/02/12/vmp/&title=vmp - 1ens's blog&summary="
+          target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2025/02/12/vmp/&title=vmp 初探 - 1ens's blog&summary="
           
           >
           
@@ -2889,7 +2794,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         <a class='prev' href='/2025/02/13/%E9%9D%A2%E8%AF%95/'>
           <p class='title'><i class="fa-solid fa-chevron-left" aria-hidden="true"></i>面试</p>
           <p class='content'>
-  47b49a4a2f06ffaeeb6d37e9691a4c667493fd8e6e9b46793c868899f0c12acff89dd4e950356aad1b84c596c8192e...</p>
+  47b49a4a2f06ffaeeb6d37e9691a4c66f63ff4446f79fd1f5ecd8d03847f2564b21ad1fe86c5c010bb0fde8494da3a...</p>
         </a>
       
       
@@ -2944,7 +2849,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#vmp%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-text">vmp是什么</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#VMP%E5%A3%B3%E8%84%B1%E5%A3%B3%E7%9A%84%E9%9A%BE%E7%82%B9"><span class="toc-text">VMP壳脱壳的难点</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#VMP%E5%A3%B3%E7%9A%84%E9%98%B2%E5%BE%A1%E4%BD%93%E7%B3%BB"><span class="toc-text">VMP壳的防御体系</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#dex-vmp%E5%92%8Carm-vmp%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB"><span class="toc-text">dex-vmp和arm-vmp有什么区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E6%9E%90"><span class="toc-text">分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Java-%E5%B1%82%E5%87%BD%E6%95%B0%E5%85%A5%E5%8F%A3%E5%88%86%E6%9E%90"><span class="toc-text">1. Java 层函数入口分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%BB%E6%89%BE-Java-%E6%96%B9%E6%B3%95%E7%9A%84-Native-%E5%9C%B0%E5%9D%80"><span class="toc-text">寻找 Java 方法的 Native 地址</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-getObjResult-%E5%87%BD%E6%95%B0-Native-%E5%88%86%E6%9E%90"><span class="toc-text">2. getObjResult 函数 Native 分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9D%E6%AD%A5%E8%B0%83%E8%AF%95%E5%88%86%E6%9E%90"><span class="toc-text">初步调试分析</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E6%8C%87%E4%BB%A4%E5%87%BD%E6%95%B0%E5%88%86%E6%9E%90"><span class="toc-text">3. 指令函数分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E5%8D%95%E5%85%83%E6%8C%87%E4%BB%A4"><span class="toc-text">基本单元指令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A3%B8%E5%87%BD%E6%95%B0"><span class="toc-text">裸函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E4%BB%A3%E7%A0%81%E4%B9%B1%E5%BA%8F"><span class="toc-text">函数代码乱序</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-VMP-%E6%8C%87%E4%BB%A4%E8%BF%98%E5%8E%9F"><span class="toc-text">4. VMP 指令还原</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8C%87%E4%BB%A4%E6%98%A0%E5%B0%84"><span class="toc-text">指令映射</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%84%E5%AD%98%E5%99%A8%E5%8F%82%E6%95%B0%E5%8C%B9%E9%85%8D"><span class="toc-text">寄存器参数匹配</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E5%8A%A8%E5%8C%96%E8%84%9A%E6%9C%AC"><span class="toc-text">自动化脚本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8C%87%E4%BB%A4%E5%8C%B9%E9%85%8D%E7%AD%96%E7%95%A5"><span class="toc-text">指令匹配策略</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#vmp%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-text">vmp是什么</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#VMP%E5%A3%B3%E8%84%B1%E5%A3%B3%E7%9A%84%E9%9A%BE%E7%82%B9"><span class="toc-text">VMP壳脱壳的难点</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#VMP%E5%A3%B3%E7%9A%84%E9%98%B2%E5%BE%A1%E4%BD%93%E7%B3%BB"><span class="toc-text">VMP壳的防御体系</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#dex-vmp%E5%92%8Carm-vmp%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB"><span class="toc-text">dex-vmp和arm-vmp有什么区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E4%BA%9B%E6%96%87%E7%AB%A0"><span class="toc-text">一些文章</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#so%E5%8A%A0%E5%9B%BA%E6%95%B4%E7%90%86%EF%BC%9A"><span class="toc-text">so加固整理：</span></a></li></ol>
     </div>
   </section>
 
@@ -3963,7 +3868,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   <script>
-  let imgs = ["https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/038.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/034.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/006.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/002.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/025.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/056.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/019.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/046.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/033.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/003.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/016.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/001.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/051.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/042.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/005.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/035.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/039.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/012.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/054.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/004.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/052.webp"];
+  let imgs = ["https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/005.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/054.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/019.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/034.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/033.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/025.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/042.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/035.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/051.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/016.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/056.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/001.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/012.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/006.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/052.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/046.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/003.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/004.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/002.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/038.webp","https://unpkg.com/volantis-static@0.0.1649552113628/media/wallpaper/minimalist/2020/039.webp"];
   let index = 0;
   let IntervalParallax = null;
 
@@ -4265,7 +4170,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"1ens's blog","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"1ens","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","sameAs":["https://github.com/volantis-x"],"description":"a"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://example.com/","name":"1ens's blog"}},{"@type":"ListItem","position":3,"item":{"@id":"http://example.com/2025/02/12/vmp/","name":"vmp"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"1ens's blog","url":"http://example.com/","keywords":null,"description":"a","author":{"@type":"Person","name":"1ens","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","description":"a"},"publisher":{"@type":"Organization","name":"1ens's blog","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"http://example.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"vmp","description":"a","inLanguage":["zh-CN","default"],"mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2025/02/12/vmp/"},"author":{"@type":"Person","name":"1ens","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/"},"publisher":{"@type":"Organization","name":"1ens's blog","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://example.com/2025/02/12/vmp/","wordCount":0,"datePublished":"2025-02-12T07:27:04.000Z","dateModified":"2025-02-13T12:42:02.247Z","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"1ens's blog","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"1ens","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","sameAs":["https://github.com/volantis-x"],"description":"a"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://example.com/","name":"1ens's blog"}},{"@type":"ListItem","position":3,"item":{"@id":"http://example.com/2025/02/12/vmp/","name":"vmp 初探"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"1ens's blog","url":"http://example.com/","keywords":null,"description":"a","author":{"@type":"Person","name":"1ens","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","description":"a"},"publisher":{"@type":"Organization","name":"1ens's blog","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"http://example.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"vmp 初探","description":"a","inLanguage":["zh-CN","default"],"mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2025/02/12/vmp/"},"author":{"@type":"Person","name":"1ens","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/"},"publisher":{"@type":"Organization","name":"1ens's blog","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://example.com/2025/02/12/vmp/","wordCount":0,"datePublished":"2025-02-12T07:27:04.000Z","dateModified":"2025-03-09T06:06:37.394Z","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 
